@@ -1,0 +1,308 @@
+<html> 
+	<head> 
+		<!--meta http-equiv="Content-Type" content="text/html; charset=utf-8"/-->
+		<meta charset="utf-8"/>
+		<title>OpenTopoMap - Topographische Karten aus OpenStreetMap</title>
+		<meta name="description" content="direkt zur Karte...">
+		<link rel="stylesheet" href="opentopomap.css" />
+		<link rel="stylesheet" href="leaflet/leaflet.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="leaflet/leaflet.ie.css" /><![endif]-->
+		<link rel="stylesheet" href="leaflet/L.Grid.css" />
+		<link rel="stylesheet" href="leaflet/L.Control.Locate.css" />
+		<link rel="stylesheet" href="leaflet/leaflet-search.css" />
+		<link rel="stylesheet" href="leaflet/leaflet.marker/L.Control.Marker.css" />
+		<script src="leaflet/leaflet.js"></script>
+		<script src="leaflet/L.Grid.js"></script>
+		<script src="leaflet/L.Control.Locate.js"></script>
+		<script src="leaflet/leaflet-search.js"></script>
+		<script src="leaflet/leaflet.marker/L.Control.Marker.js"></script>
+	
+		<script src="leaflet/leaflet.filelayer/leaflet.filelayer.js"></script>
+		<script src="leaflet/leaflet.filelayer/togeojson.js"></script>
+	
+		<script src="leaflet/leaflet.elevation/d3.min.js" charset="utf-8"></script>
+		<link rel="stylesheet" href="leaflet/leaflet.elevation/Leaflet.Elevation-0.0.2.css" />
+		<script type="text/javascript" src="leaflet/leaflet.elevation/Leaflet.Elevation-0.0.2.src.js"></script>
+
+		<script src="js/translate.js"></script>
+	
+		<meta name="viewport" content="initial-scale=1.0,user-scalable=no" />
+	</head>
+	<body style="margin:0px; transform:scale(1); transform-origin: 0 0;" onhashchange="set_view()" onbeforeunload="delete_permahash()" >
+		<div id="sslprompt" style="display:none;opacity:1;"><a id="ssllink" href="https://opentopomap.org">Use https encryption...</a> (<a href="about#https" id="sslmore">details</a>)</div>
+		<div id="sslalways" style="display:none;opacity:1;">
+			<input type="checkbox" name="checkbox" id="checkbox_sslalways" value="value" onclick="check_sslalways();">
+			<label for="checkbox_sslalways" id="sslalways">Always use https encryption</label>
+		</div>
+		<div id="menu"><a href="http://garmin.opentopomap.org" id="garmin">Garmin</a> | <a href="about" id="about">About</a> | <a href="credits" id="credits">Credits</a></div>
+
+		<div id="map" style="width: 100%; height: 100%"></div>
+		
+	<script>
+		String.prototype.contains = function(it) { return this.indexOf(it) != -1; };
+
+		var lock=false;
+		var permahash=false;
+		var next=false;
+		var marker=null;
+		
+		if(window.location.protocol != "https:") {
+			var addr=window.location.href.split("http://")[1];
+			if(cookie_read("ssl") == "true") {
+				window.location.href="https://"+addr;
+			} else {
+				document.getElementById("sslprompt").style.display="block";
+				document.getElementById("ssllink").href="https://"+addr;
+				setTimeout("fadeout('sslprompt')",8000);
+			}
+		} else {
+			if (cookie_read("ssl") != "true") {
+				document.getElementById("sslalways").style.display="block";
+				setTimeout("fadeout('sslalways')",8000);
+			}
+		}
+		
+		function check_sslalways() {
+			if(document.getElementById("checkbox_sslalways").checked == true) {
+				document.cookie="ssl=true;";
+			}
+		}
+		
+		var opa=1
+		function fadeout(elem) {
+			if(opa>0.1) {
+				document.getElementById(elem).style.opacity=opa;
+				opa-=0.1;
+				setTimeout("fadeout('"+elem+"')",50);
+			} else {
+				document.getElementById(elem).style.display="none";
+			}	
+		}
+		
+		function cookie_read(cookiename) {
+			var cookies=document.cookie.split("; ");
+			for(var i=0;i<cookies.length;i++) {
+				var a=cookies[i].split("=");
+				if(a[0] == cookiename) {
+					a.shift();
+					return a.join("=");
+				}
+			}
+			return null;
+		}
+
+		function delete_permahash(){
+			document.cookie="permahash=;";
+		}
+
+		/* overloaded function to set browser hash and cookie 
+		*	no parameter: normal mode
+		*	with parameter: update marker hash
+		*/
+		function set_hash(marker_position) {
+			var digits=Math.ceil(2*Math.log(map.getZoom())-1);
+			var position=map.getZoom()+"/"+map.getCenter().lat.toFixed(digits)+"/"+map.getCenter().lng.toFixed(digits);
+			var e=new Date;e.setYear(e.getFullYear()+10);
+			document.cookie="map="+position+" ;expires="+e;
+			if(marker==null) {
+				if(next==true){
+					window.location.hash="map="+position;
+					next=false;
+				} else {
+					window.location.replace('#map='+position);
+				}
+				if((permahash==true) || (cookie_read("permahash")==window.location.hash.substr(1))){
+					next=true;
+					permahash=false;
+					document.cookie="permahash="+position;
+				}
+			} else if(marker_position!=null) {
+				window.location.hash="marker="+map.getZoom()+"/"+marker_position.lat.toFixed(digits)+"/"+marker_position.lng.toFixed(digits);
+			}
+		}
+
+		function set_view() {
+			if(lock==false) {
+				var hash=window.location.hash;
+				if((hash.contains("map")) && (hash.split("/").length-1 == 2)) {
+					var position = hash.substr(1).split("map=")[1].split("/");
+					if(isValid(position)) {
+						map.setView(new L.LatLng(position[1], position[2]), position[0]);
+					}
+					if(marker!=null) {
+						map.removeLayer(marker);
+						marker=null;
+					}
+				} else if((hash.contains("marker")) && (hash.split("/").length-1 == 2)) {
+					var position = hash.substr(1).split("marker=")[1].split("/");
+					if((marker==null) && (isValid(position))){
+						map.setView(new L.LatLng(position[1], position[2]), position[0]);
+						marker = L.marker([position[1], position[2]],{draggable:true}).addTo(map).on('dragend', function(event){set_hash(event.target.getLatLng())});
+					} else if((marker!=null) && (isValid(position))) {
+						marker.setLatLng(new L.LatLng(position[1], position[2]));
+					}
+
+				
+				} else if(cookie_read("map")) {
+					var position = cookie_read("map").split("/");
+					map.setView(new L.LatLng(position[1], position[2]), position[0]);
+				} else {
+					map.setView(new L.LatLng(49, 10), 5);
+				}
+				set_hash();
+			}
+			lock=false;
+		}
+
+		/* check if coordinates are valid numbers; if not zoom to Europe default */
+		function isValid(p) {
+			if(isNaN(p[0]) || (parseFloat(p[0]) != parseInt(p[0])) || isNaN(p[1]) || isNaN(p[2])) {
+				window.location.replace("");
+				map.setView(new L.LatLng(49, 9), 5);
+				//alert("invalid coordinates");
+				return false;
+			} else {
+				return true;
+			}
+		}
+
+		map = new L.Map('map');
+		map.attributionControl.setPrefix(false);
+		map.dragging.enable();
+		map.touchZoom.enable();
+		map.doubleClickZoom.enable();
+		map.scrollWheelZoom.enable();
+		map.addControl( new L.Control.Search({
+			url: 'https://nominatim.openstreetmap.org/search?format=json&accept-language=de-DE&q={s}',
+			jsonpParam: 'json_callback',
+			propertyName: 'display_name',
+			propertyLoc: ['lat','lon'],
+			markerLocation: true,
+			autoType: false,
+			autoCollapse: true,
+			minLength: 2,
+			zoom:10,
+			text: 'Suchen...',
+			textCancel: 'Abbrechen',
+			textErr: 'Kein Ergebnis gefunden'
+		}) );
+
+		L.control.locate({
+			follow: true,
+			title: "Position bestimmen",
+			popupText: ["Sie befinden sich innerhalb "," von diesem Punkt"]
+		}).addTo(map);
+
+
+		//var topoUrl = 'http://{s}.tile.opentopomap.org/{z}/{x}/{y}.png';
+		var topoUrl = 'http://opentopomap.org/{z}/{x}/{y}.png';
+
+		if(window.location.protocol == "https:") {
+			topoUrl = "https://opentopomap.org/{z}/{x}/{y}.png"; //tiles are only for https directyl on opentopomap.org
+		}	
+
+		var topoAttribution = 'Kartendaten: &copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende, <a href="http://viewfinderpanoramas.org">SRTM</a> | Kartendarstellung: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)',
+			topo = new L.TileLayer(topoUrl, {minZoom: 1, maxZoom: 16, detectRetina: true, attribution: topoAttribution});
+			
+		var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+			osmAttribution = 'Kartendaten &copy; 2012 OpenStreetMap'
+			osm = new L.TileLayer(osmUrl, {maxZoom: 19, detectRetina: true, attribution: osmAttribution});
+
+		var lonviaHikingUrl = 'http://tile.lonvia.de/hiking/{z}/{x}/{y}.png',
+			lonviaHikingAttribution = 'Wanderwege &copy; Lonvia',
+			lonviaHiking = new L.TileLayer(lonviaHikingUrl, {maxZoom: 16, detectRetina:true, attribution: lonviaHikingAttribution, opacity: 0.7});
+	
+		var lonviaCyclingUrl = 'http://tile.lonvia.de/cycling/{z}/{x}/{y}.png',
+			lonviaCyclingAttribution = 'Wanderwege &copy; Lonvia',
+			lonviaCycling = new L.TileLayer(lonviaCyclingUrl, {maxZoom: 16, attribution: lonviaCyclingAttribution, opacity: 0.7});
+
+		map.addLayer(topo);
+		var grid = L.grid({redraw: 'moveend'});
+
+		if(window.location.hash) {
+			document.cookie="permahash="+window.location.hash.substr(1);
+			permahash=true;
+		}
+		set_view();
+
+    	map.addControl(new L.Control.Scale({width: 200, position: 'bottomleft', imperial: false}));
+
+		var baseMaps = {
+			"OpenTopoMap": topo,
+			"OpenStreetMap": osm
+		}
+		var overlayMaps = {
+			"Lonvia Wanderrouten": lonviaHiking,
+			"Lonvia Radrouten": lonviaCycling,
+			"Gradnetz": grid
+		}
+
+		var layersControl = new L.Control.Layers(baseMaps, overlayMaps);
+		map.addControl(layersControl);
+
+		map.on('moveend', function(e) {
+			lock=true;
+			set_hash();
+		});
+
+		map.on('baselayerchange', function(e) {
+			if((e.name=="OpenTopoMap")&&(map.getZoom()>16)) {
+				map.setZoom(16);
+			}
+			/* *.tile.openstreetmap.org is now encrypted by default, and has a valid signature
+			if((e.name!="OpenTopoMap")&&(window.location.protocol == "https:"))  {
+				alert(e.name+" is not encrypted via https! Your current map position can easily be determined by anyone listening.");
+			}*/
+		});
+
+		/*map.on('overlayadd', function(e) {
+			if(window.location.protocol == "https:") {
+				alert(e.name+" is not encrypted via https! Your current map position can easily be determined by anyone listening.");
+			}
+		});*/
+	
+        /* only if HTML5 FileReader is supported, add elevation and filelayer plugins */
+        if (window.FileReader) {
+			// Elevation
+			var elonmap=false;
+			var el = L.control.elevation({
+				position:"bottomright",
+				theme: "red-theme",
+				margins: {
+		        	top: 10,
+		        	right: 25,
+		        	bottom: 25,
+		        	left: 50
+		    	}
+			});	
+
+			// FileLayer
+			var style = {color:'#ee0033', opacity: 0.6, weight: 3, clickable: false};
+			L.Control.FileLayerLoad.LABEL = 'gpx';
+			var fileL = L.Control.fileLayerLoad({
+				fitBounds: true,
+				layerOptions: {
+					style: style,
+					onEachFeature: el.addData.bind(el),
+					pointToLayer: function (data, latlng) {
+									return L.circleMarker(latlng, {style: style});
+					}},
+			}).addTo(map);
+		
+	
+			fileL.loader.on('data:loaded', function (e) {
+				layersControl.addOverlay(e.layer, e.filename);
+				if(elonmap==false) {
+					el.addTo(map);
+					elonmap=true;
+				}
+			});
+		} /* end HTML5 */
+
+		L.control.marker().addTo(map);
+
+		translate_init();
+	
+	</script>
+</body>
+</html>
