@@ -139,7 +139,7 @@
 		function isValid(p) {
 			if(isNaN(p[0]) || (parseFloat(p[0]) != parseInt(p[0])) || isNaN(p[1]) || isNaN(p[2])) {
 				window.location.replace("");
-				map.setView(new L.LatLng(49, 9), 5);
+				map.setView(new L.LatLng(46, 16), 5);
 				//alert("invalid coordinates");
 				return false;
 			} else {
@@ -281,7 +281,7 @@
 		//tomtom
 		var layerTomtomUrl="https://{s}.api.tomtom.com/lbs/map/3/basic/1/{z}/{x}/{y}.png?key=26m229t628ghqqdu5t27xjzf";
 		var layerTomtom = new L.TileLayer(layerTomtomUrl,
-		{maxZoom: maxzoom_std, detectRetina: true, subdomains: 'abcd', format: 'image/png', attribution: 'Kartendaten: © Tomtom'});
+		{maxZoom: maxzoom_osm, detectRetina: true, subdomains: 'abcd', format: 'image/png', attribution: 'Kartendaten: © Tomtom'});
 		
 		//http://b.tiles.telegeography.com/maps/submarine-cable-map-2015/5/13/14.png
 		//var layerSubmCableUrl="http://{s}.tiles.telegeography.com/maps/submarine-cable-map-2015/{z}/{x}/{y}.png";
