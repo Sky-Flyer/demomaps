@@ -237,6 +237,8 @@
 			maxZoom: maxzoom_g_sat,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
 		layerNokiaHybrid = new L.TileLayer("http://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/9df27a24fa/hybrid.day/{z}/{x}/{y}/256/png8?app_id=xWVIueSv6JL0aJ5xqTxb&app_code=djPZyynKsbTjIUDOBcHZ2g&lg=ger&ppi=72",{ 
 			maxZoom: maxzoom_g_sat,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
+		layerNokiaLabel = new L.TileLayer("http://{s}.base.maps.cit.api.here.com/maptile/2.1/streettile/newest/normal.day/{z}/{x}/{y}/256/png8?app_id=xWVIueSv6JL0aJ5xqTxb&app_code=djPZyynKsbTjIUDOBcHZ2g&lg=ger&ppi=72",{ 
+		maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
 		
 		//layerMapireJosef = new L.TileLayer("http://tiles.mapire.eu/firstsurvey/lower-austria_g.jp2/{x}/{y}/{z}",{ 
 		//	maxZoom: maxzoom_std,detectRetina: true, format: 'image/jp2', attribution: 'Kartendaten: © Mapire'});
@@ -360,6 +362,7 @@
 				layers    : { 
 					"Mapquest Beschriftungen": layerOSMOvl,
 					"Apple Beschriftungen": layerAppleOverlay,
+					"Nokia Heremaps Beschriftungen":layerNokiaLabel,
 					"Esri Boundaries": layerEsriBoundOvl,
 					"Esri World Reference": layerEsriWldRefOvl,
 					"Basemap.at Beschriftungen": layerBasemOvl,
