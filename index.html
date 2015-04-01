@@ -230,14 +230,15 @@
 			maxZoom: maxzoom_std,detectRetina: true, attribution: 'Kartendaten: © Geofabrik'});
 		
 		//Nokia here-maps 
+		var nokiaKey="?app_id=xWVIueSv6JL0aJ5xqTxb&app_code=djPZyynKsbTjIUDOBcHZ2g&lg=eng&ppi=72";
 		layerNokia = new L.TileLayer("http://{s}.base.maps.api.here.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?app_id=g7UuRR708Tsut4YSnDLy&token=fVzaDAdRK62zo3CuNcPtDg&lg=ENG",{ 
 			maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
-		//https://4.aerial.maps.api.here.com/maptile/2.1/maptile/9df27a24fa/hybrid.day/11/1118/710/256/png8?app_id=xWVIueSv6JL0aJ5xqTxb&app_code=djPZyynKsbTjIUDOBcHZ2g&lg=ger&ppi=72
-		layerNokiaSat = new L.TileLayer("http://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/9df27a24fa/satellite.day/{z}/{x}/{y}/256/png8?app_id=xWVIueSv6JL0aJ5xqTxb&app_code=djPZyynKsbTjIUDOBcHZ2g&lg=ger&ppi=72",{ 
+		//https://4.aerial.maps.api.here.com/maptile/2.1/maptile/451cf15c7a/hybrid.day/11/1118/710/256/png8?app_id=xWVIueSv6JL0aJ5xqTxb&app_code=djPZyynKsbTjIUDOBcHZ2g&lg=ger&ppi=72
+		layerNokiaSat = new L.TileLayer("http://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/451cf15c7a/satellite.day/{z}/{x}/{y}/256/png8" + nokiaKey,{ 
 			maxZoom: maxzoom_g_sat,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
-		layerNokiaHybrid = new L.TileLayer("http://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/9df27a24fa/hybrid.day/{z}/{x}/{y}/256/png8?app_id=xWVIueSv6JL0aJ5xqTxb&app_code=djPZyynKsbTjIUDOBcHZ2g&lg=ger&ppi=72",{ 
+		layerNokiaHybrid = new L.TileLayer("http://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/451cf15c7a/hybrid.day/{z}/{x}/{y}/256/png8" + nokiaKey,{ 
 			maxZoom: maxzoom_g_sat,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
-		layerNokiaLabel = new L.TileLayer("http://{s}.base.maps.cit.api.here.com/maptile/2.1/streettile/newest/normal.day/{z}/{x}/{y}/256/png8?app_id=xWVIueSv6JL0aJ5xqTxb&app_code=djPZyynKsbTjIUDOBcHZ2g&lg=ger&ppi=72",{ 
+		layerNokiaLabel = new L.TileLayer("http://{s}.base.maps.cit.api.here.com/maptile/2.1/streettile/newest/normal.day/{z}/{x}/{y}/256/png8" + nokiaKey,{ 
 		maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
 		
 		//layerMapireJosef = new L.TileLayer("http://tiles.mapire.eu/firstsurvey/lower-austria_g.jp2/{x}/{y}/{z}",{ 
