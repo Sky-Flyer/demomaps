@@ -2,7 +2,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta charset="utf-8" />
-	<title>Andis Multimap Version 150327-1356</title>
+	<title>Andis Multimap Version 150630-1429</title>
 	<!-- style="-moz-user-select: none;" -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />	
 	<!-- favicon -->
@@ -233,12 +233,12 @@
 		var nokiaKey="?app_id=xWVIueSv6JL0aJ5xqTxb&app_code=djPZyynKsbTjIUDOBcHZ2g&lg=eng&ppi=72";
 		layerNokia = new L.TileLayer("http://{s}.base.maps.api.here.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?app_id=g7UuRR708Tsut4YSnDLy&token=fVzaDAdRK62zo3CuNcPtDg&lg=ENG",{ 
 			maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
-		//https://4.aerial.maps.api.here.com/maptile/2.1/maptile/451cf15c7a/hybrid.day/11/1118/710/256/png8?app_id=xWVIueSv6JL0aJ5xqTxb&app_code=djPZyynKsbTjIUDOBcHZ2g&lg=ger&ppi=72
-		layerNokiaSat = new L.TileLayer("http://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/451cf15c7a/satellite.day/{z}/{x}/{y}/256/png8" + nokiaKey,{ 
+		//https://2.aerial.maps.api.here.com/maptile/2.1/maptile/eba0d2d4ef/hybrid.day/15/17875/11363/512/png8?app_id=xWVIueSv6JL0aJ5xqTxb&app_code=djPZyynKsbTjIUDOBcHZ2g&lg=ger&ppi=72
+		layerNokiaSat = new L.TileLayer("http://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/eba0d2d4ef/satellite.day/{z}/{x}/{y}/256/png8" + nokiaKey,{ 
 			maxZoom: maxzoom_g_sat,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
-		layerNokiaHybrid = new L.TileLayer("http://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/451cf15c7a/hybrid.day/{z}/{x}/{y}/256/png8" + nokiaKey,{ 
+		layerNokiaHybrid = new L.TileLayer("http://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/eba0d2d4ef/hybrid.day/{z}/{x}/{y}/256/png8" + nokiaKey,{ 
 			maxZoom: maxzoom_g_sat,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
-		layerNokiaLabel = new L.TileLayer("http://{s}.base.maps.cit.api.here.com/maptile/2.1/streettile/newest/normal.day/{z}/{x}/{y}/256/png8" + nokiaKey,{ 
+		layerNokiaLabel = new L.TileLayer("http://{s}.base.maps.api.here.com/maptile/2.1/streettile/newest/normal.day/{z}/{x}/{y}/256/png8" + nokiaKey,{ 
 		maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
 		
 		//layerMapireJosef = new L.TileLayer("http://tiles.mapire.eu/firstsurvey/lower-austria_g.jp2/{x}/{y}/{z}",{ 
@@ -286,6 +286,24 @@
 		var layerTomtom = new L.TileLayer(layerTomtomUrl,
 		{maxZoom: maxzoom_osm, detectRetina: true, subdomains: 'abcd', format: 'image/png', attribution: 'Kartendaten: © Tomtom'});
 		
+		var layerOpenStreetBrowserUrl = "http://tiles-base.openstreetbrowser.org/tiles/basemap_base/{z}/{x}/{y}.png";
+		var layerOpenStreetBrowser = new L.TileLayer(layerOpenStreetBrowserUrl,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.openstreetbrowser.org">OpenStreetBrowser</a>'});
+		
+		var layerAdrMapSurfer="http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}";
+		var layerMapSurfer = new L.TileLayer(layerAdrMapSurfer,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapsurfernet.com/">Mapsurfer</a>'});
+		var layerMapSurferHillOvl = new L.TileLayer("http://korona.geog.uni-heidelberg.de/tiles/asterh/x={x}&y={y}&z={z}",{maxZoom: maxzoom_osm,detectRetina: true, transparent: true, attribution: 'Kartendaten: © <a href="http://mapsurfernet.com/">Mapsurfer</a>'});
+		
+		
+		//var layerCloudmade = new L.TileLayer("http://tile.cloudmade.com/8bafab36916b5ce6b4395ede3cb9ddea/1/256/{z}/{x}/{y}",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © Cloudmade'});
+		
+		//lokale tiles
+		var layerOsmLocal = new L.TileLayer("../tiles/{z}/{x}/{y}.png",
+		{maxZoom: maxzoom_osm, format: 'image/png', attribution: 'Kartendaten: © Openstreetmap.org (lokale Tiles)'});
+		var layerOsmLocalOutdoor = new L.TileLayer("../tiles2/{z}/{x}/{y}.png",
+		{maxZoom: maxzoom_osm, format: 'image/png', attribution: 'Kartendaten: © Openstreetmap.org (lokale Tiles)'});
+		var layerOsmLocalCycle = new L.TileLayer("../tiles3/{z}/{x}/{y}.png",
+		{maxZoom: maxzoom_osm, format: 'image/png', attribution: 'Kartendaten: © Openstreetmap.org (lokale Tiles)'});
+		
 		//http://b.tiles.telegeography.com/maps/submarine-cable-map-2015/5/13/14.png
 		//var layerSubmCableUrl="http://{s}.tiles.telegeography.com/maps/submarine-cable-map-2015/{z}/{x}/{y}.png";
 		//var layerSubmCable = new L.TileLayer(layerSubmCableUrl,
@@ -298,12 +316,22 @@
 			{groupName : "OSM Standard",
 				expanded : true,
 				layers    : {
+					"Mapsurfer": layerMapSurfer,
 					"Mapquest Open": layerMapquest,
+					"OpenStreetBrowser": layerOpenStreetBrowser,
 					"OpenStreetMap Lyrk Geodienste": layerOSMLyrk,
 					"OpenStreetMap Deutschland": layerOSMStdDe,
 					"OpenStreetMap Standard": layerOSMStd,
 				}
 			},
+			//{groupName : "OSM Local",
+			//	expanded : false,
+			//	layers    : {
+			//		"OSM local": layerOsmLocal,
+			//		"OSM local (outdoor)": layerOsmLocalOutdoor,
+			//		"OSM local (cylcle)": layerOsmLocalCycle,
+			//	}
+			//},
 			{groupName : "Standard Karten",
 				expanded : false,
 				layers    : {
@@ -369,14 +397,15 @@
 					"Basemap.at Beschriftungen": layerBasemOvl,
 					"OSM Terrain": layerOpPisteMapLandsh,
 					"OSM Schipisten": layerOpPisteMap,
+					"Mapsurfer Hillshade": layerMapSurferHillOvl,
 					"Gradnetz": grid
 				}
 			}
 		]
 		var options = {
 				container_width 	: "220px",
-				group_maxHeight     : "200px",
-				container_maxHeight : "550px", 
+				group_maxHeight     : "400px",
+				container_maxHeight : "650px", 
 				exclusive       	: false
 		};
 
@@ -408,9 +437,9 @@
 		
 		var layersControl = L.Control.styledLayerControl(baseMaps, overlayMaps, options);
 		map.addControl(layersControl);
-		map.addLayer(layerMapquest); //Standardlayer
+		map.addLayer(layerMapSurfer); //Standardlayer
 		
-		var miniMapLayer = new L.TileLayer(layerAdrMapquest, {minZoom: 0, maxZoom: 13, subdomains: '1234', attribution: 'Kartendaten: © <a href="http://mapquest.com/">Mapquest</a>' });
+		var miniMapLayer = new L.TileLayer(layerAdrMapSurfer, {minZoom: 0, maxZoom: 13, subdomains: '1234', attribution: 'Kartendaten: © <a href="http://mapquest.com/">Mapquest</a>' });
 		var miniMap = new L.Control.MiniMap(miniMapLayer, { toggleDisplay: true, zoomLevelOffset: -7 }).addTo(map);
 		
 		map.on('moveend', function(e) {
