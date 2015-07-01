@@ -292,6 +292,7 @@
 		var layerAdrMapSurfer="http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}";
 		var layerMapSurfer = new L.TileLayer(layerAdrMapSurfer,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapsurfernet.com/">Mapsurfer</a>'});
 		var layerMapSurferHillOvl = new L.TileLayer("http://korona.geog.uni-heidelberg.de/tiles/asterh/x={x}&y={y}&z={z}",{maxZoom: maxzoom_osm,detectRetina: true, transparent: true, attribution: 'Kartendaten: © <a href="http://mapsurfernet.com/">Mapsurfer</a>'});
+		var layerMapSurferAdminOvl = new L.TileLayer("http://korona.geog.uni-heidelberg.de/tiles/adminb/x={x}&y={y}&z={z}",{maxZoom: maxzoom_osm,detectRetina: true, transparent: true, attribution: 'Kartendaten: © <a href="http://mapsurfernet.com/">Mapsurfer</a>'});
 		
 		
 		//var layerCloudmade = new L.TileLayer("http://tile.cloudmade.com/8bafab36916b5ce6b4395ede3cb9ddea/1/256/{z}/{x}/{y}",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © Cloudmade'});
@@ -392,12 +393,13 @@
 					"Mapquest Beschriftungen": layerOSMOvl,
 					"Apple Beschriftungen": layerAppleOverlay,
 					"Nokia Heremaps Beschriftungen":layerNokiaLabel,
-					"Esri Boundaries": layerEsriBoundOvl,
-					"Esri World Reference": layerEsriWldRefOvl,
+					//"Esri Boundaries": layerEsriBoundOvl,
+					//"Esri World Reference": layerEsriWldRefOvl,
 					"Basemap.at Beschriftungen": layerBasemOvl,
+					"Mapsurfer Admin": layerMapSurferAdminOvl,
+					"Mapsurfer Hillshade": layerMapSurferHillOvl,
 					"OSM Terrain": layerOpPisteMapLandsh,
 					"OSM Schipisten": layerOpPisteMap,
-					"Mapsurfer Hillshade": layerMapSurferHillOvl,
 					"Gradnetz": grid
 				}
 			}
