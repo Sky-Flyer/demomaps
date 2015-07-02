@@ -213,11 +213,12 @@
 		//var bing2 = new L.BingLayer("AvZ2Z8Jve41V_bnPTe2mw4Xi8YWTyj2eT87tSGSsezrYWiyaj0ldMaVdkyf8aik6", {type: 'Road'});
 		
 		//apple layers
-		layerAdrAppleStd="https://cdn{s}.apple-mapkit.com/tp/tile?type=tile&style=0&size=1&x={x}&y={y}&z={z}&scale=1&lang=de-DE&imageFormat=jpg&vendorkey=546bccd01bb595c1ae74836bf94b56735aa7f907&cacheVersion=8&v=1501132"
+		
+		layerAdrAppleStd="https://cdn{s}.apple-mapkit.com/tp/tile?type=tile&style=0&size=1&x={x}&y={y}&z={z}&scale=1&lang=de-DE&imageFormat=jpg&vendorkey=546bccd01bb595c1ae74836bf94b56735aa7f907"
 		layerAppleStd = new L.TileLayer(layerAdrAppleStd,{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
 		layerAdrAppleSat="https://sat-cdn{s}.apple-mapkit.com/tile?style=7&size=1&scale=1&z={z}&x={x}&y={y}&vendorkey=546bccd01bb595c1ae74836bf94b56735aa7f907&v=203"
 		layerAppleSat = new L.TileLayer(layerAdrAppleSat,{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
-		layerAdrAppleOverlay="https://cdn{s}.apple-mapkit.com/tp/tile?type=tile&style=46&size=1&x={x}&y={y}&z={z}&scale=1&lang=de-DE&imageFormat=png&vendorkey=546bccd01bb595c1ae74836bf94b56735aa7f907&cacheVersion=8&v=1501132"
+		layerAdrAppleOverlay="https://cdn{s}.apple-mapkit.com/tp/tile?type=tile&style=46&size=1&x={x}&y={y}&z={z}&scale=1&lang=de-DE&imageFormat=png&vendorkey=546bccd01bb595c1ae74836bf94b56735aa7f907"
 		layerAppleOverlay = new L.TileLayer(layerAdrAppleOverlay,{ maxZoom: maxzoom_g_sat,detectRetina: true, 	transparent: true, format: 'image/png', subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
 		
 		
