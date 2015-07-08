@@ -2,7 +2,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta charset="utf-8" />
-	<title>Andis Multimap Version 150630-1429</title>
+	<title>Andis Multimap Version 150707-1555</title>
 	<!-- style="-moz-user-select: none;" -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />	
 	<!-- favicon -->
@@ -295,7 +295,10 @@
 		var layerMapSurferHillOvl = new L.TileLayer("http://korona.geog.uni-heidelberg.de/tiles/asterh/x={x}&y={y}&z={z}",{maxZoom: maxzoom_osm,detectRetina: true, transparent: true, attribution: 'Kartendaten: © <a href="http://mapsurfernet.com/">Mapsurfer</a>'});
 		var layerMapSurferAdminOvl = new L.TileLayer("http://korona.geog.uni-heidelberg.de/tiles/adminb/x={x}&y={y}&z={z}",{maxZoom: maxzoom_osm,detectRetina: true, transparent: true, attribution: 'Kartendaten: © <a href="http://mapsurfernet.com/">Mapsurfer</a>'});
 		
-		
+		var layerAdrMapbox = "https://{s}.tiles.mapbox.com/v3/examples.map-i86l3621/{z}/{x}/{y}.png";
+		var layerMapBox = new L.TileLayer(layerAdrMapbox,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+		var layerAdrMapboxNatEarth ="https://{s}.tiles.mapbox.com/v3/mapbox.natural-earth-2/{z}/{x}/{y}.png"
+		var layerMapBoxNatEarth = new L.TileLayer(layerAdrMapboxNatEarth,{maxZoom: 6,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 		//var layerCloudmade = new L.TileLayer("http://tile.cloudmade.com/8bafab36916b5ce6b4395ede3cb9ddea/1/256/{z}/{x}/{y}",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © Cloudmade'});
 		
 		//lokale tiles
@@ -320,6 +323,7 @@
 				layers    : {
 					"Mapsurfer": layerMapSurfer,
 					"Mapquest Open": layerMapquest,
+					"Mapbox": layerMapBox,
 					"OpenStreetBrowser": layerOpenStreetBrowser,
 					"OpenStreetMap Lyrk Geodienste": layerOSMLyrk,
 					"OpenStreetMap Deutschland": layerOSMStdDe,
@@ -349,6 +353,7 @@
 				expanded : false,
 				layers    : {
 					"OpenTopoMap": layerTopo,
+					"Mapbox Natural Earth": layerMapBoxNatEarth,
 					"Geofabrik Topo": layerGeofTopo,
 					"OpenStreetMap Landscape": layerOSMLands,
 					"AMap (Bergfex)": layerBergfexAmapGrp,
