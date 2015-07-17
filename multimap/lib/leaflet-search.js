@@ -696,11 +696,14 @@ L.Control.Search = L.Control.extend({
 
 	showLocation: function(latlng, title) {	//set location on map from _recordsCache
 			
-		if(this.options.zoom)
+		if(this.options.zoom){
 			this._map.setView(latlng, this.options.zoom);
-		else
+			//this._map.flyTo(latlng, this.options.zoom)
+		}
+		else{
+			//this._map.flyTo(latlng); 
 			this._map.panTo(latlng);
-
+		}
 		if(this._markerLoc)
 		{
 			this._markerLoc.setLatLng(latlng);  //show circle/marker in location found

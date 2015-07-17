@@ -140,10 +140,10 @@ L.Control.Zoomslider = (function () {
 		},
 
 		_zoomIn: function (e) {
-			this._map.zoomIn(e.shiftKey ? 3 : 1);
+			this._map.zoomIn(e.shiftKey ? 2 : 1);
 		},
 		_zoomOut: function (e) {
-			this._map.zoomOut(e.shiftKey ? 3 : 1);
+			this._map.zoomOut(e.shiftKey ? 2 : 1);
 		},
 
 		_zoomLevels: function () {
