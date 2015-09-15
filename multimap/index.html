@@ -2,7 +2,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta charset="utf-8" />
-	<title>Andis Multimap Version 150914-0920</title>
+	<title>Andis Multimap Version 150915-0933</title>
 	<!-- style="-moz-user-select: none;" -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />	
 	<!-- favicon -->
@@ -239,10 +239,18 @@
 		//Geofabrik topo "http://a.tile.geofabrik.de/15173cf79060ee4a66573954f6017ab0/14/8574/5625.png"
 		layerGeofTopo = new L.TileLayer("http://{s}.tile.geofabrik.de/15173cf79060ee4a66573954f6017ab0/{z}/{x}/{y}.png",{ 
 			maxZoom: maxzoom_std,detectRetina: true, attribution: 'Kartendaten: © Geofabrik'});
+
+		//Hike and Bike
+		layerHikeBike = new L.TileLayer("http://{s}.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png",{
+			maxZoom: maxzoom_std,detectRetina: true, attribution: 'Kartendaten: Kartendaten: © <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende, Hike and Bike'});
+
+		//Humanitarian
+		layerHumanitarian = new L.TileLayer("http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",{
+			maxZoom: maxzoom_std,detectRetina: true, attribution: 'Kartendaten: Kartendaten: © <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende'});
 		
 		//Nokia here-maps
 		var nokiaKey="?app_id=xWVIueSv6JL0aJ5xqTxb&app_code=djPZyynKsbTjIUDOBcHZ2g&lg=eng&ppi=72";
-		layerNokia = new L.TileLayer("http://{s}.base.maps.api.here.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?app_id=g7UuRR708Tsut4YSnDLy&token=fVzaDAdRK62zo3CuNcPtDg&lg=ENG",{
+		layerNokiaRoad = new L.TileLayer("http://{s}.base.maps.api.here.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?app_id=g7UuRR708Tsut4YSnDLy&token=fVzaDAdRK62zo3CuNcPtDg&lg=ENG",{
 			maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
 		//https://4.aerial.maps.api.here.com/maptile/2.1/maptile/2c752007f4/hybrid.day/15/17870/11362/512/png8?app_id=xWVIueSv6JL0aJ5xqTxb&app_code=djPZyynKsbTjIUDOBcHZ2g&lg=ger&ppi=72
 		layerNokiaSat = new L.TileLayer("http://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/newest/satellite.day/{z}/{x}/{y}/256/png8" + nokiaKey,{
@@ -251,7 +259,8 @@
 			maxZoom: maxzoom_g_sat,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
 		layerNokiaLabel = new L.TileLayer("http://{s}.base.maps.api.here.com/maptile/2.1/streettile/newest/normal.day/{z}/{x}/{y}/256/png8" + nokiaKey,{ 
 		maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
-		
+		layerNokiaTerr = new L.TileLayer("http://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/newest/terrain.day/{z}/{x}/{y}/256/png8?app_id=g7UuRR708Tsut4YSnDLy&token=fVzaDAdRK62zo3CuNcPtDg&lg=ENG",{
+			maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
 		//layerMapireJosef = new L.TileLayer("http://tiles.mapire.eu/firstsurvey/lower-austria_g.jp2/{x}/{y}/{z}",{ 
 		//	maxZoom: maxzoom_std,detectRetina: true, format: 'image/jp2', attribution: 'Kartendaten: © Mapire'});
 		
@@ -325,6 +334,15 @@
 		//var layerSubmCableUrl="http://{s}.tiles.telegeography.com/maps/submarine-cable-map-2015/{z}/{x}/{y}.png";
 		//var layerSubmCable = new L.TileLayer(layerSubmCableUrl,
 		//{maxZoom: maxzoom_std, detectRetina: true, subdomains: 'abcd', format: 'image/png', attribution: 'Kartendaten: © Telegeography'});
+
+		//WMS map
+		//url: "http://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapser"
+//		var layerGebco = new L.tileLayer.wms("http://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv", {
+//			layers: 'gebco_latest',
+//			format: 'image/jpeg',
+//			transparent: false,
+//			attribution: 'Kartendaten: <a href="http://www.gebco.net">GEBCO</a>'
+//		});
 		
 		// Koord.grid
 		var grid = L.grid({redraw: 'moveend'});
@@ -354,7 +372,7 @@
 				expanded : false,
 				layers    : {
 					"Apple Standard": layerAppleStd,
-					"Nokia Here-maps": layerNokia,
+					"Nokia Here-maps": layerNokiaRoad,
 					"Bing Standard":  bing_road,
 					"Google Standard": g_roadmap,
 					"Tomtom Standard": layerTomtom,
@@ -370,15 +388,19 @@
 					"OpenStreetMap Landscape": layerOSMLands,
 					"AMap (Bergfex)": layerBergfexAmapGrp,
 					"Esri Topo Map": layerEsriTopo,
+					"Nokia Here-maps Terrain": layerNokiaTerr,
 					"Google Terrain":  g_terrain,
 				}
 			},
 			{groupName : "Themen und Diverse",
 				expanded : false,
 				layers    : {
+					"Openstreetmap Humanitarian": layerHumanitarian,
 					"OpenStreetMap Outdoors": layerOSMOutd,
 					"OpenStreetMap Cycle": layerOSMCycle,
+					"Hike and Bike": layerHikeBike,
 					"ÖPNV Verkehrskarte": layerÖPNV,
+//					"GEBCO Ocean": layerGebco,
 					"Esri light gray": layerEsriGray,
 					"Stamen Watercolor": layerStamenWaterc,
 				}
