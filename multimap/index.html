@@ -160,7 +160,7 @@
 		//main function
 		// create opentopomap layer
 		var layerAdrTopo="http://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
-		var layerTopo = new L.TileLayer(layerAdrTopo,{maxZoom: maxzoom_topo+2, maxNativeZoom: maxzoom_topo, detectRetina: true, attribution: 'Kartendaten: Kartendaten: © <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende, SRTM | Kartendarstellung: © <a href="http://opentopomap.org">OpenTopoMap</a>'});
+		var layerOpenTopo = new L.TileLayer(layerAdrTopo,{maxZoom: maxzoom_topo, maxNativeZoom: maxzoom_topo-1, detectRetina: true, attribution: 'Kartendaten: Kartendaten: © <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende, SRTM | Kartendarstellung: © <a href="http://opentopomap.org">OpenTopoMap</a>'});
 		
 		//mapquest open (normal, sat und overlay)
 		layerAdrMapquest="http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png"
@@ -190,7 +190,7 @@
 		var layerOSMStdDe = new L.TileLayer(layerAdrOSMStdDe,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 		//Basemap.at
 		var layerAdrBasem="http://maps{s}.wien.gv.at/basemap/bmaphidpi/normal/google3857/{z}/{y}/{x}.jpg"
-		var layerBasem = new L.TileLayer(layerAdrBasem,{ maxZoom: maxzoom_std, bounds: boundsAUT, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at<a/>'});
+		var layerBasem = new L.TileLayer(layerAdrBasem,{ maxZoom: maxzoom_osm, bounds: boundsAUT, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at<a/>'});
 		var layerAdrBasemOvl="http://maps{s}.wien.gv.at/basemap/bmapoverlay/normal/google3857/{z}/{y}/{x}.png"
 		var layerBasemOvl = new L.TileLayer(layerAdrBasemOvl,{ maxZoom: maxzoom_std, bounds: boundsAUT, detectRetina: true, transparent: true, format: 'image/png', subdomains: '1234', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at<a/>'});
 
@@ -389,7 +389,7 @@
 			{groupName : "Topographische",
 				expanded : false,
 				layers    : {
-					"OpenTopoMap": layerTopo,
+					"OpenTopoMap": layerOpenTopo,
 					"Geofabrik Topo": layerGeofTopo,
 					"OpenStreetMap Landscape": layerOSMLands,
 					"AMap (Bergfex)": layerBergfexAmapGrp,
@@ -494,13 +494,13 @@
 			set_hash();
 		});
 		map.on('baselayerchange', function(e) {
-			if(!((e.name=="Google Satellit")||(e.name=="Google Hybrid"))&&(map.getZoom()>maxzoom_std)){
-				map.setZoom(maxzoom_std);
-			}
-			if(((e.name=="OpenTopoMap")||(e.name=="Google Terrain"))&&(map.getZoom()>maxzoom_topo)) {
+			if((e.name=="National Geographic Countries") && (map.getZoom()>maxzoom_natgeo)){
+                map.setZoom(maxzoom_natgeo);
+            }
+			else if(((e.name=="OpenTopoMap")||(e.name=="Google Terrain"))&&(map.getZoom()>maxzoom_topo)) {
 				map.setZoom(maxzoom_topo);
 			}
-			else if(e.name=="AMap (Bergfex)"){
+            else if(e.name=="AMap (Bergfex)"){
 				if (map.getZoom()>maxzoom_amap+1) {
 					map.setZoom(maxzoom_amap);
 				}
@@ -508,6 +508,9 @@
 					map.setZoom(minzoom_amap);
 				}
 			}
+            else if(!((e.name=="Google Satellit")||(e.name=="Google Hybrid"))&&(map.getZoom()>maxzoom_std)){
+                map.setZoom(maxzoom_std);
+            }
 		});
 		
 		L.control.marker().addTo(map);
