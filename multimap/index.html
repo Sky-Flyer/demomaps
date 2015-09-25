@@ -2,7 +2,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta charset="utf-8" />
-	<title>Andis Multimap Version 150915-0933</title>
+	<title>Andis Multimap Version 150924-1550</title>
 	<!-- style="-moz-user-select: none;" -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />	
 	<!-- favicon -->
@@ -36,6 +36,7 @@
 	<script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
 	<script src="lib/layer/tile/Bing.js"></script>
 	<!--
+    <script src="lib/layer/vector/KML.js"></script>
 	<script src="lib/TileLayer.Bing.js"></script>
 	<script src="lib/leaflet-compass.min.js"></script>
 	<link rel="stylesheet" href="lib/leaflet-compass.min.css" />
@@ -63,6 +64,7 @@
 		var maxzoom_g_sat=20;
 		var maxzoom_esri_sat=18;
 		var maxzoom_amap=13;
+        var maxzoom_natgeo=12;
 		var minzoom_amap=8
 		var southWest = L.latLng(46.2520,8.7891),
 			northEast = L.latLng(49.2714,17.6660),
@@ -322,6 +324,9 @@
 		//var layerMapBoxNatEarth = new L.TileLayer(layerAdrMapboxNatEarth,{maxZoom: 6,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 		//var layerCloudmade = new L.TileLayer("http://tile.cloudmade.com/8bafab36916b5ce6b4395ede3cb9ddea/1/256/{z}/{x}/{y}",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © Cloudmade'});
 
+
+        var layerAdrNatGeoWorld = "http://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}/";
+        var layerNatGeoWorld = new L.TileLayer(layerAdrNatGeoWorld,{maxZoom: maxzoom_natgeo,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.nationalgeographic.com">Nationalgeographic</a>'});
 		//lokale tiles
 		//var layerOsmLocal = new L.TileLayer("../tiles/{z}/{x}/{y}.png",
 		//{maxZoom: maxzoom_osm, format: 'image/png', attribution: 'Kartendaten: © Openstreetmap.org (lokale Tiles)'});
@@ -343,6 +348,7 @@
 //			transparent: false,
 //			attribution: 'Kartendaten: <a href="http://www.gebco.net">GEBCO</a>'
 //		});
+//		var layerCountries = new L.KML("collins-Laender_pol.kml", {async: true});
 		
 		// Koord.grid
 		var grid = L.grid({redraw: 'moveend'});
@@ -403,6 +409,7 @@
 //					"GEBCO Ocean": layerGebco,
 					"Esri light gray": layerEsriGray,
 					"Stamen Watercolor": layerStamenWaterc,
+                    "National Geographic Countries": layerNatGeoWorld,
 				}
 			},
 			{groupName : "Satellit",
