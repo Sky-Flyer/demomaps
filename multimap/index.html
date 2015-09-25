@@ -327,7 +327,12 @@
 
         var layerAdrNatGeoWorld = "http://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}/";
         var layerNatGeoWorld = new L.TileLayer(layerAdrNatGeoWorld,{maxZoom: maxzoom_natgeo,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.nationalgeographic.com">Nationalgeographic</a>'});
-		//lokale tiles
+
+
+//        var layerYandex = new L.TileLayer("http://vec0{s}.maps.yandex.net/tiles?l=map&v=2.26.0&x={x}&y={y}&z={z}&lang=en-US",
+//                {maxZoom: maxzoom_esri_sat,detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Yandex'});
+
+            //lokale tiles
 		//var layerOsmLocal = new L.TileLayer("../tiles/{z}/{x}/{y}.png",
 		//{maxZoom: maxzoom_osm, format: 'image/png', attribution: 'Kartendaten: © Openstreetmap.org (lokale Tiles)'});
 		//var layerOsmLocalOutdoor = new L.TileLayer("../tiles2/{z}/{x}/{y}.png",
@@ -410,6 +415,7 @@
 					"Esri light gray": layerEsriGray,
 					"Stamen Watercolor": layerStamenWaterc,
                     "National Geographic Countries": layerNatGeoWorld,
+//                    "Yandex":layerYandex,
 				}
 			},
 			{groupName : "Satellit",
