@@ -1,4 +1,4 @@
-﻿<html>
+<html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta charset="utf-8" />
@@ -328,6 +328,15 @@
         var layerAdrNatGeoWorld = "http://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}/";
         var layerNatGeoWorld = new L.TileLayer(layerAdrNatGeoWorld,{maxZoom: maxzoom_natgeo,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.nationalgeographic.com">Nationalgeographic</a>'});
 
+		//http://vmap0.tiles.osgeo.org/wms/vmap0?SERVICE=WMS&REQUEST=GetMap&VERSION=1.1.1&LAYERS=basic&STYLES=&FORMAT=image/jpeg&TRANSPARENT=false&HEIGHT=256&WIDTH=256&DETECTRETINA=true&SRS=EPSG:3857&BBOX=2504688.5428486555,6574807.4249777235,2817774.6107047372,6887893.4928338
+		//http://vmap0.tiles.osgeo.org/wms/vmap0?LAYERS=basic&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&FORMAT=image%2Fjpeg&SRS=EPSG%3A4326&BBOX=16.875,39.375,22.5,45&WIDTH=256&HEIGHT=256
+//		var layerOsGeoBasic = new L.TileLayer.WMS("http://vmap0.tiles.osgeo.org/wms/vmap0",
+//				{maxZoom: maxzoom_std,
+//					layers: 'basic',
+//					format: 'image/jpeg',
+//					transparent: false,
+//					attribution: 'Kartendaten: © <a href="http://osgeo.org">OSGeo</a>'});
+
 
 //        var layerYandex = new L.TileLayer("http://vec0{s}.maps.yandex.net/tiles?l=map&v=2.26.0&x={x}&y={y}&z={z}&lang=en-US",
 //                {maxZoom: maxzoom_esri_sat,detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Yandex'});
@@ -388,6 +397,7 @@
 					"Google Standard": g_roadmap,
 					"Tomtom Standard": layerTomtom,
 					"Esri Street Map": layerEsriStreet,
+					"National Geographic Countries": layerNatGeoWorld,
 					"Basemap.at": layerBasem,
 				}
 			},
@@ -414,7 +424,7 @@
 //					"GEBCO Ocean": layerGebco,
 					"Esri light gray": layerEsriGray,
 					"Stamen Watercolor": layerStamenWaterc,
-                    "National Geographic Countries": layerNatGeoWorld,
+//					"OSGeo Basic": layerOsGeoBasic,
 //                    "Yandex":layerYandex,
 				}
 			},
@@ -492,7 +502,9 @@
 		map.addControl(layersControl);
 		map.addLayer(layerMapSurfer); //Standardlayer
 		
-		var miniMapLayer = new L.TileLayer(layerAdrMapSurfer, {minZoom: 0, maxZoom: 13, subdomains: '1234', attribution: 'Kartendaten: © <a href="http://mapquest.com/">Mapquest</a>' });
+		var miniMapLayer = new L.TileLayer(layerAdrMapSurfer, {minZoom: 0, maxZoom: 13, 
+		//subdomains: '1234', 
+		attribution: 'Kartendaten: © <a href="http://korona.geog.uni-heidelberg.de/">Mapsurfer</a>' });
 		var miniMap = new L.Control.MiniMap(miniMapLayer, { toggleDisplay: true, zoomLevelOffset: -7 }).addTo(map);
 		
 		map.on('moveend', function(e) {
