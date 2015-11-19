@@ -218,7 +218,7 @@ L.Control.Measure = L.Control.extend({
 	},
 
 	_round: function(val) {
-		return Math.round((val / 1000) * 10) / 10; //do not convert in nm but km
+		return Math.round((val / 1000) * 100) / 100; //do not convert in nm but km
 	},
 
 	_onKeyDown: function (e) {
