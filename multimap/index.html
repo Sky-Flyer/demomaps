@@ -381,8 +381,8 @@
 //                {maxZoom: maxzoom_esri_sat,detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Yandex'});
 
             //lokale tiles
-		//var layerOsmLocal = new L.TileLayer("../tiles/{z}/{x}/{y}.png",
-		//{maxZoom: maxzoom_osm, format: 'image/png', attribution: 'Kartendaten: © Openstreetmap.org (lokale Tiles)'});
+		var layerBasemapLocal = new L.TileLayer("tilecache-bs/{z}/{y}/{x}.png",
+		{maxZoom: maxzoom_osm, format: 'image/png', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at</a> (lokale Tiles)'});
 		//var layerOsmLocalOutdoor = new L.TileLayer("../tiles2/{z}/{x}/{y}.png",
 		//{maxZoom: maxzoom_osm, format: 'image/png', attribution: 'Kartendaten: © Openstreetmap.org (lokale Tiles)'});
 		//var layerOsmLocalCycle = new L.TileLayer("../tiles3/{z}/{x}/{y}.png",
@@ -472,6 +472,7 @@
 					"Mapbox Pirate Map": layerMapBoxPirate,
 					"Mapbox Bluemarbel 8 bit": layerMapBoxBlm8bit,
 					"Mapbox Populationfire": layerMapBoxPopFire,
+					"Basemap local":layerBasemapLocal,
 //					"GEBCO Ocean": layerGebco,
 //					"OSGeo Basic": layerOsGeoBasic,
 //                    "Yandex":layerYandex,
