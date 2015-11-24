@@ -2,7 +2,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta charset="utf-8" />
-	<title>Andis Multimap (20151120-1505)</title>
+	<title>Multimap (20151124-1322)</title>
 	<!-- style="-moz-user-select: none;" -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />	
 	<!-- favicon -->
@@ -10,10 +10,7 @@
 	<link rel="shortcut icon" type="image/ico" href="favicon.ico" />
 	<link rel="apple-touch-icon" href="favicon.png"/>
 	<link rel="icon" type="image/x-icon" href="favicon.ico" />
-	<!-- Leaflet 
-	<link rel="stylesheet" href="leaflet-1.0b/leaflet.css" />
-	<script src="leaflet-1.0b/leaflet.js"></script>
-	-->
+	<!-- Leaflet -->
 	<link rel="stylesheet" href="./leaflet-0.7.3/leaflet.css" />
 	<script src="./leaflet-0.7.3/leaflet.js"></script>
 	<!-- Leaflet-Plugins (styles) -->
@@ -41,16 +38,6 @@
 	<script src="lib/leaflet-google.js"></script>
 	<script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
 	<script src="lib/layer/tile/Bing.js"></script>
-	<!-- old stuff
-	<script src="lib/TileLayer.Bing.js"></script>
-	<script src="lib/leaflet-compass.min.js"></script>
-	<link rel="stylesheet" href="lib/leaflet-compass.min.css" />
-	<link rel="stylesheet" href="../src/leaflet.groupedlayercontrol.css" />
-	<script src="../src/leaflet.groupedlayercontrol.js"></script>
-	<script src="./google-api.js"></script>
-	<script src="L.Control.Locate.js"></script>
-	<link rel="stylesheet" href="L.Control.Locate.css" />
-	-->
 </head>
 	<body style="margin:0px; transform:scale(1); transform-origin: 0 0" onhashchange="set_view()" onbeforeunload="delete_permahash()" >	
 	
@@ -203,6 +190,7 @@
 		// create osm standard overlay layer
 		var layerAdrOSMStdDe = 'http://tile.geofabrik.de/23228979966ae9040ceb0597251e12a2/{z}/{x}/{y}.png'
 		var layerOSMStdDe = new L.TileLayer(layerAdrOSMStdDe,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+
 		//Basemap.at
 		var layerAdrBasem="http://maps{s}.wien.gv.at/basemap/bmaphidpi/normal/google3857/{z}/{y}/{x}.jpg"
 		var layerBasem = new L.TileLayer(layerAdrBasem,{ maxZoom: maxzoom_osm, bounds: boundsAUT, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at<a/>'});
@@ -272,7 +260,6 @@
 		var nokiaKey="?app_id=xWVIueSv6JL0aJ5xqTxb&app_code=djPZyynKsbTjIUDOBcHZ2g&lg=eng&ppi=72";
 		layerNokiaRoad = new L.TileLayer("http://{s}.base.maps.api.here.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?app_id=g7UuRR708Tsut4YSnDLy&token=fVzaDAdRK62zo3CuNcPtDg&lg=ENG",{
 			maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
-		//https://4.aerial.maps.api.here.com/maptile/2.1/maptile/2c752007f4/hybrid.day/15/17870/11362/512/png8?app_id=xWVIueSv6JL0aJ5xqTxb&app_code=djPZyynKsbTjIUDOBcHZ2g&lg=ger&ppi=72
 		layerNokiaSat = new L.TileLayer("http://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/newest/satellite.day/{z}/{x}/{y}/256/png8" + nokiaKey,{
 			maxZoom: maxzoom_g_sat,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
 		layerNokiaHybrid = new L.TileLayer("http://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/newest/hybrid.day/{z}/{x}/{y}/256/png8" + nokiaKey,{
@@ -281,8 +268,6 @@
 		maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
 		layerNokiaTerr = new L.TileLayer("http://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/newest/terrain.day/{z}/{x}/{y}/256/png8?app_id=g7UuRR708Tsut4YSnDLy&token=fVzaDAdRK62zo3CuNcPtDg&lg=ENG",{
 			maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
-		//layerMapireJosef = new L.TileLayer("http://tiles.mapire.eu/firstsurvey/lower-austria_g.jp2/{x}/{y}/{z}",{ 
-		//	maxZoom: maxzoom_std,detectRetina: true, format: 'image/jp2', attribution: 'Kartendaten: © Mapire'});
 		
 		lyerAdrOSMLyrk="http://{s}.tiles.lyrk.org/ls/{z}/{x}/{y}?apikey=3949c1b430e64bbe98886bc44e4eb8e4";
 		layerOSMLyrk = new L.TileLayer(lyerAdrOSMLyrk,{ 
@@ -290,20 +275,9 @@
 		layerOSMLyrkRetina = new L.TileLayer("http://{s}.tiles.lyrk.org/lr/{z}/{x}/{y}?apikey=3949c1b430e64bbe98886bc44e4eb8e4",{ 
 			maxZoom: maxzoom_std,detectRetina: true, format: 'image/png', attribution: 'Karten: © LyrkGeodienste, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 		
-		
 		//stemen watercolor
 		layerStamenWaterc = new L.TileLayer("http://tile.stamen.com/watercolor/{z}/{x}/{y}.jpg",{ 
 			maxZoom: maxzoom_std,detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Stamen'});
-		
-		// open piste map (opacity: 0.5,)
-		var layerOpPisteMapLandsh = new L.TileLayer("http://tiles{s}.openpistemap.org/landshaded/{z}/{x}/{y}.png",
-		{maxZoom: maxzoom_std,detectRetina: true, subdomains: '2', transparent: true, opacity: 0.75, format: 'image/png',attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>, <a href="openpistemap.org">Openpistemap</a>'});
-		var layerOpPisteMap = new L.TileLayer("http://tiles.openpistemap.org/nocontours/{z}/{x}/{y}.png",
-		{maxZoom: maxzoom_std,detectRetina: true, transparent: true, format: 'image/png',attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>, <a href="openpistemap.org">Openpistemap</a>'});
-		
-		// opengeoserver globe-areal
-		//var layerOpGeoAerial = new L.TileLayer("http://services.opengeoserver.org/tiles/1.0.0/globe.aerial_EPSG3857/{z}/{x}/{y}.png?origin=nw",
-		//{maxZoom: open_sat_maxzoom,detectRetina: true, format: 'image/png', attribution: 'Kartendaten: © opengeoserver.org'});
 		
 		//Bergfex AMap Karte
 		layerBergfexAmapUrl="http://static{s}.bergfex.com/images/amap/{z}/{z}_{x}_{y}.png";
@@ -331,9 +305,11 @@
 		var layerTomtom = new L.TileLayer(layerTomtomUrl,
 		{maxZoom: maxzoom_osm, detectRetina: true, subdomains: 'abcd', format: 'image/png', attribution: 'Kartendaten: © Tomtom'});
 		
+		//OpenStreetBrowser
 		var layerOpenStreetBrowserUrl = "http://tiles-base.openstreetbrowser.org/tiles/basemap_base/{z}/{x}/{y}.png";
 		var layerOpenStreetBrowser = new L.TileLayer(layerOpenStreetBrowserUrl,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.openstreetbrowser.org">OpenStreetBrowser</a>'});
 		
+		//Mapsurfer
 		var layerAdrMapSurfer="http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}";
 		var layerMapSurfer = new L.TileLayer(layerAdrMapSurfer,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapsurfernet.com/">Mapsurfer</a>'});
 		var layerMapSurferHillOvl = new L.TileLayer("http://korona.geog.uni-heidelberg.de/tiles/asterh/x={x}&y={y}&z={z}",{maxZoom: maxzoom_osm,detectRetina: true, transparent: true, attribution: 'Kartendaten: © <a href="http://mapsurfernet.com/">Mapsurfer</a>'});
@@ -341,19 +317,13 @@
 		var layerAdrMapSurferOvl="http://korona.geog.uni-heidelberg.de/tiles/hybrid/x={x}&y={y}&z={z}"
 		var layerMapSurferOvl = new L.TileLayer(layerAdrMapSurferOvl,{maxZoom: maxzoom_osm,detectRetina: true, transparent: true, attribution: 'Kartendaten: © <a href="http://mapsurfernet.com/">Mapsurfer</a>'});
 		
+		//Map-Box
 		var layerAdrMapbox = "https://{s}.tiles.mapbox.com/v3/examples.map-i86l3621/{z}/{x}/{y}.png";
 		var layerMapBox = new L.TileLayer(layerAdrMapbox,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
-		//var layerAdrMapboxNatEarth ="https://{s}.tiles.mapbox.com/v3/mapbox.natural-earth-2/{z}/{x}/{y}.png"
-		//var layerMapBoxNatEarth = new L.TileLayer(layerAdrMapboxNatEarth,{maxZoom: 6,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
-		//var layerCloudmade = new L.TileLayer("http://tile.cloudmade.com/8bafab36916b5ce6b4395ede3cb9ddea/1/256/{z}/{x}/{y}",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © Cloudmade'});
 		var layerAdrMapboxTerr = "http://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6IlpIdEpjOHcifQ.Cldl4wq_T5KOgxhLvbjE-w"
 		var layerMapBoxTerr = new L.TileLayer(layerAdrMapboxTerr,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
-
-		//Map-Box
-		//var layerAdrMapboxCtry="https://{s}.tiles.mapbox.com/v3/aj.1x1-degrees/{z}/{x}/{y}.png";
 		var layerAdrMapboxCtry="https://{s}.tiles.mapbox.com/v3/aj.geography-class-2/{z}/{x}/{y}.png";
 		var layerMapBoxCtry = new L.TileLayer(layerAdrMapboxCtry,{maxZoom: maxzoom_mapboxctry,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
-
 		var layerAdrMapboxSat = "https://{s}.tiles.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJrWW1MQlNzIn0.nvwe9ZuqxDWX25LR3t3CFw"
 		var layerMapBoxSat = new L.TileLayer(layerAdrMapboxSat,{maxZoom: maxzoom_g_sat,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 		var layerAdrMapboxHybr = "https://{s}.tiles.mapbox.com/v4/mapbox.streets-satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJrWW1MQlNzIn0.nvwe9ZuqxDWX25LR3t3CFw"
@@ -362,38 +332,15 @@
 		var layerMapBoxBlm8bit = new L.TileLayer("https://{s}.tiles.mapbox.com/v3/colemanm.blue-marble-8bit/{z}/{x}/{y}.png",{maxZoom: maxzoom_5,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 		var layerMapBoxPopFire = new L.TileLayer("https://{s}.tiles.mapbox.com/v3/aj.population-fire/{z}/{x}/{y}.png",{maxZoom: maxzoom_6,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 		
+		//National Geographic World Map
         var layerAdrNatGeoWorld = "http://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}/";
         var layerNatGeoWorld = new L.TileLayer(layerAdrNatGeoWorld,{maxZoom: maxzoom_natgeo,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.nationalgeographic.com">Nationalgeographic</a>'});
 
-		//var layerAdrWikiMapia = "http://i{s}.wikimapia.org/?x={x}&y={y}&zoom={z}&type=map&lng=5"
-		//var layerWikiMapia = new L.TileLayer(layerAdrWikiMapia,{maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234',attribution: 'Kartendaten: © <a href="http://www.wikimapia.com">Wikimapia</a>'});
-		//http://vmap0.tiles.osgeo.org/wms/vmap0?SERVICE=WMS&REQUEST=GetMap&VERSION=1.1.1&LAYERS=basic&STYLES=&FORMAT=image/jpeg&TRANSPARENT=false&HEIGHT=256&WIDTH=256&DETECTRETINA=true&SRS=EPSG:3857&BBOX=2504688.5428486555,6574807.4249777235,2817774.6107047372,6887893.4928338
-		//http://vmap0.tiles.osgeo.org/wms/vmap0?LAYERS=basic&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&FORMAT=image%2Fjpeg&SRS=EPSG%3A4326&BBOX=16.875,39.375,22.5,45&WIDTH=256&HEIGHT=256
-//		var layerOsGeoBasic = new L.TileLayer.WMS("http://vmap0.tiles.osgeo.org/wms/vmap0",
-//				{maxZoom: maxzoom_std,
-//					layers: 'basic',
-//					format: 'image/jpeg',
-//					transparent: false,
-//					attribution: 'Kartendaten: © <a href="http://osgeo.org">OSGeo</a>'});
-
-		//var layerOmniscale = new L.TileLayer.WMS("http://maps.omniscale.net/v2/mapsosc-b697cf5a/style.default/map",
-		// 		{maxZoom: maxzoom_std,layers: 'osm',format: 'image/png',transparent: false,attribution: 'Kartendaten: © <a href="http://omniscale.net">Omniscale</a>'});
+		//Harvard World Country Borders
 		var layerHarvWld = new L.TileLayer.WMS("http://worldmap.harvard.edu/geoserver/wms",
 				{maxZoom: maxzoom_std,layers: 'geonode:Digital_Chart_of_the_World',format: 'image/png',transparent: true,attribution: 'Kartendaten: © <a href="http://worldmap.harvard.edu">Harvard Worldmap</a>'});
 
-
-		//var layerAdrAtlasOnlinePhy = "http://www.weltatlas-online.de/landkarten/weltkarte3i/TileGroup0/{z}-{x}-{y}.jpg"
-		//var layerAtlasOnlinePhy = new L.TileLayer(layerAdrAtlasOnlinePhy,{maxZoom: maxzoom_std,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.weltatlas-online.de/">Weltatlas-Online</a>'});
-
-		//var layerAtlasOnlinePol = L.tileLayer.zoomify('http://www.weltatlas-online.de/landkarten/politische_landkarte_der_welt_oktober2013/', {
-        //     width: 11659, height: 6370, tolerance: 0.8, units: 'pixels', attribution: 'Photo: Weltatlas-Online' });
-
-		//var layerAdrAtlasOnlinePol = "http://www.weltatlas-online.de/landkarten/politische_landkarte_der_welt_oktober2013/TileGroup0/{z}-{x}-{y}.jpg"
-		//var layerAtlasOnlinePol = new L.TileLayer(layerAdrAtlasOnlinePol,{maxZoom: maxzoom_std,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.weltatlas-online.de/">Weltatlas-Online</a>'});
-//        var layerYandex = new L.TileLayer("http://vec0{s}.maps.yandex.net/tiles?l=map&v=2.26.0&x={x}&y={y}&z={z}&lang=en-US",
-//                {maxZoom: maxzoom_esri_sat,detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Yandex'});
-
-            //lokale tiles
+		//lokale tiles
 		var layerBasemapLocal = new L.TileLayer("tilecache-bs/{z}/{y}/{x}.png",
 		{maxZoom: maxzoom_19, bounds: boundsAUT, format: 'image/png', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at</a> (lokale Tiles)'});
 		var layerBasemapAltLocal = new L.TileLayer("tilecache-bs-alt/{z}/{y}/{x}.png",
@@ -403,17 +350,12 @@
 		var layerBasemapOrthoSpfldLocal = new L.TileLayer("tilecache-bs-ortho-spfld/{z}/{y}/{x}.jpeg",
 		{maxZoom: maxzoom_19, bounds: boundsAUT, format: 'image/png', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at</a> (lokale Tiles)'});
 		var layerBasemapOvlLocal = new L.TileLayer("tilecache-bs-ovl/{z}/{y}/{x}.png",
-				{maxZoom: maxzoom_19, transparent: true, bounds: boundsAUT, format: 'image/png', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at</a> (lokale Tiles)'});
+		{maxZoom: maxzoom_19, transparent: true, bounds: boundsAUT, format: 'image/png', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at</a> (lokale Tiles)'});
 
 		var layerGrpBmAlt = L.layerGroup().addLayer(layerBasemapLocal).addLayer(layerBasemapAltLocal);
 		var layerGrpBmOrtho = L.layerGroup().addLayer(layerBasemapOrthoLocal).addLayer(layerBasemapOrthoSpfldLocal);
-		//http://b.tiles.telegeography.com/maps/submarine-cable-map-2015/5/13/14.png
-		//var layerSubmCableUrl="http://{s}.tiles.telegeography.com/maps/submarine-cable-map-2015/{z}/{x}/{y}.png";
-		//var layerSubmCable = new L.TileLayer(layerSubmCableUrl,
-		//{maxZoom: maxzoom_std, detectRetina: true, subdomains: 'abcd', format: 'image/png', attribution: 'Kartendaten: © Telegeography'});
 
 		//WMS map
-		//url: "http://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapser"
 //		var layerGebco = new L.tileLayer.wms("http://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv", {
 //			layers: 'gebco_latest',
 //			format: 'image/jpeg',
@@ -425,6 +367,7 @@
 		// Koord.grid
 		var grid = L.grid({redraw: 'moveend'});
 		
+		//Layer-Switcher
 		var baseMaps = [
 			{groupName : "OSM Standard",
 				expanded : true,
@@ -455,13 +398,13 @@
 			{groupName : "Topographische",
 				expanded : false,
 				layers    : {
+					"Openstreetmap (Bergfex)": layerBergfexOsm,
 					"OpenTopoMap": layerOpenTopo,
 					"Mapbox Terrain": layerMapBoxTerr,
 					"Geofabrik Topo": layerGeofTopo,
 					"OpenStreetMap Landscape": layerOSMLands,
 					"OpenStreetMap Outdoors": layerOSMOutd,
 					"ÖK (Bergfex)":layerBergfexOek,
-					"OSM (Bergfex)": layerBergfexOsm,
 					"AustriaMap (Bergfex)": layerBergfexAmapGrp,
 					"Esri Topo Map": layerEsriTopo,
 					"Nokia Here-maps Terrain": layerNokiaTerr,
@@ -530,8 +473,6 @@
 					"Mapsurfer Administrative Grenzen": layerMapSurferAdminOvl,
 					"Harvard Internationale Grenzen":layerHarvWld,
 					"Mapsurfer Hillshade": layerMapSurferHillOvl,
-					"OSM Terrain": layerOpPisteMapLandsh,
-					"OSM Schipisten": layerOpPisteMap,
 					"Gradnetz": grid,
 					"Basemap Beschriftung (lokal)":layerBasemapOvlLocal,
 				}
@@ -545,6 +486,7 @@
 				exclusive       	: false
 		};
 
+		//Map with controls
 		map = new L.Map('map');
 		map.attributionControl.setPrefix(false);
 		map.dragging.enable();
@@ -556,7 +498,6 @@
 			jsonpParam: 'json_callback', propertyName: 'display_name', propertyLoc: ['lat','lon'],
 			markerLocation: true, autoType: true, autoCollapse: true, minLength: 2,zoom: 13,
 			text: 'Suchen...', textCancel: 'Abbrechen', textErr: 'Kein Ergebnis gefunden!'}) );
-		
 		L.control.locate({
 			follow: true,
 			title: "Position bestimmen",
@@ -586,8 +527,7 @@
 		map.addControl(layersControl);
 		map.addLayer(layerMapSurfer); //Standardlayer
 		
-		var miniMapLayer = new L.TileLayer(layerAdrMapSurfer, {minZoom: 0, maxZoom: 14, 
-		//subdomains: '1234', 
+		var miniMapLayer = new L.TileLayer(layerAdrMapSurfer, {minZoom: 0, maxZoom: 14, //subdomains: '1234', 
 		attribution: 'Kartendaten: © <a href="http://korona.geog.uni-heidelberg.de/">Mapsurfer</a>' });
 		var miniMap = new L.Control.MiniMap(miniMapLayer, { toggleDisplay: true, zoomLevelOffset: -7 }).addTo(map);
 		
