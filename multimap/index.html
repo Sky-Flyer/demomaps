@@ -1,9 +1,7 @@
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<meta charset="utf-8" />
-	<title>Multimap (20151124-1322)</title>
-	<!-- style="-moz-user-select: none;" -->
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+	<title>Multimap (20151125-1652)</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />	
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
@@ -126,10 +124,14 @@
 					var position = hash.substr(1).split("marker=")[1].split("/");
 					if((marker==null) && (isValid(position))){
 						map.setView(new L.LatLng(position[1], position[2]), position[0]);
-						marker = L.marker([position[1], position[2]],{draggable:true}).addTo(map).on('dragend', function(event){set_hash(event.target.getLatLng())});
+						marker = L.marker([position[1], position[2]],{draggable:true}).addTo(map).on('dragend', function(event){
+								set_hash(event.target.getLatLng());
+								setMarkerPopup(event.target.getLatLng());
+							});
 					} else if((marker!=null) && (isValid(position))) {
 						marker.setLatLng(new L.LatLng(position[1], position[2]));
 					}
+					setMarkerPopup(new L.LatLng(position[1], position[2]));
 				} else if(cookie_read("map")) {
 					var position = cookie_read("map").split("/");
 					map.setView(new L.LatLng(position[1], position[2]), position[0]);
@@ -139,6 +141,11 @@
 				set_hash();
 			}
 			lock=false;
+		}
+		
+		function setMarkerPopup(latLngPos){
+		var digits=Math.ceil(2*Math.log(map.getZoom())-1);
+			marker.bindPopup("<h3>Position:</h3> Länge: <b>"+latLngPos.lng.toFixed(digits)+"</b> Breite: <b>"+latLngPos.lat.toFixed(digits)+"</b>")
 		}
 
 		/* check if coordinates are valid numbers; if not zoom to Europe default */
@@ -256,18 +263,18 @@
 		layerHumanitarian = new L.TileLayer("http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",{
 			maxZoom: maxzoom_std,detectRetina: true, attribution: 'Kartendaten: Kartendaten: © <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende'});
 		
-		//Nokia here-maps
+		//Here-Maps (ehem. Nokia)
 		var nokiaKey="?app_id=xWVIueSv6JL0aJ5xqTxb&app_code=djPZyynKsbTjIUDOBcHZ2g&lg=eng&ppi=72";
 		layerNokiaRoad = new L.TileLayer("http://{s}.base.maps.api.here.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?app_id=g7UuRR708Tsut4YSnDLy&token=fVzaDAdRK62zo3CuNcPtDg&lg=ENG",{
-			maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
+			maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Here-Maps'});
 		layerNokiaSat = new L.TileLayer("http://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/newest/satellite.day/{z}/{x}/{y}/256/png8" + nokiaKey,{
-			maxZoom: maxzoom_g_sat,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
+			maxZoom: maxzoom_g_sat,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Here-Maps'});
 		layerNokiaHybrid = new L.TileLayer("http://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/newest/hybrid.day/{z}/{x}/{y}/256/png8" + nokiaKey,{
-			maxZoom: maxzoom_g_sat,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
+			maxZoom: maxzoom_g_sat,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Here-Maps'});
 		layerNokiaLabel = new L.TileLayer("http://{s}.base.maps.api.here.com/maptile/2.1/streettile/newest/normal.day/{z}/{x}/{y}/256/png8" + nokiaKey,{ 
-		maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
+		maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Here-Maps'});
 		layerNokiaTerr = new L.TileLayer("http://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/newest/terrain.day/{z}/{x}/{y}/256/png8?app_id=g7UuRR708Tsut4YSnDLy&token=fVzaDAdRK62zo3CuNcPtDg&lg=ENG",{
-			maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Nokia Here-maps'});
+			maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Here-Maps'});
 		
 		lyerAdrOSMLyrk="http://{s}.tiles.lyrk.org/ls/{z}/{x}/{y}?apikey=3949c1b430e64bbe98886bc44e4eb8e4";
 		layerOSMLyrk = new L.TileLayer(lyerAdrOSMLyrk,{ 
@@ -331,6 +338,7 @@
 		var layerMapBoxPirate = new L.TileLayer("https://{s}.tiles.mapbox.com/v3/aj.Sketchy2/{z}/{x}/{y}.png",{maxZoom: maxzoom_6,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 		var layerMapBoxBlm8bit = new L.TileLayer("https://{s}.tiles.mapbox.com/v3/colemanm.blue-marble-8bit/{z}/{x}/{y}.png",{maxZoom: maxzoom_5,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 		var layerMapBoxPopFire = new L.TileLayer("https://{s}.tiles.mapbox.com/v3/aj.population-fire/{z}/{x}/{y}.png",{maxZoom: maxzoom_6,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+		var layerMapBoxPir2 = new L.TileLayer("https://{s}.tiles.mapbox.com/v3/lrqdo.me2bng9n/{z}/{x}/{y}.png",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 		
 		//National Geographic World Map
         var layerAdrNatGeoWorld = "http://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}/";
@@ -341,6 +349,7 @@
 				{maxZoom: maxzoom_std,layers: 'geonode:Digital_Chart_of_the_World',format: 'image/png',transparent: true,attribution: 'Kartendaten: © <a href="http://worldmap.harvard.edu">Harvard Worldmap</a>'});
 
 		//lokale tiles
+/*		
 		var layerBasemapLocal = new L.TileLayer("tilecache-bs/{z}/{y}/{x}.png",
 		{maxZoom: maxzoom_19, bounds: boundsAUT, format: 'image/png', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at</a> (lokale Tiles)'});
 		var layerBasemapAltLocal = new L.TileLayer("tilecache-bs-alt/{z}/{y}/{x}.png",
@@ -354,14 +363,15 @@
 
 		var layerGrpBmAlt = L.layerGroup().addLayer(layerBasemapLocal).addLayer(layerBasemapAltLocal);
 		var layerGrpBmOrtho = L.layerGroup().addLayer(layerBasemapOrthoLocal).addLayer(layerBasemapOrthoSpfldLocal);
-
-		//WMS map
-//		var layerGebco = new L.tileLayer.wms("http://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv", {
-//			layers: 'gebco_latest',
-//			format: 'image/jpeg',
-//			transparent: false,
-//			attribution: 'Kartendaten: <a href="http://www.gebco.net">GEBCO</a>'
-//		});
+*/
+		//Viennagis - WMS map
+		var layerWienBaust = new L.tileLayer.wms("http://data.wien.gv.at/daten/geo", {
+			layers: 'ogdwien:BAUSTELLENLINOGD,ogdwien:BAUSTELLENPKTOGD',
+			format: 'image/png',
+			style: 'BAUSTELLENPKTOGD',
+			transparent: true,
+			attribution: 'Kartendaten: <a href="http://www.wien.gv.at">Wiener Stadtverwaltung</a>'
+		});
 //		var layerCountries = new L.KML("collins-Laender_pol.kml", {async: true});
 		
 		// Koord.grid
@@ -372,25 +382,26 @@
 			{groupName : "OSM Standard",
 				expanded : true,
 				layers    : {
-					"Mapsurfer": layerMapSurfer,
+					"OpenStreetMap Mapsurfer": layerMapSurfer,
 					"Mapquest Open": layerMapquest,
 					"OpenStreetMap Standard": layerOSMStd,
-					"Mapbox Standard": layerMapBox,
-					"OpenStreetMap Lyrk Geodienste": layerOSMLyrk,
+					"Openstreetmap Humanitarian": layerHumanitarian,
 					"OpenStreetMap Deutschland": layerOSMStdDe,
+					"OpenStreetMap Mapbox": layerMapBox,
+					"OpenStreetMap Lyrk ": layerOSMLyrk,
 					"OpenStreetBrowser": layerOpenStreetBrowser,
 				}
 			},
 			{groupName : "Standard Karten",
 				expanded : false,
 				layers    : {
-					"Basemap AT": layerGrpBasemVd,
+					"Basemap.at Grundkarte": layerGrpBasemVd,
 					"Apple Standard": layerAppleStd,
-					"Nokia Here-maps": layerNokiaRoad,
+					"Here-Maps Standard": layerNokiaRoad,
 					"Bing Standard":  bing_road,
 					"Google Standard": g_roadmap,
 					"Tomtom Standard": layerTomtom,
-					"Esri Street Map": layerEsriStreet,
+					"Esri Streetmap": layerEsriStreet,
 					"National Geographic Countries": layerNatGeoWorld,
 					"Mapbox Political":layerMapBoxCtry,
 				}
@@ -398,30 +409,30 @@
 			{groupName : "Topographische",
 				expanded : false,
 				layers    : {
-					"Openstreetmap (Bergfex)": layerBergfexOsm,
+					"OpenStreetMap (Bergfex)": layerBergfexOsm,
+					"ÖsterrreichKarte (Bergfex)":layerBergfexOek,
+					"AustriaMap (Bergfex)": layerBergfexAmapGrp,
 					"OpenTopoMap": layerOpenTopo,
 					"Mapbox Terrain": layerMapBoxTerr,
 					"Geofabrik Topo": layerGeofTopo,
 					"OpenStreetMap Landscape": layerOSMLands,
-					"OpenStreetMap Outdoors": layerOSMOutd,
-					"ÖK (Bergfex)":layerBergfexOek,
-					"AustriaMap (Bergfex)": layerBergfexAmapGrp,
 					"Esri Topo Map": layerEsriTopo,
-					"Nokia Here-maps Terrain": layerNokiaTerr,
+					"Here-Maps Terrain": layerNokiaTerr,
 					"Google Terrain":  g_terrain,
 				}
 			},
 			{groupName : "Themen und Diverse",
 				expanded : false,
 				layers    : {
-					"Openstreetmap Humanitarian": layerHumanitarian,
 					"Thunderforest Transport":layerOSMTransp,
 					"ÖPNV Verkehrskarte": layerÖPNV,
+					"OpenStreetMap Outdoors": layerOSMOutd,
 					"OpenStreetMap Cycle": layerOSMCycle,
-					"Hike and Bike": layerHikeBike,
+					"OpenStreetMap Hike and Bike": layerHikeBike,
 					"Esri light gray": layerEsriGray,
 					"Stamen Watercolor": layerStamenWaterc,
 					"Mapbox Pirate Map": layerMapBoxPirate,
+					"Mapbox Pirate Map 2": layerMapBoxPir2,
 					"Mapbox Bluemarbel 8 bit": layerMapBoxBlm8bit,
 					"Mapbox Populationfire": layerMapBoxPopFire,
 				}
@@ -430,7 +441,7 @@
 				expanded : false,
 				layers    : {
 					"Apple Satellit": layerAppleSat,
-					"Nokia Here-maps Satellit": layerNokiaSat,
+					"Here-Maps Satellit": layerNokiaSat,
 					"Bing Satellit":  bing_areal,
 					"Google Satellit":  g_satellite,
 					"Mapquest Satellit": layerMapquestSat,
@@ -442,12 +453,13 @@
 			{groupName : "Satellit (Hybrid)",
 				expanded : false,
 				layers    : {
-					"Nokia Here-maps Hybrid": layerNokiaHybrid,
+					"Here-Maps Hybrid": layerNokiaHybrid,
 					"Bing Hybrid":  bing_areal_label,
 					"Google Hybrid": g_hybrid,
 					"Mapbox Hybrid":layerMapBoxHybr,
 				}
 			},
+/*
 			{groupName : "Lokale Karten",
 				expanded : false,
 				layers    : {
@@ -455,16 +467,18 @@
 					"Basemap Luftbild (lokal)":layerGrpBmOrtho,
 				}
 			}
+*/
 		]
 		var overlayMaps = [
 			 {groupName : "Beschriftungen",
-					expanded : true,
+					expanded : false,
 					layers    : {
 						"Mapquest Beschriftungen": layerOSMOvl,
 						"Mapsurfer Beschriftungen": layerMapSurferOvl,
 						"Apple Beschriftungen": layerAppleOverlay,
 						"Nokia Heremaps Beschriftungen":layerNokiaLabel,
 						"Basemap Beschriftungen": layerBasemOvl,
+						//"Basemap Beschriftung (lokal)":layerBasemapOvlLocal,
 					}
 			 },
 			{groupName : "Diverse Overlays",
@@ -473,21 +487,21 @@
 					"Mapsurfer Administrative Grenzen": layerMapSurferAdminOvl,
 					"Harvard Internationale Grenzen":layerHarvWld,
 					"Mapsurfer Hillshade": layerMapSurferHillOvl,
+					"Wien, Baustellen":layerWienBaust,
 					"Gradnetz": grid,
-					"Basemap Beschriftung (lokal)":layerBasemapOvlLocal,
 				}
 			}
 
 		]
 		var options = {
-				container_width 	: "220px",
+				//container_width 	: "220px",
 				group_maxHeight     : "400px",
 				container_maxHeight : "650px", 
 				exclusive       	: false
 		};
 
 		//Map with controls
-		map = new L.Map('map');
+		map = new L.Map('map',{minZoom: 1});
 		map.attributionControl.setPrefix(false);
 		map.dragging.enable();
 		map.touchZoom.enable();
@@ -554,7 +568,7 @@
 			else if(((e.name=="OpenTopoMap")||(e.name=="Google Terrain"))&&(map.getZoom()>maxzoom_topo)) {
 				map.setZoom(maxzoom_topo);
 			}
-            else if(e.name=="AMap (Bergfex)"){
+            else if(e.name=="AustriaMap (Bergfex)"){
 				if (map.getZoom()>maxzoom_amap+1) {
 					map.setZoom(maxzoom_amap);
 				}
