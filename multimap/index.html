@@ -1,4 +1,4 @@
-<html lang="de">
+﻿<html lang="de">
   <head>
     <meta charset="utf-8">
 	<title>Multimap (20151125-1652)</title>
@@ -263,18 +263,22 @@
 		layerHumanitarian = new L.TileLayer("http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",{
 			maxZoom: maxzoom_std,detectRetina: true, attribution: 'Kartendaten: Kartendaten: © <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende'});
 		
-		//Here-Maps (ehem. Nokia)
-		var nokiaKey="?app_id=xWVIueSv6JL0aJ5xqTxb&app_code=djPZyynKsbTjIUDOBcHZ2g&lg=eng&ppi=72";
+		//Here-Maps (ehem. Nokia) https://www.here.com
+		//https://2.traffic.maps.api.here.com/maptile/2.1/traffictile/newest/normal.day/9/279/177/512/png8?app_id=xWVIueSv6JL0aJ5xqTxb&app_code=djPZyynKsbTjIUDOBcHZ2g&lg=ger&ppi=72&tprof=PrtlHere
+		var heremapsAttrib='Kartendaten: © <a href="https://www.here.com">Here-Maps';
+		var nokiaKey="?app_id=xWVIueSv6JL0aJ5xqTxb&app_code=djPZyynKsbTjIUDOBcHZ2g&lg=ger&ppi=72";
 		layerNokiaRoad = new L.TileLayer("http://{s}.base.maps.api.here.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?app_id=g7UuRR708Tsut4YSnDLy&token=fVzaDAdRK62zo3CuNcPtDg&lg=ENG",{
-			maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Here-Maps'});
+			maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: heremapsAttrib});
 		layerNokiaSat = new L.TileLayer("http://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/newest/satellite.day/{z}/{x}/{y}/256/png8" + nokiaKey,{
-			maxZoom: maxzoom_g_sat,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Here-Maps'});
+			maxZoom: maxzoom_g_sat,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: heremapsAttrib});
 		layerNokiaHybrid = new L.TileLayer("http://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/newest/hybrid.day/{z}/{x}/{y}/256/png8" + nokiaKey,{
-			maxZoom: maxzoom_g_sat,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Here-Maps'});
+			maxZoom: maxzoom_g_sat,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: heremapsAttrib});
 		layerNokiaLabel = new L.TileLayer("http://{s}.base.maps.api.here.com/maptile/2.1/streettile/newest/normal.day/{z}/{x}/{y}/256/png8" + nokiaKey,{ 
-		maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Here-Maps'});
+		maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: heremapsAttrib});
 		layerNokiaTerr = new L.TileLayer("http://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/newest/terrain.day/{z}/{x}/{y}/256/png8?app_id=g7UuRR708Tsut4YSnDLy&token=fVzaDAdRK62zo3CuNcPtDg&lg=ENG",{
-			maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: 'Kartendaten: © Here-Maps'});
+			maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: heremapsAttrib});
+		layerNokiaTrafic = new L.TileLayer("http://{s}.traffic.maps.api.here.com/maptile/2.1/traffictile/newest/normal.day/{z}/{x}/{y}/256/png8" + nokiaKey,{ 
+		maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: heremapsAttrib});
 		
 		lyerAdrOSMLyrk="http://{s}.tiles.lyrk.org/ls/{z}/{x}/{y}?apikey=3949c1b430e64bbe98886bc44e4eb8e4";
 		layerOSMLyrk = new L.TileLayer(lyerAdrOSMLyrk,{ 
@@ -373,6 +377,11 @@
 			attribution: 'Kartendaten: <a href="http://www.wien.gv.at">Wiener Stadtverwaltung</a>'
 		});
 //		var layerCountries = new L.KML("collins-Laender_pol.kml", {async: true});
+//		var layerYandex = new L.TileLayer("https://vec0{s}.maps.yandex.net/tiles?l=map&v=4.49.1&x={x}&y={y}&z={z}&scale=1&lang=en_US",
+//				{maxZoom: maxzoom_19,subdomains: '1234',detectRetina: true, attribution: 'Kartendaten: © <a href="http://yandex.com/">Yandex</a>'});
+
+
+		
 		
 		// Koord.grid
 		var grid = L.grid({redraw: 'moveend'});
@@ -398,10 +407,12 @@
 					"Basemap.at Grundkarte": layerGrpBasemVd,
 					"Apple Standard": layerAppleStd,
 					"Here-Maps Standard": layerNokiaRoad,
+					"Here-Maps Verkehr": layerNokiaTrafic,
 					"Bing Standard":  bing_road,
 					"Google Standard": g_roadmap,
 					"Tomtom Standard": layerTomtom,
 					"Esri Streetmap": layerEsriStreet,
+					//"Yandex Standard": layerYandex,
 					"National Geographic Countries": layerNatGeoWorld,
 					"Mapbox Political":layerMapBoxCtry,
 				}
