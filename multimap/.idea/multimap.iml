@@ -3,6 +3,7 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/tilecache-bs" />
+      <excludeFolder url="file://$MODULE_DIR$/tilecache-bs-alt" />
       <excludeFolder url="file://$MODULE_DIR$/tilecache-bs-ortho" />
       <excludeFolder url="file://$MODULE_DIR$/tilecache-bs-ortho-spfld" />
       <excludeFolder url="file://$MODULE_DIR$/tilecache-bs-ovl" />
