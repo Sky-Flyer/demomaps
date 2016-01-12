@@ -74,6 +74,75 @@
 		var stdLayer = layerMapSurfer;
 		var stdLayerName = "OpenStreetMap Mapsurfer";
 
+		loadFile(decodeURI('all-contries.json.js'),'js');
+		loadFile(decodeURI('countries.geo.json.js'),'js');
+		setTimeout("setCtryJson()",2000);		
+		
+		var continentProperties= {
+                    "009": {
+                            name: 'Oceania',
+                            colors: [ '#CC0066', '#993366', '#990066', '#CC3399', '#CC6699' ]
+                    },
+                    "019": {
+                            name: 'America',
+                            colors: [ '#006699', '#336666', '#003366', '#3399CC', '#6699CC' ]
+                    },
+                    "150": {
+                            name: 'Europe',
+                            colors: [ '#FF0000', '#CC3333', '#990000', '#FF3333', '#FF6666' ]
+                    },
+                    "002": {
+                            name: 'Africa',
+                            colors: [ '#00CC00', '#339933', '#009900', '#33FF33', '#66FF66' ]
+                    },
+                    "142": {
+                            name: 'Asia',
+                            colors: [ '#FFCC00', '#CC9933', '#999900', '#FFCC33', '#FFCC66' ]
+                    },
+		};
+		 // Get a country paint color from the continents array of colors
+		function getColor(country) {
+			console.log('country '+country);
+			if (!country || !country["region-code"]) {
+				return "#FFF";
+			}
+
+			var colors = continentProperties[country["region-code"]].colors;
+			var index = country["alpha-3"].charCodeAt(0) % colors.length ;
+			console.log('colors '+colors);
+			console.log('index '+index);
+			console.log('colors[index] '+colors[index]);
+			return colors[index];
+		}
+
+		function loadFile(filename, filetype){
+			if (filename==null || filename=="") return;
+			
+			if (filetype=="js"){ //if filename is a external JavaScript file
+			  var fileref=document.createElement('script')
+			  fileref.setAttribute("type","text/javascript")
+			  fileref.setAttribute("src", filename)
+			 }
+			 else if (filetype=="css"){ //if filename is an external CSS file
+			  var fileref=document.createElement("link")
+			  fileref.setAttribute("rel", "stylesheet")
+			  fileref.setAttribute("type", "text/css")
+			  fileref.setAttribute("href", filename)
+			 }
+			 if (typeof fileref!="undefined")
+			  document.getElementsByTagName("head")[0].appendChild(fileref)
+		}
+		
+		function setCtryJson(){
+			L.geoJson(countriesGeoJsonData, {
+			style: function (feature) {
+				return {color: getColor(feature.id)};
+			},
+			onEachFeature: function (feature, layer) {
+				layer.bindPopup(feature.properties.name);
+			}
+		}).addTo(map);
+		}
 		function cookie_read(cookiename) {
 			var cookies=document.cookie.split("; ");
 			for(var i=0;i<cookies.length;i++) {
@@ -151,7 +220,7 @@
 					map.setView(new L.LatLng(46, 16), 5);
 					aktLayer=stdLayerName;
 				}
-				console.log("Debug: set-view: aktlayer="+aktLayer)
+				// console.log("Debug: set-view: aktlayer="+aktLayer)
 				setAktLayer(aktLayer);
 				set_hash();
 			}
@@ -160,10 +229,10 @@
 		}
 
 		function setAktLayer(layerToSet){
-			console.log("Debug: setAktLayer: aktlayer="+aktLayer)
+			// console.log("Debug: setAktLayer: aktlayer="+aktLayer)
 			var l = readLayer(layerToSet);
 			if(l){
-				console.log("Debug: setAktLayer: readlayer="+ l.name+"/"+ l.layerObj)
+				// console.log("Debug: setAktLayer: readlayer="+ l.name+"/"+ l.layerObj)
 				map.addLayer(l.layerObj);
 			}
 		}
@@ -181,10 +250,10 @@
 					}
 					if (searchedLayer===layerName){
 						//found!!!
-						console.log("Debug: found: "+layerName);
+						// console.log("Debug: found: "+layerName);
 						return {name: layerName, maxZoom: maxZoom, layerObj: layerObj};
 					}
-					console.log("Debug: not right layer: "+layerName);
+					// console.log("Debug: not right layer: "+layerName);
 				}
 			}
 			return {name: "Standard layer", maxZoom: maxzoom_19, layerObj: stdLayer};
@@ -423,9 +492,6 @@
 //		var layerYandex = new L.TileLayer("https://vec0{s}.maps.yandex.net/tiles?l=map&v=4.49.1&x={x}&y={y}&z={z}&scale=1&lang=en_US",
 //				{maxZoom: maxzoom_19,subdomains: '1234',detectRetina: true, attribution: 'Kartendaten: © <a href="http://yandex.com/">Yandex</a>'});
 
-
-		
-		
 		// Koord.grid
 		var grid = L.grid({redraw: 'moveend'});
 		
@@ -633,8 +699,8 @@
             else if(!((e.name=="Google Satellit")||(e.name=="Google Hybrid"))&&(map.getZoom()>maxzoom_std)){
                 map.setZoom(maxzoom_std);
             }
-			//console.log(e.maxZoom);
-			console.log(e.name);
+			//// console.log(e.maxZoom);
+			// console.log(e.name);
 
 			aktLayer= e.name;
 			set_hash();
