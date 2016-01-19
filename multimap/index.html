@@ -1,7 +1,7 @@
 ﻿<html lang="de">
   <head>
     <meta charset="utf-8">
-	<title>Multimap (20151203-1512)</title>
+	<title>Multimap (20160119-1502)</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />	
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
@@ -247,13 +247,16 @@
 		var layerAdrBasem="http://maps{s}.wien.gv.at/basemap/bmaphidpi/normal/google3857/{z}/{y}/{x}.jpg"
 		var layerBasem = new L.TileLayer(layerAdrBasem,{ maxZoom: maxzoom_osm, bounds: boundsAUT, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at<a/>'});
 		var layerAdrBasemVerd="http://maps{s}.wien.gv.at/wmts/bmapverdichtung/normal/google3857/{z}/{y}/{x}.png"
-		var layerBasemVerd = new L.TileLayer(layerAdrBasemVerd,{ maxZoom: 20, minizoom: 17, bounds: boundsAUT, detectRetina: true, format: 'image/png', subdomains: '1234', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at<a/>'});
+		var layerBasemVerd = new L.TileLayer(layerAdrBasemVerd,{ maxZoom: 20, minZoom: 18, bounds: boundsAUT, detectRetina: true, format: 'image/png', subdomains: '1234', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at<a/>'});
 		var layerAdrBasemOvl="http://maps{s}.wien.gv.at/basemap/bmapoverlay/normal/google3857/{z}/{y}/{x}.png"
 		var layerBasemOvl = new L.TileLayer(layerAdrBasemOvl,{ maxZoom: maxzoom_std, bounds: boundsAUT, detectRetina: true, transparent: true, format: 'image/png', subdomains: '1234', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at<a/>'});
 		var layerGrpBasemVd = L.layerGroup().addLayer(layerBasem).addLayer(layerBasemVerd);
 		
 		var layerAdrBasemOrtho = "http://maps{s}.wien.gv.at/basemap/bmaporthofoto30cm/normal/google3857/{z}/{y}/{x}.jpeg";
 		var layerBasemOrtho = new L.TileLayer(layerAdrBasemOrtho,{ maxZoom: maxzoom_osm, bounds: boundsAUT, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at<a/>'});
+		
+		//kartenwerkstatt.at bounds: boundsAUT,
+		//var layerKwStattOsm = new L.TileLayer("http://tilestream.kartenwerkstatt.at/1.0.0/austria-osm-imposm-bright/{z}/{x}/{y}.png",{ maxZoom: maxzoom_osm, minZoom: 3,  detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © <a href="http://www.kartenwerkstatt.at">Kartenwerkstatt.at<a/>'});
 
 		//Esri - Arcgis online
 		var layerAdrEsriTopo="http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}"
@@ -372,10 +375,12 @@
 		var layerMapSurferOvl = new L.TileLayer(layerAdrMapSurferOvl,{maxZoom: maxzoom_osm,detectRetina: true, transparent: true, attribution: 'Kartendaten: © <a href="http://mapsurfernet.com/">Mapsurfer</a>'});
 		
 		//Map-Box
-		var layerAdrMapbox = "https://{s}.tiles.mapbox.com/v3/examples.map-i86l3621/{z}/{x}/{y}.png";
-		var layerMapBox = new L.TileLayer(layerAdrMapbox,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
-		var layerAdrMapboxTerr = "http://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6IlpIdEpjOHcifQ.Cldl4wq_T5KOgxhLvbjE-w"
-		var layerMapBoxTerr = new L.TileLayer(layerAdrMapboxTerr,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+		//var layerAdrMapbox = "https://{s}.tiles.mapbox.com/v3/examples.map-i86l3621/{z}/{x}/{y}.png";
+		//var layerMapBox = new L.TileLayer(layerAdrMapbox,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+		var layerAdrMapboxStreets = "http://{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6IlpIdEpjOHcifQ.Cldl4wq_T5KOgxhLvbjE-w"
+		var layerMapBoxStreets = new L.TileLayer(layerAdrMapboxStreets,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+		var layerMapBoxStreetsBas = new L.TileLayer("http://{s}.tiles.mapbox.com/v4/mapbox.streets-basic/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6IlpIdEpjOHcifQ.Cldl4wq_T5KOgxhLvbjE-w",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+		var layerMapBoxStreetsWheat = new L.TileLayer("http://{s}.tiles.mapbox.com/v4/mapbox.wheatpaste/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6IlpIdEpjOHcifQ.Cldl4wq_T5KOgxhLvbjE-w",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 		var layerAdrMapboxCtry="https://{s}.tiles.mapbox.com/v3/aj.geography-class-2/{z}/{x}/{y}.png";
 		var layerMapBoxCtry = new L.TileLayer(layerAdrMapboxCtry,{maxZoom: maxzoom_mapboxctry,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 		var layerAdrMapboxSat = "https://{s}.tiles.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJrWW1MQlNzIn0.nvwe9ZuqxDWX25LR3t3CFw"
@@ -387,6 +392,12 @@
 		var layerMapBoxPopFire = new L.TileLayer("https://{s}.tiles.mapbox.com/v3/aj.population-fire/{z}/{x}/{y}.png",{maxZoom: maxzoom_6,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 		var layerMapBoxPir2 = new L.TileLayer("https://{s}.tiles.mapbox.com/v3/lrqdo.me2bng9n/{z}/{x}/{y}.png",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 		
+		var layerMapBoxDataUpd = new L.TileLayer("https://{s}.tiles.mapbox.com/v4/aaronlidman.4aae1384/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImdQMzI4WjgifQ.d-Uyr7NBjrJVz9z82uk5Xg",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+		
+		var layerMapBoxEmerald = new L.TileLayer("http://{s}.tiles.mapbox.com/v4/mapbox.emerald/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6IlpIdEpjOHcifQ.Cldl4wq_T5KOgxhLvbjE-w",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+		var layerMapBoxComic = new L.TileLayer("http://{s}.tiles.mapbox.com/v4/mapbox.comic/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6IlpIdEpjOHcifQ.Cldl4wq_T5KOgxhLvbjE-w",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+		var layerMapBoxRunBikeHike = new L.TileLayer("http://{s}.tiles.mapbox.com/v4/mapbox.run-bike-hike/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6IlpIdEpjOHcifQ.Cldl4wq_T5KOgxhLvbjE-w",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+		var layerMapBoxOutdoor = new L.TileLayer("http://{s}.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6IlpIdEpjOHcifQ.Cldl4wq_T5KOgxhLvbjE-w",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 		//National Geographic World Map
         var layerAdrNatGeoWorld = "http://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}/";
         var layerNatGeoWorld = new L.TileLayer(layerAdrNatGeoWorld,{maxZoom: maxzoom_natgeo,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.nationalgeographic.com">Nationalgeographic</a>'});
@@ -439,7 +450,10 @@
 					"OpenStreetMap Standard": layerOSMStd,
 					"Openstreetmap Humanitarian": layerHumanitarian,
 					"OpenStreetMap Deutschland": layerOSMStdDe,
-					"OpenStreetMap Mapbox": layerMapBox,
+					//"OpenStreetMap Mapbox": layerMapBox,
+					"Mapbox Streets": layerMapBoxStreets,
+					"Mapbox Streets Basic": layerMapBoxStreetsBas,
+					"OpenStreetMap Mapbox Emerald": layerMapBoxEmerald,
 					"OpenStreetMap Lyrk ": layerOSMLyrk,
 					"OpenStreetBrowser": layerOpenStreetBrowser,
 				}
@@ -455,6 +469,7 @@
 					"Google Standard": g_roadmap,
 					"Tomtom Standard": layerTomtom,
 					"Esri Streetmap": layerEsriStreet,
+					//"Kartenwerkstatt OSM": layerKwStattOsm,
 					//"Yandex Standard": layerYandex,
 					"National Geographic Countries": layerNatGeoWorld,
 					"Mapbox Political":layerMapBoxCtry,
@@ -467,7 +482,7 @@
 					"ÖsterrreichKarte (Bergfex)":layerBergfexOek,
 					"AustriaMap (Bergfex)": layerBergfexAmapGrp,
 					"OpenTopoMap": layerOpenTopo,
-					"Mapbox Terrain": layerMapBoxTerr,
+					"Mapbox Outdoor": layerMapBoxOutdoor,
 					"Geofabrik Topo": layerGeofTopo,
 					"OpenStreetMap Landscape": layerOSMLands,
 					"Esri Topo Map": layerEsriTopo,
@@ -485,10 +500,15 @@
 					"OpenStreetMap Hike and Bike": layerHikeBike,
 					"Esri light gray": layerEsriGray,
 					"Stamen Watercolor": layerStamenWaterc,
+					"Mapbox Run, Hike, Bike": layerMapBoxRunBikeHike,
 					"Mapbox Pirate Map": layerMapBoxPirate,
 					"Mapbox Pirate Map 2": layerMapBoxPir2,
+					"Mapbox Comic": layerMapBoxComic,
+					"Mapbox Wheatpaste": layerMapBoxStreetsWheat,
 					"Mapbox Bluemarbel 8 bit": layerMapBoxBlm8bit,
 					"Mapbox Populationfire": layerMapBoxPopFire,
+					"Mapbox Data-Updates": layerMapBoxDataUpd,
+					
 				}
 			},
 			{groupName : "Satellit",
