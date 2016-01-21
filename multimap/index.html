@@ -129,7 +129,7 @@
 						map.removeLayer(marker);
 						marker=null;
 					}
-					aktLayer=decodeURIComponent(position[3] === undefined ? stdLayerName : position[3]);
+					aktLayer=decodeURIComponent(position[3] == null || position[3].length == 0 ? stdLayerName : position[3]);
 				} else if((hash.contains("marker")) && (hash.split("/").length-1 == 2)) {
 					var position = hash.substr(1).split("marker=")[1].split("/");
 					if((marker==null) && (isValid(position))){
@@ -613,7 +613,7 @@
 		
 		var layersControl = L.Control.styledLayerControl(baseMaps, overlayMaps, options);
 		map.addControl(layersControl);
-		map.addLayer(layerMapSurfer); //Standardlayer
+//		map.addLayer(layerMapSurfer); //Standardlayer
 		
 		var miniMapLayer = new L.TileLayer(layerAdrMapSurfer, {minZoom: 0, maxZoom: 14, //subdomains: '1234', 
 		attribution: 'Kartendaten: © <a href="http://korona.geog.uni-heidelberg.de/">Mapsurfer</a>' });
