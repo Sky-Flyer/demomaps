@@ -9,8 +9,8 @@
 	<link rel="apple-touch-icon" href="favicon.png"/>
 	<link rel="icon" type="image/x-icon" href="favicon.ico" />
 	<!-- Leaflet -->
-	<link rel="stylesheet" href="./leaflet-0.7.3/leaflet.css" />
-	<script src="./leaflet-0.7.3/leaflet.js"></script>
+	<link rel="stylesheet" href="./leaflet-0.7.7/leaflet.css" />
+	<script src="./leaflet-0.7.7/leaflet.js"></script>
 	<!-- Leaflet-Plugins (styles) -->
 	<link rel="stylesheet" href="lib/styledLayerControl.css" />
 	<link rel="stylesheet" href="lib/leaflet-search.css" />
@@ -223,9 +223,11 @@
 		var layerOpenTopo = new L.TileLayer(layerAdrTopo,{maxZoom: maxzoom_topo, maxNativeZoom: maxzoom_topo-1, detectRetina: true, attribution: 'Kartendaten: Kartendaten: © <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende, SRTM | Kartendarstellung: © <a href="http://opentopomap.org">OpenTopoMap</a>'});
 		
 		//mapquest open (normal, sat und overlay)
+		//https://c.tiles.mapbox.com/v4/mapquest.streets/10/301/385.png?access_token=pk.eyJ1IjoibWFwcXVlc3QiLCJhIjoiY2Q2N2RlMmNhY2NiZTRkMzlmZjJmZDk0NWU0ZGJlNTMifQ.mPRiEubbajc6a5y9ISgydg
 		//layerAdrMapquest="http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png"
+		//layerAdrMapquest="https://{s}.tiles.mapbox.com/v4/mapquest.streets/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwcXVlc3QiLCJhIjoiY2Q2N2RlMmNhY2NiZTRkMzlmZjJmZDk0NWU0ZGJlNTMifQ.mPRiEubbajc6a5y9ISgydg"
 		//layerMapquest = new L.TileLayer(layerAdrMapquest,{ 
-		//	maxZoom: maxzoom_osm,detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: Maps © <a href="http://mapquest.com/">Mapquest</a>, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+		//	maxZoom: maxzoom_osm, tms: false, subdomains: 'abcd', attribution: 'Kartendaten: Maps © <a href="http://mapquest.com/">Mapquest</a>, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 		//layerMapqSatName="http://ttiles0{s}.mqcdn.com/tiles/1.0.0/vy/sat/{z}/{x}/{y}.png"
 		//layerMapqSatName="http://otile{s}-s.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg"
 		//layerMapquestSat = new L.TileLayer(layerMapqSatName,{ 
@@ -233,6 +235,14 @@
 		//var layerOSMOvl = new L.TileLayer("http://otile{s}-s.mqcdn.com/tiles/1.0.0/hyb/{z}/{x}/{y}.png",
 		//   {maxZoom: maxzoom_osm,detectRetina: true, subdomains: '1234',attribution: 'Kartendaten: Maps © <a href="http://mapquest.com/">Mapquest</a>, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 		
+		
+		// create open railway map layer
+		var layerAdrWikiMedia="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
+		var layerWikiMedia = new L.TileLayer(layerAdrWikiMedia,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Wikimedia maps beta | Map data &copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+		
+		// create open railway map layer
+		var layerAdrORailw="http://{s}.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png"
+		var layerORailw = new L.TileLayer(layerAdrORailw,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: <a href="http://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a>, Style: <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA 2.0</a> <a href="http://www.openrailwaymap.org/">OpenRailwayMap</a>'});
 		// create osm cyclemap layer
 		var layerAdrOSMCyle="http://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png"
 		var layerOSMCycle = new L.TileLayer(layerAdrOSMCyle,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: Maps © <a href="http://www.thunderforest.com">Thunderforest</a>, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
@@ -456,16 +466,15 @@
 				expanded : true,
 				layers    : {
 					"OpenStreetMap Mapsurfer": layerMapSurfer,
-					//"Mapquest Open": layerMapquest,
 					"OpenStreetMap Standard": layerOSMStd,
 					"Openstreetmap Humanitarian": layerHumanitarian,
 					"OpenStreetMap Deutschland": layerOSMStdDe,
-					//"OpenStreetMap Mapbox": layerMapBox,
+					"Wikimedia Maps": layerWikiMedia,
 					"Mapbox Streets": layerMapBoxStreets,
 					"Mapbox Streets Basic": layerMapBoxStreetsBas,
 					"OpenStreetMap Mapbox Emerald": layerMapBoxEmerald,
 					"OpenStreetMap Lyrk ": layerOSMLyrk,
-					//"OpenStreetBrowser": layerOpenStreetBrowser,
+					
 				}
 			},
 			{groupName : "Standard Karten",
@@ -568,6 +577,7 @@
 			{groupName : "Diverse Overlays",
 				expanded : false,
 				layers    : {
+					"Open Railway Map": layerORailw,
 					"Mapsurfer Administrative Grenzen": layerMapSurferAdminOvl,
 					"Harvard Internationale Grenzen":layerHarvWld,
 					"Mapsurfer Hillshade": layerMapSurferHillOvl,
