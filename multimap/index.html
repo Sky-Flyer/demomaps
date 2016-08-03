@@ -1,7 +1,7 @@
 ﻿<html lang="de">
   <head>
     <meta charset="utf-8">
-	<title>Multimap (20160803-1621)</title>
+	<title>Multimap (20160803-2138)</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />	
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
@@ -33,8 +33,8 @@
     <script src="lib/L.Control.Zoomslider.js"></script>
 	<script src="lib/L.Control.Locate.js"></script>
 	<script src="lib/Leaflet.Coordinates-0.1.5.min.js"></script>
-	<script src="lib/leaflet.filelayer.js"></script>
-    <script src="lib/togeojson.js"></script>
+	<!--<script src="lib/leaflet.filelayer.js"></script>
+    <script src="lib/togeojson.js"></script>-->
 	<!-- other plugins -->
 	<script src="lib/leaflet-google.js"></script>
 	<script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
@@ -60,10 +60,11 @@
 		var maxzoom_g_sat=20;
 		var maxzoom_esri_sat=18;
 		var maxzoom_amap=13;
-        var maxzoom_natgeo=12;
+		var maxzoom_natgeo=12;
 		var maxzoom_mapboxctry=7;
 		var minzoom_amap=8;
 		var maxzoom_19=19;
+		var maxzoom_14=14;
 		var maxzoom_10=10;
 		var maxzoom_6=6;
 		var maxzoom_5=5;
@@ -316,7 +317,7 @@
 		layerAdrAppleOverlay="https://cdn{s}.apple-mapkit.com/tp/tile?type=tile&style=46&size=1&x={x}&y={y}&z={z}&scale=1&lang=de-DE&imageFormat=png&vendorkey=38da783db1ef0c2d9f8e783a063ffcdc6a6330fe"
 		layerAppleOverlay = new L.TileLayer(layerAdrAppleOverlay,{ maxZoom: maxzoom_g_sat,detectRetina: true, 	transparent: true, format: 'image/png', subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
 		layerAdrAppleStdAlt="http://gsp2.apple.com/tile?api=1&style=slideshow&layers=default&lang=de_DE&z={z}&x={x}&y={y}&v=10"
-		layerAppleStdAlt = new L.TileLayer(layerAdrAppleStdAlt,{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
+		layerAppleStdAlt = new L.TileLayer(layerAdrAppleStdAlt,{ maxZoom: maxzoom_14, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
 		
 		// Bing layers
 		var bing_areal = new L.BingLayer("AuhiCJHlGzhg93IqUH_oCpl_-ZUrIE6SPftlyGYUvr9Amx5nzA-WqGcPquyFZl4L", {type: 'Aerial',maxZoom: maxzoom_std});
@@ -653,13 +654,13 @@
 		var miniMapLayer = new L.TileLayer(layerAdrMapSurfer, {minZoom: 0, maxZoom: 14, //subdomains: '1234', 
 		attribution: 'Kartendaten: © <a href="http://korona.geog.uni-heidelberg.de/">Mapsurfer</a>' });
 		var miniMap = new L.Control.MiniMap(miniMapLayer, { toggleDisplay: true, zoomLevelOffset: -7 }).addTo(map);
-		L.Control.FileLayerLoad.LABEL = '<i class="fa fa-folder-open" style="line-height: 1.5" ></i>';
-		L.Control.fileLayerLoad({layer: L.geoJson, layerOptions: {style: {color:'red'}},
-			addToMap: true, fileSizeLimit: 1024, formats: ['.geojson','.kml']}).addTo(map);
-		var control = L.Control.fileLayerLoad();
-		control.loader.on('data:loaded', function (e) {
-			layerswitcher.addOverlay(e.layer, e.filename);
-		});
+		//L.Control.FileLayerLoad.LABEL = '<i class="fa fa-folder-open" style="line-height: 1.5" ></i>';
+		//L.Control.fileLayerLoad({layer: L.geoJson, layerOptions: {style: {color:'red'}},
+		//	addToMap: true, fileSizeLimit: 1024, formats: ['.geojson','.kml']}).addTo(map);
+		//var control = L.Control.fileLayerLoad();
+		//Control.loader.on('data:loaded', function (e) {
+		//	layerswitcher.addOverlay(e.layer, e.filename);
+		//});
 		
 		map.on('moveend', function(e) {
 			lock=true;
