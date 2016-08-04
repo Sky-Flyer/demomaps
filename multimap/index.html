@@ -2,7 +2,7 @@
 <html lang="de">
   <head>
     <meta charset="utf-8">
-	<title>Multimap (20160804-1305)</title>
+	<title>Multimap (20160804-1542)</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />	
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
@@ -268,6 +268,9 @@
 		var layerAdrOSMStdDe = 'http://tile.geofabrik.de/23228979966ae9040ceb0597251e12a2/{z}/{x}/{y}.png'
 		var layerOSMStdDe = new L.TileLayer(layerAdrOSMStdDe,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 
+		//webatlas.no
+		var layerWebAtlNo = new L.TileLayer("http://www.webatlas.no/maptiles/tiles/webatlas-standard-vektor/wa_grid/{z}/{x}/{y}.png",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © Norkart AS/EEA CLC2006/<a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+
 		//Basemap.at
 		var layerAdrBasem="http://maps{s}.wien.gv.at/basemap/bmaphidpi/normal/google3857/{z}/{y}/{x}.jpg"
 		var layerBasem = new L.TileLayer(layerAdrBasem,{ maxZoom: maxzoom_osm, bounds: boundsAUT, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at<a/>'});
@@ -474,7 +477,7 @@
 		
 		//Layer-Switcher
 		baseMaps = [
-			{groupName : "OSM Standard",
+			{groupName : "Open Streetmap",
 				expanded : true,
 				layers    : {
 					"OpenStreetMap Mapsurfer": layerMapSurfer,
@@ -486,6 +489,7 @@
 					"Mapbox Streets Basic": layerMapBoxStreetsBas,
 					"OpenStreetMap Mapbox Emerald": layerMapBoxEmerald,
 					"OpenStreetMap Lyrk ": layerOSMLyrk,
+					"WebAtlas.no": layerWebAtlNo,
 					
 				}
 			},
@@ -498,12 +502,9 @@
 					"Here-Maps Standard": layerNokiaRoad,
 					"Here-Maps Verkehr": layerNokiaTrafic,
 					"Bing Standard":  bing_road,
-					//"Google Standard": g_roadmap,
 					"Google Standard": layerGoogleStd,
 					"Tomtom Standard": layerTomtom,
 					"Esri Streetmap": layerEsriStreet,
-					//"Kartenwerkstatt OSM": layerKwStattOsm,
-					//"Yandex Standard": layerYandex,
 					"National Geographic Countries": layerNatGeoWorld,
 					"Mapbox Political":layerMapBoxCtry,
 				}
@@ -520,11 +521,10 @@
 					"OpenStreetMap Landscape": layerOSMLands,
 					"Esri Topo Map": layerEsriTopo,
 					"Here-Maps Terrain": layerNokiaTerr,
-					//"Google Terrain":  g_terrain,
 					"Google Terrain":  layerGoogleTer,
 				}
 			},
-			{groupName : "Themen und Diverse",
+			{groupName : "Transport und Outdoor",
 				expanded : false,
 				layers    : {
 					"Thunderforest Transport":layerOSMTransp,
@@ -532,9 +532,14 @@
 					"OpenStreetMap Outdoors": layerOSMOutd,
 					"OpenStreetMap Cycle": layerOSMCycle,
 					"OpenStreetMap Hike and Bike": layerHikeBike,
-					"Esri light gray": layerEsriGray,
-					"Stamen Watercolor": layerStamenWaterc,
 					"Mapbox Run, Hike, Bike": layerMapBoxRunBikeHike,
+					"Esri light gray": layerEsriGray,
+			}
+			},
+			{groupName : "Lustige und Diverse",
+				expanded : false,
+				layers    : {
+					"Stamen Watercolor": layerStamenWaterc,
 					"Mapbox Pirate Map": layerMapBoxPirate,
 					"Mapbox Pirate Map 2": layerMapBoxPir2,
 					"Mapbox Comic": layerMapBoxComic,
