@@ -1,7 +1,8 @@
 ﻿<html lang="de">
+<html lang="de">
   <head>
     <meta charset="utf-8">
-	<title>Multimap (20160803-2138)</title>
+	<title>Multimap (20160804-1017)</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />	
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
@@ -33,8 +34,8 @@
     <script src="lib/L.Control.Zoomslider.js"></script>
 	<script src="lib/L.Control.Locate.js"></script>
 	<script src="lib/Leaflet.Coordinates-0.1.5.min.js"></script>
-	<!--<script src="lib/leaflet.filelayer.js"></script>
-    <script src="lib/togeojson.js"></script>-->
+	<script src="lib/leaflet.filelayer.js"></script>
+    <script src="lib/togeojson.js"></script>
 	<!-- other plugins -->
 	<script src="lib/leaflet-google.js"></script>
 	<script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
@@ -303,11 +304,11 @@
 		var g_satellite = new L.Google('SATELLITE', {maxZoom: maxzoom_g_sat,attribution: 'Kartendaten: © Google'});
 		var g_hybrid   = new L.Google('HYBRID', {maxZoom: maxzoom_g_sat,attribution: 'Kartendaten: © Google'});
 		var g_terrain   = new L.Google('TERRAIN',{maxZoom: maxzoom_topo,attribution: 'Kartendaten: © Google'});
-		var layerGoogleStd = new L.TileLayer("http://mt{s}.google.com/vt/x={x}&y={y}&z={z}",{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '123', attribution: 'Kartendaten: © Google'});
-		var layerGoogleTer = new L.TileLayer("http://mt{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '123', attribution: 'Kartendaten: © Google'});
-		var layerGoogleHyb = new L.TileLayer("http://mt{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '123', attribution: 'Kartendaten: © Google'});
-		var layerGoogleSat = new L.TileLayer("http://mt{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '123', attribution: 'Kartendaten: © Google'});
-		var layerGoogleLbl = new L.TileLayer("http://mt{s}.google.com/vt/lyrs=h&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '123', attribution: 'Kartendaten: © Google'});
+		var layerGoogleStd = new L.TileLayer("http://mt{s}.google.com/vt/hl=de&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '123', attribution: 'Kartendaten: © Google'});
+		var layerGoogleTer = new L.TileLayer("http://mt{s}.google.com/vt/hl=de&lyrs=p&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '123', attribution: 'Kartendaten: © Google'});
+		var layerGoogleHyb = new L.TileLayer("http://mt{s}.google.com/vt/hl=de&lyrs=y&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '123', attribution: 'Kartendaten: © Google'});
+		var layerGoogleSat = new L.TileLayer("http://mt{s}.google.com/vt/hl=de&lyrs=s&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '123', attribution: 'Kartendaten: © Google'});
+		var layerGoogleLbl = new L.TileLayer("http://mt{s}.google.com/vt/hl=de&lyrs=h&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '123', attribution: 'Kartendaten: © Google'});
 		
 		//apple layers
 		layerAdrAppleStd="https://cdn{s}.apple-mapkit.com/tp/tile?type=tile&style=0&size=1&x={x}&y={y}&z={z}&scale=1&lang=de-DE&imageFormat=jpg&vendorkey=38da783db1ef0c2d9f8e783a063ffcdc6a6330fe"
@@ -541,8 +542,7 @@
 					"Mapbox Bluemarbel 8 bit": layerMapBoxBlm8bit,
 					"Mapbox Populationfire": layerMapBoxPopFire,
 					"Mapbox Data-Updates": layerMapBoxDataUpd,
-					
-				}
+			}
 			},
 			{groupName : "Satellit",
 				expanded : false,
@@ -661,6 +661,15 @@
 		//Control.loader.on('data:loaded', function (e) {
 		//	layerswitcher.addOverlay(e.layer, e.filename);
 		//});
+		var style = {color:'blue', opacity: 1.0, fillOpacity: 1.0, weight: 3, clickable: false};
+		L.Control.FileLayerLoad.LABEL = '<i class="fa fa-folder-open" style="line-height: 1.5"></i>';
+        L.Control.fileLayerLoad({
+            fitBounds: true,
+            layerOptions: {style: style,
+                           pointToLayer: function (data, latlng) {
+                              return L.circleMarker(latlng, {style: style});
+                           }},
+        }).addTo(map)
 		
 		map.on('moveend', function(e) {
 			lock=true;
