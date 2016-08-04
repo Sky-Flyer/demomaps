@@ -2,7 +2,7 @@
 <html lang="de">
   <head>
     <meta charset="utf-8">
-	<title>Multimap (20160804-1017)</title>
+	<title>Multimap (20160804-1128)</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />	
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
@@ -702,7 +702,7 @@
 					map.setZoom(minzoom_amap);
 				}
 			}
-            else if(!((e.name=="Google Satellit")||(e.name=="Google Hybrid"))&&(map.getZoom()>maxzoom_std)){
+			else if(!((e.name=="Google Satellit")||(e.name=="Google Hybrid")||(e.name=="Google Hybrid (alternativ)")||(e.name=="Google Satellit (alternativ)"))&&(map.getZoom()>maxzoom_std)){
                 map.setZoom(maxzoom_std);
             }
 			//console.log(e.maxZoom);
