@@ -2,7 +2,7 @@
 <html lang="de">
   <head>
     <meta charset="utf-8">
-	<title>Multimap (20160804-1542)</title>
+	<title>Multimap (20160913-0928)</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />	
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
@@ -268,6 +268,9 @@
 		var layerAdrOSMStdDe = 'http://tile.geofabrik.de/23228979966ae9040ceb0597251e12a2/{z}/{x}/{y}.png'
 		var layerOSMStdDe = new L.TileLayer(layerAdrOSMStdDe,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 
+		var layerAdrOSMOvl = 'http://{s}.sm.mapstack.stamen.com/toner-hybrid/{z}/{x}/{y}.png'
+		var layerOSMOvl = new L.TileLayer(layerAdrOSMOvl,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+		
 		//webatlas.no
 		var layerWebAtlNo = new L.TileLayer("http://www.webatlas.no/maptiles/tiles/webatlas-standard-vektor/wa_grid/{z}/{x}/{y}.png",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © Norkart AS/EEA CLC2006/<a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 
@@ -490,19 +493,18 @@
 					"OpenStreetMap Mapbox Emerald": layerMapBoxEmerald,
 					"OpenStreetMap Lyrk ": layerOSMLyrk,
 					"WebAtlas.no": layerWebAtlNo,
-					
 				}
 			},
 			{groupName : "Standard Karten",
 				expanded : false,
 				layers    : {
 					"Basemap.at Grundkarte": layerGrpBasemVd,
-					"Apple Standard": layerAppleStd,
-					"Apple Standard (alternativ)": layerAppleStdAlt,
+					"Google Standard": layerGoogleStd,
 					"Here-Maps Standard": layerNokiaRoad,
 					"Here-Maps Verkehr": layerNokiaTrafic,
 					"Bing Standard":  bing_road,
-					"Google Standard": layerGoogleStd,
+					"Apple Standard": layerAppleStd,
+					"Apple Standard (alternativ)": layerAppleStdAlt,
 					"Tomtom Standard": layerTomtom,
 					"Esri Streetmap": layerEsriStreet,
 					"National Geographic Countries": layerNatGeoWorld,
@@ -552,8 +554,8 @@
 			{groupName : "Satellit",
 				expanded : false,
 				layers    : {
-					"Google Satellit":  g_satellite,
 					"Google Satellit (alternativ)":  layerGoogleSat,
+					"Google Satellit":  g_satellite,
 					"Here-Maps Satellit": layerNokiaSat,
 					"Bing Satellit":  bing_areal,
 					"Apple Satellit": layerAppleSat,
@@ -565,10 +567,10 @@
 			{groupName : "Satellit (Hybrid)",
 				expanded : false,
 				layers    : {
+					"Google Hybrid (alternativ)": layerGoogleHyb,
+					"Google Hybrid": g_hybrid,
 					"Here-Maps Hybrid": layerNokiaHybrid,
 					"Bing Hybrid":  bing_areal_label,
-					"Google Hybrid": g_hybrid,
-					"Google Hybrid (alternativ)": layerGoogleHyb,
 					"Mapbox Hybrid":layerMapBoxHybr,
 				}
 			},
@@ -586,11 +588,11 @@
 			 {groupName : "Beschriftungen",
 					expanded : false,
 					layers    : {
-						//"Mapquest Beschriftungen": layerOSMOvl,
 						"Mapsurfer Beschriftungen": layerMapSurferOvl,
+						"OSM Beschriftungen": layerOSMOvl,
 						"Google Beschriftungen": layerGoogleLbl,
-						"Apple Beschriftungen": layerAppleOverlay,
 						"Nokia Heremaps Beschriftungen":layerNokiaLabel,
+						"Apple Beschriftungen": layerAppleOverlay,
 						"Basemap Beschriftungen": layerBasemOvl,
 						//"Basemap Beschriftung (lokal)":layerBasemapOvlLocal,
 					}
