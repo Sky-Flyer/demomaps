@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+	    <title>Primzahlen</title>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+		<style>
+			/*table {border-collapse: collapse;}
+			table, th, td {border: 1px solid black;}*/
+			td {min-width:30px;}
+			.primeNumCell {background-color: orange;}
+        </style>
+
+		<script>
+		"use strict";
+		var primeNumbers = [];
+		var maxValidBound = 10000;
+		
+        function isPrime(n){
+			if(Number.isNaN(n) || n<1 ) {return false;}
+			var i;
+            for(i=2;i<n;i++){
+                if(n%i==0){
+                    return false;
+                }
+            }
+			primeNumbers.push(n);
+            return true;
+        }
+		
+        function engage(){
+			//document.getElementById('outDiv').innerHTML ='<img src="ajax-loader.gif" alt="activity indicator">';
+			var maxBoundVal = document.getElementById('maxBound').value;
+			var output = "<table class='table-bordered'><tr>";
+			var j;
+			if(maxBoundVal>maxValidBound){
+				document.getElementById('outDiv').innerHTML = "Zahl ist zu groß!";
+				return;
+			}
+			if(maxBoundVal<1){
+				document.getElementById('outDiv').innerHTML = "Zahl ist zu klein!";
+				return;
+			}
+            for(j=1;j<=maxBoundVal;j++){
+                if(isPrime(j)){
+					output+="<td class='primeNumCell'>";
+                }
+				else{
+					output+="<td>";
+				}
+				output+=j+"</td>"
+                if(j%10==0){
+                    output+="</tr><tr>";
+                }
+            }
+            output+="</tr></table>";
+			document.getElementById('outDiv').innerHTML = output;
+        }
+		
+		function clearDiv(){
+			document.getElementById('outDiv').innerHTML = "";
+		}
+		</script>
+		
+    </head>
+	<body onload="">
+		<div>
+			<div class="jumbotron"> 
+				<div class="container text-left">
+				<h1>Primzahlenrechner</h1>
+				</div>
+			
+				<div class="container">
+					Berechne Primzahlen bis: <input id="maxBound" min="1" max="10000" value="100">
+				<button id="engage" class="btn btn-primary" onclick="engage()">Energie!</button>
+				<button id="clear" class="btn btn-warning" onclick="clearDiv()">Ausgabe löschen</button>
+				</div>
+			</div>
+			<div class="container text-left"
+				<div id="outDiv"></div>
+			</div>
+		</div>
+    </body>
+</html>
