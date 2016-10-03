@@ -1,0 +1,22 @@
+{
+    "version": "0.1.0",
+    "command": "cmd", 
+    "isShellCommand": true,
+    "showOutput": "silent",
+    "args": ["/C"],
+
+    "tasks": [
+        {
+        "taskName": "Build Type Script",
+        "suppressTaskName": true,
+        "isBuildCommand": true,
+        "args": ["tsc -p ."]
+        },
+        {
+        "taskName": "Open in Node.js",
+        "suppressTaskName": true,
+        "isBuildCommand": true,
+        "args": ["node", "${file}"]
+        }
+    ]
+}
