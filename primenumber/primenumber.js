@@ -1,6 +1,6 @@
 "use strict";
 var primeNumbers = [];
-var maxValidBound = 10000;
+var maxValidBound = 100000;
 
 function isPrimeSimple(n){
     if(Number.isNaN(n) || n<=1 ) {return false;}
@@ -13,14 +13,14 @@ function isPrimeSimple(n){
     return true;
 }
 function isPrimeOpt(n){
-    if(Number.isNaN(n) || n<1 ) {return false;}
+    if(Number.isNaN(n) || n<=1 ) {return false;}
     var i;
-    for(i=2;i<n;i++){
+    for(i=2;i*i<=n;i++){
         if(n%i==0){
             return false;
         }
     }
-    primeNumbers.push(n);
+    //primeNumbers.push(n);
     return true;			
 }
 
@@ -39,8 +39,11 @@ function engage(){
         document.getElementById('maxBound').value = 100;
         return;
     }
+    var isPrimNum=false;
     for(j=1;j<=maxBoundVal;j++){
-        if(isPrimeSimple(j)){
+        //isPrimNum=isPrimeSimple(j);
+        //if (isPrimNum!=isPrimeOpt(j)){console.log("unterschied bei "+j)}
+        if(isPrimeOpt(j)){
             output+="<td class='primeNumCell'>";
         }
         else{
