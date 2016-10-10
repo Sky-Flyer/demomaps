@@ -39,10 +39,7 @@ function engage(){
         document.getElementById('maxBound').value = 100;
         return;
     }
-    var isPrimNum=false;
     for(j=1;j<=maxBoundVal;j++){
-        //isPrimNum=isPrimeSimple(j);
-        //if (isPrimNum!=isPrimeOpt(j)){console.log("unterschied bei "+j)}
         if(isPrimeOpt(j)){
             output+="<td class='primeNumCell'>";
         }
