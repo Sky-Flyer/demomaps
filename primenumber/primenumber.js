@@ -1,8 +1,9 @@
-"use strict";
+//"use strict";
 var primeNumbers = [];
 var maxValidBound = 100000;
+var self=this;
 
-function isPrimeSimple(n){
+this.isPrimeSimple = function(n){
     if(Number.isNaN(n) || n<=1 ) {return false;}
     var i;
     for(i=2;i<n;i++){
@@ -12,7 +13,7 @@ function isPrimeSimple(n){
     }
     return true;
 }
-function isPrimeOpt(n){
+this.isPrimeOpt = function(n){
     if(Number.isNaN(n) || n<=1 ) {return false;}
     var i;
     for(i=2;i*i<=n;i++){
@@ -57,4 +58,10 @@ function engage(){
 
 function clearDiv(){
     document.getElementById('outDiv').innerHTML = "";
+}
+
+module.exports = function() { 
+     this.sum=function(a,b) { return a+b };
+     this.multiply= function(a,b) { return a*b };
+     this.isPrimeOpt=self.isPrimeOpt;
 }
