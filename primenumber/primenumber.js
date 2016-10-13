@@ -3,8 +3,24 @@ var primeNumbers = [];
 var maxValidBound = 100000;
 var self=this;
 
+this.myIsNaN = function(n){
+    if (typeof Number.isNaN == 'function')
+    {
+        return Number.isNaN(n);
+    }
+    if(typeof isNaN == 'function'){
+        return isNaN(n);
+    }
+    if(typeof n == 'number'){
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
 this.isPrimeSimple = function(n){
-    if(Number.isNaN(n) || n<=1 ) {return false;}
+    if(myIsNaN(n) || n<=1 ) {return false;}
     var i;
     for(i=2;i<n;i++){
         if(n%i==0){
@@ -14,7 +30,7 @@ this.isPrimeSimple = function(n){
     return true;
 }
 this.isPrimeOpt = function(n){
-    if(Number.isNaN(n) || n<=1 ) {return false;}
+    if(myIsNaN(n) || n<=1 ) {return false;}
     var i;
     for(i=2;i*i<=n;i++){
         if(n%i==0){
