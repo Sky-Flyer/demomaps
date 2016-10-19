@@ -1,6 +1,6 @@
 //"use strict";
 var primeNumbers = [];
-var maxValidBound = 100000;
+var maxValidBound = 1000000;
 var self=this;
 
 this.myIsNaN = function(n){
