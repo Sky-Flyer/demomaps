@@ -1,3 +1,7 @@
 .idea/
 multimap/tilecache*/
 *.project
+*.exe
+*.pdb
+*.dll
+primenumber/primzahlen-liste.xls
