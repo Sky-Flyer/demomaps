@@ -2,7 +2,7 @@
 <html lang="de">
   <head>
     <meta charset="utf-8">
-	<title>Multimap (20160913-0928)</title>
+	<title>Multimap (20161128-0927)</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />	
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
@@ -444,6 +444,15 @@
 		var layerHarvWld = new L.TileLayer.WMS("http://worldmap.harvard.edu/geoserver/wms",
 				{maxZoom: maxzoom_std,layers: 'geonode:Digital_Chart_of_the_World',format: 'image/png',transparent: true,attribution: 'Kartendaten: © <a href="http://worldmap.harvard.edu">Harvard Worldmap</a>'});
 
+		//Neuseeland LINZ-Dataservice
+		var layerLinzNzTopo250 = new L.TileLayer("https://tiles-a.data-cdn.linz.govt.nz/services;key=9fccd3c148c24bf1b11cbadfcb3d9d89/tiles/v4/layer=798,style=auto/{z}/{x}/{y}.png",{maxZoom: 12, minZoom: 9, detectRetina: true, attribution: 'Kartendaten: © <a href="https://data.linz.govt.nz/">Land Information New Zealand</a>'})
+		
+		var layerLinzNzTopo50 = new L.TileLayer("https://tiles-a.data-cdn.linz.govt.nz/services;key=a23e7b655e11475788582b1c230cb0ac/tiles/v4/layer=767,style=auto//{z}/{x}/{y}.png",{maxZoom: 15, minZoom: 13, detectRetina: true, attribution: 'Kartendaten: © <a href="https://data.linz.govt.nz/">Land Information New Zealand</a>'})
+
+		var layerMapBoxStreets2 = new L.TileLayer(layerAdrMapboxStreets,{maxZoom: 8,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+
+		var layerGrpLinzNz = L.layerGroup().addLayer(layerMapBoxStreets2).addLayer(layerLinzNzTopo250).addLayer(layerLinzNzTopo50);
+		
 		//lokale tiles
 /*		
 		var layerBasemapLocal = new L.TileLayer("tilecache-bs/{z}/{y}/{x}.png",
@@ -524,6 +533,7 @@
 					"Esri Topo Map": layerEsriTopo,
 					"Here-Maps Terrain": layerNokiaTerr,
 					"Google Terrain":  layerGoogleTer,
+					"Land Information New Zealand Topo":layerGrpLinzNz,
 				}
 			},
 			{groupName : "Transport und Outdoor",
