@@ -2,7 +2,7 @@
 <html lang="de">
   <head>
     <meta charset="utf-8">
-	<title>Multimap (20161128-0927)</title>
+	<title>Multimap (20170111-1543)</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />	
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
@@ -66,6 +66,7 @@
 		var minzoom_amap=8;
 		var maxzoom_19=19;
 		var maxzoom_14=14;
+		var maxzoom_11=11;
 		var maxzoom_10=10;
 		var maxzoom_6=6;
 		var maxzoom_5=5;
@@ -445,17 +446,33 @@
 				{maxZoom: maxzoom_std,layers: 'geonode:Digital_Chart_of_the_World',format: 'image/png',transparent: true,attribution: 'Kartendaten: © <a href="http://worldmap.harvard.edu">Harvard Worldmap</a>'});
 
 		//Neuseeland LINZ-Dataservice
-		var layerLinzNzTopo250 = new L.TileLayer("https://tiles-a.data-cdn.linz.govt.nz/services;key=9fccd3c148c24bf1b11cbadfcb3d9d89/tiles/v4/layer=798,style=auto/{z}/{x}/{y}.png",{maxZoom: 12, minZoom: 9, detectRetina: true, attribution: 'Kartendaten: © <a href="https://data.linz.govt.nz/">Land Information New Zealand</a>'})
-		
-		var layerLinzNzTopo50 = new L.TileLayer("https://tiles-a.data-cdn.linz.govt.nz/services;key=a23e7b655e11475788582b1c230cb0ac/tiles/v4/layer=767,style=auto//{z}/{x}/{y}.png",{maxZoom: 15, minZoom: 13, detectRetina: true, attribution: 'Kartendaten: © <a href="https://data.linz.govt.nz/">Land Information New Zealand</a>'})
+		// var layerLinzNzTopo250 = new L.TileLayer("https://tiles-a.data-cdn.linz.govt.nz/services;key=9fccd3c148c24bf1b11cbadfcb3d9d89/tiles/v4/layer=798,style=auto/{z}/{x}/{y}.png",{maxZoom: 12, minZoom: 9, detectRetina: true, attribution: 'Kartendaten: © <a href="https://data.linz.govt.nz/">Land Information New Zealand</a>'})
+		// var layerLinzNzTopo50 = new L.TileLayer("https://tiles-a.data-cdn.linz.govt.nz/services;key=a23e7b655e11475788582b1c230cb0ac/tiles/v4/layer=767,style=auto//{z}/{x}/{y}.png",{maxZoom: 15, minZoom: 13, detectRetina: true, attribution: 'Kartendaten: © <a href="https://data.linz.govt.nz/">Land Information New Zealand</a>'})
+		// var layerMapBoxStreets2 = new L.TileLayer(layerAdrMapboxStreets,{maxZoom: 8,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+		// var layerGrpLinzNz = L.layerGroup().addLayer(layerMapBoxStreets2).addLayer(layerLinzNzTopo250).addLayer(layerLinzNzTopo50);
 
-		var layerMapBoxStreets2 = new L.TileLayer(layerAdrMapboxStreets,{maxZoom: 8,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
-
-		var layerGrpLinzNz = L.layerGroup().addLayer(layerMapBoxStreets2).addLayer(layerLinzNzTopo250).addLayer(layerLinzNzTopo50);
+		//
+		layerOpenTopoMLandsat=new L.TileLayer("http://irs.gis-lab.info/?layers=landsat&request=GetTile&z={z}&x={x}&y={y}",{maxZoom: maxzoom_14, detectRetina: true, attribution: 'Kartendaten: Kartendaten: © <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende, SRTM | Kartendarstellung: © <a href="http://opentopomap.org">OpenTopoMap</a>'})
 		
+		layerEcmapsFalk=new L.TileLayer("http://ec{s}.cdn.ecmaps.de/WmsGateway.ashx.jpg?ZoomLevel={z}&TileX={x}&TileY={y}&Experience=ecmaps&MapStyle=FALK",{maxZoom: 17, subdomains: '0123', detectRetina: true, attribution: 'Kartendaten: © ecmaps.de'})
+
+		layerEcmapsOsmSummer=new L.TileLayer("http://ec{s}.cdn.ecmaps.de/WmsGateway.ashx.jpg?ZoomLevel={z}&TileX={x}&TileY={y}&Experience=ecmaps&MapStyle=Summer OSM",{maxZoom: 16, subdomains: '0123', detectRetina: true, attribution: 'Kartendaten: © ecmaps.de'})
+
+		layerMapsForFreeRelief=new L.TileLayer("https://maps-for-free.com/layer/relief/z{z}/row{y}/{z}_{x}-{y}.jpg",{maxZoom: maxzoom_11, detectRetina: true, attribution: 'Kartendaten: Kartendaten: © <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende, SRTM | Kartendarstellung: © a< href="https://maps-for-free.com/">Maps For Free</a>'})
+
+		//dianacht.de - Gradgitter
+		//var layerUtm3233Grid = new L.tileLayer.wms("https://wms.dianacht.de/cgi-bin2/mapserv6", {
+		//	layers: 'utmz32,utmz33',
+		//	format: 'image/png',
+		//	style: '',
+		//	transparent: true,
+		//	attribution: 'Kartendaten: <a href="http://vermessung.bayern.de/">Bayerische Vermessungsverwaltung</a>'
+		//});
+
+
+
 		//lokale tiles
-/*		
-		var layerBasemapLocal = new L.TileLayer("tilecache-bs/{z}/{y}/{x}.png",
+/*		var layerBasemapLocal = new L.TileLayer("tilecache-bs/{z}/{y}/{x}.png",
 		{maxZoom: maxzoom_19, bounds: boundsAUT, format: 'image/png', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at</a> (lokale Tiles)'});
 		var layerBasemapAltLocal = new L.TileLayer("tilecache-bs-alt/{z}/{y}/{x}.png",
 		{maxZoom: maxzoom_19, bounds: boundsAUT, format: 'image/png', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at</a> (lokale Tiles)'});
@@ -497,10 +514,10 @@
 					"Openstreetmap Humanitarian": layerHumanitarian,
 					"OpenStreetMap Deutschland": layerOSMStdDe,
 					"Wikimedia Maps": layerWikiMedia,
-					"Mapbox Streets": layerMapBoxStreets,
 					"Mapbox Streets Basic": layerMapBoxStreetsBas,
-					"OpenStreetMap Mapbox Emerald": layerMapBoxEmerald,
+					"Mapbox Emerald": layerMapBoxEmerald,
 					"OpenStreetMap Lyrk ": layerOSMLyrk,
+					"Ecmaps OSM Summer": layerEcmapsOsmSummer,
 					"WebAtlas.no": layerWebAtlNo,
 				}
 			},
@@ -513,9 +530,9 @@
 					"Here-Maps Verkehr": layerNokiaTrafic,
 					"Bing Standard":  bing_road,
 					"Apple Standard": layerAppleStd,
-					"Apple Standard (alternativ)": layerAppleStdAlt,
 					"Tomtom Standard": layerTomtom,
 					"Esri Streetmap": layerEsriStreet,
+					"Ecmaps Falk":layerEcmapsFalk,
 					"National Geographic Countries": layerNatGeoWorld,
 					"Mapbox Political":layerMapBoxCtry,
 				}
@@ -527,13 +544,14 @@
 					"ÖsterrreichKarte (Bergfex)":layerBergfexOek,
 					"AustriaMap (Bergfex)": layerBergfexAmapGrp,
 					"OpenTopoMap": layerOpenTopo,
-					"Mapbox Outdoor": layerMapBoxOutdoor,
+					"Mapbox Topo": layerMapBoxStreets,
 					"Geofabrik Topo": layerGeofTopo,
 					"OpenStreetMap Landscape": layerOSMLands,
 					"Esri Topo Map": layerEsriTopo,
 					"Here-Maps Terrain": layerNokiaTerr,
 					"Google Terrain":  layerGoogleTer,
-					"Land Information New Zealand Topo":layerGrpLinzNz,
+					"Maps For Free Relief":layerMapsForFreeRelief,
+					// "Land Information New Zealand Topo":layerGrpLinzNz,
 				}
 			},
 			{groupName : "Transport und Outdoor",
@@ -544,13 +562,15 @@
 					"OpenStreetMap Outdoors": layerOSMOutd,
 					"OpenStreetMap Cycle": layerOSMCycle,
 					"OpenStreetMap Hike and Bike": layerHikeBike,
+					"Mapbox Outdoor": layerMapBoxOutdoor,
 					"Mapbox Run, Hike, Bike": layerMapBoxRunBikeHike,
-					"Esri light gray": layerEsriGray,
 			}
 			},
 			{groupName : "Lustige und Diverse",
 				expanded : false,
 				layers    : {
+					"Esri light gray": layerEsriGray,
+					"Apple (alternativ)": layerAppleStdAlt,
 					"Stamen Watercolor": layerStamenWaterc,
 					"Mapbox Pirate Map": layerMapBoxPirate,
 					"Mapbox Pirate Map 2": layerMapBoxPir2,
@@ -572,6 +592,7 @@
 					"Mapbox Satellit":layerMapBoxSat,
 					"Esri Satellit": layerEsriWldImg,
 					"Basemap Orthofoto": layerBasemOrtho,
+					"OpenTopomap Landsat":layerOpenTopoMLandsat,
 				}
 			},
 			{groupName : "Satellit (Hybrid)",
@@ -610,12 +631,13 @@
 			{groupName : "Diverse Overlays",
 				expanded : false,
 				layers    : {
-					"Open Railway Map": layerORailw,
 					"Mapsurfer Administrative Grenzen": layerMapSurferAdminOvl,
 					"Harvard Internationale Grenzen":layerHarvWld,
 					"Mapsurfer Hillshade": layerMapSurferHillOvl,
+					"Open Railway Map": layerORailw,
 					"Wien, Baustellen":layerWienBaust,
 					"Gradnetz": grid,
+					//"UTM 32 & 33 Grid":layerUtm3233Grid,
 				}
 			}
 
