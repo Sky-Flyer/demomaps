@@ -10,8 +10,8 @@
 	<link rel="apple-touch-icon" href="favicon.png"/>
 	<link rel="icon" type="image/x-icon" href="favicon.ico" />
 	<!-- Leaflet -->
-	<link rel="stylesheet" href="./leaflet-1.0.2/leaflet.css" />
-	<script src="./leaflet-1.0.2/leaflet.js"></script>
+	<link rel="stylesheet" href="./leaflet-0.7.7/leaflet.css" />
+	<script src="./leaflet-0.7.7/leaflet.js"></script>
 	<!-- Leaflet-Plugins (styles) -->
 	<link rel="stylesheet" href="lib/styledLayerControl.css" />
 	<link rel="stylesheet" href="lib/leaflet-search.css" />
@@ -24,6 +24,7 @@
 	<link rel="stylesheet" href="lib/Leaflet.Coordinates-0.1.5.css" />
 	<link rel="stylesheet" href="lib/Leaflet.Coordinates-0.1.5.ie.css" />
 	<link rel="stylesheet" href="lib/font-awesome.min.css" />
+	<link rel="stylesheet" href="lib/leaflet.mouseCoordinate.css" />
 	<!-- Leaflet-Plugins (js) -->
 	<script src="lib/leaflet.measure.js"></script>
 	<script src="lib/styledLayerControl.js"></script>
@@ -36,6 +37,8 @@
 	<script src="lib/Leaflet.Coordinates-0.1.5.min.js"></script>
 	<script src="lib/leaflet.filelayer.js"></script>
     <script src="lib/togeojson.js"></script>
+	<script src="lib/leaflet.mouseCoordinate.js"></script>
+
 	<!-- other plugins -->
 	<script src="lib/leaflet-google.js"></script>
 	<script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
@@ -54,6 +57,7 @@
 		var marker=null;
 		var aktLayer=null;
 		var baseMaps = null;
+		var mCoordCtr = null;
 
 		var maxzoom_std=20;
 		var maxzoom_osm=19;
@@ -199,8 +203,17 @@
 		}
 		
 		function setMarkerPopup(latLngPos){
-		var digits=Math.ceil(2*Math.log(map.getZoom())-1);
-			marker.bindPopup("<h3>Position:</h3> Länge: <b>"+latLngPos.lng.toFixed(digits)+"</b> Breite: <b>"+latLngPos.lat.toFixed(digits)+"</b>")
+			var digits=Math.ceil(2*Math.log(map.getZoom())-1);
+			var content="<h3>Position:</h3> <b>Grad (Länge, Breite)</b> &#09;"+latLngPos.lng.toFixed(digits)+", "+latLngPos.lat.toFixed(digits)+" <br>"
+			if (mCoordCtr){
+				var utm = mCoordCtr._geo2utm(latLngPos);
+				content += "<b>UTM easting/northing</b> &#09;"+utm.zone+"&nbsp;" +utm.x+"&nbsp;" +utm.y+"<br>"; 
+			
+				var utmref = mCoordCtr._utm2mgr(mCoordCtr._geo2utm(latLngPos));
+				content += "<b>UTMREF / MGRS</b> &#09;"+utmref.zone+"&nbsp;" +utmref.band+"&nbsp;" +utmref.x+"&nbsp;" +utmref.y+""; 
+			}
+
+			marker.bindPopup(content)
 		}
 
 		/* check if coordinates are valid numbers; if not zoom to Europe default */
@@ -420,7 +433,7 @@
 		var layerMapBoxStreetsBas = new L.TileLayer("http://{s}.tiles.mapbox.com/v4/mapbox.streets-basic/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 		var layerMapBoxStreetsWheat = new L.TileLayer("http://{s}.tiles.mapbox.com/v4/mapbox.wheatpaste/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 		var layerAdrMapboxCtry="https://{s}.tiles.mapbox.com/v3/aj.geography-class-2/{z}/{x}/{y}.png";
-		var layerMapBoxCtry = new L.TileLayer(layerAdrMapboxCtry,{maxZoom: maxzoom_mapboxctry,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+		var layerMapBoxCtry = new L.TileLayer(layerAdrMapboxCtry,{maxZoom: maxzoom_mapboxctry+3, maxNativeZoom: maxzoom_mapboxctry,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 		https://a.tiles.mapbox.com/v4/mapbox.streets-satellite/7/34/54.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg
 		var layerAdrMapboxSat = "https://{s}.tiles.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg"
 		var layerMapBoxSat = new L.TileLayer(layerAdrMapboxSat,{maxZoom: maxzoom_g_sat,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
@@ -439,7 +452,7 @@
 		var layerMapBoxOutdoor = new L.TileLayer("http://{s}.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 		//National Geographic World Map
         var layerAdrNatGeoWorld = "http://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}/";
-        var layerNatGeoWorld = new L.TileLayer(layerAdrNatGeoWorld,{maxZoom: maxzoom_natgeo,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.nationalgeographic.com">Nationalgeographic</a>'});
+        var layerNatGeoWorld = new L.TileLayer(layerAdrNatGeoWorld,{maxZoom: maxzoom_natgeo+1, maxNativeZoom: maxzoom_natgeo,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.nationalgeographic.com">Nationalgeographic</a>'});
 
 		//Harvard World Country Borders
 		var layerHarvWld = new L.TileLayer.WMS("http://worldmap.harvard.edu/geoserver/wms",
@@ -452,13 +465,13 @@
 		// var layerGrpLinzNz = L.layerGroup().addLayer(layerMapBoxStreets2).addLayer(layerLinzNzTopo250).addLayer(layerLinzNzTopo50);
 
 		//
-		layerOpenTopoMLandsat=new L.TileLayer("http://irs.gis-lab.info/?layers=landsat&request=GetTile&z={z}&x={x}&y={y}",{maxZoom: maxzoom_14, detectRetina: true, attribution: 'Kartendaten: Kartendaten: © <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende, SRTM | Kartendarstellung: © <a href="http://opentopomap.org">OpenTopoMap</a>'})
+		layerOpenTopoMLandsat=new L.TileLayer("http://irs.gis-lab.info/?layers=landsat&request=GetTile&z={z}&x={x}&y={y}",{maxZoom: 15, maxNativeZoom: maxzoom_14, detectRetina: true, attribution: 'Kartendaten: Kartendaten: © <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende, SRTM | Kartendarstellung: © <a href="http://opentopomap.org">OpenTopoMap</a>'})
 		
-		layerEcmapsFalk=new L.TileLayer("http://ec{s}.cdn.ecmaps.de/WmsGateway.ashx.jpg?ZoomLevel={z}&TileX={x}&TileY={y}&Experience=ecmaps&MapStyle=FALK",{maxZoom: 17, subdomains: '0123', detectRetina: true, attribution: 'Kartendaten: © ecmaps.de'})
+		layerEcmapsFalk=new L.TileLayer("http://ec{s}.cdn.ecmaps.de/WmsGateway.ashx.jpg?ZoomLevel={z}&TileX={x}&TileY={y}&Experience=ecmaps&MapStyle=FALK",{maxZoom: 18, maxNativeZoom: 17, subdomains: '0123', detectRetina: true, attribution: 'Kartendaten: © ecmaps.de'})
 
-		layerEcmapsOsmSummer=new L.TileLayer("http://ec{s}.cdn.ecmaps.de/WmsGateway.ashx.jpg?ZoomLevel={z}&TileX={x}&TileY={y}&Experience=ecmaps&MapStyle=Summer OSM",{maxZoom: 16, subdomains: '0123', detectRetina: true, attribution: 'Kartendaten: © ecmaps.de'})
+		layerEcmapsOsmSummer=new L.TileLayer("http://ec{s}.cdn.ecmaps.de/WmsGateway.ashx.jpg?ZoomLevel={z}&TileX={x}&TileY={y}&Experience=ecmaps&MapStyle=Summer OSM",{maxZoom: 17, maxNativeZoom: 16, subdomains: '0123', detectRetina: true, attribution: 'Kartendaten: © ecmaps.de'})
 
-		layerMapsForFreeRelief=new L.TileLayer("https://maps-for-free.com/layer/relief/z{z}/row{y}/{z}_{x}-{y}.jpg",{maxZoom: maxzoom_11, detectRetina: true, attribution: 'Kartendaten: Kartendaten: © <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende, SRTM | Kartendarstellung: © a< href="https://maps-for-free.com/">Maps For Free</a>'})
+		layerMapsForFreeRelief=new L.TileLayer("https://maps-for-free.com/layer/relief/z{z}/row{y}/{z}_{x}-{y}.jpg",{maxZoom: 14,maxNativeZoom: maxzoom_11, detectRetina: true, attribution: 'Kartendaten: Kartendaten: © <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende, SRTM | Kartendarstellung: © a< href="https://maps-for-free.com/">Maps For Free</a>'})
 
 		//dianacht.de - Gradgitter
 		//var layerUtm3233Grid = new L.tileLayer.wms("https://wms.dianacht.de/cgi-bin2/mapserv6", {
@@ -646,7 +659,7 @@
 				//container_width 	: "220px",
 				group_maxHeight     : "400px",
 				container_maxHeight : "650px", 
-				exclusive       	: false
+				exclusive       	: true
 		};
 
 		//Map with controls
@@ -666,6 +679,7 @@
 			title: "Position bestimmen",
 			popupText: ["Sie befinden sich innerhalb "," von diesem Punkt"]
 		}).addTo(map);
+
 		
 		if(window.location.hash) {
 			document.cookie="permahash="+window.location.hash.substr(1);
@@ -685,6 +699,8 @@
 			useDMS:false,
 //			useLatLngOrder:true
 		}).addTo(map);
+		mCoordCtr = L.control.mouseCoordinate({gps:false, utm:true,utmref:true, position: 'bottomleft'});
+		mCoordCtr.addTo(map);
 		
 		var layersControl = L.Control.styledLayerControl(baseMaps, overlayMaps, options);
 		map.addControl(layersControl);
@@ -708,8 +724,8 @@
                            pointToLayer: function (data, latlng) {
                               return L.circleMarker(latlng, {style: style});
                            }},
-        }).addTo(map)
-		
+        }).addTo(map);
+
 		map.on('moveend', function(e) {
 			lock=true;
 			set_hash();
