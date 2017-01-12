@@ -1,0 +1,111 @@
+keyPressed = 0
+
+ProgStart:
+  paddleWidth = 130
+  delayFactor = 6
+
+  GraphicsWindow.BackgroundColor = "LightSkyBlue"
+  GraphicsWindow.FontSize = 14
+  GraphicsWindow.FontName = "Calibri"
+  GraphicsWindow.MouseMove = OnMouseMove
+  'GraphicsWindow.MouseDown = OnMouseDown
+  GraphicsWindow.Title = "Andis Paddle Ball"
+  GraphicsWindow.TextInput = OnTextInput
+  GraphicsWindow.CanResize = 0
+
+  AddBall()
+  ball = Shapes.AddEllipse(16, 16)
+  
+  score = 0
+  PrintScore()
+  Sound.PlayMusic("O5 C4 E4 D2 C1")
+
+  x = Math.GetRandomNumber(GraphicsWindow.Width) 
+  y = Math.GetRandomNumber(GraphicsWindow.Height * 2/3)
+  deltaX = 1
+  deltaY = 2
+
+RunLoop:
+  x = x + deltaX
+  y = y + deltaY
+  
+  gw = GraphicsWindow.Width
+  gh = GraphicsWindow.Height
+  If (x >= gw - 16 Or x <= 0) Then
+    deltaX = -deltaX
+  EndIf
+  If (y <= 0) Then
+    deltaY = -deltaY
+  EndIf
+ 
+  padX = Shapes.GetLeft(paddle)
+  If (y = gh - 28 And x >= padX And x <= padX + paddleWidth) Then
+    Sound.PlayClick()
+    score = score + 10
+    PrintScore()
+    deltaY = -deltaY
+     If (Math.Remainder(score,20) = 0 And paddleWidth > 50) Then
+       paddleWidth=paddleWidth-10
+       RemoveAndAddBall()
+       OnMouseMove()
+    endif
+    
+    If (Math.Remainder(score,100) = 0 And delayFactor>1) Then
+      delayFactor=delayFactor-1
+    endif
+  EndIf
+  
+  Shapes.Move(ball, x, y)
+  Program.Delay(delayFactor)
+  
+  If (y < gh) Then
+    Goto RunLoop
+  EndIf  
+  
+  Sound.PlayChimesAndWait()
+  GraphicsWindow.BrushColor = "Black"
+  GraphicsWindow.DrawText(gw/2-100, gh/2,"Deine erreichten Punkte sind: " + score)
+  GraphicsWindow.DrawText(gw/2-150, gh/2+20,"Drücke Alt+F4 oder Clicke auf das rote 'X' zum Beenden")
+  
+  Program.Delay(6000)
+  GraphicsWindow.Clear()
+  
+  Goto ProgStart
+
+'======================
+'SubModules
+  
+Sub OnMouseMove
+  paddleX = GraphicsWindow.MouseX
+  Shapes.Move(paddle, paddleX - paddleWidth/2, GraphicsWindow.Height - 12)
+EndSub
+
+'Sub OnMouseDown
+'  GraphicsWindow.BrushColor = GraphicsWindow.GetRandomColor()
+'EndSub
+
+Sub RemoveAndAddBall
+  Shapes.Remove(paddle)
+  AddBall()
+EndSub
+
+Sub AddBall
+  GraphicsWindow.BrushColor = "DarkBlue"
+  GraphicsWindow.PenColor = "DarkBlue"
+  paddle = Shapes.AddRectangle(paddleWidth, 12)
+  OnMouseMove()
+EndSub
+
+Sub PrintScore
+  ' Clear the score first and then draw the real score text
+  GraphicsWindow.BrushColor = "White"
+  GraphicsWindow.FillRectangle(10, 10, 200, 20)
+  GraphicsWindow.BrushColor = "Black"
+  GraphicsWindow.DrawText(10, 10, "Score: " + score)
+EndSub
+  
+Sub OnTextInput
+  'GraphicsWindow.ShowMessage(GraphicsWindow.LastText,"hi") 
+  'If (GraphicsWindow.LastText = "J") Then
+    
+EndSub

@@ -9,7 +9,7 @@ GraphicsWindow.Hide()
 GraphicsWindow.CanResize  = "false"
 GraphicsWindow.Width = 1024 
 GraphicsWindow.Height = 768
-GraphicsWindow.Title = "SOkoCUTE
+GraphicsWindow.Title = "SOkoCUTE"
 GraphicsWindow.Left = (Desktop.Width - 1024) / 2
 GraphicsWindow.Top  = (Desktop.Height - 768) / 2
 

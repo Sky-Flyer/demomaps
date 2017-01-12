@@ -4,4 +4,6 @@ multimap/tilecache*/
 *.exe
 *.pdb
 *.dll
+*.pdf
+*.ffs_db
 primenumber/primzahlen-liste.xls
