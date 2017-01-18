@@ -2,7 +2,7 @@
 <html lang="de">
   <head>
     <meta charset="utf-8">
-	<title>Multimap (20170111-1543)</title>
+	<title>Multimap (20170117-1606)</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />	
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
@@ -25,6 +25,7 @@
 	<link rel="stylesheet" href="lib/Leaflet.Coordinates-0.1.5.ie.css" />
 	<link rel="stylesheet" href="lib/font-awesome.min.css" />
 	<link rel="stylesheet" href="lib/leaflet.mouseCoordinate.css" />
+	<link rel="stylesheet" href="lib/control.w3w.css" />
 	<!-- Leaflet-Plugins (js) -->
 	<script src="lib/leaflet.measure.js"></script>
 	<script src="lib/styledLayerControl.js"></script>
@@ -38,10 +39,11 @@
 	<script src="lib/leaflet.filelayer.js"></script>
     <script src="lib/togeojson.js"></script>
 	<script src="lib/leaflet.mouseCoordinate.js"></script>
+	<script src="lib/control.w3w.js"></script>
 
-	<!-- other plugins -->
+	<!-- other plugins key=AIzaSyB-pSBQY6cvQIGWVnGXIvliFLCR0Sik-m8 -->
 	<script src="lib/leaflet-google.js"></script>
-	<script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=false&"></script>
 	<script src="lib/layer/tile/Bing.js"></script>
 </head>
 	<body style="margin:0px; transform:scale(1); transform-origin: 0 0" onhashchange="set_view()" onbeforeunload="delete_permahash()" >	
@@ -57,7 +59,8 @@
 		var marker=null;
 		var aktLayer=null;
 		var baseMaps = null;
-		var mCoordCtr = null;
+		var mCoordCtr = null; //utm coord control
+		var w3wCtrl = null; //what-3-words control
 
 		var maxzoom_std=20;
 		var maxzoom_osm=19;
@@ -210,7 +213,15 @@
 				content += "<b>UTM easting/northing</b> &#09;"+utm.zone+"&nbsp;" +utm.x+"&nbsp;" +utm.y+"<br>"; 
 			
 				var utmref = mCoordCtr._utm2mgr(mCoordCtr._geo2utm(latLngPos));
-				content += "<b>UTMREF / MGRS</b> &#09;"+utmref.zone+"&nbsp;" +utmref.band+"&nbsp;" +utmref.x+"&nbsp;" +utmref.y+""; 
+				content += "<b>UTMREF / MGRS</b> &#09;"+utmref.zone+"&nbsp;" +utmref.band+"&nbsp;" +utmref.x+"&nbsp;" +utmref.y+"<br>"; 
+			}
+			if(w3wCtrl){
+				w3wCtrl._getJSON('https://api.what3words.com/v2/reverse?key='+w3wCtrl.options.apikey+'&coords='+latLngPos.lat+','+latLngPos.lng+'&lang='+w3wCtrl.options.lang, function(data) {
+					content += "<b>w3w</b> &#09;<a target='_blank' href='http://w3w.co/"+ data.words+"'>"+ data.words+"</a><br>";
+					marker.bindPopup(content);
+				}, function(status) {
+					console.log('Something went wrong at w3w api call.');
+				});
 			}
 
 			marker.bindPopup(content)
@@ -700,22 +711,14 @@
 //			useLatLngOrder:true
 		}).addTo(map);
 		mCoordCtr = L.control.mouseCoordinate({gps:false, utm:true,utmref:true, position: 'bottomleft'});
-		mCoordCtr.addTo(map);
+		//mCoordCtr.addTo(map);
 		
 		var layersControl = L.Control.styledLayerControl(baseMaps, overlayMaps, options);
 		map.addControl(layersControl);
-//		map.addLayer(layerMapSurfer); //Standardlayer
-		
+
 		var miniMapLayer = new L.TileLayer(layerAdrMapSurfer, {minZoom: 0, maxZoom: 14, //subdomains: '1234', 
 		attribution: 'Kartendaten: © <a href="http://korona.geog.uni-heidelberg.de/">Mapsurfer</a>' });
 		var miniMap = new L.Control.MiniMap(miniMapLayer, { toggleDisplay: true, zoomLevelOffset: -7 }).addTo(map);
-		//L.Control.FileLayerLoad.LABEL = '<i class="fa fa-folder-open" style="line-height: 1.5" ></i>';
-		//L.Control.fileLayerLoad({layer: L.geoJson, layerOptions: {style: {color:'red'}},
-		//	addToMap: true, fileSizeLimit: 1024, formats: ['.geojson','.kml']}).addTo(map);
-		//var control = L.Control.fileLayerLoad();
-		//Control.loader.on('data:loaded', function (e) {
-		//	layerswitcher.addOverlay(e.layer, e.filename);
-		//});
 		var style = {color:'blue', opacity: 1.0, fillOpacity: 1.0, weight: 3, clickable: false};
 		L.Control.FileLayerLoad.LABEL = '<i class="fa fa-folder-open" style="line-height: 1.5"></i>';
         L.Control.fileLayerLoad({
@@ -726,10 +729,18 @@
                            }},
         }).addTo(map);
 
+		w3wCtrl = new L.Control.w3w();
+		// w3wCtrl.addTo(map);
+		// map.on('click', function(e) {
+		// 	console.log(e);
+		// 	w3wCtrl.setCoordinates(e);
+		// });
+		
 		map.on('moveend', function(e) {
 			lock=true;
 			set_hash();
 		});
+		
 		map.on('baselayerchange', function(e) {
 			if((e.name=="National Geographic Countries") && (map.getZoom()>maxzoom_natgeo)){
                 map.setZoom(maxzoom_natgeo);
