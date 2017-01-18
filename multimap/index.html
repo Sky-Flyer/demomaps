@@ -2,7 +2,7 @@
 <html lang="de">
   <head>
     <meta charset="utf-8">
-	<title>Multimap (20170117-1606)</title>
+	<title>Multimap (20170118-1351)</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />	
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
@@ -41,9 +41,11 @@
 	<script src="lib/leaflet.mouseCoordinate.js"></script>
 	<script src="lib/control.w3w.js"></script>
 
-	<!-- other plugins key=AIzaSyB-pSBQY6cvQIGWVnGXIvliFLCR0Sik-m8 -->
+	<!-- other plugins -->
 	<script src="lib/leaflet-google.js"></script>
-	<script src="http://maps.google.com/maps/api/js?sensor=false&"></script>
+	<script src="lib/google-api-2.js"></script>
+	<!--<script src="http://maps.google.com/maps/api/js?sensor=false&key=AIzaSyB-pSBQY6cvQIGWVnGXIvliFLCR0Sik-m8"></script>-->
+
 	<script src="lib/layer/tile/Bing.js"></script>
 </head>
 	<body style="margin:0px; transform:scale(1); transform-origin: 0 0" onhashchange="set_view()" onbeforeunload="delete_permahash()" >	
@@ -207,24 +209,32 @@
 		
 		function setMarkerPopup(latLngPos){
 			var digits=Math.ceil(2*Math.log(map.getZoom())-1);
-			var content="<h3>Position:</h3> <b>Grad (Länge, Breite)</b> &#09;"+latLngPos.lng.toFixed(digits)+", "+latLngPos.lat.toFixed(digits)+" <br>"
+			var content="<h3>Position:</h3>"
+			content+="<table class='table table-condensed' style='font: 12px Calibri, Arial, Helvetica, sans-serif; width: 250px;'>"
+			content+="<tr> <td ><b>Grad (Länge, Breite)</b></td> <td>"+latLngPos.lng.toFixed(digits)+"</td> <td>"+latLngPos.lat.toFixed(digits)+"</td> </tr>"
 			if (mCoordCtr){
 				var utm = mCoordCtr._geo2utm(latLngPos);
-				content += "<b>UTM easting/northing</b> &#09;"+utm.zone+"&nbsp;" +utm.x+"&nbsp;" +utm.y+"<br>"; 
+				content += "<tr> <td><b>UTM easting/northing</b> </td> <td colspan='2'>"+utm.zone+"&nbsp;" +utm.x+"&nbsp;" +utm.y+"</td> </tr>"; 
 			
 				var utmref = mCoordCtr._utm2mgr(mCoordCtr._geo2utm(latLngPos));
-				content += "<b>UTMREF / MGRS</b> &#09;"+utmref.zone+"&nbsp;" +utmref.band+"&nbsp;" +utmref.x+"&nbsp;" +utmref.y+"<br>"; 
+				content += "<tr> <td><b>UTMREF / MGRS</b> </td> <td colspan='2'>"+utmref.zone+"&nbsp;" +utmref.band+"&nbsp;" +utmref.x+"&nbsp;" +utmref.y+"</td> </tr>"; 
 			}
 			if(w3wCtrl){
-				w3wCtrl._getJSON('https://api.what3words.com/v2/reverse?key='+w3wCtrl.options.apikey+'&coords='+latLngPos.lat+','+latLngPos.lng+'&lang='+w3wCtrl.options.lang, function(data) {
-					content += "<b>w3w</b> &#09;<a target='_blank' href='http://w3w.co/"+ data.words+"'>"+ data.words+"</a><br>";
+				w3wCtrl._getJSON('https://api.what3words.com/v2/reverse?key='+w3wCtrl.options.apikey+'&coords='+latLngPos.lat+','+latLngPos.lng+'&lang=de', function(data) {
+					content += "<tr> <td><b><a target='_blank' href='http://w3w.co/"+ data.words+"'>w3w (de)</a></b> </td> <td colspan='2'>"+ data.words+"</td> </tr>";
+					marker.bindPopup(content);
+				}, function(status) {
+					console.log('Something went wrong at w3w api call.');
+				});
+				w3wCtrl._getJSON('https://api.what3words.com/v2/reverse?key='+w3wCtrl.options.apikey+'&coords='+latLngPos.lat+','+latLngPos.lng+'&lang=en', function(data) {
+					content += "<tr> <td><b><a target='_blank' href='http://w3w.co/"+ data.words+"'>w3w (en)</a></b> </td> <td colspan='2'>"+ data.words+"</td> </tr>";
 					marker.bindPopup(content);
 				}, function(status) {
 					console.log('Something went wrong at w3w api call.');
 				});
 			}
 
-			marker.bindPopup(content)
+			marker.bindPopup(content);
 		}
 
 		/* check if coordinates are valid numbers; if not zoom to Europe default */
