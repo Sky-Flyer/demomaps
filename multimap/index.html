@@ -402,11 +402,12 @@
 		layerNokiaTrafic = new L.TileLayer("http://{s}.traffic.maps.api.here.com/maptile/2.1/traffictile/newest/normal.day/{z}/{x}/{y}/256/png8" + nokiaKey,{ 
 		maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: heremapsAttrib});
 		
-		lyerAdrOSMLyrk="http://{s}.tiles.lyrk.org/ls/{z}/{x}/{y}?apikey=3949c1b430e64bbe98886bc44e4eb8e4";
-		layerOSMLyrk = new L.TileLayer(lyerAdrOSMLyrk,{ 
-			maxZoom: maxzoom_std,detectRetina: true, format: 'image/png', attribution: 'Karten: © LyrkGeodienste, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
-		layerOSMLyrkRetina = new L.TileLayer("http://{s}.tiles.lyrk.org/lr/{z}/{x}/{y}?apikey=3949c1b430e64bbe98886bc44e4eb8e4",{ 
-			maxZoom: maxzoom_std,detectRetina: true, format: 'image/png', attribution: 'Karten: © LyrkGeodienste, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+		//gibts nimmer
+		// lyerAdrOSMLyrk="http://{s}.tiles.lyrk.org/ls/{z}/{x}/{y}?apikey=3949c1b430e64bbe98886bc44e4eb8e4";
+		// layerOSMLyrk = new L.TileLayer(lyerAdrOSMLyrk,{ 
+		// 	maxZoom: maxzoom_std,detectRetina: true, format: 'image/png', attribution: 'Karten: © LyrkGeodienste, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+		// layerOSMLyrkRetina = new L.TileLayer("http://{s}.tiles.lyrk.org/lr/{z}/{x}/{y}?apikey=3949c1b430e64bbe98886bc44e4eb8e4",{ 
+		// 	maxZoom: maxzoom_std,detectRetina: true, format: 'image/png', attribution: 'Karten: © LyrkGeodienste, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 		
 		//stemen watercolor
 		layerStamenWaterc = new L.TileLayer("http://tile.stamen.com/watercolor/{z}/{x}/{y}.jpg",{ 
@@ -552,7 +553,7 @@
 					"Wikimedia Maps": layerWikiMedia,
 					"Mapbox Streets Basic": layerMapBoxStreetsBas,
 					"Mapbox Emerald": layerMapBoxEmerald,
-					"OpenStreetMap Lyrk ": layerOSMLyrk,
+					// "OpenStreetMap Lyrk ": layerOSMLyrk,
 					"Ecmaps OSM Summer": layerEcmapsOsmSummer,
 					"WebAtlas.no": layerWebAtlNo,
 				}
