@@ -2,10 +2,14 @@
 {
     "files.exclude": {
 		"**/.git": true,
+		"**/.gitignore": false,
 		"**/.svn": true,
 		"**/.hg": true,
 		"**/.DS_Store": true,
-		"**/*.ffs_db": true
+		"**/*.ffs_db": true,
+		"**/.vscode": false,
+		"**/.idea": true,
+		"**/jsconfig.json": false
 		// "**/*.js": { "when": "$(basename).ts"}
 	},
 
