@@ -434,7 +434,7 @@ var layerHarvWld = new L.TileLayer.WMS("http://worldmap.harvard.edu/geoserver/wm
 //
 layerOpenTopoMLandsat=new L.TileLayer("http://irs.gis-lab.info/?layers=landsat&request=GetTile&z={z}&x={x}&y={y}",{maxZoom: 15, maxNativeZoom: maxzoom_14, detectRetina: true, attribution: 'Kartendaten: Kartendaten: © <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende, SRTM | Kartendarstellung: © <a href="http://opentopomap.org">OpenTopoMap</a>'})
 
-layerEcmapsFalk=new L.TileLayer("http://ec{s}.cdn.ecmaps.de/WmsGateway.ashx.jpg?ZoomLevel={z}&TileX={x}&TileY={y}&Experience=ecmaps&MapStyle=FALK",{maxZoom: 18, maxNativeZoom: 17, subdomains: '0123', detectRetina: true, attribution: 'Kartendaten: © ecmaps.de'})
+layerEcmapsOsmWinter=new L.TileLayer("http://ec{s}.cdn.ecmaps.de/WmsGateway.ashx.jpg?ZoomLevel={z}&TileX={x}&TileY={y}&Experience=ecmaps&MapStyle=Winter OSM",{maxZoom: 18, maxNativeZoom: 17, subdomains: '0123', detectRetina: true, attribution: 'Kartendaten: © ecmaps.de'})
 
 layerEcmapsOsmSummer=new L.TileLayer("http://ec{s}.cdn.ecmaps.de/WmsGateway.ashx.jpg?ZoomLevel={z}&TileX={x}&TileY={y}&Experience=ecmaps&MapStyle=Summer OSM",{maxZoom: 17, maxNativeZoom: 16, subdomains: '0123', detectRetina: true, attribution: 'Kartendaten: © ecmaps.de'})
 
@@ -496,8 +496,8 @@ baseMaps = [
             "Wikimedia Maps": layerWikiMedia,
             "Mapbox Streets Basic": layerMapBoxStreetsBas,
             "Mapbox Emerald": layerMapBoxEmerald,
-            // "OpenStreetMap Lyrk ": layerOSMLyrk,
             "Ecmaps OSM Summer": layerEcmapsOsmSummer,
+            "Ecmaps OSM Winter":layerEcmapsOsmWinter,
             "WebAtlas.no": layerWebAtlNo,
         }
     },
@@ -512,7 +512,6 @@ baseMaps = [
             "Apple Standard": layerAppleStd,
             "Tomtom Standard": layerTomtom,
             "Esri Streetmap": layerEsriStreet,
-            "Ecmaps Falk":layerEcmapsFalk,
             "National Geographic Countries": layerNatGeoWorld,
             "Mapbox Political":layerMapBoxCtry,
         }
