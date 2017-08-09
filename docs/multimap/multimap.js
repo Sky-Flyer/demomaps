@@ -333,7 +333,7 @@ layerHumanitarian = new L.TileLayer(akt_protocol+"//{s}.tile.openstreetmap.fr/ho
 //Here-Maps (ehem. Nokia) https://www.here.com
 var heremapsAttrib='Kartendaten: © <a href="https://www.here.com">Here-Maps';
 var nokiaKey="?app_id=xWVIueSv6JL0aJ5xqTxb&app_code=djPZyynKsbTjIUDOBcHZ2g&lg=ger&ppi=72";
-layerNokiaRoad = new L.TileLayer(akt_protocol+"//{s}.base.maps.api.here.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?app_id=g7UuRR708Tsut4YSnDLy&token=fVzaDAdRK62zo3CuNcPtDg&lg=ENG",{
+layerNokiaRoad = new L.TileLayer(akt_protocol+"//{s}.base.maps.api.here.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8" + nokiaKey,{
     maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: heremapsAttrib});
 layerNokiaSat = new L.TileLayer(akt_protocol+"//{s}.aerial.maps.api.here.com/maptile/2.1/maptile/newest/satellite.day/{z}/{x}/{y}/256/png8" + nokiaKey,{
     maxZoom: maxzoom_g_sat,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: heremapsAttrib});
@@ -341,7 +341,7 @@ layerNokiaHybrid = new L.TileLayer(akt_protocol+"//{s}.aerial.maps.api.here.com/
     maxZoom: maxzoom_g_sat,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: heremapsAttrib});
 layerNokiaLabel = new L.TileLayer(akt_protocol+"//{s}.base.maps.api.here.com/maptile/2.1/streettile/newest/normal.day/{z}/{x}/{y}/256/png8" + nokiaKey,{ 
 maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: heremapsAttrib});
-layerNokiaTerr = new L.TileLayer(akt_protocol+"//{s}.aerial.maps.api.here.com/maptile/2.1/maptile/newest/terrain.day/{z}/{x}/{y}/256/png8?app_id=g7UuRR708Tsut4YSnDLy&token=fVzaDAdRK62zo3CuNcPtDg&lg=ENG",{
+layerNokiaTerr = new L.TileLayer(akt_protocol+"//{s}.aerial.maps.api.here.com/maptile/2.1/maptile/newest/terrain.day/{z}/{x}/{y}/256/png8"+ nokiaKey,{
     maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: heremapsAttrib});
 layerNokiaTrafic = new L.TileLayer(akt_protocol+"//{s}.traffic.maps.api.here.com/maptile/2.1/traffictile/newest/normal.day/{z}/{x}/{y}/256/png8" + nokiaKey,{ 
 maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png', attribution: heremapsAttrib});
