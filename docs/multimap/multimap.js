@@ -523,7 +523,6 @@ baseMaps = [
         layers    : {
             "OpenStreetMap (Bergfex)": layerBergfexOsm,
             "ÖsterrreichKarte (Bergfex)":layerBergfexOek,
-            "AustriaMap (Bergfex)": layerBergfexAmapGrp,
             "OpenTopoMap": layerOpenTopo,
             "Mapbox Topo": layerMapBoxStreets,
             "Geofabrik Topo": layerGeofTopo,
