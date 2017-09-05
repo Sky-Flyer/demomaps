@@ -291,11 +291,11 @@ var g_roadmap   = new L.Google('ROADMAP',{maxZoom: maxzoom_std,attribution: 'Kar
 var g_satellite = new L.Google('SATELLITE', {maxZoom: maxzoom_g_sat,attribution: 'Kartendaten: © Google'});
 var g_hybrid   = new L.Google('HYBRID', {maxZoom: maxzoom_g_sat,attribution: 'Kartendaten: © Google'});
 var g_terrain   = new L.Google('TERRAIN',{maxZoom: maxzoom_topo,attribution: 'Kartendaten: © Google'});
-var layerGoogleStd = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '0123', attribution: 'Kartendaten: © Google'});
-var layerGoogleTer = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=p&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '0123', attribution: 'Kartendaten: © Google'});
-var layerGoogleHyb = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=y&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '0123', attribution: 'Kartendaten: © Google'});
-var layerGoogleSat = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=s&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '0123', attribution: 'Kartendaten: © Google'});
-var layerGoogleLbl = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=h&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '0123', attribution: 'Kartendaten: © Google'});
+var layerGoogleStd = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
+var layerGoogleTer = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=p&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
+var layerGoogleHyb = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=y&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
+var layerGoogleSat = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=s&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
+var layerGoogleLbl = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=h&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
 
 //apple layers
 layerAdrAppleStd="https://cdn{s}.apple-mapkit.com/tp/tile?type=tile&style=0&size=1&x={x}&y={y}&z={z}&scale=1&lang=de-DE&imageFormat=jpg&vendorkey=38da783db1ef0c2d9f8e783a063ffcdc6a6330fe"
@@ -506,7 +506,8 @@ baseMaps = [
         expanded : false,
         layers    : {
             "Basemap.at Grundkarte": layerGrpBasemVd,
-            "Google Standard": layerGoogleStd,
+            "Google Standard (alternativ)": layerGoogleStd,
+            "Google Standard": g_roadmap,
             "Here-Maps Standard": layerNokiaRoad,
             "Here-Maps Verkehr": layerNokiaTrafic,
             "Bing Standard":  bing_road,
