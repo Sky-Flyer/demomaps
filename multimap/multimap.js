@@ -291,11 +291,11 @@ var g_roadmap   = new L.Google('ROADMAP',{maxZoom: maxzoom_std,attribution: 'Kar
 var g_satellite = new L.Google('SATELLITE', {maxZoom: maxzoom_g_sat,attribution: 'Kartendaten: © Google'});
 var g_hybrid   = new L.Google('HYBRID', {maxZoom: maxzoom_g_sat,attribution: 'Kartendaten: © Google'});
 var g_terrain   = new L.Google('TERRAIN',{maxZoom: maxzoom_topo,attribution: 'Kartendaten: © Google'});
-var layerGoogleStd = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '0123', attribution: 'Kartendaten: © Google'});
-var layerGoogleTer = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=p&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '0123', attribution: 'Kartendaten: © Google'});
-var layerGoogleHyb = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=y&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '0123', attribution: 'Kartendaten: © Google'});
-var layerGoogleSat = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=s&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '0123', attribution: 'Kartendaten: © Google'});
-var layerGoogleLbl = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=h&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '0123', attribution: 'Kartendaten: © Google'});
+var layerGoogleStd = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
+var layerGoogleTer = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=p&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
+var layerGoogleHyb = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=y&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
+var layerGoogleSat = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=s&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
+var layerGoogleLbl = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=h&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
 
 //apple layers
 layerAdrAppleStd="https://cdn{s}.apple-mapkit.com/tp/tile?type=tile&style=0&size=1&x={x}&y={y}&z={z}&scale=1&lang=de-DE&imageFormat=jpg&vendorkey=38da783db1ef0c2d9f8e783a063ffcdc6a6330fe"
@@ -358,19 +358,19 @@ layerStamenWaterc = new L.TileLayer(akt_protocol+"//tile.stamen.com/watercolor/{
     maxZoom: maxzoom_std,detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Stamen'});
 
 //Bergfex AMap Karte
-layerBergfexAmapUrl=akt_protocol+"//static{s}.bergfex.com/images/amap/{z}/{z}_{x}_{y}.png";
-layerBergfexAmapUrl_14=akt_protocol+"//static{s}.bergfex.com/images/amap/{z}/89/{z}_{x}_{y}.png";
-layerBergfexAmapUrl_14b=akt_protocol+"//static{s}.bergfex.com/images/amap/{z}/88/{z}_{x}_{y}.png";
-layerBergfexAmapUrl_15=akt_protocol+"//static{s}.bergfex.com/images/amap/{z}/178/{z}_{x}_{y}.png";
-var layerBergfexAmap = new L.TileLayer(layerBergfexAmapUrl,
-{maxZoom: maxzoom_amap+2, minZoom: minzoom_amap, maxNativeZoom: maxzoom_amap, bounds: boundsAUT, subdomains: '1234567', detectRetina: true, format: 'image/png', attribution: 'Kartendaten: © Map Data 2008, 2013 BEV, bergfex GmbH'});
-var layerBergfexAmap_14 = new L.TileLayer(layerBergfexAmapUrl_14,
-{maxZoom: maxzoom_amap+1, minZoom: maxzoom_amap+1, subdomains: '1234567', detectRetina: true, format: 'image/png', attribution: 'Kartendaten: © Map Data 2008, 2013 BEV, bergfex GmbH'});
-var layerBergfexAmap_14b = new L.TileLayer(layerBergfexAmapUrl_14b,
-{maxZoom: maxzoom_amap+1, minZoom: maxzoom_amap+1, subdomains: '1234567', detectRetina: true, format: 'image/png', attribution: 'Kartendaten: © Map Data 2008, 2013 BEV, bergfex GmbH'});
-var layerBergfexAmap_15 = new L.TileLayer(layerBergfexAmapUrl_15,
-{maxZoom: maxzoom_amap+2, minZoom: maxzoom_amap+2, subdomains: '1234567', detectRetina: true, format: 'image/png', attribution: 'Kartendaten: © Map Data 2008, 2013 BEV, bergfex GmbH'});
-var layerBergfexAmapGrp=L.layerGroup([layerBergfexAmap,layerBergfexAmap_14,layerBergfexAmap_14b,layerBergfexAmap_15],{bounds: boundsAUT});
+// layerBergfexAmapUrl=akt_protocol+"//static{s}.bergfex.com/images/amap/{z}/{z}_{x}_{y}.png";
+// layerBergfexAmapUrl_14=akt_protocol+"//static{s}.bergfex.com/images/amap/{z}/89/{z}_{x}_{y}.png";
+// layerBergfexAmapUrl_14b=akt_protocol+"//static{s}.bergfex.com/images/amap/{z}/88/{z}_{x}_{y}.png";
+// layerBergfexAmapUrl_15=akt_protocol+"//static{s}.bergfex.com/images/amap/{z}/178/{z}_{x}_{y}.png";
+// var layerBergfexAmap = new L.TileLayer(layerBergfexAmapUrl,
+// {maxZoom: maxzoom_amap+2, minZoom: minzoom_amap, maxNativeZoom: maxzoom_amap, bounds: boundsAUT, subdomains: '1234567', detectRetina: true, format: 'image/png', attribution: 'Kartendaten: © Map Data 2008, 2013 BEV, bergfex GmbH'});
+// var layerBergfexAmap_14 = new L.TileLayer(layerBergfexAmapUrl_14,
+// {maxZoom: maxzoom_amap+1, minZoom: maxzoom_amap+1, subdomains: '1234567', detectRetina: true, format: 'image/png', attribution: 'Kartendaten: © Map Data 2008, 2013 BEV, bergfex GmbH'});
+// var layerBergfexAmap_14b = new L.TileLayer(layerBergfexAmapUrl_14b,
+// {maxZoom: maxzoom_amap+1, minZoom: maxzoom_amap+1, subdomains: '1234567', detectRetina: true, format: 'image/png', attribution: 'Kartendaten: © Map Data 2008, 2013 BEV, bergfex GmbH'});
+// var layerBergfexAmap_15 = new L.TileLayer(layerBergfexAmapUrl_15,
+// {maxZoom: maxzoom_amap+2, minZoom: maxzoom_amap+2, subdomains: '1234567', detectRetina: true, format: 'image/png', attribution: 'Kartendaten: © Map Data 2008, 2013 BEV, bergfex GmbH'});
+// var layerBergfexAmapGrp=L.layerGroup([layerBergfexAmap,layerBergfexAmap_14,layerBergfexAmap_14b,layerBergfexAmap_15],{bounds: boundsAUT});
 
 //Bergfex ÖK Karte
 var layerBergfexOek = new L.TileLayer(akt_protocol+"//maps.bergfex.at/oek/standard/{z}/{x}/{y}.jpg",
@@ -412,7 +412,7 @@ var layerMapBoxBlm8bit = new L.TileLayer("https://{s}.tiles.mapbox.com/v3/colema
 var layerMapBoxPopFire = new L.TileLayer("https://{s}.tiles.mapbox.com/v3/aj.population-fire/{z}/{x}/{y}.png",{maxZoom: maxzoom_6,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 var layerMapBoxPir2 = new L.TileLayer("https://{s}.tiles.mapbox.com/v3/lrqdo.me2bng9n/{z}/{x}/{y}.png",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 
-var layerMapBoxDataUpd = new L.TileLayer("https://{s}.tiles.mapbox.com/v4/aaronlidman.4aae1384/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImdQMzI4WjgifQ.d-Uyr7NBjrJVz9z82uk5Xg",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+//var layerMapBoxDataUpd = new L.TileLayer("https://{s}.tiles.mapbox.com/v4/aaronlidman.4aae1384/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImdQMzI4WjgifQ.d-Uyr7NBjrJVz9z82uk5Xg",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 
 var layerMapBoxEmerald = new L.TileLayer(akt_protocol+"//{s}.tiles.mapbox.com/v4/mapbox.emerald/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 var layerMapBoxComic = new L.TileLayer(akt_protocol+"//{s}.tiles.mapbox.com/v4/mapbox.comic/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
@@ -506,7 +506,8 @@ baseMaps = [
         expanded : false,
         layers    : {
             "Basemap.at Grundkarte": layerGrpBasemVd,
-            "Google Standard": layerGoogleStd,
+            "Google Standard (alternativ)": layerGoogleStd,
+            "Google Standard": g_roadmap,
             "Here-Maps Standard": layerNokiaRoad,
             "Here-Maps Verkehr": layerNokiaTrafic,
             "Bing Standard":  bing_road,
@@ -522,7 +523,7 @@ baseMaps = [
         layers    : {
             "OpenStreetMap (Bergfex)": layerBergfexOsm,
             "ÖsterrreichKarte (Bergfex)":layerBergfexOek,
-            "AustriaMap (Bergfex)": layerBergfexAmapGrp,
+            // "AustriaMap (Bergfex)": layerBergfexAmapGrp,
             "OpenTopoMap": layerOpenTopo,
             "Mapbox Topo": layerMapBoxStreets,
             "Geofabrik Topo": layerGeofTopo,
@@ -537,13 +538,13 @@ baseMaps = [
     {groupName : "Transport und Outdoor",
         expanded : false,
         layers    : {
-            "Thunderforest Transport":layerOSMTransp,
             "ÖPNV Verkehrskarte": layerÖPNV,
+            "Thunderforest Transport":layerOSMTransp,
+            "Mapbox Outdoor": layerMapBoxOutdoor,
+            "Mapbox Run, Hike, Bike": layerMapBoxRunBikeHike,
             "OpenStreetMap Outdoors": layerOSMOutd,
             "OpenStreetMap Cycle": layerOSMCycle,
             "OpenStreetMap Hike and Bike": layerHikeBike,
-            "Mapbox Outdoor": layerMapBoxOutdoor,
-            "Mapbox Run, Hike, Bike": layerMapBoxRunBikeHike,
     }
     },
     {groupName : "Lustige und Diverse",
@@ -558,7 +559,7 @@ baseMaps = [
             "Mapbox Wheatpaste": layerMapBoxStreetsWheat,
             "Mapbox Bluemarbel 8 bit": layerMapBoxBlm8bit,
             "Mapbox Populationfire": layerMapBoxPopFire,
-            "Mapbox Data-Updates": layerMapBoxDataUpd,
+            //"Mapbox Data-Updates": layerMapBoxDataUpd,
     }
     },
     {groupName : "Satellit",
