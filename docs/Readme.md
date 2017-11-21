@@ -85,5 +85,7 @@ document.write(''
  +'navigator.userAgent = '+navigator.userAgent+'<br>'
  +'navigator.platform = '+navigator.platform+'<br>'
  +'navigator.oscpu = '+navigator.oscpu+'<br>'
+ +'navigator.appVersion = '+navigator.appVersion+'<br>'
+ 
 )
 </script>
