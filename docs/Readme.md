@@ -83,5 +83,7 @@ document.write(''
  +'Major version = '+majorVersion+'<br>'
  +'navigator.appName = '+navigator.appName+'<br>'
  +'navigator.userAgent = '+navigator.userAgent+'<br>'
+ +'navigator.platform = '+navigator.platform+'<br>'
+ +'navigator.oscpu = '+navigator.oscpu+'<br>'
 )
 </script>
