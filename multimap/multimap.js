@@ -426,6 +426,10 @@ var layerNatGeoWorld = new L.TileLayer(layerAdrNatGeoWorld,{maxZoom: maxzoom_nat
 var layerHarvWld = new L.TileLayer.WMS(akt_protocol+"//worldmap.harvard.edu/geoserver/wms",
         {maxZoom: maxzoom_std,layers: 'geonode:Digital_Chart_of_the_World',format: 'image/png',transparent: true,attribution: 'Kartendaten: © <a href="http://worldmap.harvard.edu">Harvard Worldmap</a>'});
 
+//Open Map Tiles
+var layerOpenTileMapOsmBright = new L.TileLayer(akt_protocol+"//maps.tilehosting.com/styles/bright/{z}/{x}/{y}.png?key=hWWfWrAiWGtv68r8wA6D",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="https://openmaptiles.org/">OpenMapTiles</a>'});
+var layerOpenTileMapOsmTopo = new L.TileLayer(akt_protocol+"//maps.tilehosting.com/styles/topo/{z}/{x}/{y}.png?key=hWWfWrAiWGtv68r8wA6D",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="https://openmaptiles.org/">OpenMapTiles</a>'});
+
 //Neuseeland LINZ-Dataservice
 // var layerLinzNzTopo250 = new L.TileLayer("https://tiles-a.data-cdn.linz.govt.nz/services;key=9fccd3c148c24bf1b11cbadfcb3d9d89/tiles/v4/layer=798,style=auto/{z}/{x}/{y}.png",{maxZoom: 12, minZoom: 9, detectRetina: true, attribution: 'Kartendaten: © <a href="https://data.linz.govt.nz/">Land Information New Zealand</a>'})
 // var layerLinzNzTopo50 = new L.TileLayer("https://tiles-a.data-cdn.linz.govt.nz/services;key=a23e7b655e11475788582b1c230cb0ac/tiles/v4/layer=767,style=auto//{z}/{x}/{y}.png",{maxZoom: 15, minZoom: 13, detectRetina: true, attribution: 'Kartendaten: © <a href="https://data.linz.govt.nz/">Land Information New Zealand</a>'})
@@ -433,7 +437,7 @@ var layerHarvWld = new L.TileLayer.WMS(akt_protocol+"//worldmap.harvard.edu/geos
 // var layerGrpLinzNz = L.layerGroup().addLayer(layerMapBoxStreets2).addLayer(layerLinzNzTopo250).addLayer(layerLinzNzTopo50);
 
 //
-layerOpenTopoMLandsat=new L.TileLayer(akt_protocol+"//irs.gis-lab.info/?layers=landsat&request=GetTile&z={z}&x={x}&y={y}",{maxZoom: 15, maxNativeZoom: maxzoom_14, detectRetina: true, attribution: 'Kartendaten: Kartendaten: © <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende, SRTM | Kartendarstellung: © <a href="http://opentopomap.org">OpenTopoMap</a>'})
+//layerOpenTopoMLandsat=new L.TileLayer(akt_protocol+"//irs.gis-lab.info/?layers=landsat&request=GetTile&z={z}&x={x}&y={y}",{maxZoom: 15, maxNativeZoom: maxzoom_14, detectRetina: true, attribution: 'Kartendaten: Kartendaten: © <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende, SRTM | Kartendarstellung: © <a href="http://opentopomap.org">OpenTopoMap</a>'})
 
 layerEcmapsOsmWinter=new L.TileLayer(akt_protocol+"//ec{s}.cdn.ecmaps.de/WmsGateway.ashx.jpg?ZoomLevel={z}&TileX={x}&TileY={y}&Experience=ecmaps&MapStyle=Winter OSM",{maxZoom: 18, maxNativeZoom: 17, subdomains: '0123', detectRetina: true, attribution: 'Kartendaten: © ecmaps.de'})
 
@@ -500,6 +504,7 @@ baseMaps = [
             "Ecmaps OSM Summer": layerEcmapsOsmSummer,
             "Ecmaps OSM Winter":layerEcmapsOsmWinter,
             "WebAtlas.no": layerWebAtlNo,
+            "Open Map Tiles OSM Bright":layerOpenTileMapOsmBright,
         }
     },
     {groupName : "Standard Karten",
@@ -512,7 +517,7 @@ baseMaps = [
             "Here-Maps Verkehr": layerNokiaTrafic,
             "Bing Standard":  bing_road,
             "Apple Standard": layerAppleStd,
-            "Tomtom Standard": layerTomtom,
+            //"Tomtom Standard": layerTomtom,
             "Esri Streetmap": layerEsriStreet,
             "National Geographic Countries": layerNatGeoWorld,
             "Mapbox Political":layerMapBoxCtry,
@@ -532,6 +537,7 @@ baseMaps = [
             "Here-Maps Terrain": layerNokiaTerr,
             "Google Terrain":  layerGoogleTer,
             "Maps For Free Relief":layerMapsForFreeRelief,
+            "Open Tile Maps OSM Topo": layerOpenTileMapOsmTopo,
             // "Land Information New Zealand Topo":layerGrpLinzNz,
         }
     },
@@ -573,7 +579,7 @@ baseMaps = [
             "Mapbox Satellit":layerMapBoxSat,
             "Esri Satellit": layerEsriWldImg,
             "Basemap Orthofoto": layerBasemOrtho,
-            "OpenTopomap Landsat":layerOpenTopoMLandsat,
+            //"OpenTopomap Landsat":layerOpenTopoMLandsat,
         }
     },
     {groupName : "Satellit (Hybrid)",
