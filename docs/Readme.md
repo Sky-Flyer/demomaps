@@ -4,6 +4,8 @@
 
 - [Mulitmap (chello hosted)](http://members.chello.at/~aschweitzer/multimap)
 
+- [Zapfenrechner (Github)](./zapfen/)
+
 - [Multiwetter (chello hosted)](http://members.chello.at/~aschweitzer/multiweather/)
 
 - [Bahnhofsuhr (chello hosted)](http://members.chello.at/~aschweitzer/bahnhofsuhr/)
