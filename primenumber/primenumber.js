@@ -32,6 +32,7 @@ this.isPrimeSimple = function(n){
 this.isPrimeOpt = function(n){
     if(myIsNaN(n) || n<=1 ) {return false;}
     var i;
+    
     for(i=2;i*i<=n;i++){
         if(n%i==0){
             return false;

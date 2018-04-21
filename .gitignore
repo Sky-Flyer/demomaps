@@ -7,3 +7,7 @@ multimap/tilecache*/
 *.pdf
 *.ffs_db
 primenumber/primzahlen-liste.xls
+._*
+node_modules/
+release-builds/
+electron-quick-start-master/

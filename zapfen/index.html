@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+	    <title>Zapfenrechner</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.75, maximum-scale=4.0, user-scalable=yes" />
+		<link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+		<style>
+			td {min-width: 3em;padding-top: 2px; padding-bottom: 2px; padding-left: 5px; padding-right: 5px; text-align: center}
+			.valCell {padding-left: 10px; padding-right: 10px; text-align: right}
+			.nonPrimeNumCell {text-align: center}
+        </style>
+		<script src="./zapfen.js" type="text/javascript">
+		
+		</script>
+    </head>
+	<body onload="">
+		<div>
+			<div class="jumbotron"> 
+				<div class="container text-left">
+				<h1>Zapfenrechner</h1>
+				</div>
+			
+				<div class="container">
+					Berechne Zapfen für:
+					<input id="startNum" title="Bitte die Startzahl eingeben!" 
+						value="100" type="number" step="50" 
+						x-moz-errormessage="Falscher Wertebereich!" required>
+					<button id="engage" class="btn btn-primary" onclick="engage()" aria-label="Left Align">
+						<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+					</button>
+					<button id="clear" class="btn btn-warning" onclick="clearDiv()" aria-label="Left Align">
+						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+					</button>
+				</div>
+				
+			</div>
+			<div class="container text-left">
+				<div id="outDiv"></div>
+			</div>
+		</div>
+		
+    </body>
+</html>
