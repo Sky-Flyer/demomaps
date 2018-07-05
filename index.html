@@ -1,88 +1,155 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Andis Seite</title>
-    <meta name="viewport" content="width=device-width, initial-scale=0.75, maximum-scale=4.0, user-scalable=yes" />
-    <link href="multimap/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="jumbotron"> 
-        <div class="container text-left">
-          <h1>Andis Homepage</h1>
-        </div>
-    </div>
 
+<head>
+  <meta charset="UTF-8">
+  <title>Andis Seite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=0.75, maximum-scale=4.0, user-scalable=yes" />
+  <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script>
+    function openUrl() {
+      var urlToOpenVal = document.getElementById("urlToOpen").value;
+      if (urlToOpenVal.length<1) {
+        alert('Bitte Url angeben!')
+        return;
+      }
+      if (urlToOpenVal.indexOf("http://") == -1 && urlToOpenVal.indexOf("https://") == -1) {
+        urlToOpenVal = "http://" + urlToOpenVal;
+      }
+      window.open(urlToOpenVal);
+    }
+    function doSearch(searchUrl){
+      var searchStringVal = document.getElementById("searchString").value;
+      window.open(searchUrl+searchStringVal);
+    }
+  </script>
+</head>
+
+<body>
+  <div class="jumbotron">
     <div class="container text-left">
-      <iframe src="https://duckduckgo.com/search.html?width=200&prefill=Suche mit DuckDuckGo&focus=yes" style="overflow:hidden;margin:0;padding:0;width:258px;height:40px;" frameborder="0"></iframe>
-      <hr>
-      <ul>
-        <li><a href="https://www.google.at/">Google</a></li>
-        <li><a href="https://www.bing.com/">Bing</a></li>
-        <li><a href="https://duckduckgo.com/">Duckduckgo</a></li>
-            <hr>
-        <li><a href="https://uhr.ptb.de/">Atomuhr online</a></li>
-            <hr>
-            <li><a href="multimap/">Multimap (Chello)</a></li>
-        <li><a href="primenumber/">Primzahlen</a></li>
-        <li><a href="zapfen/">Zapfenrechner</a></li>
-        <li><a href="atomuhr/">Atomuhr (lokal)</a></li>
-        <li><a href="bahnhofsuhr/">Bahnhofsuhr</a></li>
-        <li><a href="digitaluhr/">Digitaluhr</a></li>
-            <li><a href="chucknorris/">Chuck Norris Database</a></li>
-        <hr>
-        <li><a href="https://sky-flyer.github.io/demomaps/">Github Projects</a></li>
-        <li><a href="https://sky-flyer.github.io/demomaps/multimap/">Multimap (Github)</a></li>
-        <hr>
-        <li><a href="https://feedly.com/i/my">Feedly</a></li>
-        <li><a href="http://www.uncovr.com/News/">Uncovr</a></li>
-        <li><a href="https://news.google.at">Google News</a></li>
-        <li><a href="https://www.msn.com/de-at/">MSN News</a></li>
-        <li><a href="http://de.euronews.com/">Euronews</a></li>
-        <li><a href="https://news.orf.at/">ORF News</a></li>
-        <hr>
-        <li><a href="http://wetter.orf.at/wien/prognose">ORF Wetter</a></li>
-        <li><a href="https://www.bergfex.at/sommer/wien-stadt/wetter/">Bergfex Wetter</a></li>
-        <hr>
-        <li><a href="https://online.bankaustria.at/wps/portal/userlogin">Bankaustria Onlinebanking</a></li>
-        <hr>
-        <li><a href="http://9gag.com">9 Gag</a></li>
-        <li><a href="http://de.webfail.at/">Webfail</a></li>
-        <li><a href="https://witze.at/witz-des-tages">Witz des Tages</a></li>
-      </ul>
-      <hr>
-      <div class="container text-left">
-        <h3>Webradio</h3>
-          <ul>
-          <li><a href="http://mp3stream7.apasf.apa.at/;?type=http&nocache=18478"	                                                   >Ö3	                    </a></li>
-          <li><a href="http://mp3wien2.apasf.sf.apa.at/;?type=http&nocache=70"	                                                     >Radio Wien	            </a></li>
-          <li><a href="http://onair.krone.at/kronehit-fresh.mp3"	                                                                   >Kronehit Fresh	        </a></li>
-          <li><a href="http://onair.krone.at/kronehit-hd.mp3"	                                                                       >Kronehit HD	            </a></li>
-          <li><a href="http://onair.krone.at/kronehit-event.mp3"	                                                                   >Kronehit Summer	        </a></li>
-          <li><a href="http://onair.krone.at/kronehit-love.mp3"	                                                                     >Kronehit Lovesongs	    </a></li>
-          <li><a href="http://onair.krone.at/kronehit-greatesthits.mp3"	                                                             >Kronehit Greatest Hits	</a></li>
-          <li><a href="http://raj.krone.at/kronehit-charts.mp3"	                                                                     >Kronehit Charts	        </a></li>
-          <li><a href="http://cdn.nrjaudio.fm/adwz1/at/55212/mp3_128.mp3"	                                                           >Radio Energy	          </a></li>
-          <li><a href="http://streamplus14.leonex.de:24954/;584871725547991stream.nsv"	                                             >Radio Ö24	              </a></li>
-          <li><a href="http://xapp2450489345c1000321.f.l.i.lb.core-cdn.net/1000321copo/live/app2450489345/w2445344770/live_de_96.mp3">88.6 der Musiksender	  </a></li>
-          <li><a href="http://online-radiorelax.tavrmedia.ua/RadioRelax"                                                             >Radio Relac             </a></li>
-          </ul>
-        <h3><a href="http://www.radio.at/">Radio.at</a><h3>
-          <div class="container">
-            <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="oe3" data-autoplay="false" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a href="//oe3.radio.at" target="_blank">Hitradio Ö3 auf radio.at</a></noscript>
-            <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="radiowien" data-autoplay="false" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a href="//radiowien.radio.at" target="_blank">Radio Wien auf radio.at</a></noscript>
-          </div>
-          <div class="container">
-            <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="kronehitfresh" data-autoplay="false" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a href="//kronehitfresh.radio.at" target="_blank">KRONEHIT Fresh auf radio.at</a></noscript>
-            <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="kronehitchristmas" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a href="//kronehitchristmas.radio.at" target="_blank">KRONEHIT Spring Break auf radio.at</a></noscript>
-            <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="kronehit" data-autoplay="false" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a href="//kronehit.radio.at" target="_blank">KRONEHIT auf radio.at</a></noscript>
-          </div>
-          <div class="container">
-            <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="energyaustria" data-autoplay="false" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a href="//energyaustria.radio.at" target="_blank">Energy Österreich auf radio.at</a></noscript>
-            <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="radio886" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a href="//radio886.radio.at" target="_blank">radio 88.6 auf radio.at</a></noscript>
-            <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="oe24" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a href="//oe24.radio.at" target="_blank">Radio Ö24 Wien auf radio.at</a></noscript>
+      <h1>Andis Homepage</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- <iframe src="https://duckduckgo.com/search.html?width=200&prefill=Suche mit DuckDuckGo&focus=yes" style="overflow:hidden;margin:0;padding:0;width:258px;height:40px;"
+      frameborder="0"></iframe>
+    <hr> -->
+    <div class="well">
+      <label>Gehe zu URL:</label>
+      <div class="row">
+        <div class="col-sm-10">
+          <input id="urlToOpen" name="urlToOpen" type="url" class="form-control" required>
+        </div>
+        <div class="col-sm-2">
+          <input class="btn btn-warning" type="button" value="Öffne URL" onclick="openUrl()">
+        </div>
+      </div>
+    </div>
+    <!-- <div class="row">
+          <hr>
+        </div> -->
+    <div class="well">
+      <label>Online Suche:</label>
+      <div class="row">
+        <div class="col-sm-6">
+          <input class="form-control" id="searchString" name="searchString" type="text" class="" size="120" required>
+        </div>
+        <div class="col-sm-6">
+          <div class="btn-group">
+          <input class="btn btn-warning" type="button" value="QWant" onclick="doSearch('https://www.qwant.com/?t=all&q=')">
+          <input class="btn btn-warning" type="button" value="DuckDuckGo" onclick="doSearch('https://duckduckgo.com/?q=')">
+          <input class="btn btn-warning" type="button" value="Google" onclick="doSearch('https://www.google.at/search?q=')">
+          <input class="btn btn-warning" type="button" value="Bing" onclick="doSearch('https://www.bing.com/search?q=')">
           </div>
         </div>
+      </div>
     </div>
-  </body>
+    <div class="row">
+      <hr>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 btn-group ">
+        <a class="btn btn-primary btn-lg" href="https://www.google.at/">Google</a>
+        <a class="btn btn-primary btn-lg" href="https://www.bing.com/">Bing</a>
+        <a class="btn btn-primary btn-lg" href="https://www.qwant.com/?l=de&h=0&hc=1&a=1&s=2&b=1&i=1&r=AT&sr=de">QWant</a>
+        <a class="btn btn-primary btn-lg" href="https://duckduckgo.com/">Duckduckgo</a>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-12 btn-group">
+        <a class="btn btn-primary  btn-lg" href="https://www.google.at/search?safe=active&source=hp&ei=X4ksW43_MofTwAKEuIvYDw&q=wm&oq=wm&gs_l=mobile-gws-wiz-hp.3..46i131j0i131j0l3.2437.2897..3271...0....115.275.2j1......0....1.......0.slm5%2BuREp6Q%3D&dlnr=1&sei=ZIksW9bVMMPPwQLEnpqQCg#dlnr=1&sie=lg;/m/06qjc4;2;/m/030q7;mt;fp;1">WM 2018 - Google</a>
+        <a class="btn btn-primary  btn-lg" href="https://www.qwant.com/?q=wm%202018&t=all">WM 2018 - QWant</a>
+        <a class="btn btn-primary  btn-lg" href="http://sport.orf.at/fussball/today">WM 2018 - ORF</a>
+      </div>
+    </div>
+    <hr>
+    <a class="btn btn-primary btn-block btn-lg" href="https://uhr.ptb.de/">Atomuhr online</a>
+    <hr>
+    <a class="btn btn-primary btn-block btn-lg" href="multimap/">Multimap (Chello)</a>
+    <a class="btn btn-primary btn-block btn-lg" href="primenumber/">Primzahlen</a>
+    <a class="btn btn-primary btn-block btn-lg" href="zapfen/">Zapfenrechner</a>
+    <a class="btn btn-primary btn-block btn-lg" href="atomuhr/">Atomuhr (lokal)</a>
+    <a class="btn btn-primary btn-block btn-lg" href="bahnhofsuhr/">Bahnhofsuhr</a>
+    <a class="btn btn-primary btn-block btn-lg" href="digitaluhr/">Digitaluhr</a>
+    <a class="btn btn-primary btn-block btn-lg" href="chucknorris/">Chuck Norris Database</a>
+    <hr>
+    <a class="btn btn-primary btn-block btn-lg" href="https://sky-flyer.github.io/demomaps/">Github Projects</a>
+    <a class="btn btn-primary btn-block btn-lg" href="https://sky-flyer.github.io/demomaps/multimap/">Multimap (Github)</a>
+    <hr>
+    <a class="btn btn-primary btn-block btn-lg" href="https://www.updatemi.com/my">Updatemi</a>
+    <a class="btn btn-primary btn-block btn-lg" href="https://feedly.com/i/my">Feedly</a>
+    <a class="btn btn-primary btn-block btn-lg" href="http://www.uncovr.com/News/">Uncovr</a>
+    <a class="btn btn-primary btn-block btn-lg" href="https://news.google.at">Google News</a>
+    <a class="btn btn-primary btn-block btn-lg" href="https://www.msn.com/de-at/">MSN News</a>
+    <a class="btn btn-primary btn-block btn-lg" href="http://de.euronews.com/">Euronews</a>
+    <a class="btn btn-primary btn-block btn-lg" href="https://news.orf.at/">ORF News</a>
+    <hr>
+    <a class="btn btn-primary btn-block btn-lg" href="http://wetter.orf.at/wien/prognose">ORF Wetter</a>
+    <a class="btn btn-primary btn-block btn-lg" href="https://www.bergfex.at/sommer/wien-stadt/wetter/">Bergfex Wetter</a>
+    <a class="btn btn-primary btn-block btn-lg" href="https://www.meteoblue.com/de/wetter/vorhersage/multimodel/unter-sankt-veit_Österreich_2601119">Meteoblue Multimodel Ober St. Veit</a>
+    <a class="btn btn-primary btn-block btn-lg" href="https://www.meteoblue.com/de/wetter/vorhersage/multimodel/biograd-na-moru_kroatien_3204121?fcstlength=168">Meteoblue Multimodel Biograd</a>
+    <hr>
+    <a class="btn btn-primary btn-block btn-lg" href="https://online.bankaustria.at/wps/portal/userlogin">Bankaustria Onlinebanking</a>
+    <hr>
+    <a class="btn btn-primary btn-block btn-lg" href="http://9gag.com">9 Gag</a>
+    <a class="btn btn-primary btn-block btn-lg" href="http://de.webfail.at/">Webfail</a>
+    <a class="btn btn-primary btn-block btn-lg" href="https://witze.at/witz-des-tages">Witz des Tages</a>
+    <hr>
+    <h3>Webradio</h3>
+    <a class="btn btn-success btn-block btn-lg" href="http://www.radio.at/">Radio.at</a>
+    <a class="btn btn-primary btn-block btn-lg" href="http://mp3stream7.apasf.apa.at/;?type=http&nocache=18478">Ö3 </a>
+    <a class="btn btn-primary btn-block btn-lg" href="http://mp3wien2.apasf.sf.apa.at/;?type=http&nocache=70">Radio Wien </a>
+    <a class="btn btn-primary btn-block btn-lg" href="http://onair.krone.at/kronehit-fresh.mp3">Kronehit Fresh </a>
+    <a class="btn btn-primary btn-block btn-lg" href="http://onair.krone.at/kronehit-hd.mp3">Kronehit HD </a>
+    <a class="btn btn-primary btn-block btn-lg" href="http://onair.krone.at/kronehit-event.mp3">Kronehit Summer </a>
+    <a class="btn btn-primary btn-block btn-lg" href="http://onair.krone.at/kronehit-love.mp3">Kronehit Lovesongs </a>
+    <a class="btn btn-primary btn-block btn-lg" href="http://onair.krone.at/kronehit-greatesthits.mp3">Kronehit Greatest Hits </a>
+    <a class="btn btn-primary btn-block btn-lg" href="http://raj.krone.at/kronehit-charts.mp3">Kronehit Charts </a>
+    <a class="btn btn-primary btn-block btn-lg" href="http://cdn.nrjaudio.fm/adwz1/at/55212/mp3_128.mp3">Radio Energy </a>
+    <a class="btn btn-primary btn-block btn-lg" href="http://streamplus14.leonex.de:24954/;584871725547991stream.nsv">Radio Ö24 </a>
+    <a class="btn btn-primary btn-block btn-lg" href="http://xapp2450489345c1000321.f.l.i.lb.core-cdn.net/1000321copo/live/app2450489345/w2445344770/live_de_96.mp3">88.6 der Musiksender </a>
+    <a class="btn btn-primary btn-block btn-lg" href="http://online-radiorelax.tavrmedia.ua/RadioRelax">Radio Relax </a>
+    <hr>
+
+      <!-- <div class="container">
+        <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="oe3" data-autoplay="false" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a class="btn btn-primary btn-block btn-lg" href="//oe3.radio.at" target="_blank">Hitradio Ö3 auf radio.at</a></noscript>
+        <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="radiowien" data-autoplay="false" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a class="btn btn-primary btn-block btn-lg" href="//radiowien.radio.at" target="_blank">Radio Wien auf radio.at</a></noscript>
+      </div>
+      <div class="container">
+        <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="kronehitfresh" data-autoplay="false" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a class="btn btn-primary btn-block btn-lg" href="//kronehitfresh.radio.at" target="_blank">KRONEHIT Fresh auf radio.at</a></noscript>
+        <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="kronehitchristmas" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a class="btn btn-primary btn-block btn-lg" href="//kronehitchristmas.radio.at" target="_blank">KRONEHIT Spring Break auf radio.at</a></noscript>
+        <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="kronehit" data-autoplay="false" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a class="btn btn-primary btn-block btn-lg" href="//kronehit.radio.at" target="_blank">KRONEHIT auf radio.at</a></noscript>
+      </div>
+      <div class="container">
+        <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="energyaustria" data-autoplay="false" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a class="btn btn-primary btn-block btn-lg" href="//energyaustria.radio.at" target="_blank">Energy Österreich auf radio.at</a></noscript>
+        <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="radio886" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a class="btn btn-primary btn-block btn-lg" href="//radio886.radio.at" target="_blank">radio 88.6 auf radio.at</a></noscript>
+        <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="oe24" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a class="btn btn-primary btn-block btn-lg" href="//oe24.radio.at" target="_blank">Radio Ö24 Wien auf radio.at</a></noscript>
+      </div>
+    </div> -->
+    <footer>&copy;2018 by Andreas Schweitzer</footer>
+</body>
+
 </html>
