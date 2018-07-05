@@ -9,7 +9,7 @@
   <script>
     function openUrl() {
       var urlToOpenVal = document.getElementById("urlToOpen").value;
-      if (urlToOpenVal.length<1) {
+      if (urlToOpenVal.length < 1) {
         alert('Bitte Url angeben!')
         return;
       }
@@ -18,17 +18,32 @@
       }
       window.open(urlToOpenVal);
     }
-    function doSearch(searchUrl){
+
+    function doSearch(searchUrl) {
       var searchStringVal = document.getElementById("searchString").value;
-      window.open(searchUrl+searchStringVal);
+      window.open(searchUrl + searchStringVal);
     }
   </script>
   <style>
-    .margin-top-xs {margin-top: 5px;}  
-    .margin-bottom-xs {margin-bottom: 5px;}  
-    .margin-bottom-sm {margin-bottom: 10px;} 
-    .margin-bottom-md {margin-bottom: 15px;}
-    .margin-bottom-lg {margin-bottom: 20px;}  
+    .margin-top-xs {
+      margin-top: 5px;
+    }
+
+    .margin-bottom-xs {
+      margin-bottom: 5px;
+    }
+
+    .margin-bottom-sm {
+      margin-bottom: 10px;
+    }
+
+    .margin-bottom-md {
+      margin-bottom: 15px;
+    }
+
+    .margin-bottom-lg {
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 
@@ -57,7 +72,7 @@
       </div>
       <div class="clearfix"></div>
       <div class="row martin-top-xs">
-          <label>Online Suche:</label>
+        <label>Online Suche:</label>
       </div>
       <div class="row">
         <div class="col-lg-8 col-md-7 col-sm-6 col-xs-5">
@@ -65,10 +80,11 @@
         </div>
         <div class="col-lg-4 col-md-5 col-sm-6 col-xs-7">
           <div class="btn-group pull-right">
-            <input class="btn btn-success col-sm-3" type="button" value="QWant" onclick="doSearch('https://www.qwant.com/?t=all&q=')">
-            <input class="btn btn-success col-sm-3" type="button" value="DDG" onclick="doSearch('https://duckduckgo.com/?q=')">
-            <input class="btn btn-success col-sm-3" type="button" value="Google" onclick="doSearch('https://www.google.at/search?q=')">
-            <input class="btn btn-success col-sm-3" type="button" value="Bing" onclick="doSearch('https://www.bing.com/search?q=')">
+          <!-- <div class="container"> -->
+              <input class="btn btn-success col-sm-3" type="button" value="QWant" onclick="doSearch('https://www.qwant.com/?t=all&q=')">
+              <input class="btn btn-success col-sm-3" type="button" value="DDG" onclick="doSearch('https://duckduckgo.com/?q=')">
+              <input class="btn btn-success col-sm-3" type="button" value="Google" onclick="doSearch('https://www.google.at/search?q=')">
+              <input class="btn btn-success col-sm-3" type="button" value="Bing" onclick="doSearch('https://www.bing.com/search?q=')">
           </div>
         </div>
       </div>
@@ -89,15 +105,16 @@
       <div class="col-sm-12 btn-group btn-group-justified">
         <a class="btn btn-primary  btn-lg" target="_blank" href="https://www.google.at/search?safe=active&source=hp&ei=X4ksW43_MofTwAKEuIvYDw&q=wm&oq=wm&gs_l=mobile-gws-wiz-hp.3..46i131j0i131j0l3.2437.2897..3271...0....115.275.2j1......0....1.......0.slm5%2BuREp6Q%3D&dlnr=1&sei=ZIksW9bVMMPPwQLEnpqQCg#dlnr=1&sie=lg;/m/06qjc4;2;/m/030q7;mt;fp;1">WM 2018 - Google</a>
         <a class="btn btn-primary  btn-lg" target="_blank" href="https://www.qwant.com/?q=wm%202018&t=all">WM 2018 - QWant</a>
-        <a class="btn btn-primary  btn-lg" target="_blank" href="http://sport.orf.at/fussball/today">WM 2018 - ORF</a>
+        <a class="btn btn-primary  btn-lg" target="_blank" href="http://sport.orf.at/fussball/competitions/comp/4/phase/FINAL/">WM 2018 - ORF</a>
       </div>
     </div>
     <hr>
+    <a class="btn btn-info btn-block btn-lg margin-bottom-xs" target="_blank" href="https://sky-flyer.github.io/demomaps/">Sky-Flyer Github Projects</a>
     <div class="row margin-bottom-xs">
-        <div class="col-sm-12 btn-group btn-group-justified">
-          <a class="btn btn-info btn-block btn-lg" target="_blank" href="atomuhr/">Atomuhr (Chello)</a>
-          <a class="btn btn-info btn-block btn-lg" target="_blank" href="https://uhr.ptb.de/">Atomuhr PTB</a>
-        </div>
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-info btn-block btn-lg" target="_blank" href="atomuhr/">Atomuhr (Chello)</a>
+        <a class="btn btn-info btn-block btn-lg" target="_blank" href="https://uhr.ptb.de/">Atomuhr PTB</a>
+      </div>
     </div>
     <div class="row margin-bottom-xs">
       <div class="col-sm-12 btn-group btn-group-justified">
@@ -119,20 +136,46 @@
     </div>
     <a class="btn btn-info btn-block btn-lg" target="_blank" href="chucknorris/">Chuck Norris Database</a>
     <hr>
-    <a class="btn btn-info btn-block btn-lg" target="_blank" href="https://sky-flyer.github.io/demomaps/">Sky-Flyer Github Projects</a>
-    <hr>
-    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://www.updatemi.com/my">Updatemi</a>
-    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://feedly.com/i/my">Feedly</a>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://www.updatemi.com/my">Updatemi</a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://feedly.com/i/my">Feedly</a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://flipboard.com/">Flipboard</a>
+      </div>
+    </div>
     <!-- <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://www.uncovr.com/News/">Uncovr</a> -->
-    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://news.google.at">Google News</a>
-    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://www.msn.com/de-at/">MSN News</a>
-    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://de.euronews.com/">Euronews</a>
-    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://news.orf.at/">ORF News</a>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://news.google.at">Google News</a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://www.msn.com/de-at/">MSN News</a>
+      </div>
+    </div>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://de.euronews.com/">Euronews</a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://news.orf.at/">ORF News</a>
+      </div>
+    </div>
     <hr>
-    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://wetter.orf.at/wien/prognose">ORF Wetter</a>
-    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://www.bergfex.at/sommer/wien-stadt/wetter/">Bergfex Wetter</a>
-    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://www.meteoblue.com/de/wetter/vorhersage/multimodel/unter-sankt-veit_Österreich_2601119">Meteoblue Multimodel Ober St. Veit</a>
-    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://www.meteoblue.com/de/wetter/vorhersage/multimodel/biograd-na-moru_kroatien_3204121?fcstlength=168">Meteoblue Multimodel Biograd</a>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://wetter.orf.at/wien/prognose">ORF Wetter</a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://www.bergfex.at/sommer/wien-stadt/wetter/">Bergfex Wetter</a>
+      </div>
+    </div>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+          <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://www.meteoblue.com/de/wetter/vorhersage/meteogramfive/unter-sankt-veit_%c3%96sterreich_2601119">Meteogramm Wien</a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://www.meteoblue.com/de/wetter/vorhersage/14-tage/unter-sankt-veit_%c3%96sterreich_2601119">14 Tage Wien</a>
+      </div>
+    </div>
+    <a class="btn btn-primary btn-block btn-lg margin-bootom-xs" target="_blank" href="https://www.meteoblue.com/de/wetter/vorhersage/multimodel/unter-sankt-veit_Österreich_2601119">Multimodel Wien</a>
+    <div class="row margin-top-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://www.meteoblue.com/de/wetter/vorhersage/14-tage/biograd-na-moru_kroatien_3204121">Meteoblue 14 Tage Biograd</a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://www.meteoblue.com/de/wetter/vorhersage/multimodel/biograd-na-moru_kroatien_3204121?fcstlength=168">Meteoblue Multimodel Biograd</a>
+      </div>
+    </div>
     <hr>
     <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://online.bankaustria.at/wps/portal/userlogin">Bankaustria Onlinebanking</a>
     <hr>
@@ -142,21 +185,41 @@
     <hr>
     <h3>Webradio</h3>
     <a class="btn btn-success btn-block btn-lg" target="_blank" href="http://www.radio.at/">Radio.at</a>
-    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://mp3stream7.apasf.apa.at/;?type=http&nocache=18478">Ö3 </a>
-    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://mp3wien2.apasf.sf.apa.at/;?type=http&nocache=70">Radio Wien </a>
-    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://onair.krone.at/kronehit-fresh.mp3">Kronehit Fresh </a>
-    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://onair.krone.at/kronehit-hd.mp3">Kronehit HD </a>
-    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://onair.krone.at/kronehit-event.mp3">Kronehit Summer </a>
-    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://onair.krone.at/kronehit-love.mp3">Kronehit Lovesongs </a>
-    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://onair.krone.at/kronehit-greatesthits.mp3">Kronehit Greatest Hits </a>
-    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://raj.krone.at/kronehit-charts.mp3">Kronehit Charts </a>
-    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://cdn.nrjaudio.fm/adwz1/at/55212/mp3_128.mp3">Radio Energy </a>
-    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://streamplus14.leonex.de:24954/;584871725547991stream.nsv">Radio Ö24 </a>
-    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://xapp2450489345c1000321.f.l.i.lb.core-cdn.net/1000321copo/live/app2450489345/w2445344770/live_de_96.mp3">88.6 der Musiksender </a>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://mp3stream7.apasf.apa.at/;?type=http&nocache=18478">Ö3 </a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://mp3wien2.apasf.sf.apa.at/;?type=http&nocache=70">Radio Wien </a>
+      </div>
+    </div>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://onair.krone.at/kronehit-hd.mp3">Kronehit HD </a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://onair.krone.at/kronehit-fresh.mp3">Kronehit Fresh </a>
+      </div>
+    </div>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://onair.krone.at/kronehit-event.mp3">Kronehit Summer </a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://onair.krone.at/kronehit-love.mp3">Kronehit Lovesongs </a>
+      </div>
+    </div>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://onair.krone.at/kronehit-greatesthits.mp3">Kronehit Greatest Hits </a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://raj.krone.at/kronehit-charts.mp3">Kronehit Charts </a>
+      </div>
+    </div>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://cdn.nrjaudio.fm/adwz1/at/55212/mp3_128.mp3">Radio Energy </a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://streamplus14.leonex.de:24954/;584871725547991stream.nsv">Radio Ö24 </a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://xapp2450489345c1000321.f.l.i.lb.core-cdn.net/1000321copo/live/app2450489345/w2445344770/live_de_96.mp3">88.6 der Musiksender </a>
+      </div>
+    </div>
     <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://online-radiorelax.tavrmedia.ua/RadioRelax">Radio Relax </a>
     <hr>
 
-      <!-- <div class="container">
+    <!-- <div class="container">
         <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="oe3" data-autoplay="false" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a class="btn btn-primary btn-block btn-lg" href="//oe3.radio.at" target="_blank">Hitradio Ö3 auf radio.at</a></noscript>
         <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="radiowien" data-autoplay="false" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a class="btn btn-primary btn-block btn-lg" href="//radiowien.radio.at" target="_blank">Radio Wien auf radio.at</a></noscript>
       </div>
