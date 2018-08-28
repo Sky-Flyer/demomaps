@@ -1,28 +1,250 @@
-# Demomap / Multimap
+<!DOCTYPE html>
+<html>
 
-- [Index auf Chello.at](http://members.chello.at/aschweitzer/index.html)
+<head>
+  <meta charset="UTF-8">
+  <title>Andis Seite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=0.75, maximum-scale=4.0, user-scalable=yes" />
+  <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script>
+    function openUrl() {
+      var urlToOpenVal = document.getElementById("urlToOpen").value;
+      if (urlToOpenVal.length < 1) {
+        alert('Bitte Url angeben!')
+        return;
+      }
+      if (urlToOpenVal.indexOf("http://") == -1 && urlToOpenVal.indexOf("https://") == -1) {
+        urlToOpenVal = "http://" + urlToOpenVal;
+      }
+      window.open(urlToOpenVal);
+    }
 
-- [Multimap](./multimap)
+    function doSearch(searchUrl) {
+      var searchStringVal = document.getElementById("searchString").value;
+      window.open(searchUrl + searchStringVal);
+    }
+  </script>
+  <style>
+    .margin-top-xs {
+      margin-top: 5px;
+    }
 
-- [Mulitmap (chello hosted)](http://members.chello.at/~aschweitzer/multimap)
+    .margin-bottom-xs {
+      margin-bottom: 5px;
+    }
 
-- [Zapfenrechner (Github)](./zapfen/)
+    .margin-bottom-sm {
+      margin-bottom: 10px;
+    }
 
-- [Multiwetter (chello hosted)](http://members.chello.at/~aschweitzer/multiweather/)
+    .margin-bottom-md {
+      margin-bottom: 15px;
+    }
 
-- [Bahnhofsuhr (chello hosted)](http://members.chello.at/~aschweitzer/bahnhofsuhr/)
+    .margin-bottom-lg {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
 
-- [PTB Atomuhr (chello hosted)](http://members.chello.at/~aschweitzer/atomuhr/)
+<body>
+  <div class="jumbotron">
+    <div class="container text-left">
+      <h1>Andis Homepage</h1>
+    </div>
+  </div>
 
-- [PTB Atomuhr (direkt)](https://uhr.ptb.de/)
+  <div class="container">
+    <!-- <iframe src="https://duckduckgo.com/search.html?width=200&prefill=Suche mit DuckDuckGo&focus=yes" style="overflow:hidden;margin:0;padding:0;width:258px;height:40px;"
+      frameborder="0"></iframe>
+    <hr> -->
+    <div class="well well-lg">
+      <div class="row margin-bootom-xs">
+        <label>Gehe zu URL:</label>
+      </div>
+      <div class="row margin-bootom-xs">
+        <div class="col-lg-11 col-md-10 col-sm-10 col-xs-9">
+          <input id="urlToOpen" name="urlToOpen" type="url" class="form-control" required>
+        </div>
+        <div class="col-lg-1 col-md-2 col-sm-2 col-xs-3">
+          <input class="btn btn-success pull-right" type="button" value="Öffne URL" onclick="openUrl()">
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="row martin-top-xs">
+        <label>Online Suche:</label>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 col-md-7 col-sm-6 col-xs-5">
+          <input class="form-control" id="searchString" name="searchString" type="text" class="" size="120" required>
+        </div>
+        <div class="col-lg-4 col-md-5 col-sm-6 col-xs-7">
+          <div class="btn-group pull-right">
+          <!-- <div class="container"> -->
+              <input class="btn btn-success col-sm-3" type="button" value="QWant" onclick="doSearch('https://www.qwant.com/?t=all&q=')">
+              <input class="btn btn-success col-sm-3" type="button" value="DDG" onclick="doSearch('https://duckduckgo.com/?q=')">
+              <input class="btn btn-success col-sm-3" type="button" value="Google" onclick="doSearch('https://www.google.at/search?q=')">
+              <input class="btn btn-success col-sm-3" type="button" value="Bing" onclick="doSearch('https://www.bing.com/search?q=')">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <hr>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-lg" target="_blank" href="https://www.google.at/">Google</a>
+        <a class="btn btn-primary btn-lg" target="_blank" href="https://www.bing.com/">Bing</a>
+        <a class="btn btn-primary btn-lg" target="_blank" href="https://www.qwant.com/?l=de&h=0&hc=1&a=1&s=2&b=1&i=1&r=AT&sr=de">QWant</a>
+        <a class="btn btn-primary btn-lg" target="_blank" href="https://duckduckgo.com/">Duckduckgo</a>
+      </div>
+    </div>
+    <hr>
+    <a class="btn btn-info btn-block btn-lg margin-bottom-xs" target="_blank" href="https://sky-flyer.github.io/demomaps/">Sky-Flyer Github Projects</a>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-info btn-block btn-lg" target="_blank" href="atomuhr/">Atomuhr (Chello)</a>
+        <a class="btn btn-info btn-block btn-lg" target="_blank" href="https://uhr.ptb.de/">Atomuhr PTB</a>
+      </div>
+    </div>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-info btn-block btn-lg" target="_blank" href="multimap/">Multimap (Chello)</a>
+        <a class="btn btn-info btn-block btn-lg" target="_blank" href="https://sky-flyer.github.io/demomaps/multimap/">Multimap (Github)</a>
+      </div>
+    </div>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-info btn-block btn-lg" target="_blank" href="primenumber/">Primzahlen</a>
+        <a class="btn btn-info btn-block btn-lg" target="_blank" href="zapfen/">Zapfenrechner</a>
+      </div>
+    </div>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-info btn-block btn-lg" target="_blank" href="bahnhofsuhr/">Bahnhofsuhr</a>
+        <a class="btn btn-info btn-block btn-lg" target="_blank" href="digitaluhr/">Digitaluhr</a>
+      </div>
+    </div>
+    <a class="btn btn-info btn-block btn-lg" target="_blank" href="chucknorris/">Chuck Norris Database</a>
+    <hr>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://www.updatemi.com/my">Updatemi</a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://feedly.com/i/my">Feedly</a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://flipboard.com/">Flipboard</a>
+      </div>
+    </div>
+    <!-- <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://www.uncovr.com/News/">Uncovr</a> -->
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://news.google.at">Google News</a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://www.msn.com/de-at/">MSN News</a>
+      </div>
+    </div>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://de.euronews.com/">Euronews</a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://news.orf.at/">ORF News</a>
+      </div>
+    </div>
+    <hr>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://wetter.orf.at/wien/prognose">ORF Wetter</a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://www.bergfex.at/sommer/wien-stadt/wetter/">Bergfex Wetter</a>
+      </div>
+    </div>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://www.meteoblue.com/de/wetter/vorhersage/meteogramfive/unter-sankt-veit_%c3%96sterreich_2601119">Meteogramm Wien</a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://www.meteoblue.com/de/wetter/vorhersage/14-tage/unter-sankt-veit_%c3%96sterreich_2601119">14 Tage Wien</a>
+      </div>
+    </div>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg margin-bootom-xs" target="_blank" href="https://www.meteoblue.com/de/wetter/vorhersage/multimodel/unter-sankt-veit_Österreich_2601119">Multimodel Wien</a>
+        <a class="btn btn-primary btn-block btn-lg margin-bootom-xs" target="_blank" href="https://www.windy.com/48.185/16.299?radar,48.123,16.317,11,m:eZtagCk,p:off">Windy.com Wien</a>
+      </div>
+    </div>
+    <a class="btn btn-primary btn-block btn-lg margin-bootom-xs" target="_blank" href="https://www.bergfex.at/sommer/ramsau-am-dachstein/wetter/">Bergfex Ramau</a>
+    
+    
+    <hr>
+    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://online.bankaustria.at/wps/portal/userlogin">Bankaustria Onlinebanking</a>
+    <hr>
+    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://9gag.com">9 Gag</a>
+    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://de.webfail.at/">Webfail</a>
+    <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://witze.at/witz-des-tages">Witz des Tages</a>
+    <hr>
+    <h3>Webradio</h3>
+    <a class="btn btn-success btn-block btn-lg margin-bottom-xs" target="_blank" href="http://www.radio.at/">Radio.at</a>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://mp3stream7.apasf.apa.at/;?type=http&nocache=18478">Ö3 </a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://mp3wien2.apasf.sf.apa.at/;?type=http&nocache=70">Radio Wien </a>
+      </div>
+    </div>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://onair.krone.at/kronehit-hd.mp3">Kronehit HD </a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://onair.krone.at/kronehit-fresh.mp3">Kronehit Fresh </a>
+      </div>
+    </div>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://onair.krone.at/kronehit-event.mp3">Kronehit Summer </a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://onair.krone.at/kronehit-love.mp3">Kronehit Lovesongs </a>
+      </div>
+    </div>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://onair.krone.at/kronehit-greatesthits.mp3">Kronehit Greatest Hits </a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://raj.krone.at/kronehit-charts.mp3">Kronehit Charts </a>
+      </div>
+    </div>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://cdn.nrjaudio.fm/adwz1/at/55212/mp3_128.mp3">Radio Energy </a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://streamplus14.leonex.de:24954/;584871725547991stream.nsv">Radio Ö24 </a>
+      </div>
+    </div>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://xapp2450489345c1000321.f.l.i.lb.core-cdn.net/1000321copo/live/app2450489345/w2445344770/live_de_96.mp3">88.6 der Musiksender </a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="https://mp3channels.webradio.antenne.de/chillout">Antenne Bayern Chill Out </a>
+      </div>
+    </div>
+    <div class="row margin-bottom-xs">
+      <div class="col-sm-12 btn-group btn-group-justified">
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://online-radiorelax.tavrmedia.ua/RadioRelax">Radio Relax </a>
+        <a class="btn btn-primary btn-block btn-lg" target="_blank" href="http://listen.radionomy.com/">Radio Nature</a>
+      </div>
+    </div>
+    
+    <hr>
 
+    <!-- Windy Widget Hietzing -->   
+    <iframe width="650" height="450" src="https://embed.windy.com/embed2.html?lat=48.18862&lon=16.27142&zoom=11&level=surface&overlay=radar&menu=&message=&marker=&calendar=12&pressure=&type=map&location=coordinates&detail=true&detailLat=48.18862&detailLon= 16.27142&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe> 
+    
+    <!-- <div class="container">
+        <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="oe3" data-autoplay="false" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a class="btn btn-primary btn-block btn-lg" href="//oe3.radio.at" target="_blank">Hitradio Ö3 auf radio.at</a></noscript>
+        <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="radiowien" data-autoplay="false" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a class="btn btn-primary btn-block btn-lg" href="//radiowien.radio.at" target="_blank">Radio Wien auf radio.at</a></noscript>
+      </div>
+      <div class="container">
+        <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="kronehitfresh" data-autoplay="false" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a class="btn btn-primary btn-block btn-lg" href="//kronehitfresh.radio.at" target="_blank">KRONEHIT Fresh auf radio.at</a></noscript>
+        <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="kronehitchristmas" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a class="btn btn-primary btn-block btn-lg" href="//kronehitchristmas.radio.at" target="_blank">KRONEHIT Spring Break auf radio.at</a></noscript>
+        <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="kronehit" data-autoplay="false" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a class="btn btn-primary btn-block btn-lg" href="//kronehit.radio.at" target="_blank">KRONEHIT auf radio.at</a></noscript>
+      </div>
+      <div class="container">
+        <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="energyaustria" data-autoplay="false" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a class="btn btn-primary btn-block btn-lg" href="//energyaustria.radio.at" target="_blank">Energy Österreich auf radio.at</a></noscript>
+        <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="radio886" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a class="btn btn-primary btn-block btn-lg" href="//radio886.radio.at" target="_blank">radio 88.6 auf radio.at</a></noscript>
+        <script>(function(d, s){if(!window.rel){s = d.createElement("script");s.type = "text/javascript";s.async = true;s.id = "radio-de-embedded";s.src = "//www.radio.at/inc/microsite/js/full.js";d.getElementsByTagName("head")[0].appendChild(s);window.rel = true;}}(document));</script><div class="ng-app-embedded"><div ui-view class="microsite embedded-radio-player" data-playerwidth="340px" data-playertype="web_embedded" data-playstation="oe24" data-apikey="df04ff67dd3339a6fc19c9b8be164d5b5245ae93"></div></div><noscript><a class="btn btn-primary btn-block btn-lg" href="//oe24.radio.at" target="_blank">Radio Ö24 Wien auf radio.at</a></noscript>
+      </div>
+    </div> -->
 
-<script>var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'right';var pfDisablePDF = 0;var pfDisableEmail = 0;var pfDisablePrint = 0;var pfCustomCSS = '';var pfBtVersion='1';(function(){var js,pf;pf=document.createElement('script');pf.type='text/javascript';pf.src='//cdn.printfriendly.com/printfriendly.js';document.getElementsByTagName('head')[0].appendChild(pf)})();<a href="https://www.printfriendly.com" style="color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF"><img style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="//cdn.printfriendly.com/buttons/printfriendly-pdf-email-button-notext.png" alt="Print Friendly and PDF"/></a>
-</script>
-
-----
-
-<script>
+    <hr>
+    <script>
 var nVer = navigator.appVersion;
 var nAgt = navigator.userAgent;
 var browserName  = navigator.appName;
@@ -93,3 +315,10 @@ document.write(''
  
 )
 </script>
+
+    <hr>
+    <footer>&copy;2018 by Andreas Schweitzer</footer>
+    <hr>
+</body>
+
+</html>
