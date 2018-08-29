@@ -2,6 +2,8 @@
 
 - [Index auf Chello.at](http://members.chello.at/aschweitzer/index.html)
 
+- [INDEX AUF github](./index.html)
+
 - [Multimap](./multimap)
 
 - [Mulitmap (chello hosted)](http://members.chello.at/~aschweitzer/multimap)
