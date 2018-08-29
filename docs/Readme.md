@@ -2,7 +2,7 @@
 
 - [Index auf Chello.at](http://members.chello.at/aschweitzer/index.html)
 
-- [INDEX AUF github](./index.html)
+- [INDEX AUF github](./myindex.html)
 
 - [Multimap](./multimap)
 
