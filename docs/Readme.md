@@ -27,7 +27,7 @@
           <input id="urlToOpen" name="urlToOpen" type="url" class="form-control" required>
         </div>
         <div class="col-lg-1 col-md-2 col-sm-2 col-xs-3">
-          <input class="btn btn-success pull-right" type="button" value="Öffne URL" onclick="openUrl()">
+          <input type="button" value="Öffne URL" onclick="openUrl()">
         </div>
       </div>
       <div class="clearfix"></div>
@@ -41,10 +41,10 @@
         <div class="col-lg-4 col-md-5 col-sm-6 col-xs-7">
           <div class="btn-group pull-right">
           <!-- <div class="container"> -->
-              <input class="btn btn-success col-sm-3" type="button" value="QWant" onclick="doSearch('https://www.qwant.com/?t=all&q=')">
-              <input class="btn btn-success col-sm-3" type="button" value="DDG" onclick="doSearch('https://duckduckgo.com/?q=')">
-              <input class="btn btn-success col-sm-3" type="button" value="Google" onclick="doSearch('https://www.google.at/search?q=')">
-              <input class="btn btn-success col-sm-3" type="button" value="Bing" onclick="doSearch('https://www.bing.com/search?q=')">
+              <input type="button" value="QWant" onclick="doSearch('https://www.qwant.com/?t=all&q=')">
+              <input type="button" value="DDG" onclick="doSearch('https://duckduckgo.com/?q=')">
+              <input type="button" value="Google" onclick="doSearch('https://www.google.at/search?q=')">
+              <input type="button" value="Bing" onclick="doSearch('https://www.bing.com/search?q=')">
           </div>
         </div>
       </div>
