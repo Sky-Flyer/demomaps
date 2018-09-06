@@ -1,73 +1,34 @@
 # Demomap / Multimap
 
- <script>
-    function openUrl() {
-      var urlToOpenVal = document.getElementById("urlToOpen").value;
-      if (urlToOpenVal.length < 1) {
-        alert('Bitte Url angeben!')
-        return;
-      }
-      if (urlToOpenVal.indexOf("http://") == -1 && urlToOpenVal.indexOf("https://") == -1) {
-        urlToOpenVal = "http://" + urlToOpenVal;
-      }
-      window.open(urlToOpenVal);
-    }
-
-    function doSearch(searchUrl) {
-      var searchStringVal = document.getElementById("searchString").value;
-      window.open(searchUrl + searchStringVal);
-    }
-  </script>
- <div class="well well-lg">
-      <div class="row margin-bootom-xs">
-        <label>Gehe zu URL:</label>
-      </div>
-      <div class="row margin-bootom-xs">
-        <div class="col-lg-11 col-md-10 col-sm-10 col-xs-9">
-          <input id="urlToOpen" name="urlToOpen" type="url" class="form-control" required>
-        </div>
-        <div class="col-lg-1 col-md-2 col-sm-2 col-xs-3">
-          <input type="button" value="Öffne URL" onclick="openUrl()">
-        </div>
-      </div>
-      <div class="clearfix"></div>
-      <div class="row martin-top-xs">
-        <label>Online Suche:</label>
-      </div>
-      <div class="row">
-        <div class="col-lg-8 col-md-7 col-sm-6 col-xs-5">
-          <input class="form-control" id="searchString" name="searchString" type="text" class="" size="120" required>
-        </div>
-        <div class="col-lg-4 col-md-5 col-sm-6 col-xs-7">
-          <div class="btn-group pull-right">
-          <!-- <div class="container"> -->
-              <input type="button" value="QWant" onclick="doSearch('https://www.qwant.com/?t=all&q=')">
-              <input type="button" value="DDG" onclick="doSearch('https://duckduckgo.com/?q=')">
-              <input type="button" value="Google" onclick="doSearch('https://www.google.at/search?q=')">
-              <input type="button" value="Bing" onclick="doSearch('https://www.bing.com/search?q=')">
-          </div>
-        </div>
-      </div>
-    </div>
-
-- [Index auf Chello.at](http://members.chello.at/aschweitzer/index.html)
-
 - [Index AUF github](./myindex.html)
 
-- [Multimap](./multimap)
-
-- [Mulitmap (chello hosted)](http://members.chello.at/~aschweitzer/multimap)
+- [Multimap (Github)](./multimap)
 
 - [Zapfenrechner (Github)](./zapfen/)
 
-- [Multiwetter (chello hosted)](http://members.chello.at/~aschweitzer/multiweather/)
+- [Primzahlenrechner (Github)](./primenumber/)
 
-- [Bahnhofsuhr (chello hosted)](http://members.chello.at/~aschweitzer/bahnhofsuhr/)
+---
 
-- [PTB Atomuhr (chello hosted)](http://members.chello.at/~aschweitzer/atomuhr/)
+- [Index auf Chello.at](http://members.chello.at/aschweitzer/index.html)
+
+- [Mulitmap (Chello)](http://members.chello.at/~aschweitzer/multimap)
+
+- [Zapfenrechner (Chello)](http://members.chello.at/~aschweitzer/zapfen/)
+
+- [Primzahlenrechner (Chello)](http://members.chello.at/~aschweitzer/primenumber/)
+
+- [Multiwetter (Chello)](http://members.chello.at/~aschweitzer/multiweather/)
+
+- [Bahnhofsuhr (Chello)](http://members.chello.at/~aschweitzer/bahnhofsuhr/)
+
+- [PTB Atomuhr (Chello)](http://members.chello.at/~aschweitzer/atomuhr/)
+
+---
 
 - [PTB Atomuhr (direkt)](https://uhr.ptb.de/)
 
+---
 
 <script>var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'right';var pfDisablePDF = 0;var pfDisableEmail = 0;var pfDisablePrint = 0;var pfCustomCSS = '';var pfBtVersion='1';(function(){var js,pf;pf=document.createElement('script');pf.type='text/javascript';pf.src='//cdn.printfriendly.com/printfriendly.js';document.getElementsByTagName('head')[0].appendChild(pf)})();<a href="https://www.printfriendly.com" style="color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF"><img style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="//cdn.printfriendly.com/buttons/printfriendly-pdf-email-button-notext.png" alt="Print Friendly and PDF"/></a>
 </script>
@@ -145,3 +106,9 @@ document.write(''
  
 )
 </script>
+
+---
+
+&copy; 2018 by SkyFlyer
+
+---
