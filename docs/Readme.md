@@ -29,8 +29,7 @@
 - [PTB Atomuhr (direkt)](https://uhr.ptb.de/)
 
 ---
-
-<iframe src="https://freesecure.timeanddate.com/clock/i6fu7f2q/n259/szw210/szh210/hoc000/hbw2/cf100/hnccff/fdi76/mqc000/mql10/mqw4/mqd98/mhc000/mhl10/mhw4/mhd98/mmc000/mml10/mmw1/mmd98/hss1" frameborder="0" width="210" height="210"></iframe>
+<iframe src="https://freesecure.timeanddate.com/clock/i6fu7f2q/n259/szw300/szh300/hoc000/hbw2/cf100/hnccff/fdi76/mqc000/mql10/mqw4/mqd98/mhc000/mhl10/mhw4/mhd98/mmc000/mml10/mmw1/mmd98/hwm1/hss1" frameborder="0" width="300" height="300"></iframe>
 
 ---
 
