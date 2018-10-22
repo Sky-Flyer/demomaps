@@ -29,6 +29,10 @@
 - [PTB Atomuhr (direkt)](https://uhr.ptb.de/)
 
 ---
+
+<script type='text/javascript' src='https://darksky.net/widget/default/48.2084,16.3725/ca12/de.js?width=100%&height=350&title=vienna&textColor=333333&bgColor=FFFFFF&transparency=false&skyColor=333333&fontFamily=Default&customFont=&units=ca&htColor=333333&ltColor=C7C7C7&displaySum=yes&displayHeader=yes'></script>
+
+---
 <iframe src="https://freesecure.timeanddate.com/clock/i6fu7f2q/n259/szw300/szh300/hoc000/hbw2/cf100/hnccff/fdi76/mqc000/mql10/mqw4/mqd98/mhc000/mhl10/mhw4/mhd98/mmc000/mml10/mmw1/mmd98/hwm1/hss1" frameborder="0" width="300" height="300"></iframe>
 
 ---
