@@ -33,7 +33,7 @@ var southWest = L.latLng(46.2520,8.7891),
 var layerAdrMapSurfer=akt_protocol+"//korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}";
 var layerMapSurfer = new L.TileLayer(layerAdrMapSurfer,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapsurfernet.com/">Mapsurfer</a>'});
 var stdLayer = layerMapSurfer;
-var stdLayerName = "OpenStreetMap Mapsurfer";
+var stdLayerName = "OpenStreetMap Standard";
 
 function cookie_read(cookiename) {
     var cookies=document.cookie.split("; ");
@@ -298,11 +298,12 @@ var layerGoogleSat = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&l
 var layerGoogleLbl = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=h&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
 
 //apple layers
-layerAdrAppleStd="https://cdn{s}.apple-mapkit.com/tp/tile?type=tile&style=0&size=1&x={x}&y={y}&z={z}&scale=1&lang=de-DE&imageFormat=jpg&vendorkey=38da783db1ef0c2d9f8e783a063ffcdc6a6330fe"
+//https://sat-cdn1.apple-mapkit.com/tile?style=7&size=1&scale=1&z=19&x=285841&y=181835&v=3021&accessKey=1535055201_1221420413073044_%2F_tlIV55%2ByUmacZNPQ7MvFmqlmlKrUocGxSOjl1QU25kA%3D
+layerAdrAppleStd="https://cdn{s}.apple-mapkit.com/ti/tile?type=tile&style=0&size=1&x={x}&y={y}&z={z}&scale=1&lang=de-DE&imageFormat=jpg&accessKey=1535055201_1221420413073044_%2F_tlIV55%2ByUmacZNPQ7MvFmqlmlKrUocGxSOjl1QU25kA%3D"
 layerAppleStd = new L.TileLayer(layerAdrAppleStd,{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
-layerAdrAppleSat="https://sat-cdn{s}.apple-mapkit.com/tile?style=7&size=1&scale=1&z={z}&x={x}&y={y}&vendorkey=38da783db1ef0c2d9f8e783a063ffcdc6a6330fe&v=203"
+layerAdrAppleSat="https://sat-cdn{s}.apple-mapkit.com/tile?style=7&size=1&scale=1&z={z}&x={x}&y={y}&accessKey=1535055201_1221420413073044_%2F_tlIV55%2ByUmacZNPQ7MvFmqlmlKrUocGxSOjl1QU25kA%3D&v=203"
 layerAppleSat = new L.TileLayer(layerAdrAppleSat,{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
-layerAdrAppleOverlay="https://cdn{s}.apple-mapkit.com/tp/tile?type=tile&style=46&size=1&x={x}&y={y}&z={z}&scale=1&lang=de-DE&imageFormat=png&vendorkey=38da783db1ef0c2d9f8e783a063ffcdc6a6330fe"
+layerAdrAppleOverlay="https://cdn{s}.apple-mapkit.com/ti/tile?type=tile&style=46&size=1&x={x}&y={y}&z={z}&scale=1&lang=de-DE&imageFormat=png&accessKey=1535055201_1221420413073044_%2F_tlIV55%2ByUmacZNPQ7MvFmqlmlKrUocGxSOjl1QU25kA%3D"
 layerAppleOverlay = new L.TileLayer(layerAdrAppleOverlay,{ maxZoom: maxzoom_g_sat,detectRetina: true, 	transparent: true, format: 'image/png', subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
 layerAdrAppleStdAlt=akt_protocol+"//gsp2.apple.com/tile?api=1&style=slideshow&layers=default&lang=de_DE&z={z}&x={x}&y={y}&v=10"
 layerAppleStdAlt = new L.TileLayer(layerAdrAppleStdAlt,{ maxZoom: maxzoom_14, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
@@ -679,7 +680,7 @@ mCoordCtr = L.control.mouseCoordinate({gps:false, utm:true,utmref:true, position
 var layersControl = L.Control.styledLayerControl(baseMaps, overlayMaps, options);
 map.addControl(layersControl);
 
-var miniMapLayer = new L.TileLayer(layerAdrMapSurfer, {minZoom: 0, maxZoom: 14, //subdomains: '1234', 
+var miniMapLayer = new L.TileLayer(layerAdrOSMStd, {minZoom: 0, maxZoom: 14, //subdomains: '1234', 
 attribution: 'Kartendaten: © <a href=akt_protocol+"//korona.geog.uni-heidelberg.de/">Mapsurfer</a>' });
 var miniMap = new L.Control.MiniMap(miniMapLayer, { toggleDisplay: true, zoomLevelOffset: -7 }).addTo(map);
 var style = {color:'blue', opacity: 1.0, fillOpacity: 1.0, weight: 3, clickable: false};
