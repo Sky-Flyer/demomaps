@@ -30,8 +30,8 @@ var southWest = L.latLng(46.2520,8.7891),
     northEast = L.latLng(49.2714,17.6660),
     boundsAUT = L.latLngBounds(southWest, northEast);
 
-var layerAdrMapSurfer=akt_protocol+"//korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}";
-var layerMapSurfer = new L.TileLayer(layerAdrMapSurfer,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapsurfernet.com/">Mapsurfer</a>'});
+var layerAdrMapSurfer=akt_protocol+"//maps.heigit.org/openmapsurfer/tiles/roads/webmercator/{z}/{x}/{y}.png";
+var layerMapSurfer = new L.TileLayer(layerAdrMapSurfer,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Imagery from <a href=\"http://giscience.uni-hd.de/\">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'});
 var stdLayer = layerMapSurfer;
 var stdLayerName = "OpenStreetMap Standard";
 
@@ -389,10 +389,10 @@ var layerOpenStreetBrowserUrl = akt_protocol+"//tiles-base.openstreetbrowser.org
 var layerOpenStreetBrowser = new L.TileLayer(layerOpenStreetBrowserUrl,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.openstreetbrowser.org">OpenStreetBrowser</a>'});
 
 //Mapsurfer
-var layerMapSurferHillOvl = new L.TileLayer(akt_protocol+"//korona.geog.uni-heidelberg.de/tiles/asterh/x={x}&y={y}&z={z}",{maxZoom: maxzoom_osm,detectRetina: true, transparent: true, attribution: 'Kartendaten: © <a href="http://mapsurfernet.com/">Mapsurfer</a>'});
-var layerMapSurferAdminOvl = new L.TileLayer(akt_protocol+"//korona.geog.uni-heidelberg.de/tiles/adminb/x={x}&y={y}&z={z}",{maxZoom: maxzoom_osm,detectRetina: true, transparent: true, attribution: 'Kartendaten: © <a href="http://mapsurfernet.com/">Mapsurfer</a>'});
-var layerAdrMapSurferOvl=akt_protocol+"//korona.geog.uni-heidelberg.de/tiles/hybrid/x={x}&y={y}&z={z}"
-var layerMapSurferOvl = new L.TileLayer(layerAdrMapSurferOvl,{maxZoom: maxzoom_osm,detectRetina: true, transparent: true, attribution: 'Kartendaten: © <a href="http://mapsurfernet.com/">Mapsurfer</a>'});
+var layerMapSurferHillOvl = new L.TileLayer(akt_protocol+"//maps.heigit.org/openmapsurfer/tiles/asterh/webmercator/{z}/{x}/{y}.png",{maxZoom: maxzoom_osm,detectRetina: true, transparent: true, attribution: 'Imagery from <a href=\"http://giscience.uni-hd.de/\">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'});
+var layerMapSurferAdminOvl = new L.TileLayer(akt_protocol+"//maps.heigit.org/openmapsurfer/tiles/adminb/webmercator/{z}/{x}/{y}.png",{maxZoom: maxzoom_osm,detectRetina: true, transparent: true, attribution: 'Imagery from <a href=\"http://giscience.uni-hd.de/\">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'});
+var layerAdrMapSurferOvl=akt_protocol+"//maps.heigit.org/openmapsurfer/tiles/hybrid/webmercator/{z}/{x}/{y}.png"
+var layerMapSurferOvl = new L.TileLayer(layerAdrMapSurferOvl,{maxZoom: maxzoom_osm,detectRetina: true, transparent: true, attribution: 'Imagery from <a href=\"http://giscience.uni-hd.de/\">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'});
 
 //Map-Box
 //var layerAdrMapbox = "https://{s}.tiles.mapbox.com/v3/examples.map-i86l3621/{z}/{x}/{y}.png";
