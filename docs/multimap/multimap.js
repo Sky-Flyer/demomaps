@@ -481,8 +481,8 @@ var layerWienBaust = new L.tileLayer.wms(akt_protocol+"//data.wien.gv.at/daten/g
     attribution: 'Kartendaten: <a href="http://www.wien.gv.at">Wiener Stadtverwaltung</a>'
 });
 //		var layerCountries = new L.KML("collins-Laender_pol.kml", {async: true});
-//		var layerYandex = new L.TileLayer("https://vec0{s}.maps.yandex.net/tiles?l=map&v=4.49.1&x={x}&y={y}&z={z}&scale=1&lang=en_US",
-//				{maxZoom: maxzoom_19,subdomains: '1234',detectRetina: true, attribution: 'Kartendaten: © <a href="http://yandex.com/">Yandex</a>'});
+		var layerYandex = new L.TileLayer("https://vec0{s}.maps.yandex.net/tiles?l=map&v=19.08.22-0&x={x}&y={y}&z={z}&scale=1&lang=de_DE",
+				{maxZoom: maxzoom_19,subdomains: '1234',detectRetina: true, attribution: 'Kartendaten: © <a href="http://yandex.com/">Yandex</a>'});
 
 
 
@@ -519,6 +519,7 @@ baseMaps = [
             "Bing Standard":  bing_road,
             "Apple Standard": layerAppleStd,
             //"Tomtom Standard": layerTomtom,
+            "Yandex Maps": layerYandex,
             "Esri Streetmap": layerEsriStreet,
             "National Geographic Countries": layerNatGeoWorld,
             "Mapbox Political":layerMapBoxCtry,
