@@ -519,7 +519,7 @@ baseMaps = [
             "Bing Standard":  bing_road,
             "Apple Standard": layerAppleStd,
             //"Tomtom Standard": layerTomtom,
-            "Yandex Maps": layerYandex,
+            //"Yandex Maps": layerYandex,
             "Esri Streetmap": layerEsriStreet,
             "National Geographic Countries": layerNatGeoWorld,
             "Mapbox Political":layerMapBoxCtry,
