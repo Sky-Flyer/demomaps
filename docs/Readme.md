@@ -8,6 +8,8 @@
 
 - [Primzahlenrechner (Github)](./primenumber/)
 
+- [Atomuhr (Github)](./atomuhr)
+
 ---
 
 - [Index auf Chello.at](http://members.chello.at/aschweitzer/index.html)
