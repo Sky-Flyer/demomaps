@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+	    <title>Pflanzen DB</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.75, maximum-scale=4.0, user-scalable=yes" />
+		<link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+		<link href="css/jquery.dataTables.min.css" rel="stylesheet" crossorigin="anonymous">
+		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+		<style>
+		</style>
+		<script src="./js/jquery-3.3.1.js" type="text/javascript"></script>
+		<script src="./js/jquery.dataTables.min.js" type="text/javascript"></script>
+		<script src="./pflanzen.js" type="text/javascript"></script>
+    </head>
+	<body onload="">
+		<div>
+			<div class="jumbotron"> 
+				<div class="container text-left">
+				<h1>Pflanzen Datenbank</h1>
+				</div>
+			</div>
+			<div class="container text-left">
+				<table id="tblpflanzen" class="display" style="width:100%">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Name</th>
+							<th>Name (latein)</th>
+							<th>Familienname</th>
+							<th>Familienname (latein)</th>
+							<th>Spreitenrand</th>
+							<th>Blattspreite</th>
+							<th>Stammumfang</th>
+							<th>Alter</th>
+							<th>Ansprüche</th>
+							<th>Standort</th>
+							<th>Frucht</th>
+							<th>Bild</th>
+						</tr>
+					</thead>
+					<tfoot>
+						<tr>
+								<th>ID</th>
+								<th>Name</th>
+								<th>Name (latein)</th>
+								<th>Familienname</th>
+								<th>Familienname (latein)</th>
+								<th>Spreitenrand</th>
+								<th>Blattspreite</th>
+								<th>Stammumfang</th>
+								<th>Alter</th>
+								<th>Ansprüche</th>
+								<th>Standort</th>
+								<th>Frucht</th>
+								<th>Bild</th>
+							</tr>
+					</tfoot>
+				</table>
+				
+			</div>
+		</div>
+		
+    </body>
+</html>
