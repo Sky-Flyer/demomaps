@@ -2,8 +2,9 @@
 $(document).ready(function() {
     $('#tblpflanzen').DataTable( {
         "ajax": {
-            "url": 'https://pflanzendb-94c6.restdb.io/rest/pflanzen?apikey=5dd0684c64e7774913b6ed6f',
-            "dataSrc": ""
+//            "url": 'https://pflanzendb-94c6.restdb.io/rest/pflanzen?apikey=5dd0684c64e7774913b6ed6f',
+            "url": './data/pflanze.json',
+            "dataSrc": "pflanze"
         },
         "columns": [
             { "data": "id" },
@@ -20,6 +21,10 @@ $(document).ready(function() {
 		    { "data": "frucht"},
             { "data": "bild" },
         ],
+        stateSave: true,
+        //scrollY: 400,
+        scrollX: true,
+        lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Alle"]],
         initComplete: function () {
             this.api().columns().every( function () {
                 var column = this;

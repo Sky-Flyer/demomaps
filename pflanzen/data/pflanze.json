@@ -1,5 +1,5 @@
 {
-  "pflanze" : [
+"pflanze": [
 	{
 		"id" : 1,
 		"artname_deu" : "Feld-Ahorn",
@@ -7,7 +7,7 @@
 		"famname_deu" : "Seifenbaumgewächse",
 		"famname_lat" : "Sapindaceae ",
 		"bild" : null,
-		"spreitenrand" : " ",
+		"spreitenrand" : null,
 		"blattspreite" : "3-5 lappig",
 		"max_stammumfang" : null,
 		"max_alter" : null,
@@ -167,7 +167,7 @@
 	},
 	{
 		"id" : 12,
-		"artname_deu" : " Gewöhnliche Robinie",
+		"artname_deu" : "Gewöhnliche Robinie",
 		"artname_lat" : "Robinia pseudacadia",
 		"famname_deu" : "Schmetterlingsblütler",
 		"famname_lat" : "Fabaceae",
@@ -540,5 +540,4 @@
 		"standort" : null,
 		"frucht" : null
 	}
-]
-}
+]}
