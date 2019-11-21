@@ -36,7 +36,7 @@ $(document).ready(function() {
             }],
         stateSave: true,
         //scrollY: 400,
-        scrollX: true,
+        //scrollX: true,
         lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Alle"]],
         initComplete: function () {
             this.api().columns().every( function () {
