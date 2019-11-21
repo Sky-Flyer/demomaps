@@ -23,18 +23,17 @@ $(document).ready(function() {
 		    { "data": "frucht"},
             { "data": "bild" },
         ],
-        columnDefs: [
-            { targets: 12,
-              render: function(data) {
+        columnDefs: [{ 
+            orderable: true,
+            targets: 12,
+            render: function(data) {
                   if(data == null){
                       return null;
                   }else{
                       return '<img height="48" width="48" src="https://pflanzendb-94c6.restdb.io/media/'+data+'">'
                   }
-                
               }
-            }   
-          ],
+            }],
         stateSave: true,
         //scrollY: 400,
         scrollX: true,
