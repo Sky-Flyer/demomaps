@@ -1,10 +1,12 @@
 //"use strict";
 $(document).ready(function() {
+    $.fn.dataTable.ext.errMode = 'none';       
     $('#tblpflanzen').DataTable( {
         "ajax": {
-//            "url": 'https://pflanzendb-94c6.restdb.io/rest/pflanzen?apikey=5dd0684c64e7774913b6ed6f',
-            "url": './data/pflanze.json',
-            "dataSrc": "pflanze"
+            "url": 'https://pflanzendb-94c6.restdb.io/rest/pflanzen?apikey=5dd0684c64e7774913b6ed6f',
+            "dataSrc": "",
+//            "url": './data/pflanze.json',
+//            "dataSrc": "pflanze"
         },
         "columns": [
             { "data": "id" },
@@ -21,6 +23,18 @@ $(document).ready(function() {
 		    { "data": "frucht"},
             { "data": "bild" },
         ],
+        columnDefs: [
+            { targets: 12,
+              render: function(data) {
+                  if(data == null){
+                      return null;
+                  }else{
+                      return '<img height="48" width="48" src="https://pflanzendb-94c6.restdb.io/media/'+data+'">'
+                  }
+                
+              }
+            }   
+          ],
         stateSave: true,
         //scrollY: 400,
         scrollX: true,
@@ -39,11 +53,15 @@ $(document).ready(function() {
                             .search( val ? '^'+val+'$' : '', true, false )
                             .draw();
                     } );
- 
-                column.data().unique().sort().each( function ( d, j ) {
+                 column.data().unique().sort().each( function ( d, j ) {
                     select.append( '<option value="'+d+'">'+d+'</option>' )
                 } );
             } );
         }
     } );
+    
+    // $('#tblpflanzen').on( 'error.dt', function ( e, settings, techNote, message ) {
+    // console.log( 'An error has been reported by DataTables: ', message );
+    // } ) ;
+
 } );
