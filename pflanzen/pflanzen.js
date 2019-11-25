@@ -2,6 +2,19 @@
 $(document).ready(function() {
     $.fn.dataTable.ext.errMode = 'none';       
     $('#tblpflanzen').DataTable( {
+    responsive: {
+//                details: {
+//                    display: $.fn.dataTable.Responsive.display.modal( {
+//                        header: function ( row ) {
+//                            var data = row.data();
+//                            return 'Details für ' + data.artname_deu;
+//                        }
+//                    } ),
+//                    renderer: $.fn.dataTable.Responsive.renderer.tableAll( {
+//                        tableClass: 'table'
+//                    } )
+//                }
+            },
         "ajax": {
             "url": 'https://pflanzendb-94c6.restdb.io/rest/pflanzen?apikey=5dd0684c64e7774913b6ed6f',
             "dataSrc": "",
@@ -30,7 +43,7 @@ $(document).ready(function() {
                   if(data == null){
                       return null;
                   }else{
-                      return '<img height="48" width="48" src="https://pflanzendb-94c6.restdb.io/media/'+data+'">'
+                      return '<img height="140" width="140" src="https://pflanzendb-94c6.restdb.io/media/'+data+'">'
                   }
               }
             }],
