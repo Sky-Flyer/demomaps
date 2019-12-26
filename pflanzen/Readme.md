@@ -35,6 +35,12 @@
 
 ## Noch offene Todos, Wünsche
 
-- Hintergrundfarbe der Überschrift auf Grün setzen (->Felix)
-- Such-Drop-Down-Listen sind nicht gleich breit wie die Daten-Spalten (->Andi)
+- Wenn möglich über Filter-Dropdown zuerst auswahl und dann Suche/Anzeige der Daten
+- Eingabe Formular einbinden
+- Daten bearbeiten ermöglichen
+
+## Erledigt
+
 - Detail-Daten sollen noch angezeigt werden
+- Such-Drop-Down-Listen sind nicht gleich breit wie die Daten-Spalten (->Andi)
+- Hintergrundfarbe der Überschrift auf Grün setzen (->Felix)
