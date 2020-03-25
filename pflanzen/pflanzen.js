@@ -16,10 +16,9 @@ $(document).ready(function() {
 //                }
             },
         "ajax": {
-            "url": 'https://pflanzendb-94c6.restdb.io/rest/pflanzen?apikey=5dd0684c64e7774913b6ed6f',
-            "dataSrc": "",
-//            "url": './data/pflanze.json',
-//            "dataSrc": "pflanze"
+//            "url": 'https://pflanzendb-94c6.restdb.io/rest/pflanzen?apikey=5dd0684c64e7774913b6ed6f',
+            "url": './data/pflanze.json',
+            "dataSrc": ""
         },
         "columns": [
             { "data": "id" },
@@ -32,13 +31,13 @@ $(document).ready(function() {
 		    { "data": "max_stammumfang" },
 		    { "data": "max_alter" },
             { "data": "ansprueche" },
-//            { "data": "boden_ansprueche" },
+            { "data": "boden_ansprueche" },
             { "data": "standort" },
-//            { "data": "max_hoehe" },
+            { "data": "max_hoehe" },
             { "data": "frucht"},
-//            { "data": "bluehzeit" },
-//            { "data": "heilkraefte" },
-//            { "data": "sonstiges" },
+            { "data": "bluehzeit" },
+            { "data": "heilkraefte" },
+            { "data": "sonstiges" },
             { "data": "bild" },
         ],
         columnDefs: [{ 
@@ -48,7 +47,8 @@ $(document).ready(function() {
                   if(data == null){
                       return null;
                   }else{
-                      return '<img height="140" width="140" src="https://pflanzendb-94c6.restdb.io/media/'+data+'">'
+                      return null;
+                      //return '<img height="140" width="140" src="https://pflanzendb-94c6.restdb.io/media/'+data+'">'
                   }
               }
             }],
