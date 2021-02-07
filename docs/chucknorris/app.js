@@ -27,7 +27,7 @@ app.controller('JokesController', function (JokesService) {
   };
 });
 
-app.constant('API_ENDPOINT', 'http://api.icndb.com/jokes/random/');
+app.constant('API_ENDPOINT', 'https://api.icndb.com/jokes/random/');
 
 app.service('JokesService', function ($http, $q, API_ENDPOINT) {
 
