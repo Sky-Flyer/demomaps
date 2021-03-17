@@ -385,7 +385,13 @@ document.write(''
 
 var parser = new UAParser();
 document.write(''
-  + '<br> <hr> <br>'+parser.getResult()+'<br>'
+    + '<br> <hr> <br>'
+    +'Browser: '+result.browser+'<br>'        // {name: "Chromium", version: "15.0.874.106"}
+    +'Device: '+result.device+'<br>'         // {model: undefined, type: undefined, vendor: undefined}
+    +'OS: '+result.os+'<br>'             // {name: "Ubuntu", version: "11.10"}
+    +'OS Version: '+result.os.version+'<br>'     // "11.10"
+    +'Engine: '+result.engine.name+'<br>'    // "WebKit"
+    +'CPU: '+result.cpu.architecture+'<br>'   // "amd64"
 )
 
 </script>
