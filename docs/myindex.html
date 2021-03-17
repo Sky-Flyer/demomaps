@@ -7,7 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.75, maximum-scale=4.0, user-scalable=yes" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="white">
-<link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/ua-parser-js@0/dist/ua-parser.min.js"></script>
   <link rel="shortcut icon" href="img/favicon.png" type="image/png">
   <link rel="icon" href="img/favicon.png" type="image/png">
   <script>
@@ -378,8 +379,13 @@ document.write(''
  +'navigator.platform = '+navigator.platform+'<br>'
  +'navigator.oscpu = '+navigator.oscpu+'<br>'
  +'navigator.appVersion = '+navigator.appVersion+'<br>'
- 
 )
+
+var parser = new UAParser();
+document.write(''
+  + '<br> <hr> <br>'+parser.getResult()+'<br>'
+)
+
 </script>
 
     <hr>
