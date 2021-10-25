@@ -30,8 +30,8 @@ var southWest = L.latLng(46.2520,8.7891),
     northEast = L.latLng(49.2714,17.6660),
     boundsAUT = L.latLngBounds(southWest, northEast);
 
-var layerAdrMapSurfer=akt_protocol+"//maps.heigit.org/openmapsurfer/tiles/roads/webmercator/{z}/{x}/{y}.png";
-var layerMapSurfer = new L.TileLayer(layerAdrMapSurfer,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Imagery from <a href=\"http://giscience.uni-hd.de/\">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'});
+var layerAdrMapSurfer=akt_protocol+"//korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}";
+var layerMapSurfer = new L.TileLayer(layerAdrMapSurfer,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapsurfernet.com/">Mapsurfer</a>'});
 var stdLayer = layerMapSurfer;
 var stdLayerName = "OpenStreetMap Standard";
 
@@ -389,10 +389,10 @@ var layerOpenStreetBrowserUrl = akt_protocol+"//tiles-base.openstreetbrowser.org
 var layerOpenStreetBrowser = new L.TileLayer(layerOpenStreetBrowserUrl,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.openstreetbrowser.org">OpenStreetBrowser</a>'});
 
 //Mapsurfer
-var layerMapSurferHillOvl = new L.TileLayer(akt_protocol+"//maps.heigit.org/openmapsurfer/tiles/asterh/webmercator/{z}/{x}/{y}.png",{maxZoom: maxzoom_osm,detectRetina: true, transparent: true, attribution: 'Imagery from <a href=\"http://giscience.uni-hd.de/\">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'});
-var layerMapSurferAdminOvl = new L.TileLayer(akt_protocol+"//maps.heigit.org/openmapsurfer/tiles/adminb/webmercator/{z}/{x}/{y}.png",{maxZoom: maxzoom_osm,detectRetina: true, transparent: true, attribution: 'Imagery from <a href=\"http://giscience.uni-hd.de/\">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'});
-var layerAdrMapSurferOvl=akt_protocol+"//maps.heigit.org/openmapsurfer/tiles/hybrid/webmercator/{z}/{x}/{y}.png"
-var layerMapSurferOvl = new L.TileLayer(layerAdrMapSurferOvl,{maxZoom: maxzoom_osm,detectRetina: true, transparent: true, attribution: 'Imagery from <a href=\"http://giscience.uni-hd.de/\">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'});
+var layerMapSurferHillOvl = new L.TileLayer(akt_protocol+"//korona.geog.uni-heidelberg.de/tiles/asterh/x={x}&y={y}&z={z}",{maxZoom: maxzoom_osm,detectRetina: true, transparent: true, attribution: 'Kartendaten: © <a href="http://mapsurfernet.com/">Mapsurfer</a>'});
+var layerMapSurferAdminOvl = new L.TileLayer(akt_protocol+"//korona.geog.uni-heidelberg.de/tiles/adminb/x={x}&y={y}&z={z}",{maxZoom: maxzoom_osm,detectRetina: true, transparent: true, attribution: 'Kartendaten: © <a href="http://mapsurfernet.com/">Mapsurfer</a>'});
+var layerAdrMapSurferOvl=akt_protocol+"//korona.geog.uni-heidelberg.de/tiles/hybrid/x={x}&y={y}&z={z}"
+var layerMapSurferOvl = new L.TileLayer(layerAdrMapSurferOvl,{maxZoom: maxzoom_osm,detectRetina: true, transparent: true, attribution: 'Kartendaten: © <a href="http://mapsurfernet.com/">Mapsurfer</a>'});
 
 //Map-Box
 //var layerAdrMapbox = "https://{s}.tiles.mapbox.com/v3/examples.map-i86l3621/{z}/{x}/{y}.png";
@@ -481,8 +481,8 @@ var layerWienBaust = new L.tileLayer.wms(akt_protocol+"//data.wien.gv.at/daten/g
     attribution: 'Kartendaten: <a href="http://www.wien.gv.at">Wiener Stadtverwaltung</a>'
 });
 //		var layerCountries = new L.KML("collins-Laender_pol.kml", {async: true});
-		var layerYandex = new L.TileLayer("https://vec0{s}.maps.yandex.net/tiles?l=map&v=19.08.22-0&x={x}&y={y}&z={z}&scale=1&lang=de_DE",
-				{maxZoom: maxzoom_19,subdomains: '1234',detectRetina: true, attribution: 'Kartendaten: © <a href="http://yandex.com/">Yandex</a>'});
+//		var layerYandex = new L.TileLayer("https://vec0{s}.maps.yandex.net/tiles?l=map&v=4.49.1&x={x}&y={y}&z={z}&scale=1&lang=en_US",
+//				{maxZoom: maxzoom_19,subdomains: '1234',detectRetina: true, attribution: 'Kartendaten: © <a href="http://yandex.com/">Yandex</a>'});
 
 
 
@@ -519,7 +519,6 @@ baseMaps = [
             "Bing Standard":  bing_road,
             "Apple Standard": layerAppleStd,
             //"Tomtom Standard": layerTomtom,
-            //"Yandex Maps": layerYandex,
             "Esri Streetmap": layerEsriStreet,
             "National Geographic Countries": layerNatGeoWorld,
             "Mapbox Political":layerMapBoxCtry,
