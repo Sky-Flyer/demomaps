@@ -642,7 +642,7 @@ var overlayMaps = [
         layers    : {
             //"Mapsurfer Administrative Grenzen": layerMapSurferAdminOvl,
             //"Harvard Internationale Grenzen":layerHarvWld,
-            "Mapsurfer Hillshade": layerMapSurferHillOvl,
+            //"Mapsurfer Hillshade": layerMapSurferHillOvl,
             "Open Railway Map": layerORailw,
             "Open Sea Map": layerOpenSeaMap,
             "Open Snow Map": layerOpenSnowMap,
