@@ -270,6 +270,10 @@ var layerBasemOrtho = new L.TileLayer(layerAdrBasemOrtho,{ maxZoom: maxzoom_osm,
 //kartenwerkstatt.at bounds: boundsAUT,
 //var layerKwStattOsm = new L.TileLayer(akt_protocol+"//tilestream.kartenwerkstatt.at/1.0.0/austria-osm-imposm-bright/{z}/{x}/{y}.png",{ maxZoom: maxzoom_osm, minZoom: 3,  detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © <a href="http://www.kartenwerkstatt.at">Kartenwerkstatt.at<a/>'});
 
+var layerAdrOpFlightMap = akt_protocol+"//snapshots.openflightmaps.org/live/1712/tiles/world/noninteractive/epsg3857/merged/512/latest/{z}/{x}/{y}.png";
+var layerOpFlightMap = new L.TileLayer(layerAdrOpFlightMap,{ maxZoom: maxzoom_osm, detectRetina: true, subdomains: '1234', attribution: 'Karte: <a href="https://www.openflightmaps.org/">openflightmap.org</a>'});
+
+
 //Esri - Arcgis online
 var layerAdrEsriTopo=akt_protocol+"//server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}"
 var layerEsriTopo = new L.TileLayer(layerAdrEsriTopo,{ maxZoom: maxzoom_osm, attribution: 'Kartendaten: © ArGIS Online'});
@@ -318,6 +322,17 @@ var bing_road = new L.BingLayer("AuhiCJHlGzhg93IqUH_oCpl_-ZUrIE6SPftlyGYUvr9Amx5
 //ÖPNV "http://tile.memomaps.de/tilegen/14/8575/5624.png"
 layerÖPNV = new L.TileLayer(akt_protocol+"//tile.memomaps.de/tilegen/{z}/{x}/{y}.png",{ 
     maxZoom: maxzoom_std,detectRetina: true, attribution: 'Kartendaten: © ÖPNV'});
+
+layerOpenSeaMap = new L.TileLayer(akt_protocol+"//t1.openseamap.org/seamark/{z}/{x}/{y}.png",{ 
+    maxZoom: maxzoom_std,detectRetina: true, attribution: 'Karte: <a href="https://www.openseamap.org/index.php?id=imprint">openseamap.org</a>'});
+
+layerOpenSnowMap = new L.TileLayer(akt_protocol+"//www.opensnowmap.org/pistes/{z}/{x}/{y}.png",{ 
+    maxZoom: maxzoom_std,detectRetina: true, attribution: 'Karte: <a href="https://www.openstreetmap.org/copyright">Open Street Map - Mitwirkende</a>'});
+
+layerWayMarketTrails = new L.TileLayer(akt_protocol+"//tile.waymarkedtrails.org/hiking/{z}/{x}/{y}.png",{ 
+    maxZoom: maxzoom_std,detectRetina: true, attribution: 'Karte: <a href="https://hiking.waymarkedtrails.org/help/legal">waymarkedtrails.org</a>'});
+
+
 
 //Geofabrik topo "http://a.tile.geofabrik.de/15173cf79060ee4a66573954f6017ab0/14/8574/5625.png"
 layerGeofTopo = new L.TileLayer(akt_protocol+"//{s}.tile.geofabrik.de/15173cf79060ee4a66573954f6017ab0/{z}/{x}/{y}.png",{ 
@@ -552,6 +567,7 @@ baseMaps = [
             "OpenStreetMap Outdoors": layerOSMOutd,
             "OpenStreetMap Cycle": layerOSMCycle,
             "OpenStreetMap Hike and Bike": layerHikeBike,
+            "Open Flight Map": layerOpFlightMap,
     }
     },
     {groupName : "Lustige und Diverse",
@@ -623,6 +639,9 @@ var overlayMaps = [
             "Harvard Internationale Grenzen":layerHarvWld,
             "Mapsurfer Hillshade": layerMapSurferHillOvl,
             "Open Railway Map": layerORailw,
+            "Open Sea Map": layerOpenSeaMap,
+            "Open Snow Map": layerOpenSnowMap,
+            "Way Market Trails": layerWayMarketTrails,
             "Wien, Baustellen":layerWienBaust,
             "Gradnetz": grid,
             //"UTM 32 & 33 Grid":layerUtm3233Grid,
