@@ -331,8 +331,14 @@ layerOpenSnowMap = new L.TileLayer(akt_protocol+"//www.opensnowmap.org/pistes/{z
 
 layerWayMarketTrails = new L.TileLayer(akt_protocol+"//tile.waymarkedtrails.org/hiking/{z}/{x}/{y}.png",{ 
     maxZoom: maxzoom_std,detectRetina: true, attribution: 'Karte: <a href="https://hiking.waymarkedtrails.org/help/legal">waymarkedtrails.org</a>'});
-
-
+layerWayMarketTrailsCycling = new L.TileLayer(akt_protocol+"//tile.waymarkedtrails.org/cycling/{z}/{x}/{y}.png",{ 
+    maxZoom: maxzoom_std,detectRetina: true, attribution: 'Karte: <a href="https://hiking.waymarkedtrails.org/help/legal">waymarkedtrails.org</a>'});
+layerWayMarketTrailsMtb = new L.TileLayer(akt_protocol+"//tile.waymarkedtrails.org/mtb/{z}/{x}/{y}.png",{ 
+    maxZoom: maxzoom_std,detectRetina: true, attribution: 'Karte: <a href="https://hiking.waymarkedtrails.org/help/legal">waymarkedtrails.org</a>'});
+layerWayMarketTrailsSkating = new L.TileLayer(akt_protocol+"//tile.waymarkedtrails.org/skating/{z}/{x}/{y}.png",{ 
+    maxZoom: maxzoom_std,detectRetina: true, attribution: 'Karte: <a href="https://hiking.waymarkedtrails.org/help/legal">waymarkedtrails.org</a>'});
+layerWayMarketTrailsSlopes = new L.TileLayer(akt_protocol+"//tile.waymarkedtrails.org/slopes/{z}/{x}/{y}.png",{ 
+    maxZoom: maxzoom_std,detectRetina: true, attribution: 'Karte: <a href="https://hiking.waymarkedtrails.org/help/legal">waymarkedtrails.org</a>'});
 
 //Geofabrik topo "http://a.tile.geofabrik.de/15173cf79060ee4a66573954f6017ab0/14/8574/5625.png"
 layerGeofTopo = new L.TileLayer(akt_protocol+"//{s}.tile.geofabrik.de/15173cf79060ee4a66573954f6017ab0/{z}/{x}/{y}.png",{ 
@@ -567,7 +573,6 @@ baseMaps = [
             "OpenStreetMap Outdoors": layerOSMOutd,
             "OpenStreetMap Cycle": layerOSMCycle,
             "OpenStreetMap Hike and Bike": layerHikeBike,
-            "Open Flight Map": layerOpFlightMap,
     }
     },
     {groupName : "Lustige und Diverse",
@@ -641,7 +646,12 @@ var overlayMaps = [
             "Open Railway Map": layerORailw,
             "Open Sea Map": layerOpenSeaMap,
             "Open Snow Map": layerOpenSnowMap,
-            "Way Market Trails": layerWayMarketTrails,
+            "Open Flight Map": layerOpFlightMap,
+            "Way Market Trails Hiking": layerWayMarketTrails,
+            "Way Market Trails Cycling": layerWayMarketTrailsCycling,
+            "Way Market Trails MTB": layerWayMarketTrailsMtb,
+            "Way Market Trails Skating": layerWayMarketTrailsSkating,
+            "Way Market Trails Slopes": layerWayMarketTrailsSlopes,
             "Wien, Baustellen":layerWienBaust,
             "Gradnetz": grid,
             //"UTM 32 & 33 Grid":layerUtm3233Grid,
