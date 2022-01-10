@@ -302,8 +302,8 @@ var layerGoogleSat = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&l
 var layerGoogleLbl = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=h&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
 
 //apple layers
-//https://sat-cdn1.apple-mapkit.com/tile?style=7&size=1&scale=1&z=19&x=285841&y=181835&v=3021&accessKey=1535055201_1221420413073044_%2F_tlIV55%2ByUmacZNPQ7MvFmqlmlKrUocGxSOjl1QU25kA%3D
-layerAdrAppleStd="https://cdn{s}.apple-mapkit.com/ti/tile?type=tile&style=0&size=1&x={x}&y={y}&z={z}&scale=1&lang=de-DE&imageFormat=jpg&accessKey=1535055201_1221420413073044_%2F_tlIV55%2ByUmacZNPQ7MvFmqlmlKrUocGxSOjl1QU25kA%3D"
+//
+layerAdrAppleStd="https://cdn{s}.apple-mapkit.com/ti/tile?style=0&size=1&z={z}&x={x}&y={y}&scale=2&lang=de&v=2201094&poi=0&accessKey=1641842845_8720188536354494529_/_d1w9kVUH14Cp91xnGidm24EKdneWuliuLgezvhD1PNo=&labels=0&tint=light&emphasis=standard"
 layerAppleStd = new L.TileLayer(layerAdrAppleStd,{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
 layerAdrAppleSat="https://sat-cdn{s}.apple-mapkit.com/tile?style=7&size=1&scale=1&z={z}&x={x}&y={y}&accessKey=1535055201_1221420413073044_%2F_tlIV55%2ByUmacZNPQ7MvFmqlmlKrUocGxSOjl1QU25kA%3D&v=203"
 layerAppleSat = new L.TileLayer(layerAdrAppleSat,{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
