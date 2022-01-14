@@ -398,7 +398,10 @@ layerStamenWaterc = new L.TileLayer(akt_protocol+"//tile.stamen.com/watercolor/{
 var layerBergfexOek = new L.TileLayer(akt_protocol+"//maps.bergfex.at/oek/standard/{z}/{x}/{y}.jpg",
 {maxZoom: maxzoom_topo+1, maxNativeZoom: maxzoom_topo, bounds: boundsAUT, detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Map Data 2008, 2013 BEV, bergfex GmbH'});
 var layerBergfexOsm = new L.TileLayer(akt_protocol+"//maps.bergfex.at/osm/standard/{z}/{x}/{y}.jpg",
-{maxZoom: maxzoom_topo+1, maxNativeZoom: maxzoom_topo, detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Map Data <a href="openpistemap.org">Openstreemap</a>, bergfex GmbH'}); //bounds: boundsAUT, 
+{maxZoom: maxzoom_topo+1, maxNativeZoom: maxzoom_topo, detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Map Data <a href="openstreetmap.org">Openstreemap</a>, bergfex GmbH'}); //bounds: boundsAUT, 
+
+var layerOpenPisteMap = new L.TileLayer(akt_protocol+"//www.opensnowmap.org/pistes/{z}/{x}/{y}.png",
+{maxZoom: maxzoom_osm, maxNativeZoom: maxzoom_topo, detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Map Data <a href="openpistemap.org">OpenPisteemap</a>, bergfex GmbH'}); //bounds: boundsAUT, 
 
 //tomtom
 var layerTomtomUrl="https://{s}.api.tomtom.com/lbs/map/3/basic/1/{z}/{x}/{y}.png?key=26m229t628ghqqdu5t27xjzf";
@@ -652,6 +655,7 @@ var overlayMaps = [
             "Way Market Trails MTB": layerWayMarketTrailsMtb,
             "Way Market Trails Skating": layerWayMarketTrailsSkating,
             "Way Market Trails Slopes": layerWayMarketTrailsSlopes,
+            "WintersportPisten" layerOpenPisteMap,
             "Wien, Baustellen":layerWienBaust,
             "Gradnetz": grid,
             //"UTM 32 & 33 Grid":layerUtm3233Grid,
