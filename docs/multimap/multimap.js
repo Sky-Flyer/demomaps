@@ -655,7 +655,7 @@ var overlayMaps = [
             "Way Market Trails MTB": layerWayMarketTrailsMtb,
             "Way Market Trails Skating": layerWayMarketTrailsSkating,
             "Way Market Trails Slopes": layerWayMarketTrailsSlopes,
-            "WintersportPisten" layerOpenPisteMap,
+            "WintersportPisten": layerOpenPisteMap,
             "Wien, Baustellen":layerWienBaust,
             "Gradnetz": grid,
             //"UTM 32 & 33 Grid":layerUtm3233Grid,
