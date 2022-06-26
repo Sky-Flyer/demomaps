@@ -255,6 +255,11 @@ var layerOSMOvl = new L.TileLayer(layerAdrOSMOvl,{maxZoom: maxzoom_osm,detectRet
 //webatlas.no
 var layerWebAtlNo = new L.TileLayer(akt_protocol+"//www.webatlas.no/maptiles/tiles/webatlas-standard-vektor/wa_grid/{z}/{x}/{y}.png",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © Norkart AS/EEA CLC2006/<a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 
+// mapy.cz layers
+var layerMapyczBase = new L.TileLayer(akt_protocol+"//mapserver.mapy.cz/base-en/retina/{z}-{x}-{y}?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlJeRVZYRVJcSg%3D%3D",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © mapy.cz/<a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+var layerMapyczWandern = new L.TileLayer(akt_protocol+"//mapserver.mapy.cz/turist-en/{z}-{x}-{y}?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlJeRVZYRVJcSg%3D%3D",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © mapy.cz/<a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+var layerMapyczWinter = new L.TileLayer(akt_protocol+"//mapserver.mapy.cz/winter-en-down/{z}-{x}-{y}?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlJeRVZYRVJcSg%3D%3D",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © mapy.cz/<a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+
 //Basemap.at
 var layerAdrBasem=akt_protocol+"//maps{s}.wien.gv.at/basemap/bmaphidpi/normal/google3857/{z}/{y}/{x}.jpg"
 var layerBasem = new L.TileLayer(layerAdrBasem,{ maxZoom: maxzoom_osm, bounds: boundsAUT, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at<a/>'});
@@ -302,12 +307,13 @@ var layerGoogleSat = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&l
 var layerGoogleLbl = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=h&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
 
 //apple layers
-//
-layerAdrAppleStd="https://cdn{s}.apple-mapkit.com/ti/tile?style=0&size=1&z={z}&x={x}&y={y}&scale=2&lang=de&v=2201094&poi=0&accessKey=1641842845_8720188536354494529_/_d1w9kVUH14Cp91xnGidm24EKdneWuliuLgezvhD1PNo=&labels=0&tint=light&emphasis=standard"
+//https://cdn1.apple-mapkit.com/ti/tile?style=0&size=1&x=8930&y=5676&z=14&scale=2&lang=de&v=2206254&poi=0&accessKey=1656239312_7589117058903526148_%2F_I8XU9EHS07V9cFXJwM6o7nar8qB7YFpYaeu9JoU%2BEYQ%3D&labels=0&tint=light&emphasis=standard
+layerAdrAppleStd="https://cdn{s}.apple-mapkit.com/ti/tile?style=0&size=1&z={z}&x={x}&y={y}&scale=2&lang=de&v=2206254&poi=0&accessKey=1656239312_7589117058903526148_%2F_I8XU9EHS07V9cFXJwM6o7nar8qB7YFpYaeu9JoU%2BEYQ%3D&labels=0&tint=light&emphasis=standard"
 layerAppleStd = new L.TileLayer(layerAdrAppleStd,{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
-layerAdrAppleSat="https://sat-cdn{s}.apple-mapkit.com/tile?style=7&size=1&scale=1&z={z}&x={x}&y={y}&accessKey=1535055201_1221420413073044_%2F_tlIV55%2ByUmacZNPQ7MvFmqlmlKrUocGxSOjl1QU25kA%3D&v=203"
+//https://sat-cdn4.apple-mapkit.com/tile?style=7&size=2&scale=1&z=14&x=8932&y=5676&v=9301&accessKey=1656239776_5000363173242464511_%2F_VbbKBfs6VbtJDffyP192vx07XSsWluw2jv6BYqqakvI%3D
+layerAdrAppleSat="https://duckduckgo.com/mapkit/?https://sat-cdn{s}.apple-mapkit.com/tile?style=7&size=1&scale=1&z={z}&x={x}&y={y}&accessKey=1656239776_5000363173242464511_%2F_VbbKBfs6VbtJDffyP192vx07XSsWluw2jv6BYqqakvI%3D"
 layerAppleSat = new L.TileLayer(layerAdrAppleSat,{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
-layerAdrAppleOverlay="https://cdn{s}.apple-mapkit.com/ti/tile?type=tile&style=46&size=1&x={x}&y={y}&z={z}&scale=1&lang=de-DE&imageFormat=png&accessKey=1535055201_1221420413073044_%2F_tlIV55%2ByUmacZNPQ7MvFmqlmlKrUocGxSOjl1QU25kA%3D"
+layerAdrAppleOverlay="https://cdn{s}.apple-mapkit.com/ti/tile?type=tile&style=46&size=1&x={x}&y={y}&z={z}&scale=1&lang=de-DE&imageFormat=png&accessKey=1656239312_7589117058903526148_%2F_I8XU9EHS07V9cFXJwM6o7nar8qB7YFpYaeu9JoU%2BEYQ%3D"
 layerAppleOverlay = new L.TileLayer(layerAdrAppleOverlay,{ maxZoom: maxzoom_g_sat,detectRetina: true, 	transparent: true, format: 'image/png', subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
 layerAdrAppleStdAlt=akt_protocol+"//gsp2.apple.com/tile?api=1&style=slideshow&layers=default&lang=de_DE&z={z}&x={x}&y={y}&v=10"
 layerAppleStdAlt = new L.TileLayer(layerAdrAppleStdAlt,{ maxZoom: maxzoom_14, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
@@ -520,6 +526,7 @@ baseMaps = [
         expanded : true,
         layers    : {
             //"OpenStreetMap Mapsurfer": layerMapSurfer,
+            "Mapy.cz Base": layerMapyczBase,
             "OpenStreetMap Standard": layerOSMStd,
             "Openstreetmap Humanitarian": layerHumanitarian,
             "OpenStreetMap Deutschland": layerOSMStdDe,
@@ -541,7 +548,7 @@ baseMaps = [
             "Here-Maps Standard": layerNokiaRoad,
             "Here-Maps Verkehr": layerNokiaTrafic,
             "Bing Standard":  bing_road,
-            "Apple Standard": layerAppleStd,
+            //"Apple Standard": layerAppleStd,
             //"Tomtom Standard": layerTomtom,
             "Esri Streetmap": layerEsriStreet,
             "National Geographic Countries": layerNatGeoWorld,
@@ -569,13 +576,15 @@ baseMaps = [
     {groupName : "Transport und Outdoor",
         expanded : false,
         layers    : {
+            "Mapy.cz Wanderkarte": layerMapyczWandern,
+            "Mapy.cz Skikarte": layerMapyczWinter,
             "ÖPNV Verkehrskarte": layerÖPNV,
             "Thunderforest Transport":layerOSMTransp,
-            "Mapbox Outdoor": layerMapBoxOutdoor,
-            "Mapbox Run, Hike, Bike": layerMapBoxRunBikeHike,
+            //"Mapbox Outdoor": layerMapBoxOutdoor,
+            //"Mapbox Run, Hike, Bike": layerMapBoxRunBikeHike,
             "OpenStreetMap Outdoors": layerOSMOutd,
             "OpenStreetMap Cycle": layerOSMCycle,
-            "OpenStreetMap Hike and Bike": layerHikeBike,
+            //"OpenStreetMap Hike and Bike": layerHikeBike,
     }
     },
     {groupName : "Lustige und Diverse",
@@ -600,7 +609,7 @@ baseMaps = [
             "Google Satellit":  g_satellite,
             "Here-Maps Satellit": layerNokiaSat,
             "Bing Satellit":  bing_areal,
-            "Apple Satellit": layerAppleSat,
+            //"Apple Satellit": layerAppleSat,
             "Mapbox Satellit":layerMapBoxSat,
             "Esri Satellit": layerEsriWldImg,
             "Basemap Orthofoto": layerBasemOrtho,
@@ -635,7 +644,7 @@ var overlayMaps = [
                 "OSM Beschriftungen": layerOSMOvl,
                 "Google Beschriftungen": layerGoogleLbl,
                 "Nokia Heremaps Beschriftungen":layerNokiaLabel,
-                //"Apple Beschriftungen": layerAppleOverlay,
+                "Apple Beschriftungen": layerAppleOverlay,
                 "Basemap Beschriftungen": layerBasemOvl,
                 //"Basemap Beschriftung (lokal)":layerBasemapOvlLocal,
             }
