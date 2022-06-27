@@ -6,12 +6,8 @@
      Version: 1.6
      https://twitter.com/PTBUhr
   -->
- <meta charset="UTF-8">
-  <script src="jquery.js"></script>
+  <script src="./jquery.js"></script>
   <title>PTB Uhr</title>
-  <meta name="viewport" content="width=device-width, initial-scale=0.75, maximum-scale=4.0, user-scalable=yes" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="white">
  </head>
  <body>
   <noscript><span style="color:red;font-size:2em;">Die Uhr nur tickt mit Javascript!</span></noscript>
