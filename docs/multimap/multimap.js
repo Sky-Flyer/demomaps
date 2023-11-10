@@ -256,7 +256,7 @@ var layerOSMOvl = new L.TileLayer(layerAdrOSMOvl,{maxZoom: maxzoom_osm,detectRet
 var layerWebAtlNo = new L.TileLayer(akt_protocol+"//www.webatlas.no/maptiles/tiles/webatlas-standard-vektor/wa_grid/{z}/{x}/{y}.png",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © Norkart AS/EEA CLC2006/<a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 
 // OpenMapTiles
-var layerOpenMapTiles = new L.TileLayer(akt_protocol+"// api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=LIb45gssRLBrsVQPT0MN",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+var layerOpenMapTiles = new L.TileLayer(akt_protocol+"//api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=LIb45gssRLBrsVQPT0MN",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 
 // mapy.cz layers
 var layerMapyczBase = new L.TileLayer(akt_protocol+"//mapserver.mapy.cz/base-en/retina/{z}-{x}-{y}?apikey=dli4RYd41XbaVq9RKsNzLT6OIAYkB0W5h5BL4EyJjOA",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © mapy.cz/<a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
