@@ -407,7 +407,7 @@ layerStamenWaterc = new L.TileLayer(akt_protocol+"//tile.stamen.com/watercolor/{
 //Bergfex ÖK Karte
 var layerBergfexOek = new L.TileLayer(akt_protocol+"//tiles.bergfex.at/data/oek50-512/{z}/{x}/{y}.jpg70",
 {maxZoom: maxzoom_topo+1, maxNativeZoom: maxzoom_topo, bounds: boundsAUT, detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Map Data 2008, 2013 BEV, bergfex GmbH'});
-var layerBergfexOsm = new L.TileLayer(akt_protocol+"//tiles.bergfex.at/styles/bergfex-osm/{z}/{x}/{y}@2.jpg",
+var layerBergfexOsm = new L.TileLayer(akt_protocol+"//tiles.bergfex.at/styles/bergfex-osm/{z}/{x}/{y}@2x.jpg",
 {maxZoom: maxzoom_topo+1, maxNativeZoom: maxzoom_topo, detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Map Data <a href="openstreetmap.org">Openstreemap</a>, bergfex GmbH'}); //bounds: boundsAUT, 
 
 var layerOpenPisteMap = new L.TileLayer(akt_protocol+"//www.opensnowmap.org/pistes/{z}/{x}/{y}.png",
