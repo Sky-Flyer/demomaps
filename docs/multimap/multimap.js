@@ -309,13 +309,12 @@ var layerGoogleSat = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&l
 var layerGoogleLbl = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=h&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
 
 //apple layers
-//https://cdn1.apple-mapkit.com/ti/tile?style=0&size=1&x=8930&y=5676&z=14&scale=2&lang=de&v=2206254&poi=0&accessKey=1656239312_7589117058903526148_%2F_I8XU9EHS07V9cFXJwM6o7nar8qB7YFpYaeu9JoU%2BEYQ%3D&labels=0&tint=light&emphasis=standard
-layerAdrAppleStd="https://cdn{s}.apple-mapkit.com/ti/tile?style=0&size=1&z={z}&x={x}&y={y}&scale=2&lang=de&v=2206254&poi=0&accessKey=1656239312_7589117058903526148_%2F_I8XU9EHS07V9cFXJwM6o7nar8qB7YFpYaeu9JoU%2BEYQ%3D&labels=0&tint=light&emphasis=standard"
+layerAdrAppleStd="https://cdn{s}.apple-mapkit.com/ti/tile?style=0&size=1&z={z}&x={x}&y={y}&scale=2&lang=de&v=2206254&poi=0&accessKey=1699620673_5380359974440465213_%2F_B3DNSmul7TeUEzPcE7mNPutlcEWD5I35ek6npPQG%2BwY%3D&labels=0&tint=light&emphasis=standard"
 layerAppleStd = new L.TileLayer(layerAdrAppleStd,{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
-//https://sat-cdn4.apple-mapkit.com/tile?style=7&size=2&scale=1&z=14&x=8932&y=5676&v=9301&accessKey=1656239776_5000363173242464511_%2F_VbbKBfs6VbtJDffyP192vx07XSsWluw2jv6BYqqakvI%3D
-layerAdrAppleSat="https://duckduckgo.com/mapkit/?https://sat-cdn{s}.apple-mapkit.com/tile?style=7&size=1&scale=1&z={z}&x={x}&y={y}&accessKey=1656239776_5000363173242464511_%2F_VbbKBfs6VbtJDffyP192vx07XSsWluw2jv6BYqqakvI%3D"
+
+layerAdrAppleSat="https://duckduckgo.com/mapkit/?https://sat-cdn{s}.apple-mapkit.com/tile?style=7&size=1&scale=1&z={z}&x={x}&y={y}&accessKey=1699620673_5380359974440465213_%2F_B3DNSmul7TeUEzPcE7mNPutlcEWD5I35ek6npPQG%2BwY%3D"
 layerAppleSat = new L.TileLayer(layerAdrAppleSat,{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
-layerAdrAppleOverlay="https://cdn{s}.apple-mapkit.com/ti/tile?type=tile&style=46&size=1&x={x}&y={y}&z={z}&scale=1&lang=de-DE&imageFormat=png&accessKey=1656239312_7589117058903526148_%2F_I8XU9EHS07V9cFXJwM6o7nar8qB7YFpYaeu9JoU%2BEYQ%3D"
+layerAdrAppleOverlay="https://cdn{s}.apple-mapkit.com/ti/tile?type=tile&style=46&size=1&x={x}&y={y}&z={z}&scale=1&lang=de-DE&imageFormat=png&accessKey=1699620673_5380359974440465213_%2F_B3DNSmul7TeUEzPcE7mNPutlcEWD5I35ek6npPQG%2BwY%3D"
 layerAppleOverlay = new L.TileLayer(layerAdrAppleOverlay,{ maxZoom: maxzoom_g_sat,detectRetina: true, 	transparent: true, format: 'image/png', subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
 layerAdrAppleStdAlt=akt_protocol+"//gsp2.apple.com/tile?api=1&style=slideshow&layers=default&lang=de_DE&z={z}&x={x}&y={y}&v=10"
 layerAppleStdAlt = new L.TileLayer(layerAdrAppleStdAlt,{ maxZoom: maxzoom_14, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
@@ -528,7 +527,7 @@ baseMaps = [
         expanded : true,
         layers    : {
             //"OpenStreetMap Mapsurfer": layerMapSurfer,
-            "Mapy.cz Base": layerMapyczBase,
+            //"Mapy.cz Base": layerMapyczBase,
             "OpenStreetMap Standard": layerOSMStd,
             "Openstreetmap Humanitarian": layerHumanitarian,
             "OpenStreetMap Deutschland": layerOSMStdDe,
@@ -550,7 +549,7 @@ baseMaps = [
             "Here-Maps Standard": layerNokiaRoad,
             "Here-Maps Verkehr": layerNokiaTrafic,
             "Bing Standard":  bing_road,
-            //"Apple Standard": layerAppleStd,
+            "Apple Standard": layerAppleStd,
             //"Tomtom Standard": layerTomtom,
             "Esri Streetmap": layerEsriStreet,
             "National Geographic Countries": layerNatGeoWorld,
@@ -578,8 +577,8 @@ baseMaps = [
     {groupName : "Transport und Outdoor",
         expanded : false,
         layers    : {
-            "Mapy.cz Wanderkarte": layerMapyczWandern,
-            "Mapy.cz Skikarte": layerMapyczWinter,
+            //"Mapy.cz Wanderkarte": layerMapyczWandern,
+            //"Mapy.cz Skikarte": layerMapyczWinter,
             "ÖPNV Verkehrskarte": layerÖPNV,
             "Thunderforest Transport":layerOSMTransp,
             //"Mapbox Outdoor": layerMapBoxOutdoor,
@@ -611,7 +610,7 @@ baseMaps = [
             "Google Satellit":  g_satellite,
             "Here-Maps Satellit": layerNokiaSat,
             "Bing Satellit":  bing_areal,
-            //"Apple Satellit": layerAppleSat,
+            "Apple Satellit": layerAppleSat,
             "Mapbox Satellit":layerMapBoxSat,
             "Esri Satellit": layerEsriWldImg,
             "Basemap Orthofoto": layerBasemOrtho,
