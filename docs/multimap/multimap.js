@@ -534,7 +534,7 @@ baseMaps = [
             "OpenStreetMap Standard": layerOSMStd,
             "Openstreetmap Humanitarian": layerHumanitarian,
             "OpenStreetMap Deutschland": layerOSMStdDe,
-            "OpenMapTiles": layerOpenMapTiles
+            "OpenMapTiles": layerOpenMapTiles,
             //"Wikimedia Maps": layerWikiMedia,
             //"Mapbox Streets Basic": layerMapBoxStreetsBas,
             //"Mapbox Emerald": layerMapBoxEmerald,
