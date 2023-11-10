@@ -389,26 +389,11 @@ maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png'
 layerStamenWaterc = new L.TileLayer(akt_protocol+"//tile.stamen.com/watercolor/{z}/{x}/{y}.jpg",{ 
     maxZoom: maxzoom_std,detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Stamen'});
 
-//Bergfex AMap Karte
-// layerBergfexAmapUrl=akt_protocol+"//static{s}.bergfex.com/images/amap/{z}/{z}_{x}_{y}.png";
-// layerBergfexAmapUrl_14=akt_protocol+"//static{s}.bergfex.com/images/amap/{z}/89/{z}_{x}_{y}.png";
-// layerBergfexAmapUrl_14b=akt_protocol+"//static{s}.bergfex.com/images/amap/{z}/88/{z}_{x}_{y}.png";
-// layerBergfexAmapUrl_15=akt_protocol+"//static{s}.bergfex.com/images/amap/{z}/178/{z}_{x}_{y}.png";
-// var layerBergfexAmap = new L.TileLayer(layerBergfexAmapUrl,
-// {maxZoom: maxzoom_amap+2, minZoom: minzoom_amap, maxNativeZoom: maxzoom_amap, bounds: boundsAUT, subdomains: '1234567', detectRetina: true, format: 'image/png', attribution: 'Kartendaten: © Map Data 2008, 2013 BEV, bergfex GmbH'});
-// var layerBergfexAmap_14 = new L.TileLayer(layerBergfexAmapUrl_14,
-// {maxZoom: maxzoom_amap+1, minZoom: maxzoom_amap+1, subdomains: '1234567', detectRetina: true, format: 'image/png', attribution: 'Kartendaten: © Map Data 2008, 2013 BEV, bergfex GmbH'});
-// var layerBergfexAmap_14b = new L.TileLayer(layerBergfexAmapUrl_14b,
-// {maxZoom: maxzoom_amap+1, minZoom: maxzoom_amap+1, subdomains: '1234567', detectRetina: true, format: 'image/png', attribution: 'Kartendaten: © Map Data 2008, 2013 BEV, bergfex GmbH'});
-// var layerBergfexAmap_15 = new L.TileLayer(layerBergfexAmapUrl_15,
-// {maxZoom: maxzoom_amap+2, minZoom: maxzoom_amap+2, subdomains: '1234567', detectRetina: true, format: 'image/png', attribution: 'Kartendaten: © Map Data 2008, 2013 BEV, bergfex GmbH'});
-// var layerBergfexAmapGrp=L.layerGroup([layerBergfexAmap,layerBergfexAmap_14,layerBergfexAmap_14b,layerBergfexAmap_15],{bounds: boundsAUT});
-
 //Bergfex ÖK Karte
 var layerBergfexOek = new L.TileLayer(akt_protocol+"//tiles.bergfex.at/data/oek50-512/{z}/{x}/{y}.jpg70",
-{maxZoom: maxzoom_topo+1, maxNativeZoom: maxzoom_topo, bounds: boundsAUT, detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Map Data 2008, 2013 BEV, bergfex GmbH'});
+{maxZoom: maxzoom_topo, maxNativeZoom: maxzoom_topo, bounds: boundsAUT, detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Map Data 2008, 2013 BEV, bergfex GmbH'});
 var layerBergfexOsm = new L.TileLayer(akt_protocol+"//tiles.bergfex.at/styles/bergfex-osm/{z}/{x}/{y}@2x.jpg",
-{maxZoom: maxzoom_topo+1, maxNativeZoom: maxzoom_topo, detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Map Data <a href="openstreetmap.org">Openstreemap</a>, bergfex GmbH'}); //bounds: boundsAUT, 
+{maxZoom: maxzoom_osm, maxNativeZoom: maxzoom_topo, detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Map Data <a href="openstreetmap.org">Openstreemap</a>, bergfex GmbH'}); //bounds: boundsAUT, 
 
 var layerOpenPisteMap = new L.TileLayer(akt_protocol+"//www.opensnowmap.org/pistes/{z}/{x}/{y}.png",
 {maxZoom: maxzoom_osm, maxNativeZoom: maxzoom_topo, detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Map Data <a href="openpistemap.org">OpenPisteemap</a>, bergfex GmbH'}); //bounds: boundsAUT, 
