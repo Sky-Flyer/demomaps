@@ -256,7 +256,7 @@ var layerOSMOvl = new L.TileLayer(layerAdrOSMOvl,{maxZoom: maxzoom_osm,detectRet
 var layerWebAtlNo = new L.TileLayer(akt_protocol+"//www.webatlas.no/maptiles/tiles/webatlas-standard-vektor/wa_grid/{z}/{x}/{y}.png",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © Norkart AS/EEA CLC2006/<a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 
 // OpenMapTiles
-var layerOpenMapTiles = new L.TileLayer(akt_protocol+"//api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=LIb45gssRLBrsVQPT0MN",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+//var layerOpenMapTiles = new L.TileLayer(akt_protocol+"//api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=LIb45gssRLBrsVQPT0MN",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 
 // mapy.cz layers
 var layerMapyczBase = new L.TileLayer(akt_protocol+"//mapserver.mapy.cz/base-en/retina/{z}-{x}-{y}?apikey=dli4RYd41XbaVq9RKsNzLT6OIAYkB0W5h5BL4EyJjOA",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © mapy.cz/<a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
@@ -405,9 +405,9 @@ layerStamenWaterc = new L.TileLayer(akt_protocol+"//tile.stamen.com/watercolor/{
 // var layerBergfexAmapGrp=L.layerGroup([layerBergfexAmap,layerBergfexAmap_14,layerBergfexAmap_14b,layerBergfexAmap_15],{bounds: boundsAUT});
 
 //Bergfex ÖK Karte
-var layerBergfexOek = new L.TileLayer(akt_protocol+"//maps.bergfex.at/oek/standard/{z}/{x}/{y}.jpg",
+var layerBergfexOek = new L.TileLayer(akt_protocol+"//tiles.bergfex.at/data/oek50-512/{z}/{x}/{y}.jpg70",
 {maxZoom: maxzoom_topo+1, maxNativeZoom: maxzoom_topo, bounds: boundsAUT, detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Map Data 2008, 2013 BEV, bergfex GmbH'});
-var layerBergfexOsm = new L.TileLayer(akt_protocol+"//maps.bergfex.at/osm/standard/{z}/{x}/{y}.jpg",
+var layerBergfexOsm = new L.TileLayer(akt_protocol+"//tiles.bergfex.at/styles/bergfex-osm/{z}/{x}/{y}@2.jpg",
 {maxZoom: maxzoom_topo+1, maxNativeZoom: maxzoom_topo, detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Map Data <a href="openstreetmap.org">Openstreemap</a>, bergfex GmbH'}); //bounds: boundsAUT, 
 
 var layerOpenPisteMap = new L.TileLayer(akt_protocol+"//www.opensnowmap.org/pistes/{z}/{x}/{y}.png",
@@ -534,7 +534,7 @@ baseMaps = [
             "OpenStreetMap Standard": layerOSMStd,
             "Openstreetmap Humanitarian": layerHumanitarian,
             "OpenStreetMap Deutschland": layerOSMStdDe,
-            "OpenMapTiles": layerOpenMapTiles,
+            //"OpenMapTiles": layerOpenMapTiles,
             //"Wikimedia Maps": layerWikiMedia,
             //"Mapbox Streets Basic": layerMapBoxStreetsBas,
             //"Mapbox Emerald": layerMapBoxEmerald,
