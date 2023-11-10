@@ -255,6 +255,9 @@ var layerOSMOvl = new L.TileLayer(layerAdrOSMOvl,{maxZoom: maxzoom_osm,detectRet
 //webatlas.no
 var layerWebAtlNo = new L.TileLayer(akt_protocol+"//www.webatlas.no/maptiles/tiles/webatlas-standard-vektor/wa_grid/{z}/{x}/{y}.png",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © Norkart AS/EEA CLC2006/<a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 
+// OpenMapTiles
+var layerOpenMapTiles = new L.TileLayer(akt_protocol+"// api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=LIb45gssRLBrsVQPT0MN",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+
 // mapy.cz layers
 var layerMapyczBase = new L.TileLayer(akt_protocol+"//mapserver.mapy.cz/base-en/retina/{z}-{x}-{y}?apikey=dli4RYd41XbaVq9RKsNzLT6OIAYkB0W5h5BL4EyJjOA",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © mapy.cz/<a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 var layerMapyczWandern = new L.TileLayer(akt_protocol+"//mapserver.mapy.cz/turist-en/{z}-{x}-{y}?apikey=dli4RYd41XbaVq9RKsNzLT6OIAYkB0W5h5BL4EyJjOA",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © mapy.cz/<a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
@@ -531,6 +534,7 @@ baseMaps = [
             "OpenStreetMap Standard": layerOSMStd,
             "Openstreetmap Humanitarian": layerHumanitarian,
             "OpenStreetMap Deutschland": layerOSMStdDe,
+            "OpenMapTiles": layerOpenMapTiles
             //"Wikimedia Maps": layerWikiMedia,
             //"Mapbox Streets Basic": layerMapBoxStreetsBas,
             //"Mapbox Emerald": layerMapBoxEmerald,
@@ -594,12 +598,12 @@ baseMaps = [
             "Esri light gray": layerEsriGray,
             //"Apple (alternativ)": layerAppleStdAlt,
             "Stamen Watercolor": layerStamenWaterc,
-            "Mapbox Pirate Map": layerMapBoxPirate,
+            //"Mapbox Pirate Map": layerMapBoxPirate,
             //"Mapbox Pirate Map 2": layerMapBoxPir2,
             //"Mapbox Comic": layerMapBoxComic,
             //"Mapbox Wheatpaste": layerMapBoxStreetsWheat,
-            "Mapbox Bluemarbel 8 bit": layerMapBoxBlm8bit,
-            "Mapbox Populationfire": layerMapBoxPopFire,
+            //"Mapbox Bluemarbel 8 bit": layerMapBoxBlm8bit,
+            //"Mapbox Populationfire": layerMapBoxPopFire,
             //"Mapbox Data-Updates": layerMapBoxDataUpd,
     }
     },
@@ -610,7 +614,7 @@ baseMaps = [
             "Google Satellit":  g_satellite,
             "Here-Maps Satellit": layerNokiaSat,
             "Bing Satellit":  bing_areal,
-            "Apple Satellit": layerAppleSat,
+            //"Apple Satellit": layerAppleSat,
             "Mapbox Satellit":layerMapBoxSat,
             "Esri Satellit": layerEsriWldImg,
             "Basemap Orthofoto": layerBasemOrtho,
@@ -645,7 +649,7 @@ var overlayMaps = [
                 "OSM Beschriftungen": layerOSMOvl,
                 "Google Beschriftungen": layerGoogleLbl,
                 "Nokia Heremaps Beschriftungen":layerNokiaLabel,
-                "Apple Beschriftungen": layerAppleOverlay,
+                //"Apple Beschriftungen": layerAppleOverlay,
                 "Basemap Beschriftungen": layerBasemOvl,
                 //"Basemap Beschriftung (lokal)":layerBasemapOvlLocal,
             }
