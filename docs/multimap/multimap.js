@@ -312,10 +312,10 @@ var layerGoogleSat = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&l
 var layerGoogleLbl = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=h&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
 
 //apple layers
-layerAdrAppleStd="https://cdn{s}.apple-mapkit.com/ti/tile?style=0&size=1&z={z}&x={x}&y={y}&scale=2&lang=de&v=2206254&poi=0&accessKey=1699620673_5380359974440465213_%2F_B3DNSmul7TeUEzPcE7mNPutlcEWD5I35ek6npPQG%2BwY%3D&labels=0&tint=light&emphasis=standard"
+layerAdrAppleStd=akt_protocol+"//cdn{s}.apple-mapkit.com/ti/tile?style=0&size=1&z={z}&x={x}&y={y}&scale=1&lang=de&v=2206254&poi=1&accessKey=1699620673_5380359974440465213_%2F_B3DNSmul7TeUEzPcE7mNPutlcEWD5I35ek6npPQG%2BwY%3D&labels=0&tint=light&emphasis=standard"
 layerAppleStd = new L.TileLayer(layerAdrAppleStd,{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
 
-layerAdrAppleSat="https://duckduckgo.com/mapkit/?https://sat-cdn{s}.apple-mapkit.com/tile?style=7&size=1&scale=1&z={z}&x={x}&y={y}&accessKey=1699620673_5380359974440465213_%2F_B3DNSmul7TeUEzPcE7mNPutlcEWD5I35ek6npPQG%2BwY%3D"
+layerAdrAppleSat=akt_protocol+"//sat-cdn{s}.apple-mapkit.com/tile?style=7&size=1&scale=1&z={z}&x={x}&y={y}&accessKey=1699620673_5380359974440465213_%2F_B3DNSmul7TeUEzPcE7mNPutlcEWD5I35ek6npPQG%2BwY%3D"
 layerAppleSat = new L.TileLayer(layerAdrAppleSat,{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
 layerAdrAppleOverlay="https://cdn{s}.apple-mapkit.com/ti/tile?type=tile&style=46&size=1&x={x}&y={y}&z={z}&scale=1&lang=de-DE&imageFormat=png&accessKey=1699620673_5380359974440465213_%2F_B3DNSmul7TeUEzPcE7mNPutlcEWD5I35ek6npPQG%2BwY%3D"
 layerAppleOverlay = new L.TileLayer(layerAdrAppleOverlay,{ maxZoom: maxzoom_g_sat,detectRetina: true, 	transparent: true, format: 'image/png', subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
@@ -614,7 +614,7 @@ baseMaps = [
             "Google Satellit":  g_satellite,
             "Here-Maps Satellit": layerNokiaSat,
             "Bing Satellit":  bing_areal,
-            //"Apple Satellit": layerAppleSat,
+            "Apple Satellit": layerAppleSat,
             "Mapbox Satellit":layerMapBoxSat,
             "Esri Satellit": layerEsriWldImg,
             "Basemap Orthofoto": layerBasemOrtho,
