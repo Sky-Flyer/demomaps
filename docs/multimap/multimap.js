@@ -312,15 +312,15 @@ var layerGoogleSat = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&l
 var layerGoogleLbl = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=h&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
 
 //apple layers
-layerAdrAppleStd=akt_protocol+"//cdn{s}.apple-mapkit.com/ti/tile?style=0&size=1&z={z}&x={x}&y={y}&scale=1&lang=de&v=2206254&poi=1&accessKey=1699620673_5380359974440465213_%2F_B3DNSmul7TeUEzPcE7mNPutlcEWD5I35ek6npPQG%2BwY%3D&labels=0&tint=light&emphasis=standard"
-layerAppleStd = new L.TileLayer(layerAdrAppleStd,{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
+// layerAdrAppleStd=akt_protocol+"//cdn{s}.apple-mapkit.com/ti/tile?style=0&size=1&z={z}&x={x}&y={y}&scale=1&lang=de&v=2206254&poi=1&accessKey=1699620673_5380359974440465213_%2F_B3DNSmul7TeUEzPcE7mNPutlcEWD5I35ek6npPQG%2BwY%3D&labels=0&tint=light&emphasis=standard"
+// layerAppleStd = new L.TileLayer(layerAdrAppleStd,{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
 
-layerAdrAppleSat=akt_protocol+"//sat-cdn{s}.apple-mapkit.com/tile?style=7&size=1&scale=1&z={z}&x={x}&y={y}&accessKey=1699620673_5380359974440465213_%2F_B3DNSmul7TeUEzPcE7mNPutlcEWD5I35ek6npPQG%2BwY%3D"
-layerAppleSat = new L.TileLayer(layerAdrAppleSat,{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
-layerAdrAppleOverlay="https://cdn{s}.apple-mapkit.com/ti/tile?type=tile&style=46&size=1&x={x}&y={y}&z={z}&scale=1&lang=de-DE&imageFormat=png&accessKey=1699620673_5380359974440465213_%2F_B3DNSmul7TeUEzPcE7mNPutlcEWD5I35ek6npPQG%2BwY%3D"
-layerAppleOverlay = new L.TileLayer(layerAdrAppleOverlay,{ maxZoom: maxzoom_g_sat,detectRetina: true, 	transparent: true, format: 'image/png', subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
-layerAdrAppleStdAlt=akt_protocol+"//gsp2.apple.com/tile?api=1&style=slideshow&layers=default&lang=de_DE&z={z}&x={x}&y={y}&v=10"
-layerAppleStdAlt = new L.TileLayer(layerAdrAppleStdAlt,{ maxZoom: maxzoom_14, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
+// layerAdrAppleSat=akt_protocol+"//sat-cdn{s}.apple-mapkit.com/tile?style=7&size=1&scale=1&z={z}&x={x}&y={y}&accessKey=1699620673_5380359974440465213_%2F_B3DNSmul7TeUEzPcE7mNPutlcEWD5I35ek6npPQG%2BwY%3D"
+// layerAppleSat = new L.TileLayer(layerAdrAppleSat,{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
+// layerAdrAppleOverlay="https://cdn{s}.apple-mapkit.com/ti/tile?type=tile&style=46&size=1&x={x}&y={y}&z={z}&scale=1&lang=de-DE&imageFormat=png&accessKey=1699620673_5380359974440465213_%2F_B3DNSmul7TeUEzPcE7mNPutlcEWD5I35ek6npPQG%2BwY%3D"
+// layerAppleOverlay = new L.TileLayer(layerAdrAppleOverlay,{ maxZoom: maxzoom_g_sat,detectRetina: true, 	transparent: true, format: 'image/png', subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
+// layerAdrAppleStdAlt=akt_protocol+"//gsp2.apple.com/tile?api=1&style=slideshow&layers=default&lang=de_DE&z={z}&x={x}&y={y}&v=10"
+// layerAppleStdAlt = new L.TileLayer(layerAdrAppleStdAlt,{ maxZoom: maxzoom_14, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © Apple Inc.'});
 
 // Bing layers
 var bing_areal = new L.BingLayer("AuhiCJHlGzhg93IqUH_oCpl_-ZUrIE6SPftlyGYUvr9Amx5nzA-WqGcPquyFZl4L", {type: 'Aerial',maxZoom: maxzoom_std});
@@ -431,28 +431,28 @@ var layerMapSurferOvl = new L.TileLayer(layerAdrMapSurferOvl,{maxZoom: maxzoom_o
 //Map-Box
 //var layerAdrMapbox = "https://{s}.tiles.mapbox.com/v3/examples.map-i86l3621/{z}/{x}/{y}.png";
 //var layerMapBox = new L.TileLayer(layerAdrMapbox,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
-var layerAdrMapboxStreets = akt_protocol+"//{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg"
-var layerMapBoxStreets = new L.TileLayer(layerAdrMapboxStreets,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
-var layerMapBoxStreetsBas = new L.TileLayer(akt_protocol+"//{s}.tiles.mapbox.com/v4/mapbox.streets-basic/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
-var layerMapBoxStreetsWheat = new L.TileLayer(akt_protocol+"//{s}.tiles.mapbox.com/v4/mapbox.wheatpaste/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
-var layerAdrMapboxCtry="https://{s}.tiles.mapbox.com/v3/aj.geography-class-2/{z}/{x}/{y}.png";
-var layerMapBoxCtry = new L.TileLayer(layerAdrMapboxCtry,{maxZoom: maxzoom_mapboxctry+3, maxNativeZoom: maxzoom_mapboxctry,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+// var layerAdrMapboxStreets = akt_protocol+"//{s}.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg"
+// var layerMapBoxStreets = new L.TileLayer(layerAdrMapboxStreets,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+// var layerMapBoxStreetsBas = new L.TileLayer(akt_protocol+"//{s}.tiles.mapbox.com/v4/mapbox.streets-basic/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+// var layerMapBoxStreetsWheat = new L.TileLayer(akt_protocol+"//{s}.tiles.mapbox.com/v4/mapbox.wheatpaste/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+// var layerAdrMapboxCtry="https://{s}.tiles.mapbox.com/v3/aj.geography-class-2/{z}/{x}/{y}.png";
+// var layerMapBoxCtry = new L.TileLayer(layerAdrMapboxCtry,{maxZoom: maxzoom_mapboxctry+3, maxNativeZoom: maxzoom_mapboxctry,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 //https://a.tiles.mapbox.com/v4/mapbox.streets-satellite/7/34/54.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg
 var layerAdrMapboxSat = "https://{s}.tiles.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg"
 var layerMapBoxSat = new L.TileLayer(layerAdrMapboxSat,{maxZoom: maxzoom_g_sat,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
-var layerAdrMapboxHybr = "https://{s}.tiles.mapbox.com/v4/mapbox.streets-satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg"
-var layerMapBoxHybr = new L.TileLayer(layerAdrMapboxHybr,{maxZoom: maxzoom_g_sat,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
-var layerMapBoxPirate = new L.TileLayer("https://{s}.tiles.mapbox.com/v3/aj.Sketchy2/{z}/{x}/{y}.png",{maxZoom: maxzoom_6,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
-var layerMapBoxBlm8bit = new L.TileLayer("https://{s}.tiles.mapbox.com/v3/colemanm.blue-marble-8bit/{z}/{x}/{y}.png",{maxZoom: maxzoom_5,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
-var layerMapBoxPopFire = new L.TileLayer("https://{s}.tiles.mapbox.com/v3/aj.population-fire/{z}/{x}/{y}.png",{maxZoom: maxzoom_6,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
-var layerMapBoxPir2 = new L.TileLayer("https://{s}.tiles.mapbox.com/v3/lrqdo.me2bng9n/{z}/{x}/{y}.png",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+// var layerAdrMapboxHybr = "https://{s}.tiles.mapbox.com/v4/mapbox.streets-satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg"
+// var layerMapBoxHybr = new L.TileLayer(layerAdrMapboxHybr,{maxZoom: maxzoom_g_sat,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+// var layerMapBoxPirate = new L.TileLayer("https://{s}.tiles.mapbox.com/v3/aj.Sketchy2/{z}/{x}/{y}.png",{maxZoom: maxzoom_6,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+// var layerMapBoxBlm8bit = new L.TileLayer("https://{s}.tiles.mapbox.com/v3/colemanm.blue-marble-8bit/{z}/{x}/{y}.png",{maxZoom: maxzoom_5,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+// var layerMapBoxPopFire = new L.TileLayer("https://{s}.tiles.mapbox.com/v3/aj.population-fire/{z}/{x}/{y}.png",{maxZoom: maxzoom_6,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+// var layerMapBoxPir2 = new L.TileLayer("https://{s}.tiles.mapbox.com/v3/lrqdo.me2bng9n/{z}/{x}/{y}.png",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 
 //var layerMapBoxDataUpd = new L.TileLayer("https://{s}.tiles.mapbox.com/v4/aaronlidman.4aae1384/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImdQMzI4WjgifQ.d-Uyr7NBjrJVz9z82uk5Xg",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 
-var layerMapBoxEmerald = new L.TileLayer(akt_protocol+"//{s}.tiles.mapbox.com/v4/mapbox.emerald/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
-var layerMapBoxComic = new L.TileLayer(akt_protocol+"//{s}.tiles.mapbox.com/v4/mapbox.comic/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
-var layerMapBoxRunBikeHike = new L.TileLayer(akt_protocol+"//{s}.tiles.mapbox.com/v4/mapbox.run-bike-hike/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
-var layerMapBoxOutdoor = new L.TileLayer(akt_protocol+"//{s}.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+// var layerMapBoxEmerald = new L.TileLayer(akt_protocol+"//{s}.tiles.mapbox.com/v4/mapbox.emerald/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+// var layerMapBoxComic = new L.TileLayer(akt_protocol+"//{s}.tiles.mapbox.com/v4/mapbox.comic/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+// var layerMapBoxRunBikeHike = new L.TileLayer(akt_protocol+"//{s}.tiles.mapbox.com/v4/mapbox.run-bike-hike/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
+// var layerMapBoxOutdoor = new L.TileLayer(akt_protocol+"//{s}.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 //National Geographic World Map
 var layerAdrNatGeoWorld = akt_protocol+"//services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}/";
 var layerNatGeoWorld = new L.TileLayer(layerAdrNatGeoWorld,{maxZoom: maxzoom_natgeo+1, maxNativeZoom: maxzoom_natgeo,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.nationalgeographic.com">Nationalgeographic</a>'});
@@ -553,11 +553,11 @@ baseMaps = [
             "Here-Maps Standard": layerNokiaRoad,
             "Here-Maps Verkehr": layerNokiaTrafic,
             "Bing Standard":  bing_road,
-            "Apple Standard": layerAppleStd,
+            // "Apple Standard": layerAppleStd,
             //"Tomtom Standard": layerTomtom,
             "Esri Streetmap": layerEsriStreet,
             "National Geographic Countries": layerNatGeoWorld,
-            "Mapbox Political":layerMapBoxCtry,
+            // "Mapbox Political":layerMapBoxCtry,
         }
     },
     {groupName : "Topographische",
@@ -614,7 +614,7 @@ baseMaps = [
             "Google Satellit":  g_satellite,
             "Here-Maps Satellit": layerNokiaSat,
             "Bing Satellit":  bing_areal,
-            "Apple Satellit": layerAppleSat,
+            // "Apple Satellit": layerAppleSat,
             "Mapbox Satellit":layerMapBoxSat,
             "Esri Satellit": layerEsriWldImg,
             "Basemap Orthofoto": layerBasemOrtho,
@@ -756,18 +756,18 @@ map.on('baselayerchange', function(e) {
     if((e.name=="National Geographic Countries") && (map.getZoom()>maxzoom_natgeo)){
         map.setZoom(maxzoom_natgeo);
     }
-    else if((e.name=="Mapbox Political") && (map.getZoom()>maxzoom_mapboxctry)){
-        map.setZoom(maxzoom_mapboxctry);
-    }
-    else if((e.name=="Mapbox Pirate Map") && (map.getZoom()>maxzoom_6)){
-        map.setZoom(maxzoom_6);
-    }
-    else if((e.name=="Mapbox Bluemarbel 8 bit") && (map.getZoom()>maxzoom_5)){
-        map.setZoom(maxzoom_5);
-    }
-    else if((e.name=="Mapbox Populationfire") && (map.getZoom()>maxzoom_6)){
-        map.setZoom(maxzoom_6);
-    }
+    // else if((e.name=="Mapbox Political") && (map.getZoom()>maxzoom_mapboxctry)){
+    //     map.setZoom(maxzoom_mapboxctry);
+    // }
+    // else if((e.name=="Mapbox Pirate Map") && (map.getZoom()>maxzoom_6)){
+    //     map.setZoom(maxzoom_6);
+    // }
+    // else if((e.name=="Mapbox Bluemarbel 8 bit") && (map.getZoom()>maxzoom_5)){
+    //     map.setZoom(maxzoom_5);
+    // }
+    // else if((e.name=="Mapbox Populationfire") && (map.getZoom()>maxzoom_6)){
+    //     map.setZoom(maxzoom_6);
+    // }
     else if(((e.name=="OpenTopoMap")||(e.name=="Google Terrain"))&&(map.getZoom()>maxzoom_topo)) {
         map.setZoom(maxzoom_topo);
     }
