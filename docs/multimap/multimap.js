@@ -259,6 +259,8 @@ var layerWebAtlNo = new L.TileLayer(akt_protocol+"//www.webatlas.no/maptiles/til
 var layerMapyczBase = new L.TileLayer(akt_protocol+"//mapserver.mapy.cz/base-en/retina/{z}-{x}-{y}?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlJeRVZYRVJcSg%3D%3D",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © mapy.cz/<a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 var layerMapyczWandern = new L.TileLayer(akt_protocol+"//mapserver.mapy.cz/turist-en/{z}-{x}-{y}?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlJeRVZYRVJcSg%3D%3D",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © mapy.cz/<a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 var layerMapyczWinter = new L.TileLayer(akt_protocol+"//mapserver.mapy.cz/winter-en-down/{z}-{x}-{y}?sdk=HgUbCgUbGkgqAQkYBxYEHQNHQlJeRVZYRVJcSg%3D%3D",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © mapy.cz/<a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+// cookies for mapy.cz
+document.cookie = "ds=1YGPxqzm63M6c7ALeTGI1H6qtZ8TwU-wf-G-xSp-aEUCimra66m3SUx9jHx_9AZWRB3OB_;lps=eyJfZnJlc2giOmZhbHNlLCJfcGVybWFuZW50Ijp0cnVlfQ.ZU4YyQ.mWK2orOG-qEk2KATpDgWDPQhy3M;ps=1YGPxqzm63M6c7ALeTGI1H6qtZ8TwU-wf-G-xSp-aEUCimra66m3SUx9jHx_9AZWRB3OB_;User-Id=8ea4f917a4a3f52a;"
 
 //Basemap.at
 var layerAdrBasem=akt_protocol+"//maps{s}.wien.gv.at/basemap/bmaphidpi/normal/google3857/{z}/{y}/{x}.jpg"
