@@ -35,7 +35,7 @@ var multimapVersion = '2023-11-13_1040'
 document.title = document.title + ' (' + multimapVersion + ')';
 
 // create osm standard layer
-var layerAdrOSMStd = akt_protocol+'//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+var layerAdrOSMStd = akt_protocol+'//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 var layerOSMStd = new L.TileLayer(layerAdrOSMStd,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 var stdLayer = layerOSMStd;
 var stdLayerName = "OpenStreetMap Standard";
