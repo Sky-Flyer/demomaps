@@ -30,8 +30,7 @@ var southWest = L.latLng(46.2520,8.7891),
     northEast = L.latLng(49.2714,17.6660),
     boundsAUT = L.latLngBounds(southWest, northEast);
 
-var multimapVersion = '2023-11-13_1040'
-
+var multimapVersion = '2023-11-13_1100';
 document.title = document.title + ' (' + multimapVersion + ')';
 
 // create osm standard layer
