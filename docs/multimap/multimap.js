@@ -672,7 +672,7 @@ var options = {
 };
 
 //Map with controls
-map = new L.Map('map',{minZoom: 1});
+map = new L.Map('map',{minZoom: 1, wheelPxPerZoomLevel: 120});
 map.attributionControl.setPrefix(false);
 map.dragging.enable();
 map.touchZoom.enable();
