@@ -30,9 +30,14 @@ var southWest = L.latLng(46.2520,8.7891),
     northEast = L.latLng(49.2714,17.6660),
     boundsAUT = L.latLngBounds(southWest, northEast);
 
-var layerAdrMapSurfer=akt_protocol+"//korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}";
-var layerMapSurfer = new L.TileLayer(layerAdrMapSurfer,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapsurfernet.com/">Mapsurfer</a>'});
-var stdLayer = layerMapSurfer;
+var multimapVersion = '2023-11-13_1040'
+
+document.title = document.title + ' (' + multimapVersion + ')';
+
+// create osm standard layer
+var layerAdrOSMStd = akt_protocol+'//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+var layerOSMStd = new L.TileLayer(layerAdrOSMStd,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+var stdLayer = layerOSMStd;
 var stdLayerName = "OpenStreetMap Standard";
 
 function cookie_read(cookiename) {
@@ -242,9 +247,6 @@ var layerOSMOutd = new L.TileLayer(layerAdrOSMOutd,{maxZoom: maxzoom_osm,detectR
 var layerAdrOSMTransp=akt_protocol+"//{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png"
 var layerOSMTransp = new L.TileLayer(layerAdrOSMTransp,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: Maps © <a href="http://www.thunderforest.com">Thunderforest</a>, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 
-// create osm standard layer
-var layerAdrOSMStd = akt_protocol+'//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-layerOSMStd = new L.TileLayer(layerAdrOSMStd,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 // create osm standard overlay layer
 var layerAdrOSMStdDe = akt_protocol+'//tile.geofabrik.de/23228979966ae9040ceb0597251e12a2/{z}/{x}/{y}.png'
 var layerOSMStdDe = new L.TileLayer(layerAdrOSMStdDe,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
@@ -259,9 +261,9 @@ var layerWebAtlNo = new L.TileLayer(akt_protocol+"//www.webatlas.no/maptiles/til
 //var layerOpenMapTiles = new L.TileLayer(akt_protocol+"//api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=LIb45gssRLBrsVQPT0MN",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 
 // mapy.cz layers
-var layerMapyczBase = new L.TileLayer(akt_protocol+"//mapserver.mapy.cz/base-en/retina/{z}-{x}-{y}?apikey=dli4RYd41XbaVq9RKsNzLT6OIAYkB0W5h5BL4EyJjOA",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © mapy.cz/<a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
-var layerMapyczWandern = new L.TileLayer(akt_protocol+"//mapserver.mapy.cz/turist-en/{z}-{x}-{y}?apikey=dli4RYd41XbaVq9RKsNzLT6OIAYkB0W5h5BL4EyJjOA",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © mapy.cz/<a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
-var layerMapyczWinter = new L.TileLayer(akt_protocol+"//mapserver.mapy.cz/winter-en-down/{z}-{x}-{y}apikey=dli4RYd41XbaVq9RKsNzLT6OIAYkB0W5h5BL4EyJjOA",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © mapy.cz/<a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+//var layerMapyczBase = new L.TileLayer(akt_protocol+"//mapserver.mapy.cz/base-en/retina/{z}-{x}-{y}?apikey=dli4RYd41XbaVq9RKsNzLT6OIAYkB0W5h5BL4EyJjOA",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © mapy.cz/<a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+//var layerMapyczWandern = new L.TileLayer(akt_protocol+"//mapserver.mapy.cz/turist-en/{z}-{x}-{y}?apikey=dli4RYd41XbaVq9RKsNzLT6OIAYkB0W5h5BL4EyJjOA",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © mapy.cz/<a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+//var layerMapyczWinter = new L.TileLayer(akt_protocol+"//mapserver.mapy.cz/winter-en-down/{z}-{x}-{y}apikey=dli4RYd41XbaVq9RKsNzLT6OIAYkB0W5h5BL4EyJjOA",{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © mapy.cz/<a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 // cookies for mapy.cz
 //document.cookie = "ds=1YGPxqzm63M6c7ALeTGI1H6qtZ8TwU-wf-G-xSp-aEUCimra66m3SUx9jHx_9AZWRB3OB_;lps=eyJfZnJlc2giOmZhbHNlLCJfcGVybWFuZW50Ijp0cnVlfQ.ZU4YyQ.mWK2orOG-qEk2KATpDgWDPQhy3M;ps=1YGPxqzm63M6c7ALeTGI1H6qtZ8TwU-wf-G-xSp-aEUCimra66m3SUx9jHx_9AZWRB3OB_;User-Id=8ea4f917a4a3f52a;"
 
@@ -386,7 +388,7 @@ maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', format: 'image/png'
 // 	maxZoom: maxzoom_std,detectRetina: true, format: 'image/png', attribution: 'Karten: © LyrkGeodienste, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 
 //stemen watercolor
-layerStamenWaterc = new L.TileLayer(akt_protocol+"//tile.stamen.com/watercolor/{z}/{x}/{y}.jpg",{ 
+layerStamenWaterc = new L.TileLayer(akt_protocol+"//tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg",{ 
     maxZoom: maxzoom_std,detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Stamen'});
 
 //Bergfex ÖK Karte
