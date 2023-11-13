@@ -520,6 +520,7 @@ baseMaps = [
             "OpenStreetMap Standard": layerOSMStd,
             "Openstreetmap Humanitarian": layerHumanitarian,
             "OpenStreetMap Deutschland": layerOSMStdDe,
+            "OpenStreetMap (Bergfex)": layerBergfexOsm,
             //"OpenMapTiles": layerOpenMapTiles,
             //"Wikimedia Maps": layerWikiMedia,
             //"Mapbox Streets Basic": layerMapBoxStreetsBas,
@@ -542,6 +543,7 @@ baseMaps = [
             // "Apple Standard": layerAppleStd,
             //"Tomtom Standard": layerTomtom,
             "Esri Streetmap": layerEsriStreet,
+            "ÖK (ÖsterrreichKarte - Bergfex)":layerBergfexOek,
             "National Geographic Countries": layerNatGeoWorld,
             // "Mapbox Political":layerMapBoxCtry,
         }
@@ -549,8 +551,6 @@ baseMaps = [
     {groupName : "Topographische",
         expanded : false,
         layers    : {
-            "OpenStreetMap (Bergfex)": layerBergfexOsm,
-            "ÖsterrreichKarte (Bergfex)":layerBergfexOek,
             // "AustriaMap (Bergfex)": layerBergfexAmapGrp,
             "OpenTopoMap": layerOpenTopo,
             //"Mapbox Topo": layerMapBoxStreets,
@@ -564,26 +564,27 @@ baseMaps = [
             // "Land Information New Zealand Topo":layerGrpLinzNz,
         }
     },
-    {groupName : "Transport und Outdoor",
+    {groupName : "Transport, Outdoor & Diverse",
         expanded : false,
         layers    : {
             //"Mapy.cz Wanderkarte": layerMapyczWandern,
             //"Mapy.cz Skikarte": layerMapyczWinter,
             "ÖPNV Verkehrskarte": layerÖPNV,
-            "Thunderforest Transport":layerOSMTransp,
+            //"Thunderforest Transport":layerOSMTransp,
             //"Mapbox Outdoor": layerMapBoxOutdoor,
             //"Mapbox Run, Hike, Bike": layerMapBoxRunBikeHike,
             "OpenStreetMap Outdoors": layerOSMOutd,
             "OpenStreetMap Cycle": layerOSMCycle,
             //"OpenStreetMap Hike and Bike": layerHikeBike,
-    }
-    },
-    {groupName : "Lustige und Diverse",
-        expanded : false,
-        layers    : {
             "Esri light gray": layerEsriGray,
+        }
+    },
+    //{groupName : "Lustige und Diverse",
+    //    expanded : false,
+    //    layers    : {
+            
             //"Apple (alternativ)": layerAppleStdAlt,
-            "Stamen Watercolor": layerStamenWaterc,
+            //"Stamen Watercolor": layerStamenWaterc,
             //"Mapbox Pirate Map": layerMapBoxPirate,
             //"Mapbox Pirate Map 2": layerMapBoxPir2,
             //"Mapbox Comic": layerMapBoxComic,
@@ -591,8 +592,8 @@ baseMaps = [
             //"Mapbox Bluemarbel 8 bit": layerMapBoxBlm8bit,
             //"Mapbox Populationfire": layerMapBoxPopFire,
             //"Mapbox Data-Updates": layerMapBoxDataUpd,
-    }
-    },
+    //}
+    //},
     {groupName : "Satellit",
         expanded : false,
         layers    : {
@@ -632,7 +633,7 @@ var overlayMaps = [
             expanded : false,
             layers    : {
                 //"Mapsurfer Beschriftungen": layerMapSurferOvl,
-                "OSM Beschriftungen": layerOSMOvl,
+                //"OSM Beschriftungen": layerOSMOvl,
                 "Google Beschriftungen": layerGoogleLbl,
                 "Nokia Heremaps Beschriftungen":layerNokiaLabel,
                 //"Apple Beschriftungen": layerAppleOverlay,
