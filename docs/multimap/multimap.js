@@ -30,7 +30,7 @@ var southWest = L.latLng(46.2520,8.7891),
     northEast = L.latLng(49.2714,17.6660),
     boundsAUT = L.latLngBounds(southWest, northEast);
 
-var multimapVersion = '2023-11-13_1100';
+var multimapVersion = '2023-11-15_1400';
 document.title = document.title + ' (' + multimapVersion + ')';
 
 // create osm standard layer
@@ -230,7 +230,7 @@ var layerOpenTopo = new L.TileLayer(layerAdrTopo,{maxZoom: maxzoom_topo, maxNati
 var layerCyclOSM = new L.TileLayer(akt_protocol+'//tile-{s}.openstreetmap.fr/hot/{z}/{x}/{y}.png', {maxZoom: maxzoom_osm,detectRetina: true, subdomains: 'abcd', attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 
 //Tracetrack  Topo https://tile.tracestrack.com/topo__/12/2204/1421.png?key=383118983d4a867dd2d367451720d724
-var layerTracetrackTopo = new L.TileLayer(akt_protocol+'//tile.tracestrack.com/topo__/{z}/{x}/{y}.png?key=383118983d4a867dd2d367451720d724', {maxZoom: maxzoom_osm,detectRetina: true, subdomains: 'abcd', attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+//var layerTracetrackTopo = new L.TileLayer(akt_protocol+'//tile.tracestrack.com/topo__/{z}/{x}/{y}.png?key=383118983d4a867dd2d367451720d724', {maxZoom: maxzoom_osm,detectRetina: true, subdomains: 'abcd', attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 
 // create open railway map layer
 var layerAdrWikiMedia=akt_protocol+"//maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
@@ -546,27 +546,27 @@ baseMaps = [
             "Here-Maps Standard": layerNokiaRoad,
             "Here-Maps Verkehr": layerNokiaTrafic,
             "Bing Standard":  bing_road,
-            // "Apple Standard": layerAppleStd,
-            //"Tomtom Standard": layerTomtom,
             "Esri Streetmap": layerEsriStreet,
             "ÖK (ÖsterrreichKarte - Bergfex)":layerBergfexOek,
             "National Geographic Countries": layerNatGeoWorld,
+            // "Apple Standard": layerAppleStd,
+            //"Tomtom Standard": layerTomtom,
             // "Mapbox Political":layerMapBoxCtry,
         }
     },
     {groupName : "Topographische",
         expanded : false,
         layers    : {
-            // "AustriaMap (Bergfex)": layerBergfexAmapGrp,
             "OpenTopoMap": layerOpenTopo,
-            "TracetrackTopo":layerTracetrackTopo,
-            //"Mapbox Topo": layerMapBoxStreets,
             "Geofabrik Topo": layerGeofTopo,
             "OpenStreetMap Landscape": layerOSMLands,
             "Esri Topo Map": layerEsriTopo,
             "Here-Maps Terrain": layerNokiaTerr,
             "Google Terrain":  layerGoogleTer,
             "Maps For Free Relief":layerMapsForFreeRelief,
+            // "AustriaMap (Bergfex)": layerBergfexAmapGrp,
+            //"TracetrackTopo":layerTracetrackTopo,
+            //"Mapbox Topo": layerMapBoxStreets,
             //"Open Tile Maps OSM Topo": layerOpenTileMapOsmTopo,
             // "Land Information New Zealand Topo":layerGrpLinzNz,
         }
@@ -574,17 +574,17 @@ baseMaps = [
     {groupName : "Transport, Outdoor & Diverse",
         expanded : false,
         layers    : {
+            "ÖPNV Verkehrskarte": layerÖPNV,
+            "CyclOSM":layerCyclOSM,
+            "Esri light gray": layerEsriGray,
+            //"OpenStreetMap Outdoors": layerOSMOutd,
+            //"OpenStreetMap Cycle": layerOSMCycle,
             //"Mapy.cz Wanderkarte": layerMapyczWandern,
             //"Mapy.cz Skikarte": layerMapyczWinter,
-            "ÖPNV Verkehrskarte": layerÖPNV,
             //"Thunderforest Transport":layerOSMTransp,
             //"Mapbox Outdoor": layerMapBoxOutdoor,
             //"Mapbox Run, Hike, Bike": layerMapBoxRunBikeHike,
-            "OpenStreetMap Outdoors": layerOSMOutd,
-            "CyclOSM":layerCyclOSM,
-            "OpenStreetMap Cycle": layerOSMCycle,
             //"OpenStreetMap Hike and Bike": layerHikeBike,
-            "Esri light gray": layerEsriGray,
         }
     },
     //{groupName : "Lustige und Diverse",
