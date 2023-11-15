@@ -225,6 +225,12 @@ var layerOpenTopo = new L.TileLayer(layerAdrTopo,{maxZoom: maxzoom_topo, maxNati
 //var layerOSMOvl = new L.TileLayer("http://otile{s}-s.mqcdn.com/tiles/1.0.0/hyb/{z}/{x}/{y}.png",
 //   {maxZoom: maxzoom_osm,detectRetina: true, subdomains: '1234',attribution: 'Kartendaten: Maps © <a href="http://mapquest.com/">Mapquest</a>, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 
+// from openstreetmap.org
+//CyclOSM     https://tile-b.openstreetmap.fr/hot/10/550/354.png
+var layerCyclOSM = new L.TileLayer(akt_protocol+'//tile-{s}.openstreetmap.fr/hot/{z}/{x}/{y}.png', {maxZoom: maxzoom_osm,detectRetina: true, subdomains: 'abcd', attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+
+//Tracetrack  Topo https://tile.tracestrack.com/topo__/12/2204/1421.png?key=383118983d4a867dd2d367451720d724
+var layerTracetrackTopo = new L.TileLayer(akt_protocol+'//tile.tracestrack.com/topo__/{z}/{x}/{y}.png?key=383118983d4a867dd2d367451720d724', {maxZoom: maxzoom_osm,detectRetina: true, subdomains: 'abcd', attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 
 // create open railway map layer
 var layerAdrWikiMedia=akt_protocol+"//maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
@@ -553,6 +559,7 @@ baseMaps = [
         layers    : {
             // "AustriaMap (Bergfex)": layerBergfexAmapGrp,
             "OpenTopoMap": layerOpenTopo,
+            "TracetrackTopo":layerTracetrackTopo,
             //"Mapbox Topo": layerMapBoxStreets,
             "Geofabrik Topo": layerGeofTopo,
             "OpenStreetMap Landscape": layerOSMLands,
@@ -574,6 +581,7 @@ baseMaps = [
             //"Mapbox Outdoor": layerMapBoxOutdoor,
             //"Mapbox Run, Hike, Bike": layerMapBoxRunBikeHike,
             "OpenStreetMap Outdoors": layerOSMOutd,
+            "CyclOSM":layerCyclOSM,
             "OpenStreetMap Cycle": layerOSMCycle,
             //"OpenStreetMap Hike and Bike": layerHikeBike,
             "Esri light gray": layerEsriGray,
