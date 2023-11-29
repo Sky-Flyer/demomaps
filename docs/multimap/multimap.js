@@ -10,8 +10,8 @@ var mCoordCtr = null; //utm coord control
 var w3wCtrl = null; //what-3-words control
 var akt_protocol= window.location.protocol=='file:'?'http:':window.location.protocol;
 
-var maxzoom_std=21;
-var maxzoom_osm=21;
+var maxzoom_std=20;
+var maxzoom_osm=20;
 var maxzoom_topo=16
 var maxzoom_g_sat=21;
 var maxzoom_esri_sat=19;
