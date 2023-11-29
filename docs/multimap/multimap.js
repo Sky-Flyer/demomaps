@@ -10,11 +10,11 @@ var mCoordCtr = null; //utm coord control
 var w3wCtrl = null; //what-3-words control
 var akt_protocol= window.location.protocol=='file:'?'http:':window.location.protocol;
 
-var maxzoom_std=20;
-var maxzoom_osm=19;
+var maxzoom_std=21;
+var maxzoom_osm=21;
 var maxzoom_topo=16
-var maxzoom_g_sat=20;
-var maxzoom_esri_sat=18;
+var maxzoom_g_sat=21;
+var maxzoom_esri_sat=19;
 var maxzoom_amap=13;
 var maxzoom_natgeo=12;
 var maxzoom_mapboxctry=7;
@@ -276,10 +276,10 @@ var layerWebAtlNo = new L.TileLayer(akt_protocol+"//www.webatlas.no/maptiles/til
 var layerAdrBasem=akt_protocol+"//maps{s}.wien.gv.at/basemap/bmaphidpi/normal/google3857/{z}/{y}/{x}.jpg"
 var layerBasem = new L.TileLayer(layerAdrBasem,{ maxZoom: maxzoom_osm, bounds: boundsAUT, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at<a/>'});
 var layerAdrBasemVerd=akt_protocol+"//maps{s}.wien.gv.at/wmts/bmapverdichtung/normal/google3857/{z}/{y}/{x}.png"
-var layerBasemVerd = new L.TileLayer(layerAdrBasemVerd,{ maxZoom: 20, minZoom: 18, bounds: boundsAUT, detectRetina: true, format: 'image/png', subdomains: '1234', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at<a/>'});
+//var layerBasemVerd = new L.TileLayer(layerAdrBasemVerd,{ maxZoom: 20, minZoom: 18, bounds: boundsAUT, detectRetina: true, format: 'image/png', subdomains: '1234', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at<a/>'});
 var layerAdrBasemOvl=akt_protocol+"//maps{s}.wien.gv.at/basemap/bmapoverlay/normal/google3857/{z}/{y}/{x}.png"
 var layerBasemOvl = new L.TileLayer(layerAdrBasemOvl,{ maxZoom: maxzoom_std, bounds: boundsAUT, detectRetina: true, transparent: true, format: 'image/png', subdomains: '1234', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at<a/>'});
-var layerGrpBasemVd = L.layerGroup().addLayer(layerBasem).addLayer(layerBasemVerd);
+//var layerGrpBasemVd = L.layerGroup().addLayer(layerBasem).addLayer(layerBasemVerd); //..der ist veraltet...
 
 var layerAdrBasemOrtho = akt_protocol+"//maps{s}.wien.gv.at/basemap/bmaporthofoto30cm/normal/google3857/{z}/{y}/{x}.jpeg";
 var layerBasemOrtho = new L.TileLayer(layerAdrBasemOrtho,{ maxZoom: maxzoom_osm, bounds: boundsAUT, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at<a/>'});
@@ -540,7 +540,7 @@ baseMaps = [
     {groupName : "Standard Karten",
         expanded : false,
         layers    : {
-            "Basemap.at Grundkarte": layerGrpBasemVd,
+            "Basemap.at Grundkarte": layerBasem,
             "Google Standard (alternativ)": layerGoogleStd,
             "Google Standard": g_roadmap,
             "Here-Maps Standard": layerNokiaRoad,
