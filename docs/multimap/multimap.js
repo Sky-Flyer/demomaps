@@ -32,7 +32,7 @@ var southWest = L.latLng(46.2520,8.7891),
     northEast = L.latLng(49.2714,17.6660),
     boundsAUT = L.latLngBounds(southWest, northEast);
 
-var multimapVersion = '2023-11-30-1510';
+var multimapVersion = '2023-11-30-1515';
 document.title = document.title + ' (' + multimapVersion + ')';
 
 // create osm standard layer
@@ -163,10 +163,10 @@ function setMarkerPopup(latLngPos){
     var digits=Math.ceil(2*Math.log(map.getZoom())-1);
     var content="<h3>Position:</h3>"
     content+="<table class='table table-condensed' style='font: 12px Calibri, Arial, Helvetica, sans-serif; width: 250px;'>"
-    content+="<tr> <td><b>Grad (Länge, Breite)</b></td> <td>"+latLngPos.lng.toFixed(digits)+"</td> <td>"+latLngPos.lat.toFixed(digits)+"</td> </tr>"
-    content+="<tr> <td>Open in </td> <td><a target='_blank' href='https://www.qwant.com/maps/place/latlon:"+latLngPos.lat.toFixed(digits)+":"+latLngPos.lng.toFixed(digits)+"'>Qwant Maps</a></td> </tr>"
+    content+="<tr> <td><b>Open in</b></td> <td><a target='_blank' href='https://www.qwant.com/maps/place/latlon:"+latLngPos.lat.toFixed(digits)+":"+latLngPos.lng.toFixed(digits)+"'>Qwant Maps</a></td> </tr>"
     content+="<tr> <td>&nbsp;</td> <td><a target='_blank' href='https://www.google.at/maps/@"+latLngPos.lat.toFixed(digits)+","+latLngPos.lng.toFixed(digits)+"'>Google Maps</a></td> </tr>";
     content+="<tr> <td>&nbsp;</td> <td><a target='_blank' href='https://wego.here.com/?map="+latLngPos.lat.toFixed(digits)+","+latLngPos.lng.toFixed(digits)+"'>Here Maps</a></td> </tr>";
+    content+="<tr> <td><b>Grad (Länge, Breite)</b></td> <td>"+latLngPos.lng.toFixed(digits)+"</td> <td>"+latLngPos.lat.toFixed(digits)+"</td> </tr>"
     if (mCoordCtr){
         var utm = mCoordCtr._geo2utm(latLngPos);
         content += "<tr> <td><b>UTM east/north</b> </td> <td colspan='2'>"+utm.zone+"&nbsp;" +utm.x+"&nbsp;" +utm.y+"</td> </tr>"; 
