@@ -14,6 +14,7 @@ var maxzoom_erw=22;
 var maxzoom_std=19;
 var maxzoom_osm=19;
 var maxzoom_topo=16
+var maxzoom_oek=14;
 var maxzoom_g_sat=21;
 var maxzoom_esri_sat=19;
 var maxzoom_amap=13;
@@ -31,7 +32,7 @@ var southWest = L.latLng(46.2520,8.7891),
     northEast = L.latLng(49.2714,17.6660),
     boundsAUT = L.latLngBounds(southWest, northEast);
 
-var multimapVersion = '2023-11-15_1400';
+var multimapVersion = '2023-11-30-1025';
 document.title = document.title + ' (' + multimapVersion + ')';
 
 // create osm standard layer
@@ -399,7 +400,7 @@ layerStamenWaterc = new L.TileLayer(akt_protocol+"//tiles.stadiamaps.com/tiles/s
 
 //Bergfex ÖK Karte
 var layerBergfexOek = new L.TileLayer(akt_protocol+"//tiles.bergfex.at/data/oek50-512/{z}/{x}/{y}.jpg70",
-{maxZoom: maxzoom_topo+2, maxNativeZoom: maxzoom_topo, bounds: boundsAUT, detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Map Data 2008, 2013 BEV, bergfex GmbH'});
+{maxZoom: maxzoom_oek+3, maxNativeZoom: maxzoom_oek, bounds: boundsAUT, detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Map Data 2008, 2013 BEV, bergfex GmbH'});
 var layerBergfexOsm = new L.TileLayer(akt_protocol+"//tiles.bergfex.at/styles/bergfex-osm/{z}/{x}/{y}@2x.jpg",
 {maxZoom: maxzoom_osm, maxNativeZoom: maxzoom_topo, detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Map Data <a href="openstreetmap.org">Openstreemap</a>, bergfex GmbH'}); //bounds: boundsAUT, 
 
@@ -752,27 +753,12 @@ map.on('baselayerchange', function(e) {
     if((e.name=="National Geographic Countries") && (map.getZoom()>maxzoom_natgeo)){
         map.setZoom(maxzoom_natgeo);
     }
-    // else if((e.name=="Mapbox Political") && (map.getZoom()>maxzoom_mapboxctry)){
-    //     map.setZoom(maxzoom_mapboxctry);
-    // }
-    // else if((e.name=="Mapbox Pirate Map") && (map.getZoom()>maxzoom_6)){
-    //     map.setZoom(maxzoom_6);
-    // }
-    // else if((e.name=="Mapbox Bluemarbel 8 bit") && (map.getZoom()>maxzoom_5)){
-    //     map.setZoom(maxzoom_5);
-    // }
-    // else if((e.name=="Mapbox Populationfire") && (map.getZoom()>maxzoom_6)){
-    //     map.setZoom(maxzoom_6);
-    // }
     else if(((e.name=="OpenTopoMap")||(e.name=="Google Terrain"))&&(map.getZoom()>maxzoom_topo)) {
         map.setZoom(maxzoom_topo);
     }
-    else if(e.name=="AustriaMap (Bergfex)"){
-        if (map.getZoom()>maxzoom_amap+1) {
+    else if(e.name=="ÖK (ÖsterrreichKarte - Bergfex)"){
+        if (map.getZoom()>maxzoom_oek+1) {
             map.setZoom(maxzoom_amap);
-        }
-        else if(map.getZoom()<minzoom_amap) {
-            map.setZoom(minzoom_amap);
         }
     }
     else if(!((e.name=="Google Satellit")||(e.name=="Google Hybrid")||(e.name=="Google Hybrid (alternativ)")||(e.name=="Google Satellit (alternativ)"))&&(map.getZoom()>maxzoom_std)){
