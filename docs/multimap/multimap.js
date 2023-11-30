@@ -10,8 +10,9 @@ var mCoordCtr = null; //utm coord control
 var w3wCtrl = null; //what-3-words control
 var akt_protocol= window.location.protocol=='file:'?'http:':window.location.protocol;
 
-var maxzoom_std=20;
-var maxzoom_osm=20;
+var maxzoom_erw=22;
+var maxzoom_std=19;
+var maxzoom_osm=19;
 var maxzoom_topo=16
 var maxzoom_g_sat=21;
 var maxzoom_esri_sat=19;
@@ -35,7 +36,7 @@ document.title = document.title + ' (' + multimapVersion + ')';
 
 // create osm standard layer
 var layerAdrOSMStd = akt_protocol+'//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-var layerOSMStd = new L.TileLayer(layerAdrOSMStd,{maxZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+var layerOSMStd = new L.TileLayer(layerAdrOSMStd,{maxZoom: maxzoom_erw, maxNativeZoom: maxzoom_osm,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 var stdLayer = layerOSMStd;
 var stdLayerName = "OpenStreetMap Standard";
 
@@ -398,7 +399,7 @@ layerStamenWaterc = new L.TileLayer(akt_protocol+"//tiles.stadiamaps.com/tiles/s
 
 //Bergfex ÖK Karte
 var layerBergfexOek = new L.TileLayer(akt_protocol+"//tiles.bergfex.at/data/oek50-512/{z}/{x}/{y}.jpg70",
-{maxZoom: maxzoom_topo, maxNativeZoom: maxzoom_topo, bounds: boundsAUT, detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Map Data 2008, 2013 BEV, bergfex GmbH'});
+{maxZoom: maxzoom_topo+2, maxNativeZoom: maxzoom_topo, bounds: boundsAUT, detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Map Data 2008, 2013 BEV, bergfex GmbH'});
 var layerBergfexOsm = new L.TileLayer(akt_protocol+"//tiles.bergfex.at/styles/bergfex-osm/{z}/{x}/{y}@2x.jpg",
 {maxZoom: maxzoom_osm, maxNativeZoom: maxzoom_topo, detectRetina: true, format: 'image/jpg', attribution: 'Kartendaten: © Map Data <a href="openstreetmap.org">Openstreemap</a>, bergfex GmbH'}); //bounds: boundsAUT, 
 
@@ -447,7 +448,7 @@ var layerMapBoxSat = new L.TileLayer(layerAdrMapboxSat,{maxZoom: maxzoom_g_sat,d
 // var layerMapBoxOutdoor = new L.TileLayer(akt_protocol+"//{s}.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaW9nNWdjb3QwMWZ3dGJrbXkxZXJxMWl2In0.3zTvo9rLv02xq-a15-odxg",{maxZoom: maxzoom_19,detectRetina: true, attribution: 'Kartendaten: © <a href="http://mapbox.com/">Mapbox</a>'});
 //National Geographic World Map
 var layerAdrNatGeoWorld = akt_protocol+"//services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}/";
-var layerNatGeoWorld = new L.TileLayer(layerAdrNatGeoWorld,{maxZoom: maxzoom_natgeo+1, maxNativeZoom: maxzoom_natgeo,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.nationalgeographic.com">Nationalgeographic</a>'});
+var layerNatGeoWorld = new L.TileLayer(layerAdrNatGeoWorld,{maxZoom: maxzoom_natgeo+3, maxNativeZoom: maxzoom_natgeo,detectRetina: true, attribution: 'Kartendaten: © <a href="http://www.nationalgeographic.com">Nationalgeographic</a>'});
 
 //Harvard World Country Borders
 var layerHarvWld = new L.TileLayer.WMS(akt_protocol+"//worldmap.harvard.edu/geoserver/wms",
@@ -676,11 +677,11 @@ var options = {
         //container_width 	: "220px",
         group_maxHeight     : "400px",
         container_maxHeight : "650px", 
-        exclusive       	: true
+        exclusive       	: false
 };
 
 //Map with controls
-map = new L.Map('map',{minZoom: 1, wheelPxPerZoomLevel: 120});
+map = new L.Map('map',{minZoom: 1, wheelPxPerZoomLevel: 50, zoomSnap: 0.5});
 map.attributionControl.setPrefix(false);
 map.dragging.enable();
 map.touchZoom.enable();
