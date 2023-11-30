@@ -32,7 +32,7 @@ var southWest = L.latLng(46.2520,8.7891),
     northEast = L.latLng(49.2714,17.6660),
     boundsAUT = L.latLngBounds(southWest, northEast);
 
-var multimapVersion = '2023-11-30-1035';
+var multimapVersion = '2023-11-30-1045';
 document.title = document.title + ' (' + multimapVersion + ')';
 
 // create osm standard layer
@@ -682,7 +682,7 @@ var options = {
 };
 
 //Map with controls
-map = new L.Map('map',{minZoom: 1, wheelPxPerZoomLevel: 600, zoomSnap: 0.5, zoomDelta: 1});
+map = new L.Map('map',{minZoom: 1, wheelPxPerZoomLevel: 60, zoomSnap: 0.5, zoomDelta: 1});
 map.attributionControl.setPrefix(false);
 map.dragging.enable();
 map.touchZoom.enable();
