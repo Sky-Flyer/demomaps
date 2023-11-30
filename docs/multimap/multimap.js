@@ -681,7 +681,7 @@ var options = {
 };
 
 //Map with controls
-map = new L.Map('map',{minZoom: 1, wheelPxPerZoomLevel: 50, zoomSnap: 0.5});
+map = new L.Map('map',{minZoom: 1, wheelPxPerZoomLevel: 300, zoomSnap: 0.5});
 map.attributionControl.setPrefix(false);
 map.dragging.enable();
 map.touchZoom.enable();
