@@ -164,7 +164,7 @@ function setMarkerPopup(latLngPos){
     var content="<h3>Position:</h3>"
     content+="<table class='table table-condensed' style='font: 12px Calibri, Arial, Helvetica, sans-serif; width: 250px;'>"
     content+="<tr> <td><b>Grad (Länge, Breite)</b></td> <td>"+latLngPos.lng.toFixed(digits)+"</td> <td>"+latLngPos.lat.toFixed(digits)+"</td> </tr>"
-    content+="<tr> <td>Open in <a target='_blank' href='https://www.qwant.com/maps/place/latlon:"+latLngPos.lat.toFixed(digits)+":"+latLngPos.lng.toFixed(digits)+"'>Qwant Maps</a></td> </tr>"
+    content+="<tr> <td>Open in </td> <td><a target='_blank' href='https://www.qwant.com/maps/place/latlon:"+latLngPos.lat.toFixed(digits)+":"+latLngPos.lng.toFixed(digits)+"'>Qwant Maps</a></td> </tr>"
     if (mCoordCtr){
         var utm = mCoordCtr._geo2utm(latLngPos);
         content += "<tr> <td><b>UTM easting/northing</b> </td> <td colspan='2'>"+utm.zone+"&nbsp;" +utm.x+"&nbsp;" +utm.y+"</td> </tr>"; 
