@@ -166,7 +166,9 @@ function setMarkerPopup(latLngPos){
     content+="<tr> <td><b>Open in</b></td> <td><a target='_blank' href='https://www.qwant.com/maps/place/latlon:"+latLngPos.lat.toFixed(digits)+":"+latLngPos.lng.toFixed(digits)+"'>Qwant Maps</a></td> </tr>"
     content+="<tr> <td>&nbsp;</td> <td><a target='_blank' href='https://www.google.com/maps/search/?api=1&query="+latLngPos.lat.toFixed(digits)+","+latLngPos.lng.toFixed(digits)+"'>Google Maps</a></td> </tr>";
     content+="<tr> <td>&nbsp;</td> <td><a target='_blank' href='https://wego.here.com/?map="+latLngPos.lat.toFixed(digits)+","+latLngPos.lng.toFixed(digits)+",14.36'>Here Maps</a></td> </tr>";
+    content+="<tr> <td>&nbsp;</td> <td><a target='_blank' href='https://ul.waze.com/ul?ll="+latLngPos.lat.toFixed(digits)+"%2C"+latLngPos.lng.toFixed(digits)+"'>Waze Maps</a></td> </tr>";
     content+="<tr> <td><b>Grad (Länge, Breite)</b></td> <td>"+latLngPos.lng.toFixed(digits)+"</td> <td>"+latLngPos.lat.toFixed(digits)+"</td> </tr>"
+    content+="<tr> <td><b>Grad (Breite, Länge)</b></td> <td>"+latLngPos.lat.toFixed(digits)+"</td> <td>"+latLngPos.lng.toFixed(digits)+"</td> </tr>"
     if (mCoordCtr){
         var utm = mCoordCtr._geo2utm(latLngPos);
         content += "<tr> <td><b>UTM east/north</b> </td> <td colspan='2'>"+utm.zone+"&nbsp;" +utm.x+"&nbsp;" +utm.y+"</td> </tr>"; 
