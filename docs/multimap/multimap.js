@@ -32,7 +32,7 @@ var southWest = L.latLng(46.2520,8.7891),
     northEast = L.latLng(49.2714,17.6660),
     boundsAUT = L.latLngBounds(southWest, northEast);
 
-var multimapVersion = '2023-11-30-1530';
+var multimapVersion = '2023-12-03-2000';
 document.title = document.title + ' (' + multimapVersion + ')';
 
 // create osm standard layer
@@ -164,7 +164,7 @@ function setMarkerPopup(latLngPos){
     var content="<h3>Position:</h3>"
     content+="<table class='table table-condensed' style='font: 12px Calibri, Arial, Helvetica, sans-serif; width: 250px;'>"
     content+="<tr> <td><b>Open in</b></td> <td><a target='_blank' href='https://www.qwant.com/maps/place/latlon:"+latLngPos.lat.toFixed(digits)+":"+latLngPos.lng.toFixed(digits)+"'>Qwant Maps</a></td> </tr>"
-    content+="<tr> <td>&nbsp;</td> <td><a target='_blank' href='https://www.google.at/maps/@"+latLngPos.lat.toFixed(digits)+","+latLngPos.lng.toFixed(digits)+",14z?entry=ttu'>Google Maps</a></td> </tr>";
+    content+="<tr> <td>&nbsp;</td> <td><a target='_blank' href='https://www.google.com/maps/search/?api=1&query="+latLngPos.lat.toFixed(digits)+","+latLngPos.lng.toFixed(digits)+"'>Google Maps</a></td> </tr>";
     content+="<tr> <td>&nbsp;</td> <td><a target='_blank' href='https://wego.here.com/?map="+latLngPos.lat.toFixed(digits)+","+latLngPos.lng.toFixed(digits)+",14.36'>Here Maps</a></td> </tr>";
     content+="<tr> <td><b>Grad (Länge, Breite)</b></td> <td>"+latLngPos.lng.toFixed(digits)+"</td> <td>"+latLngPos.lat.toFixed(digits)+"</td> </tr>"
     if (mCoordCtr){
@@ -229,6 +229,10 @@ var layerOpenTopo = new L.TileLayer(layerAdrTopo,{maxZoom: maxzoom_topo, maxNati
 //	maxZoom: maxzoom_osm,detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: Maps © <a href="http://mapquest.com/">Mapquest</a>, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
 //var layerOSMOvl = new L.TileLayer("http://otile{s}-s.mqcdn.com/tiles/1.0.0/hyb/{z}/{x}/{y}.png",
 //   {maxZoom: maxzoom_osm,detectRetina: true, subdomains: '1234',attribution: 'Kartendaten: Maps © <a href="http://mapquest.com/">Mapquest</a>, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+
+// Waze Map (https://worldtiles1.waze.com/tiles/12/2228/1420.png?highres=true)
+// https://ul.waze.com/ul?ll=47.92851200%2C16.83621200
+var layerWaze = new L.TileLayer(akt_protocol+'//worldtiles{s}.waze.com/tiles/{z}/{x}/{y}.png?highres=true', {maxZoom: maxzoom_std,detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © <a href="https://www.waze.com/de/company">Waze.com</a>'});
 
 // from openstreetmap.org
 //CyclOSM     https://tile-b.openstreetmap.fr/hot/10/550/354.png
@@ -546,6 +550,7 @@ baseMaps = [
         expanded : false,
         layers    : {
             "Basemap.at Grundkarte": layerBasem,
+            "Waze":layerWaze,
             "Google Standard (alternativ)": layerGoogleStd,
             "Google Standard": g_roadmap,
             "Here-Maps Standard": layerNokiaRoad,
