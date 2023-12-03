@@ -163,11 +163,13 @@ function setMarkerPopup(latLngPos){
     var digits=Math.ceil(2*Math.log(map.getZoom())-1);
     var content="<h3>Position:</h3>"
     content+="<table class='table table-condensed' style='font: 12px Calibri, Arial, Helvetica, sans-serif; width: 250px;'>"
-    content+="<tr> <td><b>Open in</b></td> <td><a target='_blank' href='https://www.qwant.com/maps/place/latlon:"+latLngPos.lat.toFixed(digits)+":"+latLngPos.lng.toFixed(digits)+"'>Qwant Maps</a></td> </tr>"
+    //https://de.mapy.cz/zakladni?x=15.9762329&y=48.2247772&z=11
+    content+="<tr> <td>&nbsp;<b>Open in</b></td> <td><a target='_blank' href='https://de.mapy.cz/zakladni?x="+latLngPos.lng.toFixed(digits)+"&y="+latLngPos.lat.toFixed(digits)+"&z=13'>Mapy.cz</a></td> </tr>"
+    content+="<tr> <td><b></b></td> <td><a target='_blank' href='https://www.qwant.com/maps/place/latlon:"+latLngPos.lat.toFixed(digits)+":"+latLngPos.lng.toFixed(digits)+"'>Qwant Maps</a></td> </tr>"
     content+="<tr> <td>&nbsp;</td> <td><a target='_blank' href='https://www.google.com/maps/search/?api=1&query="+latLngPos.lat.toFixed(digits)+","+latLngPos.lng.toFixed(digits)+"'>Google Maps</a></td> </tr>";
     content+="<tr> <td>&nbsp;</td> <td><a target='_blank' href='https://wego.here.com/?map="+latLngPos.lat.toFixed(digits)+","+latLngPos.lng.toFixed(digits)+",14.36'>Here Maps</a></td> </tr>";
     content+="<tr> <td>&nbsp;</td> <td><a target='_blank' href='https://ul.waze.com/ul?ll="+latLngPos.lat.toFixed(digits)+"%2C"+latLngPos.lng.toFixed(digits)+"'>Waze Maps</a></td> </tr>";
-    content+="<tr> <td><b>Grad (Länge, Breite)</b></td> <td>"+latLngPos.lng.toFixed(digits)+"</td> <td>"+latLngPos.lat.toFixed(digits)+"</td> </tr>"
+    //content+="<tr> <td><b>Grad (Länge, Breite)</b></td> <td>"+latLngPos.lng.toFixed(digits)+"</td> <td>"+latLngPos.lat.toFixed(digits)+"</td> </tr>"
     content+="<tr> <td><b>Grad (Breite, Länge)</b></td> <td>"+latLngPos.lat.toFixed(digits)+"</td> <td>"+latLngPos.lng.toFixed(digits)+"</td> </tr>"
     if (mCoordCtr){
         var utm = mCoordCtr._geo2utm(latLngPos);
