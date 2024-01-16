@@ -32,7 +32,7 @@ var southWest = L.latLng(46.2520,8.7891),
     northEast = L.latLng(49.2714,17.6660),
     boundsAUT = L.latLngBounds(southWest, northEast);
 
-var multimapVersion = '2024-01-16-1114';
+var multimapVersion = '2024-01-16-1327';
 document.title = document.title + ' (' + multimapVersion + ')';
 
 // create osm standard layer
@@ -325,11 +325,11 @@ var g_roadmap   = new L.Google('ROADMAP',{maxZoom: maxzoom_std,attribution: 'Kar
 var g_satellite = new L.Google('SATELLITE', {maxZoom: maxzoom_g_sat,attribution: 'Kartendaten: © Google'});
 var g_hybrid   = new L.Google('HYBRID', {maxZoom: maxzoom_g_sat,attribution: 'Kartendaten: © Google'});
 var g_terrain   = new L.Google('TERRAIN',{maxZoom: maxzoom_topo,attribution: 'Kartendaten: © Google'});
-var layerGoogleStd = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
-var layerGoogleTer = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=p&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
-var layerGoogleHyb = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=y&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
-var layerGoogleSat = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=s&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
-var layerGoogleLbl = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=h&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
+var layerGoogleStd = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_std, detectRetina: true, subdomains: ['mt0','mt1','mt2','mt3'], attribution: 'Kartendaten: © Google'});
+var layerGoogleTer = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=p&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_std, detectRetina: true, subdomains: ['mt0','mt1','mt2','mt3'], attribution: 'Kartendaten: © Google'});
+var layerGoogleHyb = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=y&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: ['mt0','mt1','mt2','mt3'], attribution: 'Kartendaten: © Google'});
+var layerGoogleSat = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=s&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: ['mt0','mt1','mt2','mt3'], attribution: 'Kartendaten: © Google'});
+var layerGoogleLbl = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=h&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: ['mt0','mt1','mt2','mt3'], attribution: 'Kartendaten: © Google'});
 
 //apple layers
 // layerAdrAppleStd=akt_protocol+"//cdn{s}.apple-mapkit.com/ti/tile?style=0&size=1&z={z}&x={x}&y={y}&scale=1&lang=de&v=2206254&poi=1&accessKey=1699620673_5380359974440465213_%2F_B3DNSmul7TeUEzPcE7mNPutlcEWD5I35ek6npPQG%2BwY%3D&labels=0&tint=light&emphasis=standard"
