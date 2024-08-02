@@ -32,7 +32,7 @@ var southWest = L.latLng(46.2520,8.7891),
     northEast = L.latLng(49.2714,17.6660),
     boundsAUT = L.latLngBounds(southWest, northEast);
 
-var multimapVersion = '2024-01-19-1047';
+var multimapVersion = '2024-08-02-2027';
 document.title = document.title + ' (' + multimapVersion + ')';
 
 // create osm standard layer
@@ -163,9 +163,9 @@ function setMarkerPopup(latLngPos){
     var digits=Math.ceil(2*Math.log(map.getZoom())-1);
     var content="<h3>Position:</h3>"
     content+="<table class='table table-condensed' style='font: 12px Calibri, Arial, Helvetica, sans-serif; width: 250px;'>"
-    //https://de.mapy.cz/zakladni?x=15.9762329&y=48.2247772&z=11
-    content+="<tr> <td>&nbsp;<b>Open in</b></td> <td><a target='_blank' href='https://de.mapy.cz/zakladni?x="+latLngPos.lng.toFixed(digits)+"&y="+latLngPos.lat.toFixed(digits)+"&z=13'>Mapy.cz</a></td> </tr>"
-    content+="<tr> <td><b></b></td> <td><a target='_blank' href='https://www.qwant.com/maps/place/latlon:"+latLngPos.lat.toFixed(digits)+":"+latLngPos.lng.toFixed(digits)+"'>Qwant Maps</a></td> </tr>"
+    //https://www.openstreetmap.org/query?mlat=48.17506&mlon=16.40195#map=15/48.17506/16.40195
+    content+="<tr> <td><b>Open in</b></td> <td><a target='_blank' href='https://www.openstreetmap.org/query?mlat="+latLngPos.lat.toFixed(digits)+"&mlon="+latLngPos.lng.toFixed(digits)+"#map=16/"+latLngPos.lat.toFixed(digits)+"/"+latLngPos.lng.toFixed(digits)+"'>OpenStreetMap</a></td> </tr>"
+    content+="<tr> <td>&nbsp;</td> <td><a target='_blank' href='https://de.mapy.cz/zakladni?x="+latLngPos.lng.toFixed(digits)+"&y="+latLngPos.lat.toFixed(digits)+"&z=16'>Mapy.cz</a></td> </tr>"
     content+="<tr> <td>&nbsp;</td> <td><a target='_blank' href='https://www.google.com/maps/search/?api=1&query="+latLngPos.lat.toFixed(digits)+","+latLngPos.lng.toFixed(digits)+"'>Google Maps</a></td> </tr>";
     content+="<tr> <td>&nbsp;</td> <td><a target='_blank' href='https://wego.here.com/?map="+latLngPos.lat.toFixed(digits)+","+latLngPos.lng.toFixed(digits)+",14.36'>Here Maps</a></td> </tr>";
     content+="<tr> <td>&nbsp;</td> <td><a target='_blank' href='https://ul.waze.com/ul?ll="+latLngPos.lat.toFixed(digits)+"%2C"+latLngPos.lng.toFixed(digits)+"'>Waze Maps</a></td> </tr>";
@@ -325,11 +325,11 @@ var g_roadmap   = new L.Google('ROADMAP',{maxZoom: maxzoom_std,attribution: 'Kar
 var g_satellite = new L.Google('SATELLITE', {maxZoom: maxzoom_g_sat,attribution: 'Kartendaten: © Google'});
 var g_hybrid   = new L.Google('HYBRID', {maxZoom: maxzoom_g_sat,attribution: 'Kartendaten: © Google'});
 var g_terrain   = new L.Google('TERRAIN',{maxZoom: maxzoom_topo,attribution: 'Kartendaten: © Google'});
-var layerGoogleStd = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '0123', attribution: 'Kartendaten: © Google'});
-var layerGoogleTer = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=p&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '0123', attribution: 'Kartendaten: © Google'});
-var layerGoogleHyb = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=y&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '0123', attribution: 'Kartendaten: © Google'});
-var layerGoogleSat = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=s&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '0123', attribution: 'Kartendaten: © Google'});
-var layerGoogleLbl = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=h&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '0123', attribution: 'Kartendaten: © Google'});
+var layerGoogleStd = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
+var layerGoogleTer = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=p&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_std, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
+var layerGoogleHyb = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=y&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
+var layerGoogleSat = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=s&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
+var layerGoogleLbl = new L.TileLayer(akt_protocol+"//mt{s}.google.com/vt/hl=de&lyrs=h&x={x}&y={y}&z={z}",{ maxZoom: maxzoom_g_sat, detectRetina: true, subdomains: '01', attribution: 'Kartendaten: © Google'});
 
 //apple layers
 // layerAdrAppleStd=akt_protocol+"//cdn{s}.apple-mapkit.com/ti/tile?style=0&size=1&z={z}&x={x}&y={y}&scale=1&lang=de&v=2206254&poi=1&accessKey=1699620673_5380359974440465213_%2F_B3DNSmul7TeUEzPcE7mNPutlcEWD5I35ek6npPQG%2BwY%3D&labels=0&tint=light&emphasis=standard"
