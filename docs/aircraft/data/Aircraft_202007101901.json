@@ -1,0 +1,1263 @@
+{
+"Artikel": [
+	{
+		"artikel_id" : 1,
+		"artikel_name" : "Concorde",
+		"artikel_hersteller" : "Aérospatiale\/BAe",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 1
+	},
+	{
+		"artikel_id" : 2,
+		"artikel_name" : "B-2 Stealth",
+		"artikel_hersteller" : "Northrop Boeing",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 1
+	},
+	{
+		"artikel_id" : 3,
+		"artikel_name" : "Eagle im Golfkrieg",
+		"artikel_hersteller" : "McDonnell Douglas",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 1
+	},
+	{
+		"artikel_id" : 4,
+		"artikel_name" : "Lufthansa Teil 1",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 2
+	},
+	{
+		"artikel_id" : 5,
+		"artikel_name" : "Tornado IDS",
+		"artikel_hersteller" : "Panavia",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 2
+	},
+	{
+		"artikel_id" : 6,
+		"artikel_name" : "Me 262",
+		"artikel_hersteller" : "Messerschmitt",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 2
+	},
+	{
+		"artikel_id" : 7,
+		"artikel_name" : "Lufthansa Teil 2",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 3
+	},
+	{
+		"artikel_id" : 8,
+		"artikel_name" : "F-14 Tomcat",
+		"artikel_hersteller" : "Grumman",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 3
+	},
+	{
+		"artikel_id" : 9,
+		"artikel_name" : "B-17 Flying Fortress",
+		"artikel_hersteller" : "Boeing",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 3
+	},
+	{
+		"artikel_id" : 10,
+		"artikel_name" : "Lufthansa Teil 3",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 4
+	},
+	{
+		"artikel_id" : 11,
+		"artikel_name" : "P-51 Mustang",
+		"artikel_hersteller" : "North American",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 4
+	},
+	{
+		"artikel_id" : 12,
+		"artikel_name" : "Kriegstaufe der Tornado",
+		"artikel_hersteller" : "Panavia",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 4
+	},
+	{
+		"artikel_id" : 13,
+		"artikel_name" : "Constellation",
+		"artikel_hersteller" : "Lockheed",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 5
+	},
+	{
+		"artikel_id" : 14,
+		"artikel_name" : "Blackbird",
+		"artikel_hersteller" : "Lockheed",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 5
+	},
+	{
+		"artikel_id" : 15,
+		"artikel_name" : "Nachtjäger d. Luftwaffe",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 5
+	},
+	{
+		"artikel_id" : 16,
+		"artikel_name" : "Northwest Airlines",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 6
+	},
+	{
+		"artikel_id" : 17,
+		"artikel_name" : "F-117 Stealth",
+		"artikel_hersteller" : "Lockheed",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 6
+	},
+	{
+		"artikel_id" : 18,
+		"artikel_name" : "Gunships in Vietnam T.1",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 6
+	},
+	{
+		"artikel_id" : 19,
+		"artikel_name" : "A320",
+		"artikel_hersteller" : "Airbus",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 7
+	},
+	{
+		"artikel_id" : 20,
+		"artikel_name" : "Fw190 Würger",
+		"artikel_hersteller" : "Focke-Wulf",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 7
+	},
+	{
+		"artikel_id" : 21,
+		"artikel_name" : "Gunships in Vietnam T.2",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 7
+	},
+	{
+		"artikel_id" : 22,
+		"artikel_name" : "Swissair",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 8
+	},
+	{
+		"artikel_id" : 23,
+		"artikel_name" : "747",
+		"artikel_hersteller" : "Boeing",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 8
+	},
+	{
+		"artikel_id" : 24,
+		"artikel_name" : "Luftkrieg am Golf T.1",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 8
+	},
+	{
+		"artikel_id" : 25,
+		"artikel_name" : "Viscount",
+		"artikel_hersteller" : "Vickers",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 9
+	},
+	{
+		"artikel_id" : 26,
+		"artikel_name" : "F-15 Eagle",
+		"artikel_hersteller" : "McDonnel Dougles",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 9
+	},
+	{
+		"artikel_id" : 27,
+		"artikel_name" : "Luftkrieg am Golf T.2",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 9
+	},
+	{
+		"artikel_id" : 28,
+		"artikel_name" : "British Airways",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 10
+	},
+	{
+		"artikel_id" : 29,
+		"artikel_name" : "F-84 Thunderstreak",
+		"artikel_hersteller" : "Republic",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 10
+	},
+	{
+		"artikel_id" : 30,
+		"artikel_name" : "Luftkrieg am Golf T.3",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 10
+	},
+	{
+		"artikel_id" : 31,
+		"artikel_name" : "DC-10",
+		"artikel_hersteller" : "McDonnell Douglas",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 11
+	},
+	{
+		"artikel_id" : 32,
+		"artikel_name" : "MiG-23 Flogger",
+		"artikel_hersteller" : "Mikojan",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 11
+	},
+	{
+		"artikel_id" : 33,
+		"artikel_name" : "Luftkrieg am Golf T.4",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 11
+	},
+	{
+		"artikel_id" : 34,
+		"artikel_name" : "Alitalia",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 12
+	},
+	{
+		"artikel_id" : 35,
+		"artikel_name" : "AH-64 Apache",
+		"artikel_hersteller" : "McDonnell Douglas",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 12
+	},
+	{
+		"artikel_id" : 36,
+		"artikel_name" : "Luftkrieg am Golf T.5",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 12
+	},
+	{
+		"artikel_id" : 37,
+		"artikel_name" : "Cathay Pacific",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 13
+	},
+	{
+		"artikel_id" : 38,
+		"artikel_name" : "707",
+		"artikel_hersteller" : "Boeing",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 13
+	},
+	{
+		"artikel_id" : 39,
+		"artikel_name" : "BV 141",
+		"artikel_hersteller" : "Blohm und Voss",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 13
+	},
+	{
+		"artikel_id" : 40,
+		"artikel_name" : "DC-9 und MD-80",
+		"artikel_hersteller" : "McDonnell Douglas",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 14
+	},
+	{
+		"artikel_id" : 41,
+		"artikel_name" : "MiG-25 Foxbat",
+		"artikel_hersteller" : "Mikojan",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 14
+	},
+	{
+		"artikel_id" : 42,
+		"artikel_name" : "Fliegerleittr.i.Vietnam",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 14
+	},
+	{
+		"artikel_id" : 43,
+		"artikel_name" : "Singapore Airlin.",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 15
+	},
+	{
+		"artikel_id" : 44,
+		"artikel_name" : "Ju 52",
+		"artikel_hersteller" : "Junkers",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 15
+	},
+	{
+		"artikel_id" : 45,
+		"artikel_name" : "Eagle Claw",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 15
+	},
+	{
+		"artikel_id" : 46,
+		"artikel_name" : "Dash-7",
+		"artikel_hersteller" : "de Havilland Can.",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 16
+	},
+	{
+		"artikel_id" : 47,
+		"artikel_name" : "F-16 Fighting Falcon",
+		"artikel_hersteller" : "General Dynamics",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 16
+	},
+	{
+		"artikel_id" : 48,
+		"artikel_name" : "TSR.2",
+		"artikel_hersteller" : "BAC",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 16
+	},
+	{
+		"artikel_id" : 49,
+		"artikel_name" : "Japan Airlines",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 17
+	},
+	{
+		"artikel_id" : 50,
+		"artikel_name" : "CH-47 Chinook",
+		"artikel_hersteller" : "Boeing Vertol",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 17
+	},
+	{
+		"artikel_id" : 51,
+		"artikel_name" : "F\/A-18 Hornet",
+		"artikel_hersteller" : "McDonnell Douglas",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 17
+	},
+	{
+		"artikel_id" : 52,
+		"artikel_name" : "An-24-Familie",
+		"artikel_hersteller" : "Antonow",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 18
+	},
+	{
+		"artikel_id" : 53,
+		"artikel_name" : "Beaufighter",
+		"artikel_hersteller" : "Bristol",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 18
+	},
+	{
+		"artikel_id" : 54,
+		"artikel_name" : "Super Etendard\/Exocet",
+		"artikel_hersteller" : "Dassault-Breguet",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 18
+	},
+	{
+		"artikel_id" : 55,
+		"artikel_name" : "QUANTAS",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 19
+	},
+	{
+		"artikel_id" : 56,
+		"artikel_name" : "DC-8",
+		"artikel_hersteller" : "Douglas",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 19
+	},
+	{
+		"artikel_id" : 57,
+		"artikel_name" : "Me 410",
+		"artikel_hersteller" : "Messerschmitt",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 19
+	},
+	{
+		"artikel_id" : 58,
+		"artikel_name" : "737",
+		"artikel_hersteller" : "Boeing",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 20
+	},
+	{
+		"artikel_id" : 59,
+		"artikel_name" : "Mi-24 Hind",
+		"artikel_hersteller" : "Mil",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 20
+	},
+	{
+		"artikel_id" : 60,
+		"artikel_name" : "NATO Tornado",
+		"artikel_hersteller" : "Panavia",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 20
+	},
+	{
+		"artikel_id" : 61,
+		"artikel_name" : "Delta Airlines",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 21
+	},
+	{
+		"artikel_id" : 62,
+		"artikel_name" : "BAe 146",
+		"artikel_hersteller" : "British Aerospace",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 21
+	},
+	{
+		"artikel_id" : 63,
+		"artikel_name" : "Wyvern",
+		"artikel_hersteller" : "Westland",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 21
+	},
+	{
+		"artikel_id" : 64,
+		"artikel_name" : "Caravelle",
+		"artikel_hersteller" : "Aérospatiale",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 22
+	},
+	{
+		"artikel_id" : 65,
+		"artikel_name" : "A6M Zero",
+		"artikel_hersteller" : "Mitsubishi",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 22
+	},
+	{
+		"artikel_id" : 66,
+		"artikel_name" : "A-10 Thunderbolt II",
+		"artikel_hersteller" : "Fairchild",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 22
+	},
+	{
+		"artikel_id" : 67,
+		"artikel_name" : "United Airlines",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 23
+	},
+	{
+		"artikel_id" : 68,
+		"artikel_name" : "Harrier",
+		"artikel_hersteller" : "British Aerospace",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 23
+	},
+	{
+		"artikel_id" : 69,
+		"artikel_name" : "Harrier Einsatzprofil",
+		"artikel_hersteller" : "British Aerospace",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 23
+	},
+	{
+		"artikel_id" : 70,
+		"artikel_name" : "Learjet",
+		"artikel_hersteller" : "Lear",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 24
+	},
+	{
+		"artikel_id" : 71,
+		"artikel_name" : "E-2 Hawkeye",
+		"artikel_hersteller" : "Grumman",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 24
+	},
+	{
+		"artikel_id" : 72,
+		"artikel_name" : "Luftkrieg über Korea 1",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 24
+	},
+	{
+		"artikel_id" : 73,
+		"artikel_name" : "Air France",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 25
+	},
+	{
+		"artikel_id" : 74,
+		"artikel_name" : "Zivile Flugboote",
+		"artikel_hersteller" : "Short",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 25
+	},
+	{
+		"artikel_id" : 75,
+		"artikel_name" : "Luftkrieg über Korea 2",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 25
+	},
+	{
+		"artikel_id" : 76,
+		"artikel_name" : "TriStar",
+		"artikel_hersteller" : "Lockheed",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 26
+	},
+	{
+		"artikel_id" : 77,
+		"artikel_name" : "F\/A-18 Hornet",
+		"artikel_hersteller" : "McDonnell Douglas",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 26
+	},
+	{
+		"artikel_id" : 78,
+		"artikel_name" : "Luftkrieg über Korea 3",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 26
+	},
+	{
+		"artikel_id" : 79,
+		"artikel_name" : "KLM",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 27
+	},
+	{
+		"artikel_id" : 80,
+		"artikel_name" : "Trimotor",
+		"artikel_hersteller" : "Ford",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 27
+	},
+	{
+		"artikel_id" : 81,
+		"artikel_name" : "Luftkrieg über Korea 4",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 27
+	},
+	{
+		"artikel_id" : 82,
+		"artikel_name" : "Britannia",
+		"artikel_hersteller" : "Bristol",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 28
+	},
+	{
+		"artikel_id" : 83,
+		"artikel_name" : "P-3 Orion",
+		"artikel_hersteller" : "Lockheed",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 28
+	},
+	{
+		"artikel_id" : 84,
+		"artikel_name" : "Luftkrieg über Korea 5",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 28
+	},
+	{
+		"artikel_id" : 85,
+		"artikel_name" : "Tu-104",
+		"artikel_hersteller" : "Tupolew",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 29
+	},
+	{
+		"artikel_id" : 86,
+		"artikel_name" : "JA 37 Viggen",
+		"artikel_hersteller" : "Saab",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 29
+	},
+	{
+		"artikel_id" : 87,
+		"artikel_name" : "C-124 Globemaster",
+		"artikel_hersteller" : "Douglas",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 29
+	},
+	{
+		"artikel_id" : 88,
+		"artikel_name" : "SABENA",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 30
+	},
+	{
+		"artikel_id" : 89,
+		"artikel_name" : "Osage, Cayuse, Defender",
+		"artikel_hersteller" : "Hughes",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 30
+	},
+	{
+		"artikel_id" : 90,
+		"artikel_name" : "Chinooks im Falklandkr.",
+		"artikel_hersteller" : "Boeing Vertol",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 30
+	},
+	{
+		"artikel_id" : 91,
+		"artikel_name" : "Trans World Airlines 1",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 31
+	},
+	{
+		"artikel_id" : 92,
+		"artikel_name" : "C-97 und Stratocruiser",
+		"artikel_hersteller" : "Boeing",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 31
+	},
+	{
+		"artikel_id" : 93,
+		"artikel_name" : "Ar 234 Blitz",
+		"artikel_hersteller" : "Arado",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 31
+	},
+	{
+		"artikel_id" : 94,
+		"artikel_name" : "Trans World Airlines 2",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 32
+	},
+	{
+		"artikel_id" : 95,
+		"artikel_name" : "A-10 Thunderbolt II",
+		"artikel_hersteller" : "Fairchild",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 32
+	},
+	{
+		"artikel_id" : 96,
+		"artikel_name" : "Operation Blackbuck",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 32
+	},
+	{
+		"artikel_id" : 97,
+		"artikel_name" : "F.27 Friendship",
+		"artikel_hersteller" : "Fokker",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 33
+	},
+	{
+		"artikel_id" : 98,
+		"artikel_name" : "Nimrod",
+		"artikel_hersteller" : "British Aerospace",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 33
+	},
+	{
+		"artikel_id" : 99,
+		"artikel_name" : "Nimrod Einsatzprofil 1",
+		"artikel_hersteller" : "British Aerospace",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 33
+	},
+	{
+		"artikel_id" : 100,
+		"artikel_name" : "Flugboote",
+		"artikel_hersteller" : "Dornier",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 34
+	},
+	{
+		"artikel_id" : 101,
+		"artikel_name" : "F-104 Starfighter",
+		"artikel_hersteller" : "Lockheed",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 34
+	},
+	{
+		"artikel_id" : 102,
+		"artikel_name" : "Nimrod Einsatzprofil 2",
+		"artikel_hersteller" : "British Aerospace",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 34
+	},
+	{
+		"artikel_id" : 103,
+		"artikel_name" : "SAS",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 35
+	},
+	{
+		"artikel_id" : 104,
+		"artikel_name" : "B-29 Superfortress",
+		"artikel_hersteller" : "Boeing",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 35
+	},
+	{
+		"artikel_id" : 105,
+		"artikel_name" : "Snipe",
+		"artikel_hersteller" : "Sopwith",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 35
+	},
+	{
+		"artikel_id" : 106,
+		"artikel_name" : "Il-76",
+		"artikel_hersteller" : "Iljuschin",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 36
+	},
+	{
+		"artikel_id" : 107,
+		"artikel_name" : "Mirage III",
+		"artikel_hersteller" : "Dassault-Breguet",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 36
+	},
+	{
+		"artikel_id" : 108,
+		"artikel_name" : "Friedenswächt.ü.Libanon",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 36
+	},
+	{
+		"artikel_id" : 109,
+		"artikel_name" : "VARIG",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 37
+	},
+	{
+		"artikel_id" : 110,
+		"artikel_name" : "757",
+		"artikel_hersteller" : "Boeing",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 37
+	},
+	{
+		"artikel_id" : 111,
+		"artikel_name" : "P-26",
+		"artikel_hersteller" : "Boeing",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 37
+	},
+	{
+		"artikel_id" : 112,
+		"artikel_name" : "CL-215",
+		"artikel_hersteller" : "Canadair",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 38
+	},
+	{
+		"artikel_id" : 113,
+		"artikel_name" : "KC-10 Extender",
+		"artikel_hersteller" : "McDonnell Douglas",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 38
+	},
+	{
+		"artikel_id" : 114,
+		"artikel_name" : "F-4 Phantom II",
+		"artikel_hersteller" : "McDonnell",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 38
+	},
+	{
+		"artikel_id" : 115,
+		"artikel_name" : "Air Canada",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 39
+	},
+	{
+		"artikel_id" : 116,
+		"artikel_name" : "747-400",
+		"artikel_hersteller" : "Boeing",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 39
+	},
+	{
+		"artikel_id" : 117,
+		"artikel_name" : "Swordfish:Taranto Tinf.",
+		"artikel_hersteller" : "Fairey",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 39
+	},
+	{
+		"artikel_id" : 118,
+		"artikel_name" : "Dragon",
+		"artikel_hersteller" : "De Havilland",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 40
+	},
+	{
+		"artikel_id" : 119,
+		"artikel_name" : "Lightning",
+		"artikel_hersteller" : "British Aerospace",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 40
+	},
+	{
+		"artikel_id" : 120,
+		"artikel_name" : "Vietnam:Helikopterkrieg",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 40
+	},
+	{
+		"artikel_id" : 121,
+		"artikel_name" : "Mustang",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 41
+	},
+	{
+		"artikel_id" : 122,
+		"artikel_name" : "One-Eleven",
+		"artikel_hersteller" : "BAC",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 41
+	},
+	{
+		"artikel_id" : 123,
+		"artikel_name" : "TBF Avenger",
+		"artikel_hersteller" : "Grumman",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 41
+	},
+	{
+		"artikel_id" : 124,
+		"artikel_name" : "VC10",
+		"artikel_hersteller" : "Vickers",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 42
+	},
+	{
+		"artikel_id" : 125,
+		"artikel_name" : "Su-24 Fencer",
+		"artikel_hersteller" : "Suchoi",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 42
+	},
+	{
+		"artikel_id" : 126,
+		"artikel_name" : "Camel",
+		"artikel_hersteller" : "Sopwith",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 42
+	},
+	{
+		"artikel_id" : 127,
+		"artikel_name" : "American Airlines Teil1",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 43
+	},
+	{
+		"artikel_id" : 128,
+		"artikel_name" : "P-40 Hawk",
+		"artikel_hersteller" : "Curtiss",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 43
+	},
+	{
+		"artikel_id" : 129,
+		"artikel_name" : "NATO Tornado RAF in D.",
+		"artikel_hersteller" : "Panavia",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 43
+	},
+	{
+		"artikel_id" : 130,
+		"artikel_name" : "Comet",
+		"artikel_hersteller" : "De Havilland",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 44
+	},
+	{
+		"artikel_id" : 131,
+		"artikel_name" : "RF-4 Phantom II",
+		"artikel_hersteller" : "McDonnell Douglas",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 44
+	},
+	{
+		"artikel_id" : 132,
+		"artikel_name" : "NATO Tornado Eins.d.RAF",
+		"artikel_hersteller" : "Panavia",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 44
+	},
+	{
+		"artikel_id" : 133,
+		"artikel_name" : "Amerikan Airlines T. 2",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 45
+	},
+	{
+		"artikel_id" : 134,
+		"artikel_name" : "Ju 87 Stuka",
+		"artikel_hersteller" : "Junkers",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 45
+	},
+	{
+		"artikel_id" : 135,
+		"artikel_name" : "Luftk.ü.d. Bekaa-Hoche.",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 45
+	},
+	{
+		"artikel_id" : 136,
+		"artikel_name" : "Mu-2",
+		"artikel_hersteller" : "Mitsubischi",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 46
+	},
+	{
+		"artikel_id" : 137,
+		"artikel_name" : "Bandeirante",
+		"artikel_hersteller" : "EMBRAER",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 46
+	},
+	{
+		"artikel_id" : 138,
+		"artikel_name" : "NORAD",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 46
+	},
+	{
+		"artikel_id" : 139,
+		"artikel_name" : "Il-18",
+		"artikel_hersteller" : "Iljuschin",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 47
+	},
+	{
+		"artikel_id" : 140,
+		"artikel_name" : "DC-3\/C-47",
+		"artikel_hersteller" : "Dougles",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 47
+	},
+	{
+		"artikel_id" : 141,
+		"artikel_name" : "Tornado-Verbände d. AMI",
+		"artikel_hersteller" : "Panavia",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 47
+	},
+	{
+		"artikel_id" : 142,
+		"artikel_name" : "F28 Felloship",
+		"artikel_hersteller" : "Focker",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 48
+	},
+	{
+		"artikel_id" : 143,
+		"artikel_name" : "F-106: die Sexy \"Six\"",
+		"artikel_hersteller" : "Convair",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 48
+	},
+	{
+		"artikel_id" : 144,
+		"artikel_name" : "US-Pazifikflotte",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 48
+	},
+	{
+		"artikel_id" : 145,
+		"artikel_name" : "TAP Air Portugal",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 49
+	},
+	{
+		"artikel_id" : 146,
+		"artikel_name" : "Kfir",
+		"artikel_hersteller" : "IAI",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 49
+	},
+	{
+		"artikel_id" : 147,
+		"artikel_name" : "Nato Tornado: Luftwaffe",
+		"artikel_hersteller" : "Panavia",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 49
+	},
+	{
+		"artikel_id" : 148,
+		"artikel_name" : "An-2 \"Colt\"",
+		"artikel_hersteller" : "Antonow",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 50
+	},
+	{
+		"artikel_id" : 149,
+		"artikel_name" : "B-25 Mitchell",
+		"artikel_hersteller" : "North American",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 50
+	},
+	{
+		"artikel_id" : 150,
+		"artikel_name" : "RF-4C Phantom: Eins.pr.",
+		"artikel_hersteller" : "McDonnell Dougles",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 50
+	},
+	{
+		"artikel_id" : 151,
+		"artikel_name" : "Japan Air System",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 51
+	},
+	{
+		"artikel_id" : 152,
+		"artikel_name" : "B-47 Stratojet",
+		"artikel_hersteller" : "Boeing",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 51
+	},
+	{
+		"artikel_id" : 153,
+		"artikel_name" : "Ki-43",
+		"artikel_hersteller" : "Nakajima",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 51
+	},
+	{
+		"artikel_id" : 154,
+		"artikel_name" : "DHC-6 Twin Otter",
+		"artikel_hersteller" : "de Havilland",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 52
+	},
+	{
+		"artikel_id" : 155,
+		"artikel_name" : "UH-60 Black Hawk",
+		"artikel_hersteller" : "Sikorsky",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 52
+	},
+	{
+		"artikel_id" : 156,
+		"artikel_name" : "A-4 Skyhawk im Falkl.k.",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 52
+	},
+	{
+		"artikel_id" : 157,
+		"artikel_name" : "South African Airways",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 53
+	},
+	{
+		"artikel_id" : 158,
+		"artikel_name" : "P-61 Black Widow",
+		"artikel_hersteller" : "Northrop",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 53
+	},
+	{
+		"artikel_id" : 159,
+		"artikel_name" : "US Seeluftstreitkr.Atl.",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 53
+	},
+	{
+		"artikel_id" : 160,
+		"artikel_name" : "330",
+		"artikel_hersteller" : "Shorts",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 54
+	},
+	{
+		"artikel_id" : 161,
+		"artikel_name" : "880\/890",
+		"artikel_hersteller" : "Convair",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 54
+	},
+	{
+		"artikel_id" : 162,
+		"artikel_name" : "Lancaster",
+		"artikel_hersteller" : "Avro",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 54
+	},
+	{
+		"artikel_id" : 163,
+		"artikel_name" : "Gesch.d.ziv.Luftfahrt 1",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 55
+	},
+	{
+		"artikel_id" : 164,
+		"artikel_name" : "Sea King",
+		"artikel_hersteller" : "Westland",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 55
+	},
+	{
+		"artikel_id" : 165,
+		"artikel_name" : "Luftkrieg ü. Afganistan",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 55
+	},
+	{
+		"artikel_id" : 166,
+		"artikel_name" : "Gesch.d.ziv.Luftfahrt 2",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 56
+	},
+	{
+		"artikel_id" : 167,
+		"artikel_name" : "Ju 88",
+		"artikel_hersteller" : "Junkers",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 56
+	},
+	{
+		"artikel_id" : 168,
+		"artikel_name" : "Sea Harrier",
+		"artikel_hersteller" : "BAe",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 56
+	},
+	{
+		"artikel_id" : 169,
+		"artikel_name" : "Gesch.d.ziv.Luftfahrt 3",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 57
+	},
+	{
+		"artikel_id" : 170,
+		"artikel_name" : "Hunter",
+		"artikel_hersteller" : "BAe",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 57
+	},
+	{
+		"artikel_id" : 171,
+		"artikel_name" : "VC10-Tanker",
+		"artikel_hersteller" : "Vickers",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 57
+	},
+	{
+		"artikel_id" : 172,
+		"artikel_name" : "Gesch.d.ziv.Luftfahrt 4",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 58
+	},
+	{
+		"artikel_id" : 173,
+		"artikel_name" : "747SP",
+		"artikel_hersteller" : "Boeing",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 58
+	},
+	{
+		"artikel_id" : 174,
+		"artikel_name" : "F4D-1 Skyray",
+		"artikel_hersteller" : "Douglas",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 58
+	},
+	{
+		"artikel_id" : 175,
+		"artikel_name" : "Gesch.d.ziv.Luftfahrt 5",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 59
+	},
+	{
+		"artikel_id" : 176,
+		"artikel_name" : "Jak-1\/3\/7\/9",
+		"artikel_hersteller" : "Jakowlew",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 59
+	},
+	{
+		"artikel_id" : 177,
+		"artikel_name" : "Krieg am Golf:Iran\/Irak",
+		"artikel_hersteller" : null,
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 59
+	},
+	{
+		"artikel_id" : 178,
+		"artikel_name" : "DC-4",
+		"artikel_hersteller" : "Douglas",
+		"artikel_kategorie" : "Zivile",
+		"artikel_heft_nr" : 60
+	},
+	{
+		"artikel_id" : 179,
+		"artikel_name" : "Mirage 5\/50",
+		"artikel_hersteller" : "Dassault",
+		"artikel_kategorie" : "Geschichte",
+		"artikel_heft_nr" : 60
+	},
+	{
+		"artikel_id" : 180,
+		"artikel_name" : "A-26 Invader",
+		"artikel_hersteller" : "Dougles",
+		"artikel_kategorie" : "Militärische",
+		"artikel_heft_nr" : 60
+	}
+]}
