@@ -51,7 +51,7 @@ $(document).ready(function() {
     ];
 
     columnDefs = [
-        { "data": "artikel_id",         "title": "Nr.",                   readonly: true, unique: true, type: "hidden" },
+        { "data": "artikel_id",         "title": "Nr.",      readonly: true, unique: true, type: "hidden" },
         { "data": "artikel_name",       "title": "Name",     required: true },
         { "data": "artikel_hersteller", "title": "Hersteller" },
         { "data": "artikel_kategorie",  "title": "Kategorie" },
@@ -72,43 +72,43 @@ $(document).ready(function() {
 //              }
 //        }],
 //
-    onAddRowFkt=function(datatable, rowdata, success, error) {
-        rowdata.id=null;
-        $.ajax({
-            // a tipycal url would be / with type='PUT'
-            url: url_plant_srv_api,
-            type: 'POST',
-            contentType: "application/json",
-            dataType: "json",
-            data: JSON.stringify(rowdata),
-            success: success,
-            error: error
-        });
-    };
-    onDeleteRowFkt=function(datatable, rowdata, success, error) {
-        $.ajax({
-            // a tipycal url would be /{id} with type='DELETE'
-            url: url_plant_srv_api+'/'+rowdata.id,
-            type: 'DELETE',
-            contentType: "application/json",
-            dataType: "json",
-            data: JSON.stringify(rowdata),
-            success: success,
-            error: error
-        });
-    };
-    onEditRowFkt=function(datatable, rowdata, success, error) {
-        $.ajax({
-            // a tipycal url would be /{id} with type='POST'
-            url: url_plant_srv_api+'/'+rowdata.id,
-            type: 'PUT',
-            contentType: "application/json",
-            dataType: "json",
-            data: JSON.stringify(rowdata),
-            success: success,
-            error: error
-        });
-    };
+//    onAddRowFkt=function(datatable, rowdata, success, error) {
+//        rowdata.id=null;
+//        $.ajax({
+//            // a tipycal url would be / with type='PUT'
+//            url: url_plant_srv_api,
+//            type: 'POST',
+//            contentType: "application/json",
+//            dataType: "json",
+//            data: JSON.stringify(rowdata),
+//            success: success,
+//            error: error
+//        });
+//    };
+//    onDeleteRowFkt=function(datatable, rowdata, success, error) {
+//        $.ajax({
+//            // a tipycal url would be /{id} with type='DELETE'
+//            url: url_plant_srv_api+'/'+rowdata.id,
+//            type: 'DELETE',
+//            contentType: "application/json",
+//            dataType: "json",
+//            data: JSON.stringify(rowdata),
+//            success: success,
+//            error: error
+//        });
+//    };
+//    onEditRowFkt=function(datatable, rowdata, success, error) {
+//        $.ajax({
+//            // a tipycal url would be /{id} with type='POST'
+//            url: url_plant_srv_api+'/'+rowdata.id,
+//            type: 'PUT',
+//            contentType: "application/json",
+//            dataType: "json",
+//            data: JSON.stringify(rowdata),
+//            success: success,
+//            error: error
+//        });
+//    };
     ajaxDefs={
         "url": url_plant_srv_api,
         "dataSrc": "Artikel"
@@ -118,25 +118,25 @@ $(document).ready(function() {
                   "<'col-xs-12 col-sm-4 col-md-5 col-xl-6'f>>" +
             "<'row'<'col-sm-12'tr>>" +
             "<'row'<'col-sm-5'i><'col-sm-7'p>>";
-    onInitCompleteFkt=function () {
-            this.api().columns().every( function () {
-                var column = this;
-                var select = $('<select><option value=""></option></select>')
-                    .appendTo( $(column.footer()).empty() )
-                    .on( 'change', function () {
-                        var val = $.fn.dataTable.util.escapeRegex(
-                            $(this).val()
-                        );
-
-                        column
-                            .search( val ? '^'+val+'$' : '', true, false )
-                            .draw();
-                    } );
-                 column.data().unique().sort().each( function ( d, j ) {
-                    select.append( '<option value="'+d+'">'+d+'</option>' )
-                } );
-            } );
-        };
+//    onInitCompleteFkt=function () {
+//            this.api().columns().every( function () {
+//                var column = this;
+//                var select = $('<select><option value=""></option></select>')
+//                    .appendTo( $(column.footer()).empty() )
+//                    .on( 'change', function () {
+//                        var val = $.fn.dataTable.util.escapeRegex(
+//                            $(this).val()
+//                        );
+//
+//                        column
+//                            .search( val ? '^'+val+'$' : '', true, false )
+//                            .draw();
+//                    } );
+//                 column.data().unique().sort().each( function ( d, j ) {
+//                    select.append( '<option value="'+d+'">'+d+'</option>' )
+//                } );
+//            } );
+//        };
 
     // Setup - add a text input to each footer cell
 //    $('#tblpflanzen tfoot th').each( function (i) {
@@ -151,7 +151,7 @@ $(document).ready(function() {
         ajax: ajaxDefs,
         columns: columnDefs,
         select: 'single',
-        altEditor: true,     // Enable altEditor
+        //altEditor: true,     // Enable altEditor
         responsive: true,
         colReorder: true,
         autoFill: false,
@@ -161,10 +161,11 @@ $(document).ready(function() {
 //        },
         //scrollX: true,
         lengthMenu: [[5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "Alle"]],
+        pageLength: 25,
         buttons: buttonDefs,
-        onAddRow: onAddRowFkt,
-        onDeleteRow: onDeleteRowFkt,
-        onEditRow: onEditRowFkt,
+        //onAddRow: onAddRowFkt,
+        //onDeleteRow: onDeleteRowFkt,
+        //onEditRow: onEditRowFkt,
         "pagingType": "full_numbers",
         "language": {
                 "url": "DataTables/dataTables.german.lang.json"
