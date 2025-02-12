@@ -286,15 +286,15 @@ var layerWebAtlNo = new L.TileLayer(akt_protocol+"//www.webatlas.no/maptiles/til
 //document.cookie = "ds=1YGPxqzm63M6c7ALeTGI1H6qtZ8TwU-wf-G-xSp-aEUCimra66m3SUx9jHx_9AZWRB3OB_;lps=eyJfZnJlc2giOmZhbHNlLCJfcGVybWFuZW50Ijp0cnVlfQ.ZU4YyQ.mWK2orOG-qEk2KATpDgWDPQhy3M;ps=1YGPxqzm63M6c7ALeTGI1H6qtZ8TwU-wf-G-xSp-aEUCimra66m3SUx9jHx_9AZWRB3OB_;User-Id=8ea4f917a4a3f52a;"
 
 //Basemap.at
-var layerAdrBasem=akt_protocol+"//maps{s}.wien.gv.at/basemap/bmaphidpi/normal/google3857/{z}/{y}/{x}.jpg"
+var layerAdrBasem=akt_protocol+"//mapsneu.wien.gv.at/basemap/bmaphidpi/normal/google3857/{z}/{y}/{x}.jpg"
 var layerBasem = new L.TileLayer(layerAdrBasem,{ maxZoom: maxzoom_osm, bounds: boundsAUT, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at<a/>'});
-var layerAdrBasemVerd=akt_protocol+"//maps{s}.wien.gv.at/wmts/bmapverdichtung/normal/google3857/{z}/{y}/{x}.png"
+var layerAdrBasemVerd=akt_protocol+"//mapsneu.wien.gv.at/wmts/bmapverdichtung/normal/google3857/{z}/{y}/{x}.png"
 //var layerBasemVerd = new L.TileLayer(layerAdrBasemVerd,{ maxZoom: 20, minZoom: 18, bounds: boundsAUT, detectRetina: true, format: 'image/png', subdomains: '1234', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at<a/>'});
-var layerAdrBasemOvl=akt_protocol+"//maps{s}.wien.gv.at/basemap/bmapoverlay/normal/google3857/{z}/{y}/{x}.png"
+var layerAdrBasemOvl=akt_protocol+"//mapsneu.wien.gv.at/basemap/bmapoverlay/normal/google3857/{z}/{y}/{x}.png"
 var layerBasemOvl = new L.TileLayer(layerAdrBasemOvl,{ maxZoom: maxzoom_std, bounds: boundsAUT, detectRetina: true, transparent: true, format: 'image/png', subdomains: '1234', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at<a/>'});
 //var layerGrpBasemVd = L.layerGroup().addLayer(layerBasem).addLayer(layerBasemVerd); //..der ist veraltet...
 
-var layerAdrBasemOrtho = akt_protocol+"//maps{s}.wien.gv.at/basemap/bmaporthofoto30cm/normal/google3857/{z}/{y}/{x}.jpeg";
+var layerAdrBasemOrtho = akt_protocol+"//mapsneu.wien.gv.at/basemap/bmaporthofoto30cm/normal/google3857/{z}/{y}/{x}.jpeg";
 var layerBasemOrtho = new L.TileLayer(layerAdrBasemOrtho,{ maxZoom: maxzoom_osm, bounds: boundsAUT, detectRetina: true, subdomains: '1234', attribution: 'Kartendaten: © <a href="http://www.basemap.at">Basemap.at<a/>'});
 
 //kartenwerkstatt.at bounds: boundsAUT,
